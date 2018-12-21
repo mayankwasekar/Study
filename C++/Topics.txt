@@ -92,49 +92,19 @@ COMMON RELATIONSHIP
 			   Room  .   . .................    Guest              
 				  . .  <<has a>>
 				   .   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+2. Inheritance - An instance of derived class can be treated as on object of its base class. This class based is a relationship is
+		called inheritance and it has two types -
+		i. Specialization - It is a type of inheritance in which the base and derived class are both non-abstract.
+			
+			<<base class>>			<<derived class>>
+			
+			   HotelRoom	<-----------------   DeluxRoom
+						<<is a>>
+		
+		ii. Realization - It is a type of inheritance in which the base class is abstract and derived class is non-abstract.
+			
+			<<abstract base class>>			<<derived class>>
+			
+			   Account	<-----------------   SavingAccount           <<abstract class font (italic)
+						<<is a>>
+<Mayank Wasekar>
