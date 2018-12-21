@@ -1,0 +1,16 @@
+SOLID PRICIPLES 
+1. Single Responsibility Principle (SRP) - There should be exactly one reason for changing the implemantion of an object.
+	Rule : Define fields and methods in a class which are commonly required for all of its object.
+
+2. Open-Closed Principle (OCP) - The functionality expose by an object should be open for extention but closed for modification.
+	Rule : (Data hiding) Publish only methods of a class not the fields of that class.
+
+3. Liskov's Substitution Principle (LSP) - An object of sub type should be used as a replacement for the object of original type.
+	Rule : (Polymorphism) Indirect usage of a derived class to its base class.
+
+4. Interface Saggregation Principle (ISP) - An application of an object should not be forced to depend upon an interface of that object
+	which it does not require.
+	Rule : Define methods common across classes as pure methods in their abstract base class.
+
+5. Dependency Inversion Principle (DIP) - An object should be accessed through its interface and not through its implemantation.
+	Rule : (Loose Coupling) Expose a  non-abstract class indirectly through its abstract base class.
