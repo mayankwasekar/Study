@@ -1,0 +1,5 @@
+Object Oriented Programing
+Defination : It is a software design methodology (formal style) in which the implimantation of a large application is divided into smaller units called objects each controlling its own state(data) and supporting its own behaviour(code).
+
+Fundamental Mechanism
+1. Data Abstraction:
