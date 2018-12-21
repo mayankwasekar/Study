@@ -1,5 +1,140 @@
 Object Oriented Programing
-Defination : It is a software design methodology (formal style) in which the implimantation of a large application is divided into smaller units called objects each controlling its own state(data) and supporting its own behaviour(code).
+Defination : It is a software design methodology (formal style) in which the implimantation of a large application is divided into 
+smaller units called objects each controlling its own state(data) and supporting its own behaviour(code).
 
 Fundamental Mechanism
-1. Data Abstraction:
+1. Data Abstraction: Every Object has a class which defines a set of variables called fields whose values indicates the state of 
+that object and a set of procedure called methods whose implimantation expose the behaviour of that object.
+
+	        Hotel Room    <----- <<class>>
+	       	-number	      <-----|	
+		-occupied     <-----| <<fields>>
+
+<<constructor>>	+Initialize() <-----|
+		+CheckIn()    <-----|
+		+CheckOut()   <-----| <<methods>>
+
+	i. Activation - An object is intatiated (created) from a class by first allocating a new memory block for holding the values
+			of the fields define by that class and then initializing the values within that block by invoking a special
+			method called constructor define by that class.
+			e.g. HotelRoom myroom(304);	//automatically calls Initialize method to set a number to 403 & occupied too.
+
+	ii. Binding - Every object has a unique identity and when a method define by a class is called on its object the identity of
+			this object is passed to the implimantation of that method.
+			e.g. myroom.checkIn();	//HotelRoom.CheckIn(idof(myroom));
+
+2. Data Sub-Typing - A derived (Sub) class extends on existing (super) class to define additional fields or methods or to override 
+(provide new implemantation for) the method of that base class.
+
+	        Hotel Room    <----- <<base class>>
+	       	-number	      	
+		-occupied     
+		+Initialize() 
+		+CheckIn()    
+		+CheckOut()   
+		    ^
+		    ^
+		    ^
+	        Delux Room    <----- <<derived class>>
+		-services     
+		+Initialize() 
+		+RequestService()
+		+CheckOut()   
+
+	i. Dispatch - A method define by a base class can be called on an object of its derived class and if this derived class has
+			overriden that method then the implemantation provided by the derived class is invoke.
+
+		HotelRoom	myroom(302);
+		DeluxRoom	hisroom(402);
+
+		HotelRoom* room = &myroom;
+		room->checkout();	//calls HotelRoom.CheckOut();
+		
+		HotelRoom* room = &hisroom;
+		room->checkout();	//calls DeluxeRoom.CheckOut();
+
+	ii. Interface - An abstract class which does not support activation can be defined to include pure (umimplemented) methods 
+			which must be implemented by its activatable (non abstract) derived class.
+		
+					Account	  <-----<<abstract class>>  <<italic font>>
+					#balance	
+					+Deposite <----|
+					+Withdraw <----|<<pure method>>
+			     		    ^
+			     		    ^
+			____________________^___________________
+			|					|
+			|					|
+			|					|
+		SavingAccount				   CurrentAccount
+		+Deposite				   +Deposite
+		+Withdraw				   +Withdraw
+
+COMMON RELATIONSHIP
+1.Containment - An object of one class can hold an object of another class within one of its fields. This object based has a 
+		relationship is called containment and it is of folling two types-
+		i.Composition - It is a type of containment in which the outer objects controls the lifetime of inner object.
+
+			<<outer>>			<<inner>>
+			  
+				   .
+				  ...
+			   Hotel ..... .................    Room              
+				  ...  <<has a>>
+				   .   
+
+		ii. Aggregation - It is a type of containment in which  lifetime of inner object is independent of outer object.
+		
+			<<outer>>			<<inner>>
+			  
+				   .
+				  . .
+			   Room  .   . .................    Guest              
+				  . .  <<has a>>
+				   .   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
