@@ -1,0 +1,25 @@
+Major c++ enhancement to c language
+
+Procedural Programing
+	1. Namespace - for avoiding collision between names of global symbols.
+	2. Default Argument & function overloading - For defining functions with optional parameters in order to simplify their calls.
+	3. Reference Type - For automatic and safe indirection.
+	4. Structured exception handling - For allowing a function to through and catch logical faults.
+Object Oriented Programing
+	5. Class - For defining an object type with member variables and function enclosed within excess control blocks.
+	6. Constructor and Destructor - For automatic initialization and finalization of an object of a class with support for stack symantics.
+	7. New and Delecte Operators - For dynamically activating and deactivating objects and their arrays.
+	8. Operator Overloading - For simplifying expressions containing objects.
+	9. Inheritance - For defining an extension of a class which can be reused in the place of original class.
+	10.Virtual Modifier - For defining a member function of a class which can be overwritten in its inherited classes with support for
+				Dynamic binding(dispatch).
+	11.Runtime type Identification (RTTI) - For dynamically casting a pointers / reference from a class type to its inherited class type.
+	12.Abstract data types(ADT) & Multiple inheritance (MI) - For implementing loosly coupled groups of related classes.
+Generic Programing
+	13.Function Templets - For defining a function which is parameterised over the data types associated over the data types associated with 
+				its arguments or its return value with support for type inference.
+	14.Explicite Specialization - of function templet for allowing it to deal with a perticular case of its typed parameter.
+	15.Class Templet - For defining a class which is parameterised over the data types associated with its members.
+	16.Partial and full Specialization - of class templets for allowing it to deal with a perticular case of its few or all typed parameters.
+
+		
