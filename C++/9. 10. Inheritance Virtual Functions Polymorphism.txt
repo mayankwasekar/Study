@@ -1,13 +1,18 @@
 9. 10. Inheritance, Virtual Functions, Polymorphism
 
 1. Inheritance
+	At Bottom
+		i.  Virtual Base Class
+		ii. Interface
+		iii.Abstract Class
+		iv. Constructor in derived class
 2. Types of Inheritance
 3. Polymorphism
 4. Run Time Polymorphism
 5. Overloading Functions
 6. Overloading Operators
 7. Friend Functions
-8. Virtual Functions and Pure virtual functions 
+8. Virtual Functions and Pure virtual functions(Abstract base class) 
 
 ----------------------------------------------------------------------------------------------------------------------------
 1. Inhritance
@@ -347,7 +352,7 @@ Compiler adds additional code at two places to maintain and use vptr.
 2) Code with polymorphic function call (e.g. bp->show() in above code). Wherever a polymorphic call is made, compiler inserts code to first look for vptr using base class pointer or reference (In the above example, since pointed or referred object is of derived type, vptr of derived class is accessed). Once vptr is fetched, vtable of derived class can be accessed. Using vtable, address of derived derived class function show() is accessed and called.
 
 ----------------------------------------------------------------------------------------------------------------------------
-9. Pure Virtual Functions
+9. Pure Virtual Functions and Abstract Base Class
 ----------------------------------------------------------------------------------------------------------------------------
 Sometimes implementation of all function cannot be provided in a base class because we don’t know the implementation. Such a class is called abstract class. For example, let Shape be a base class. We cannot provide implementation of function draw() in Shape, but we know every derived class must have implementation of draw(). Similarly an Animal class doesn’t have implementation of move() (assuming that all animals move), but all animals must know how to move. We cannot create objects of abstract classes.
 
@@ -386,3 +391,144 @@ int main(void)
     d.fun(); 
     return 0; 
 } 
+
+--------------------------------------------------------------------------------------------------------------------------
+	i.  Virtual Base Class
+	ii. Interface
+	iii.Abstract Class (Pure virtual functions)
+	iv. Constructor in derived class
+
+--------------------------------------------------------------------------------------------------------------------------
+i. Virtual Base Class
+--------------------------------------------------------------------------------------------------------------------------
+Virtual base classes, used in virtual inheritance, is a way of preventing multiple "instances" of a given class appearing in an inheritance hierarchy when using multiple inheritance.
+
+Consider the following scenario:
+
+class A { public: void Foo() {} };
+class B : public A {};
+class C : public A {};
+class D : public B, public C {};
+The above class hierarchy results in the "dreaded diamond" which looks like this:
+
+  A
+ / \
+B   C
+ \ /
+  D
+An instance of D will be made up of B, which includes A, and C which also includes A. So you have two "instances" (for want of a better expression) of A.
+
+When you have this scenario, you have the possibility of ambiguity. What happens when you do this:
+
+D d;
+d.Foo(); // is this B's Foo() or C's Foo() ??
+Virtual inheritance is there to solve this problem. When you specify virtual when inheriting your classes, you're telling the compiler that you only want a single instance.
+
+class A { public: void Foo() {} };
+class B : public virtual A {};
+class C : public virtual A {};
+class D : public B, public C {};
+This means that there is only one "instance" of A included in the hierarchy. Hence
+
+D d;
+d.Foo(); // no longer ambiguous
+
+--------------------------------------------------------------------------------------------------------------------------
+ii. Interface (Abstract Classes) (abstract base class create by assigning pure virtual function in class)
+--------------------------------------------------------------------------------------------------------------------------
+The C++ interfaces are implemented using abstract classes and these abstract classes should not be confused with data abstraction which is a concept of keeping implementation details separate from associated data.
+
+A class is made abstract by declaring at least one of its functions as pure virtual function. A pure virtual function is specified by placing "= 0" in its declaration as follows −
+class Box {
+   public:
+      // pure virtual function
+      virtual double getVolume() = 0;
+      
+   private:
+      double length;      // Length of a box
+      double breadth;     // Breadth of a box
+      double height;      // Height of a box
+};
+The purpose of an abstract class (often referred to as an ABC) is to provide an appropriate base class from which other classes can inherit. Abstract classes cannot be used to instantiate objects and serves only as an interface. Attempting to instantiate an object of an abstract class causes a compilation error.
+
+Thus, if a subclass of an ABC needs to be instantiated, it has to implement each of the virtual functions, which means that it supports the interface declared by the ABC. Failure to override a pure virtual function in a derived class, then attempting to instantiate objects of that class, is a compilation error.
+
+Classes that can be used to instantiate objects are called concrete classes.
+
+#include <iostream>
+ 
+using namespace std;
+ 
+// Base class
+class Shape {
+   public:
+      // pure virtual function providing interface framework.
+      virtual int getArea() = 0;
+      void setWidth(int w) {
+         width = w;
+      }
+   
+      void setHeight(int h) {
+         height = h;
+      }
+   
+   protected:
+      int width;
+      int height;
+};
+ 
+// Derived classes
+class Rectangle: public Shape {
+   public:
+      int getArea() { 
+         return (width * height); 
+      }
+};
+
+class Triangle: public Shape {
+   public:
+      int getArea() { 
+         return (width * height)/2; 
+      }
+};
+ 
+int main(void) {
+   Rectangle Rect;
+   Triangle  Tri;
+ 
+   Rect.setWidth(5);
+   Rect.setHeight(7);
+   
+   // Print the area of the object.
+   cout << "Total Rectangle area: " << Rect.getArea() << endl;
+
+   Tri.setWidth(5);
+   Tri.setHeight(7);
+   
+   // Print the area of the object.
+   cout << "Total Triangle area: " << Tri.getArea() << endl; 
+
+   return 0;
+}
+
+---------------------------------------------------------------------------------------------------------------------------
+iv. Constructor in Derived Class
+---------------------------------------------------------------------------------------------------------------------------
+When a class is declared, a constructor is also declared inside the class in order to initialize data members. It is not possible to use a single constructor for more classes. Every class has its own constructor and destructor with a similar name as the class. When a class is derived from another class, it is possible to define a constructor in the derived class, and the data members of both base and derive classes can be initialized. It is not essential to declare a constructor in a base class. Thus, the constructor of the derived class works for its base class; such constructors are called 
+
+class A{
+	protected:
+	int x;
+	int y;
+};
+
+class B: private A{
+	public:
+	int z;
+	B(){x = 1; y = 2; z = 3;}
+};
+int main()
+{
+	B b;
+	return 0;
+}
