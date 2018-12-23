@@ -1,0 +1,223 @@
+Revision of C Programing
+1.Pointers
+2.Functions
+	i. Call by value
+	ii. Call by reference
+3.Recurssion
+4.Array Using Pointer
+5.Structures
+6.Union
+7.Enumerated data types
+8.Typedef
+9.File Handling
+
+1. Pointers
+	*Unary operator "&"(ampercent) that returns address of that variable.
+	eg. &x <-------Gives address of x
+	    %p <-------Identifier
+
+int main()
+{
+	int x = 10;
+	int *ptr; 	//ptr is pointer variable which can holds the address of integer type variable
+	ptr = &x;	//& is used to get address // address of x is assigned to ptr
+}
+	Pointer Expression
+	i.  Increament (++)
+	ii. Decreament (--)
+	iii.an integer may be added (+ or +=)
+	iv. an integer may be subtracted (- or -=)
+
+	* Pointer arithmatic is meaningless until perform on array.
+	* Pointers contain addresses. Addding two addresses make no sence.
+
+	int nums[2][3] = {{16,18,23},{22,34,53}};
+	nums[2][3] equivalent to *(* (nums + i) j) 
+
+2. Functions 
+	i. Call by Value 
+	ii. Call by reference
+	i. Call by value
+		int abc(int a, int b)	//called function (formal parameters)
+		{
+			return a*b;
+		}
+		int main(void)
+		{
+			x = abc(10,20);		//caller function //actual parameters
+		}
+	ii. Call by reference 
+		* Both actual and formal arguments refer to same locations so any change made to formal argument affect actual argument.
+		void fun(int *ptr)
+		{
+			*ptr = 30;	//modifing value of x
+		}
+		int main(void)
+		{
+			int x = 20;
+			fun(&x);
+		}
+3. Recursion
+	*Greater space requirnment than iterative program
+	*Provide clean and simple way to write code
+	eg. Tree traversal, Tower of honai, inorder,preorder, postorder, etc.
+
+4. Array using Pointers
+	int main()
+	{
+		int arr[5] = {1, 2, 3, 4, 5};
+		int *ptr = arr;		//pointing to 1st element
+		ptr++;				//increament to next value
+	}
+
+	* %p is access specifer for pointer
+	* *ptr is point to value
+	* ptr is unsigned integer
+	sizeof(*p) = 4
+	sizeof(p)  = 8
+
+5. Structures
+	* A structure create a data type that can be used to group items of possibly different types into a single type
+
+	struct address
+	{
+		char name[20];
+		char sheet[100];
+		int pin;
+	}p1;		//variable p1 is declared with address
+	int main()
+	{
+		struct address p1;	//declare like normal variable
+		p1.name;			//accessing variables
+	}
+
+6. Union
+	* Like structure union is a user-defined data type.
+	* In union all members share the same memory location
+	* size of union is taken according to size of largest member in union
+	union test()
+	{
+		int x,y;
+		char z;
+	};
+	int main()
+	{
+		union test t;
+		t.x = 2;
+		printf("%d%d",t.x,t.y); //both print 2, 2
+		t.z = 65;
+		printf("%d%c",t.y,t.z); //65 A
+	}
+
+	eg.2 
+	struct NODE
+	{
+		bool is_leaf;
+		union
+		{
+			struct
+			{
+				struct NODE *left;
+				struct NODE *right;
+			}internal;
+			double data;
+		}info;
+	}
+	* Every node require 16 bytes , above implimentation save space.
+7. Enumerated Data types
+	enum week{mon, tue, thu, fri, sat}
+	* Compiler assign values from 0 so on
+	* We can assign values to same name in any order.
+	* All enum constant must be unique in their scope.
+
+8. Typedef
+	* It is used to give another name
+	typedef struct Books{
+
+	}Book;
+	int main()
+	{
+		Book book;
+		typedef unsigned char byte;	
+	}
+
+9. File Handling 
+
+int main()
+{
+	FILE *filepointer;
+	char data = "Hello World";
+	filepointer = fopen("test.txt","w");
+
+	if(filepointer == NULL)
+	{
+		//failed to open
+	}
+	else
+	{
+		while(strlen(data)>0)
+		{
+			fputs(data, filepointer);
+			fputs("\n", filepointer);
+		}
+		fclose(filepointer);	//closing file
+	}
+}
+
+//	r, r+  		= search, load into memory, point to 1st character
+//  w, w+ 		= search, not exist create, exist overwritten
+//  a, a+		= search, load into memory, point to 1st character
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

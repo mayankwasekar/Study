@@ -1,0 +1,217 @@
+6 & 7: Memory Management and pointers
+1. Introduction
+2. Pointers in C++
+3. Arrays using pointers
+4. Enumerations
+5. Typedef
+6. Using New Operator
+7. Pointers to objects
+8. this pointer
+9. Pointers to derived class
+10.Comparison of new over malloc, calloc and realloc etc.
+11.Memory freeing using Delete operator
+
+1. Introduction
+	Basic memory architectur used by C++ Programs
+											------------------
+													Heap
+											------------------
+													Stack
+											------------------
+												Data Segment
+											------------------
+												Code Segment
+											------------------
+Code Segment: Compiled program with executive instructions are kept in code segment. It is read only. In order to avoid over 				writing of stack and heap, code segment is kept below stack and heap.
+
+Data Segment: Global variables and static variables are kept in data segment. It is not read only.
+
+Stack: A stack is usually pre-allocated memory. The stack is a LIFO data structure. Each new variable is pushed onto the 			stack. Once variable goes out of scope, memory is freed. Once a stack variable is freed, that region of memory 				becomes available for other variables. The stack grows and shrinks as functions push and pop local variables. It 			stores local data, return addresses, arguments passed to functions and current status of memory.
+
+Heap: Memory is allocated during program execution. Memory is allocated using new operator and deallocating memory using 			delete operator.
+2. Pointers in C++
+*To access address of a variable to a pointer, we use the unary operator & (ampersand) that returns the address of that variable. For example &x gives us address of variable x.
+*One more operator is unary * (Asterisk) which is used for two things :
+*To declare a pointer variable: When a pointer variable is declared in C/C++, there must a * before its name.
+https://www.geeksforgeeks.org/wp-content/uploads/How-Pointer-Works-In-C.png
+
+// C program to demonstrate declaration of 
+// pointer variables. 
+#include <stdio.h> 
+int main() 
+{ 
+    int x = 10; 
+  
+    // 1) Since there is * in declaration, ptr 
+    // becomes a pointer varaible (a variable 
+    // that stores address of another variable) 
+    // 2) Since there is int before *, ptr is 
+    // pointer to an integer type variable 
+    int *ptr; 
+  
+    // & operator before x is used to get address 
+    // of x. The address of x is assigned to ptr. 
+    ptr = &x; 
+  
+    return 0; 
+}
+*To access the value stored in the address we use the unary operator (*) that returns the value of the variable located at the address specified by its operand.
+
+// C program to demonstrate use of * for pointers in C 
+#include <stdio.h> 
+  
+int main() 
+{ 
+    // A normal integer variable 
+    int Var = 10; 
+  
+    // A pointer variable that holds address of var. 
+    int *ptr = &Var; 
+  
+    // This line prints value at address stored in ptr. 
+    // Value stored is value of variable "var" 
+    printf("Value of Var = %d\n", *ptr); 
+  
+    // The output of this line may be different in different 
+    // runs even on same machine. 
+    printf("Address of Var = %p\n", ptr); 
+  
+    // We can also use ptr as lvalue (Left hand 
+    // side of assignment) 
+    *ptr = 20; // Value at address is now 20 
+  
+    // This prints 20 
+    printf("After doing *ptr = 20, *ptr is %d\n", *ptr); 
+  
+    return 0; 
+} 
+A pointer pointing to a memory location of already deleted object is known as a dangling pointer.
+
+3. Arrays using pointers
+int main()
+	{
+		int arr[5] = {1, 2, 3, 4, 5};
+		int *ptr = arr;		//pointing to 1st element
+		ptr++;				//increament to next value
+	}
+
+	* %p is access specifer for pointer
+	* *ptr is point to value
+	* ptr is unsigned integer
+	sizeof(*p) = 4
+	sizeof(p)  = 8
+4. Enumerations
+
+enum week{mon, tue, thu, fri, sat}
+    * Compiler assign values from 0 so on
+    * We can assign values to same name in any order.
+    * All enum constant must be unique in their scope.
+
+enum boolean { false, true };
+
+// inside function
+enum boolean check;
+
+An enum variable takes only one value out of many possible values. Example to demonstrate it,
+
+#include <iostream>
+using namespace std;
+
+enum suit {
+    club = 0,
+    diamonds = 10,
+    hearts = 20,
+    spades = 3
+} card;
+
+int main() 
+{
+    card = club;
+    cout << "Size of enum variable " << sizeof(card) << " bytes.";   
+    return 0;
+}
+Output
+
+Size of enum variable 4 bytes.
+It's because the size of an integer is 4 bytes.;
+
+This makes enum a good choice to work with flags.
+
+5. Typedef
+
+* It is used to give another name
+    typedef struct Books{
+
+    }Book;
+    int main()
+    {
+        Book book;
+        typedef unsigned char byte; 
+    }
+
+6. Using New Operator
+Dynamic memory allocation in C/C++ refers to performing memory allocation manually by programmer.
+One use of dynamically allocated memory is to allocate memory of variable size which is not possible with compiler allocated memory except variable length arrays.
+The most important use is flexibility provided to programmers. We are free to allocate and deallocate memory whenever we need and whenever we don’t need anymore. 
+eg. link, tree
+How is it different from memory allocated to normal variables?
+For normal variables like “int a”, “char str[10]”, etc, memory is automatically allocated and deallocated. For dynamically allocated memory like “int *p = new int[10]”, it is programmers responsibility to deallocate memory when no longer needed. If programmer doesn’t deallocate memory, it causes memory leak (memory is not deallocated until program terminates).
+
+How is memory allocated/deallocated in C++?
+C uses malloc() and calloc() function to allocate memory dynamically at run time and uses free() function to free dynamically allocated memory. C++ supports these functions and also has two operators new and delete that perform the task of allocating and freeing the memory in a better and easier way.
+
+The new operator denotes a request for memory allocation on the Heap. If sufficient memory is available, new operator initializes the memory and returns the address of the newly allocated and initialized memory to the pointer variable.
+// Pointer initialized with NULL
+// Then request memory for the variable
+int *p = NULL; 
+p = new int;   
+
+            OR
+
+// Combine declaration of pointer 
+// and their assignment
+int *p = new int; 
+Initialize memory: We can also initialize the memory using new operator:
+pointer-variable = new data-type(value);
+Example:
+int *p = new int(25);
+float *q = new float(75.25);
+Allocate block of memory: new operator is also used to allocate a block(an array) of memory of type data-type.
+pointer-variable = new data-type[size];
+where size(a variable) specifies the number of elements in an array.
+
+Example:
+        int *p = new int[10]
+Dynamically allocates memory for 10 integers continuously of type int and returns pointer to the first element of the sequence, which is assigned to p(a pointer). p[0] refers to first element, p[1] refers to second element and so on.
+
+Normal Array Declaration vs Using new
+There is a difference between declaring a normal array and allocating a block of memory using new. The most important difference is, normal arrays are deallocated by compiler (If array is local, then deallocated when function returns or completes). However, dynamically allocated arrays always remain there until either they are deallocated by programmer or program terminates.
+
+What if enough memory is not available during runtime?
+If enough memory is not available in the heap to allocate, the new request indicates failure by throwing an exception of type std::bad_alloc, unless “nothrow” is used with the new operator, in which case it returns a NULL pointer (scroll to section “Exception handling of new operator” in this article). Therefore, it may be good idea to check for the pointer variable produced by new before using it program.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
