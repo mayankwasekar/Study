@@ -1,1 +1,8 @@
 1.	Use Namespaces.
+2. It may be good idea to check for the pointer variable produced by new before using it program.
+
+int *p = new(nothrow) int;
+if (!p)
+{
+   cout << "Memory allocation failed\n";
+}

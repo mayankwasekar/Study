@@ -10,8 +10,9 @@
 9. Pointers to derived class
 10.Comparison of new over malloc, calloc and realloc etc.
 11.Memory freeing using Delete operator
-
+-------------------------------------------------------------------------------------------------------------------------
 1. Introduction
+-------------------------------------------------------------------------------------------------------------------------
 	Basic memory architectur used by C++ Programs
 											------------------
 													Heap
@@ -29,7 +30,9 @@ Data Segment: Global variables and static variables are kept in data segment. It
 Stack: A stack is usually pre-allocated memory. The stack is a LIFO data structure. Each new variable is pushed onto the 			stack. Once variable goes out of scope, memory is freed. Once a stack variable is freed, that region of memory 				becomes available for other variables. The stack grows and shrinks as functions push and pop local variables. It 			stores local data, return addresses, arguments passed to functions and current status of memory.
 
 Heap: Memory is allocated during program execution. Memory is allocated using new operator and deallocating memory using 			delete operator.
+-------------------------------------------------------------------------------------------------------------------------
 2. Pointers in C++
+-------------------------------------------------------------------------------------------------------------------------
 *To access address of a variable to a pointer, we use the unary operator & (ampersand) that returns the address of that variable. For example &x gives us address of variable x.
 *One more operator is unary * (Asterisk) which is used for two things :
 *To declare a pointer variable: When a pointer variable is declared in C/C++, there must a * before its name.
@@ -85,9 +88,12 @@ int main()
   
     return 0; 
 } 
-A pointer pointing to a memory location of already deleted object is known as a dangling pointer.
-
+-------------------------------------------------------------------------------------------------------
+NOTE: A pointer pointing to a memory location of already deleted object is known as a dangling pointer.
+-------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------
 3. Arrays using pointers
+-------------------------------------------------------------------------------------------------------------------------
 int main()
 	{
 		int arr[5] = {1, 2, 3, 4, 5};
@@ -100,7 +106,9 @@ int main()
 	* ptr is unsigned integer
 	sizeof(*p) = 4
 	sizeof(p)  = 8
+-------------------------------------------------------------------------------------------------------------------------
 4. Enumerations
+-------------------------------------------------------------------------------------------------------------------------
 
 enum week{mon, tue, thu, fri, sat}
     * Compiler assign values from 0 so on
@@ -136,8 +144,9 @@ Size of enum variable 4 bytes.
 It's because the size of an integer is 4 bytes.;
 
 This makes enum a good choice to work with flags.
-
+-------------------------------------------------------------------------------------------------------------------------
 5. Typedef
+-------------------------------------------------------------------------------------------------------------------------
 
 * It is used to give another name
     typedef struct Books{
@@ -149,7 +158,9 @@ This makes enum a good choice to work with flags.
         typedef unsigned char byte; 
     }
 
+-------------------------------------------------------------------------------------------------------------------------
 6. Using New Operator
+-------------------------------------------------------------------------------------------------------------------------
 Dynamic memory allocation in C/C++ refers to performing memory allocation manually by programmer.
 One use of dynamically allocated memory is to allocate memory of variable size which is not possible with compiler allocated memory except variable length arrays.
 The most important use is flexibility provided to programmers. We are free to allocate and deallocate memory whenever we need and whenever we don’t need anymore. 
@@ -190,11 +201,346 @@ There is a difference between declaring a normal array and allocating a block of
 What if enough memory is not available during runtime?
 If enough memory is not available in the heap to allocate, the new request indicates failure by throwing an exception of type std::bad_alloc, unless “nothrow” is used with the new operator, in which case it returns a NULL pointer (scroll to section “Exception handling of new operator” in this article). Therefore, it may be good idea to check for the pointer variable produced by new before using it program.
 
+int *p = new(nothrow) int;
+if (!p)
+{
+   cout << "Memory allocation failed\n";
+}
+-------------------------------------------------------------------------------------------------------------------------
+7. Pointers to objects 
+-------------------------------------------------------------------------------------------------------------------------
+Display *disp = new Display();
+Does three things:
+
+    *It creates a new variable disp, with the type Display*, that is, a pointer to an object of type Display, and then
+    *It allocates a new Display object on the heap, and
+    *It sets the disp variable to point to the new Display object.
+---------------------------------------------------------------------------------------------------------------------
+8. this pointer
+-------------------------------------------------------------------------------------------------------------------------
+    To understand ‘this’ pointer, it is important to know that how objects look at functions and data members of a class.
+1. Each object gets its own copy of the data member.
+2. All access the same function definition as present in the code segment.
+Meaning each object gets its own copy of data members and all objects share single copy of member functions.
+Then now question is that if only one copy of each member function exists and is used by multiple objects, how are the proper data members are accessed and updated?
+Compiler supplies an implicit pointer along with the functions names as ‘this’.
+The ‘this’ pointer is passed as a hidden argument to all nonstatic member function calls and is available as a local variable within the body of all nonstatic functions. ‘this’ pointer is a constant pointer that holds the memory address of the current object. ‘this’ pointer is not available in static member functions as static member functions can be called without any object (with class name).
+#include <iostream>
+
+using namespace std;
+
+class Interval
+{
+public:
+    //Cannot be used as (implicit) conversion constructor
+    explicit Interval(long s=0, long m=0)
+    {
+        seconds = 60 * m + s;
+        ++count;
+    }
+
+    void SetTime(long value) 
+    {
+        seconds = value; 
+    }
+    
+    long GetTime() const //long Interval::GetTime(const Interval* this)
+    {
+        return seconds; //this -> seconds
+    }
+
+    void Print() const
+    {
+        if((seconds % 60) < 10)
+            cout << (seconds / 60) << ":0" << (seconds % 60) << endl;
+        else
+            cout << (seconds / 60) << ":" << (seconds % 60) << endl;
+    }
+
+    static int CountInstances()
+    {
+        return count;
+    }
+
+    ~Interval()
+    {
+        count--;
+    }
+
+private:
+    long seconds;
+    static int count;
+};
+
+int Interval::count = 0;
+
+float Speed(float distance, const Interval& duration)
+{
+    return 3.6 * distance / duration.GetTime(); //Interval::GetTime(&duration)
+}
+
+int main(void)
+{
+    Interval jack;  
+    jack.SetTime(125);
+    cout << "Jack's Interval = ";
+    jack.Print();
+    cout << "Jack's speed = " << Speed(500, jack) << endl;
+
+    Interval jeff(200);
+    cout << "Jeff's Interval = ";
+    jeff.Print();
+    cout << "Jeff's speed = " << Speed(500, jeff) << endl;
+
+    cout << "Number of active Interval instances = "
+         << Interval::CountInstances()
+         << endl;
+
+}
+
+-------------------------------------------------------------------------------------------------------------------------
+9. Pointers to derived class
+-------------------------------------------------------------------------------------------------------------------------
+Display *disp; disp = new GzDisplay();
+You create a variable disp with type Display*, and then create an object of a different type, GzDisplay, on the heap, and assign its pointer to the disp variable.
+
+This will only work if GzDisplay is a subclass of Display. In this case, it looks like an example of polymorphism.
+
+Also, to address your comment, there is no difference between the declarations:
+
+Display* disp;
+and
+
+Display *disp;
+However, because of the way C type rules work, there is a difference between:
+
+Display *disp1;
+Display* disp2;
+and
+
+Display *disp1, disp2;
+Because in that last case disp1 is a pointer to a Display object, probably allocated on the heap, while disp2 is an actual object, probably allocated on the stack. That is, while the pointer is arguably part of the type, the parser will associate it with the variable instead
+-------------------------------------------------------------------------------------------------------------------------
+10.Comparison of new over malloc, calloc and realloc etc.
+-------------------------------------------------------------------------------------------------------------------------
+
+new and delete are C++ specific features. They didn't exist in C. malloc is the old school C way to do things. Most of the time, you won't need to use it in C++.
+
+malloc allocates uninitialized memory. The allocated memory has to be released with free.
+calloc is like malloc but initializes the allocated memory with a constant (0). It needs to be freed with free.
+new initializes the allocated memory by calling the constructor (if it's an object). Memory allocated with new should be released with delete (which in turn calls the destructor). It does not need you to manually specify the size you need and cast it to the appropriate type. Thus, it's more modern and less prone to errors.
 
 
 
 
 
+malloc (Allocating uninitialized memory)
+
+This functions allocates the memory and returns the pointer to the allocated memory. Signature of function is
+
+void *malloc(size_t size);
+size_t corresponds to the integral data type returned by the language operator sizeof and is used to represent the size (in bytes) of an object. It is defined (In string.h header in C language andheader in C++) as an unsigned integral type. It is just an indication that the type is used to hold number of memory bytes (and not usual unsigned int).
+
+The below code allocates memory for 10 integers and assign the address of allocated memory (address of the first byte of memory) to int pointer ptr
+
+int * ptr = (int*) malloc(10 * sizeof(int));
+If the system is not able to allocate the requested memory on heap then malloc returns NULL.
+If size is zero (malloc(0)), then malloc returns either a NULL pointer or a valid pointer which can be passed to free function for successful memory dealocation. The actual value depends on the implementation.
+malloc returns a void pointer which need to casted to appropriate type before dereferencing. (The way we typecasted it to int* above.
+Memory returned by malloc is not initialized an holds garbage value.
+Because malloc can return a NULL pointer in case it is not able to allocate memory, The value returned is first checked against valid memory allocation before using the pointer.
+
+int * ptr = (int*) malloc(10 * sizeof(int));
+if(ptr == NULL)
+     // Unable to allocate memory. Take Action.
+else
+     // Memory allocation successful. can use ptr
+While specifying the size absolute values should be avoided to make the code platform independent. For example: If you know that your compiler (plus machine) allocates 2 bytes to integers and you want to allocate memory for one integer, than also you should NOT write code like
+
+int* ptr = (int*) malloc(2); // BAD CODE.. hardcode value 2
+because this code will fail when will compile it on 4-byte machines (which allocates 4-bytes to integers). A good way is to always use sizeof operator
+
+int* ptr = (int*) malloc(sizeof(int)); // BAD CODE.. hardcode value 2
+It will get the actual size of int on machine and pass that value to malloc. Such mistakes are only committed by programmers new to C language.
+
+calloc (Memory allocation + Initialization)
+
+Calloc also allocates memory on heap like malloc does. The only difference is that calloc also initialize the memory with zero (malloc returns uninitialized memory).
+
+Signature of calloc is:
+
+void* calloc( size_t num, size_t size );
+It will allocate memory to an array of num elements where each element is of size bytes. we need to pass two parameters to calloc because it need to assign zero to each elements (hence it need to know how many elements are there).
+
+The below code will allocate memory of one integer on heap, initialize it with zero and store the address in pointer ptr.
+
+int * ptr = (int*) calloc(1, sizeof(int));
+Except for initialization part, everything we wrote about malloc is true about calloc also.
+
+Due to the alignment requirements, the number of allocated bytes is not necessarily equal to (num*size). This is typical to the struct where individual fields are alligned to word boundaries.
+
+Realloc (change the size of memory block on heap)
+
+Suppose a pointer (say ptr) is pointing to a memory of 10 int on heap allocated using malloc as below.
+
+int * ptr = (int*)malloc(10*sizeof(int));
+You want to increase the size of memory pointed to by ptr from 10 to 20, without loosing the contents of already allocated memory. In this case you can call the realloc function. Signature of realloc is:
+
+void *realloc(void *ptr, size_t size);
+where ptr is the pointer to the previously (currently) allocated block of memory and size is the new size (in bytes) for the new memory block.
+
+It is possible that the function will move the memory block to a new location because it is not able to allocate memory just after the existing memory block as shown in the picture below:
+
+
+
+in this case realloc will allocate memory for 20 integers somewhere else and then copy the contents of first 10 locations from here to the new place. will deallocate the existing memory and return a pointer to the new memory. Hence ptr will change.
+
+Programmer, should be aware with this fact because it may result in dangling pointers. consider the case below:
+
+int * ptr1 = (int*) malloc(5 * sizeof(int));
+int * ptr2 = ptr1;
+ptr2 = (int*) realloc(ptr2, 10 * sizeof(int));
+// ptr1 may become a dangling pointer
+Int this case both ptr1 and ptr2 are pointing to the same memory location.
+
+When realloc is called, the memory location pointed to by both the pointers may get deallocated (in case the contiguous space is not available just after the memory block). ptr2 will now point to the newly shifted location on the heap (returned by realloc), but ptr1 is still pointing to the old location (which is now deallocated).
+
+Hence, ptr1 is a dangling pointer.
+
+If pointer passed to realloc is null, then it will behave exactly like malloc.
+If the size passed is zero, and ptr is not NULL then the call is equivalent to free.
+If the area is moved to new location then a free on the previous location is called.
+If contents will not change in the existing region. The new memory (in case you are increasing memory in realloc) will not be initialized and will hold garbage value.
+If realloc() fails the original block is left untouched; it is not freed or moved.
+Free (Free the memory allocated using malloc, calloc or realloc)
+
+free functions frees the memory on the heap, pointed to by a pointer. Signature of free function is
+
+void free(void* ptr);
+ptr must be pointing to a memory which is allocated using malloc, calloc or realloc.
+If ptr is called on a memory which is not on heap or on a dangling pointer, then the behavior is undefined.
+If ptr is NULL, then free does nothing and returns (So, its ok to call free on null pointers).
+int x = 2;
+int* ptr = &x;
+free(ptr); //UNDEFINED.
+int *ptr2;  // UN initialized, hence dangling pointer
+free(ptr2); //UNDEFINED
+int *ptr3 = NULL;
+free(ptr3); //OK.
+ 
+
+Crashes in malloc(), calloc(), realloc(), or free() are almost always related to heap corruption, such as overflowing an allocated chunk or freeing the same pointer twice.
+-------------------------------------------------------------------------------------------------------------------------
+11.Memory freeing using Delete operator
+-------------------------------------------------------------------------------------------------------------------------
+delete operator
+
+Since it is programmer’s responsibility to deallocate dynamically allocated memory, programmers are provided delete operator by C++ language.
+Syntax:
+
+// Release memory pointed by pointer-variable
+delete pointer-variable;  
+Here, pointer-variable is the pointer that points to the data object created by new.
+Examples:
+
+  delete p;
+  delete q;
+To free the dynamically allocated array pointed by pointer-variable, use following form of delete:
+
+// Release block of memory 
+// pointed by pointer-variable
+delete[] pointer-variable;  
+
+Example:
+   // It will free the entire array
+   // pointed by p.
+   delete[] p;
+
+#include <iostream>
+
+using namespace std;
+
+class Interval
+{
+public:
+    explicit Interval(long m=0, long s=0)
+    {
+        minutes = m + s / 60;
+        seconds = s % 60;
+        cout << "Interval instance activated" << endl;
+    }
+
+    ~Interval()
+    {
+        cout << "Interval instance deactivated" << endl;
+    }
+
+    void SetTime(long value) 
+    {
+        minutes = value / 60; 
+        seconds = value % 60;
+    }
+
+    long GetTime() const
+    {
+        return 60 * minutes + seconds;
+    }
+
+    void Print() const
+    {
+        if(seconds < 10)
+            cout << minutes << ":0" << seconds << endl;
+        else
+            cout << minutes << ":" << seconds << endl;
+    }
+private:
+    long minutes;
+    long seconds;
+};
+
+float Speed(float distance, const Interval& duration) 
+{
+    return 3.6 * distance / duration.GetTime();
+}
+
+int main(void)
+{
+    Interval* jack = new Interval; //dynamically activating an instance of Interval using default constructor
+    jack->SetTime(125); 
+    cout << "Jack's Interval = ";
+    jack->Print();
+    cout << "Jack's Speed = " << Speed(500, *jack) << endl;
+
+    Interval* john = new Interval(2, 80); //dynamically activating an instance of Interval using parameterized constructor 
+    cout << "John's Interval = ";
+    john->Print();
+    cout << "John's Speed = " << Speed(500, *john) << endl;
+
+    delete john;
+    delete jack;
+}
+
+/* 
+long UsePtr(void)
+{
+    long a = 23;
+    long b = 32;
+    long* pa = &a;
+    long* pb = &b;
+
+    return (*pa) * (*pb);
+}
+
+long UseRef(void)
+{
+    long a = 23;
+    long b = 32;
+    long& ra = a;
+    long& rb = b;
+
+    return ra * rb;
+}
+*/
 
 
 
