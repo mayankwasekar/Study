@@ -1,0 +1,556 @@
+12. 13. 14. Exception Handling, Managing Console I/O Operations, File Handling
+
+1. Exception Handling
+2. Throwing, catching, re-throwing an exceptions
+3. Specifying exception
+
+1. INtroduction
+2. C++ Streams
+3. C++ stream classes
+4. Unformatted I/O operations
+5. Formatted I/O operations
+6. Managing output with manipulators
+
+1. Definition of file 
+2. File handling in C++
+3. Doing read, write operation in files
+
+1. Exception Handling
+
+One of the advantages of C++ over C is Exception Handling. Exceptions are run-time anomalies or abnormal conditions that a program encounters during its execution. There are two types of exceptions: a)Synchronous, b)Asynchronous(Ex:which are beyond the program’s control, Disc failure etc). C++ provides following specialized keywords for this purpose.
+try: represents a block of code that can throw an exception.
+
+catch: represents a block of code that is executed when a particular exception is thrown.
+throw: Used to throw an exception. Also used to list the exceptions that a function throws, but doesn’t handle itself.
+
+Why Exception Handling?
+
+Following are main advantages of exception handling over traditional error handling.
+
+1) Separation of Error Handling code from Normal Code: In traditional error handling codes, there are always if else conditions to handle errors. These conditions and the code to handle errors get mixed up with the normal flow. This makes the code less readable and maintainable. With try catch blocks, the code for error handling becomes separate from the normal flow.
+
+2) Functions/Methods can handle any exceptions they choose: A function can throw many exceptions, but may choose to handle some of them. The other exceptions which are thrown, but not caught can be handled by caller. If the caller chooses not to catch them, then the exceptions are handled by caller of the caller.
+In C++, a function can specify the exceptions that it throws using the throw keyword. The caller of this function must handle the exception in some way (either by specifying it again or catching it)
+
+3) Grouping of Error Types: In C++, both basic types and objects can be thrown as exception. We can create a hierarchy of exception objects, group exceptions in namespaces or classes, categorize them according to types.
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct BadName
+{
+};
+
+int Search(string entry, string entries[], int count)
+{
+	if(entry.size() < 4)
+	{
+		BadName e;
+		throw e;
+	}
+
+	for(int i = 0; i < count; ++i)
+	{
+		if(entries[i] == entry)
+			return i;
+	}
+
+	throw entry;
+}
+
+void Run(void)
+{
+	string names[] = {"jack", "jill", "john", "jane"};
+	long balances[] = {3000, 14000, 12000, 8000};
+
+	string name;
+	cout << "Name: ";
+	cin >> name;
+
+	int i = Search(name, names, 4);
+	cout << "Balance = " << balances[i] << endl;
+
+}
+
+int main(void)
+{
+	cout << "Welcome to our bank..." << endl;
+	
+	try
+	{ 
+		Run();
+	}
+	catch(...)
+	{
+		cout << "Invalid name!" << endl;
+	}
+	cout << "Goodbye." << endl;
+
+}
+
+1. INtroduction
+2. C++ Streams
+3. C++ stream classes
+4. Unformatted I/O operations
+5. Formatted I/O operations
+6. Managing output with manipulators
+
+Unformatted data
+The printed data with default setting by the I/O function of the language is known as unformatted data.
+It is the basic form of input/output and transfers the internal binary representation of the data directly between memory and the file.
+For example, in cin statement it asks for a number while executing. If the user enters a decimal number, the entered number is displayed using cout statement. There is no need to apply any external setting, by default the I/O function represents the number in decimal format.
+Formatted data
+If the user needs to display a number in hexadecimal format, the data is represented with the manipulators are known as formatted data.
+It converts the internal binary representation of the data to ASCII characters which are written to the output file.
+It reads characters from the input file and coverts them to internal form.
+For example, cout<<hex<<13; converts decimal 13 to hexadecimal d. Formatting is a representation of data with different settings (like number format, field width, decimal points etc.) as per the requirement of the user.
+
+
+
+C++ comes with libraries which provides us many ways for performing input and output. In C++ input and output is performed in the form of sequence of bytes or more commonly known as streams.
+
+Input Stream: If the direction of flow of bytes is from device(for example: Keyboard) to the main memory then this process is called input.
+
+Output Stream: If the direction of flow of bytes is opposite, i.e. from main memory to device( display screen ) then this process is called output.
+
+Header files available in C++ for Input – Output operation are:
+
+iostream: iostream stands for standard input output stream. This header file contains definitions to objects like cin, cout, cerr etc.
+iomanip: iomanip stands for input output manipulators. The methods declared in this files are used for manipulating streams. This file contains definitions of setw, setprecision etc.
+fstream: This header file mainly describes the file stream. This header file is used to handle the data being read from a file as input or data being written into the file as output.
+In C++ articles, these two keywords cout and cin  are used very often for taking inputs and printing outputs. These two are the most basic methods of taking input and output in C++. For using cin and cout we must include the header file iostream in our program.
+
+
+
+In this article we will mainly discuss about the objects defined in the header file iostream like cin and cout.
+
+Standard output stream (cout): Usually the standard output device is the display screen. cout is the instance of the ostream class. cout is used to produce output on the standard output device which is usually the display screen. The data needed to be displayed on the screen is inserted in the standard output stream (cout) using the insertion operator (<<).
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <iostream> 
+   
+using namespace std; 
+   
+int main( ) { 
+   char sample[] = "GeeksforGeeks"; 
+   
+   cout << sample << " - A computer science portal for geeks"; 
+     
+   return 0; 
+} 
+Output:
+
+GeeksforGeeks - A computer science portal for geeks
+As you can see in the above program the insertion operator(<<) insert the value of the string variable sample followed by the string “A computer science portal for geeks” in the standard output stream cout which is then displayed on screen.
+
+standard input stream (cin): Usually the input device is the keyboard. cin is the instance of the class istream and is used to read input from the standard input device which is usually keyboard.
+The extraction operator(>>) is used along with the object cin for reading inputs. The extraction operator extracts the data from the object cin which is entered using the keboard.
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include<iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+    int age; 
+      
+    cout << "Enter your age:"; 
+    cin >> age; 
+    cout << "\nYour age is: "<<age; 
+      
+    return 0; 
+} 
+Input : 18
+Output:
+
+Enter your age:
+Your age is: 18
+The above program asks the user to input the age. The object cin is connected to the input device. The age entered by the user is extracted from cin using the extraction operator(>>) and the extracted data is then stored in the variable age present on the right side of the extraction operator.
+
+Un-buffered standard error stream (cerr): cerr is the standard error stream which is used to output the errors. This is also an instance of the ostream class. As cerr is un-buffered so it is used when we need to display the error message immediately. It does not have any buffer to store the error message and display later.
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <iostream> 
+   
+using namespace std; 
+   
+int main( )  
+{ 
+   cerr << "An error occured"; 
+  
+   return 0; 
+} 
+Output:
+
+An error occured
+buffered standard error stream (clog): This is also an instance of ostream class and used to display errors but unlike cerr the error is first inserted into a buffer and is stored in the buffer until it is not fully filled. The error message will be displayed on the screen too.
+filter_none
+edit
+play_arrow
+
+brightness_4
+#include <iostream> 
+   
+using namespace std; 
+   
+int main( )  
+{ 
+   clog << "An error occured"; 
+  
+   return 0; 
+} 
+output:
+
+An error occured
+
+
+6. Managing output with manipulators
+std::setbase, std::setw , std::setfill in C++
+The useful input/output manipulators are std::setbase, std::setw and std::setfill. These are defined in and are quite useful functions.
+
+std::base : Set basefield flag; Sets the base-field to one of its possible values: dec, hex or oct according to argument base.
+Syntax :
+
+std::setbase (int base);
+decimal : if base is 10
+hexadcimal : if base is 16
+octal : if base is 8
+zero : if base is any other value.
+Implementation : This code uses the std::setbase manipulator to set hexadecimal as the base field selective flag.
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// CPP Program to illustrate 
+// std::setbase manipulator 
+#include <iostream> 
+#include <iomanip> // std::setbase 
+  
+int main() 
+{ 
+    // set base to hexadecimal 
+    std::cout << std::setbase(16); 
+  
+    // displaying 255 in hexadecimal 
+    std::cout << 255 << std::endl; 
+  
+    // set base to Octal 
+    std::cout << std::setbase(8); 
+  
+    // displaying 255 in Octal 
+    std::cout << 255 << std::endl; 
+    return 0; 
+} 
+Output:
+
+
+
+ff
+377
+std::setw : Set field width; Sets the field width to be used on output operations. Behaves as if member width were called with n as argument on the stream on which it is inserted/extracted as a manipulator (it can be inserted/extracted on input streams or output streams).
+Syntax :
+
+std::setw (int n);
+where n is Number of characters to 
+be used as field width.
+filter_none
+edit
+play_arrow
+
+brightness_4
+// CPP Program to illustrate 
+// std::setw manipulator 
+#include <iostream> 
+#include <iomanip> // std::setw 
+  
+int main() 
+{ 
+  
+    // set width of 10 
+    std::cout << std::setw(10); 
+    std::cout << 100 << std::endl; 
+  
+    std::string str = "GFG"; 
+  
+    // set width of 12 
+    std::cout << std::setw(12); 
+  
+    std::cout << str << std::endl; 
+    return 0; 
+} 
+Output:
+
+       100
+         GFG
+std::setfill : Set fill character; Sets c as the stream’s fill character. Behaves as if member fill were called with c as argument on the stream on which it is inserted as a manipulator (it can be inserted on output streams).
+Syntax :
+
+std::setfill (char_type c);
+char_type is the type of characters 
+used by the stream (i.e., its first class template 
+parameter, charT).
+Implementation :
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// CPP Program to test std::setfill manipulator 
+#include <iostream> 
+#include <iomanip> // std::setfill, std::setw 
+  
+int main() 
+{ 
+    // setfill is x and width is set as 10 
+    std::cout << std::setfill('x') << std::setw(10); 
+  
+    std::cout << 77 << std::endl; 
+  
+    std::string str = "Geeks"; 
+  
+    // setfill is G and width is set as 10 
+    // And std::left is used set str to left side 
+    std::cout << std::left << std::setfill('G') << std::setw(10); 
+  
+    std::cout << str << std::endl; 
+    return 0; 
+} 
+Output:
+
+xxxxxxxx77
+GeeksGGGGG
+Pattern using std::setw and std::fill :
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// CPP Program to print 
+// pattern using std::setw and std::fill 
+#include <iostream> 
+#include <iomanip> // std::setfill, std::setw 
+  
+int main() 
+{ 
+    int n = 5; 
+    for (int i = 1; i <= n; i++) { 
+        std::cout << std::left << std::setfill(' ') << std::setw(n); 
+        std::cout << std::string(i, '*') << std::endl; 
+    } 
+} 
+Output:
+
+*
+**
+***
+****
+*****
+
+1. Definition of file 
+2. File handling in C++
+3. Doing read, write operation in files
+
+
+File represents storage medium for storing data or information. Streams refer to sequence of bytes. In Files we store data i.e. text or binary data permanently and use these data to read or write in the form of input output operations by transferring bytes of data. So we use the term File Streams/File handling. We use the header file <fstream>
+
+ofstream: It represents output Stream and this is used for writing in files.
+ifstream: It represents input Stream and this is used for reading from files.
+fstream: It represents both output Stream and input Stream. So it can read from files and write to files.
+Operations in File Handling:
+
+Creating a file: open()
+Reading data: read()
+Writing new data: write()
+Closing a file: close()
+Creating/Opening a File
+We create/open a file by specifying new path of the file and mode of operation. Operations can be reading, writing, appending and truncating. Syntax for file creation: FilePointer.open("Path",ios::mode);
+
+Example of file opened for writing: st.open("E:\studytonight.txt",ios::out);
+Example of file opened for reading: st.open("E:\studytonight.txt",ios::in);
+Example of file opened for appending: st.open("E:\studytonight.txt",ios::app);
+Example of file opened for truncating: st.open("E:\studytonight.txt",ios::trunc);
+#include<iostream>
+#include<conio>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream st; // Step 1: Creating object of fstream class
+    st.open("E:\studytonight.txt",ios::out);  // Step 2: Creating new file
+    if(!st) // Step 3: Checking whether file exist
+    {
+        cout<<"File creation failed";
+    }
+    else
+    {
+        cout<<"New file created";
+        st.close(); // Step 4: Closing file
+    }
+    getch();
+    return 0;
+}
+Writing to a File
+#include <iostream>
+#include<conio>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream st; // Step 1: Creating object of fstream class
+    st.open("E:\studytonight.txt",ios::out);  // Step 2: Creating new file
+    if(!st) // Step 3: Checking whether file exist
+    {
+        cout<<"File creation failed";
+    }
+    else
+    {
+        cout<<"New file created";
+        st<<"Hello";    // Step 4: Writing to file
+        st.close(); // Step 5: Closing file
+    }
+    getch();
+    return 0;
+}
+Here we are sending output to a file. So, we use ios::out. As given in the program, information typed inside the quotes after "FilePointer <<" will be passed to output file.
+
+Reading from a File
+#include <iostream>
+#include<conio>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream st; // step 1: Creating object of fstream class
+    st.open("E:\studytonight.txt",ios::in);   // Step 2: Creating new file
+    if(!st) // Step 3: Checking whether file exist
+    {
+        cout<<"No such file";
+    }
+    else
+    {
+        char ch;
+        while (!st.eof())
+        {
+            st >>ch;  // Step 4: Reading from file
+            cout << ch;   // Message Read from file
+        }
+        st.close(); // Step 5: Closing file
+    }
+    getch();
+    return 0;
+}
+Here we are reading input from a file. So, we use ios::in. As given in the program, information from the output file is obtained with the help of following syntax "FilePointer >>variable".
+
+Close a File
+It is done by FilePointer.close().
+
+#include <iostream>
+#include<conio>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream st; // Step 1: Creating object of fstream class
+    st.open("E:\studytonight.txt",ios::out);  // Step 2: Creating new file
+    st.close(); // Step 4: Closing file
+    getch();
+    return 0;
+}
+Special operations in a File
+There are few important functions to be used with file streams like:
+
+tellp() - It tells the current position of the put pointer.
+Syntax: filepointer.tellp()
+
+tellg() - It tells the current position of the get pointer.
+Syntax: filepointer.tellg()
+
+seekp() - It moves the put pointer to mentioned location.
+Syntax: filepointer.seekp(no of bytes,reference mode)
+
+seekg() - It moves get pointer(input) to a specified location.
+Syntax: filepointer.seekg((no of bytes,reference point)
+
+put() - It writes a single character to file.
+get() - It reads a single character from file.
+Note: For seekp and seekg three reference points are passed:
+ios::beg - beginning of the file
+ios::cur - current position in the file
+ios::end - end of the file
+Below is a program to show importance of tellp, tellg, seekp and seekg:
+
+#include <iostream>
+#include<conio>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    fstream st; // Creating object of fstream class
+    st.open("E:\studytonight.txt",ios::out);  // Creating new file
+    if(!st) // Checking whether file exist
+    {
+        cout<<"File creation failed";
+    }
+    else
+    {
+        cout<<"New file created"<<endl;
+        st<<"Hello Friends"; //Writing to file
+        
+        // Checking the file pointer position
+        cout<<"File Pointer Position is "<<st.tellp()<<endl;  
+        
+        st.seekp(-1, ios::cur); // Go one position back from current position
+        
+        //Checking the file pointer position
+        cout<<"As per tellp File Pointer Position is "<<st.tellp()<<endl; 
+        
+        st.close(); // closing file
+    }
+    st.open("E:\studytonight.txt",ios::in);   // Opening file in read mode
+    if(!st) //Checking whether file exist
+    {
+        cout<<"No such file";
+    }
+    else
+    {
+        char ch;
+        st.seekg(5, ios::beg);  // Go to position 5 from begning.
+        cout<<"As per tellg File Pointer Position is "<<st.tellg()<<endl; //Checking file pointer position
+        cout<<endl;
+        st.seekg(1, ios::cur); //Go to position 1 from beginning.
+        cout<<"As per tellg File Pointer Position is "<<st.tellg()<<endl; //Checking file pointer position
+        st.close(); //Closing file
+    }
+    getch();
+    return 0;
+}
+
+New file created
+File Pointer Position is 13
+As per tellp File Pointer Position is 12
+As per tellg File Pointer Position is 5
+As per tellg File Pointer Position is 6
