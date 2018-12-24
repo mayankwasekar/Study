@@ -4,11 +4,11 @@
 2. STL (Standard Type Libraries)
 3. RTTI (Run Time Type Identification)
 4. Advanced Typecasting
-5. New data types
-6. New operators
-7. class implimentation
-8. namespace scopt
-9. operator keywords
+5. New data types -------------------------> data types
+6. New operators--------------------------->
+7. class implimentation-------------------->
+8. namespace scope------------------------->
+9. operator keywords-----------------------> find operator overloading
 10. new headers
 11. C++ containers
 
@@ -58,3 +58,81 @@ Both function overloading and templates are examples of polymorphism feature of 
 -----------------------------------------------------------------------------------------------------------------------------
 2. STL (Standard Type Libraries)
 -----------------------------------------------------------------------------------------------------------------------------
+Check Programs
+
+-----------------------------------------------------------------------------------------------------------------------------
+3. RTTI (Run Time Type Identification)
+-----------------------------------------------------------------------------------------------------------------------------
+In C++, RTTI (Run-time type information) is a mechanism that exposes information about an object’s data type at runtime and is available only for the classes which have at least one virtual function. It allows the type of an object to be determined during program execution
+
+Check Programs
+----------------------------------------------------------------------------------------------------------------------------
+4. Advanced Typecasting
+----------------------------------------------------------------------------------------------------------------------------
+reinterpret_cast is a type of casting operator used in C++.
+
+It is used to convert one pointer of another pointer of any type, no matter either the class is related to each other or not.
+It does not check if the pointer type and data pointed by the pointer is same or not.
+Syntax :
+
+data_type *var_name = 
+       reinterpret_cast <data_type *>(pointer_variable);
+Return Type
+
+It doesn’t have any return type. It simply converts the pointer type.
+Parameters
+
+It takes only one parameter i.e., the source pointer variable (p in above example).
+
+// CPP program to demonstrate working of  
+// reinterpret_cast 
+#include <iostream> 
+using namespace std; 
+  
+int main() 
+{ 
+    int* p = new int(65); 
+    char* ch = reinterpret_cast<char*>(p); 
+    cout << *p << endl; 
+    cout << *ch << endl; 
+    cout << p << endl; 
+    cout << ch << endl; 
+    return 0; 
+} 
+----------------------------------------------------------------------------------------------------------------------------
+11. C++ containers
+----------------------------------------------------------------------------------------------------------------------------
+Sequence containers
+
+Sequence containers implement data structures which can be accessed sequentially.
+
+array: Static contiguous array (class template)
+vector: Dynamic contiguous array (class template)
+deque: Double-ended queue (class template)
+forward_list: Singly-linked list (class template)
+list : Doubly-linked list (class template)
+
+Associative containers
+Associative containers implement sorted data structures that can be quickly searched (O(log n) complexity).
+
+Set: Collection of unique keys, sorted by keys
+(class template)
+Map: Collection of key-value pairs, sorted by keys, keys are unique (class template).
+multiset: Collection of keys, sorted by keys (class template)
+multimap: Collection of key-value pairs, sorted by keys
+(class template)
+Unordered associative containers
+
+Unordered associative containers implement unsorted (hashed) data structures that can be quickly searched (O(1) amortized, O(n) worst-case complexity).
+
+unordered_set: Collection of unique keys, hashed by keys. (class template)
+unordered_map: Collection of key-value pairs, hashed by keys, keys are unique. (class template)
+unordered_multiset: Collection of keys, hashed by keys (class template)
+unordered_multimap: Collection of key-value pairs, hashed by keys (class template)
+Container adaptors
+
+Container adaptors provide a different interface for sequential containers.
+
+stack: Adapts a container to provide stack (LIFO data structure) (class template).
+queue: Adapts a container to provide queue (FIFO data structure) (class template).
+priority_queue: Adapts a container to provide priority queue (class template).
