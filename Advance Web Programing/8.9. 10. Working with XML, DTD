@@ -1,0 +1,46 @@
+8.9. Working with XML, DTD, W3C DOM and Data Binding
+	8.1.  Introduction to XML
+	8.2.  Revision of HTML and Client Server Architecture
+	8.3.  Reason for XML
+	8.4.  XML and ther browser
+	8.5.  XML Validation
+	8.6.  XML as the mode of data transfer
+	8.7.  XML Parser
+	8.8.  XML SAX Parser
+	8.9.  A basic XML Document
+	8.10. Parts of the XML Document
+	8.11. XML Schema
+	8.12. Namespaces
+	8.13. The Root Element
+	8.14. Tags and Elements
+	8.15. Attributes and Values
+	8.16. CDATA and PCDATA
+	8.17. XML Tree Structure
+	8.18. XML style language
+
+	9.1.  XML DTD
+	9.2.  Creating Document Type Declarations
+	9.3.  Creating Document Type Definition
+	9.4.  Internal and External DTD`s
+	9.5.  Associationg DTD`s with XML documents. (The XML Declaration and DOCTYPE declaration)
+	9.6.  Validating documents against a DTD
+	9.7.  Internal and External General Entities
+	9.8.  Element Type(ELEMENT) Declarations
+	9.9.  Attribute (ATTLIST) Declarations
+	9.10. Using INCLUDE AND IGNORE
+
+	10.1. W3C DOM and Data Binging
+	10.2. Introduction to DOM
+	10.3. The DOM Document Object and its properties
+	10.4. Getting Elements by name
+	10.5. Editing Events on client side
+	10.6. Handling Events on client side
+	10.7. Data Binding in Internet browser
+	10.8. Using Data Source Objects (MSHTML, TDC, XML DSO, DATA Islands)
+	10.9. XML and XSLT
+	10.10.RSS Feed
+	10.11.Introduction to Web security
+	10.12.SQL Injection
+	10.13.Cross-Site Scripting(XSS)
+	10.14.Angular Java script Services for Ajax and Promises
+	10.15.Security Standars(OWASP)

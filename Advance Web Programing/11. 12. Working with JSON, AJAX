@@ -1,0 +1,40 @@
+11. 12. Working with JSON, AJAX
+	11.1.   Introduction to the JavaScript Object notation(JSON)
+	11.2.   Need of JSON
+	11.3.   JSON Syntax Rules
+	11.4.   JSON Data - a Name and a Value.
+	11.5.   JSON Objects
+	11.6.   JSON Arrays
+	11.7.   JSON Users JavaScript Syntax
+	11.8.   JSON Files
+	11.9.   JSON & Security Concerns, Cross Site Request Forgery(CSRF), Injection Attacs
+	11.10.  JS XMLHttpRequest functions
+	11.11.  JavaScript XMLHttpRequest & Web APIs
+	11.12.  JSON & Client Side Frameworks
+	11.13.  JSON & Server Side Frameworks
+	11.14.  Replacing XML with JSON
+	11.15.  JSON parsing
+
+	12.1.   Ajax Framework
+	12.2.   Ajax using HTML, CSS, JavaScript and DOM
+	12.3.   Ajax Architecture
+	12.4.   Creating a windows web services
+	12.5.   XMLHttpRequest
+	12.6.   Web services and Ajax
+	12.7.   JPSpan
+	12.8.   DWR
+	12.9.   AJAX using JSON and JQuery
+
+	13.1.   Responsive Web Design
+	13.2.   The Best Experience for All Users
+		13.2.1. Desktop
+		13.2.2. Tablet
+		13.2.3. Mobile
+	13.3.   Bootstrap
+			13.3.1. Overview of Bootstrap
+			13.3.2. Need to use Bootstrap
+			13.3.3. Bootstrap Grid System, Grid Classes, Basic Structure of a Bootstrap Grid
+			13.3.4. Typography
+			13.3.5. Tables,Images,Jumbotraon,Wells,Alerts,Buttons,Button Groups, Badges/Labels,Progress Bars, Pagination, List Groups,Panels,Dropdowns,Collapse,Tabs/Pills,Navbar,Froms,Inputs
+			13.3.6. Bootstrap Grids, Grid System, Stacked/Horizontal
+			13.3.7. Bootratrp Themes, Templets
