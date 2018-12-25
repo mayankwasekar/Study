@@ -1,0 +1,895 @@
+1. Architecture of Web HTML
+	1.1. Brief history of Internet
+	1.2. How the Internet Works?
+	1.3. Internet Protocol
+	1.4. HTTP Protocol
+		1.4.1. Difference HTTP 1.0, HTTP 1.1 & HTTP 2.0 and ES7 standard
+		1.4.2. Stateless nature of the protocol
+		1.4.2. Methods (GET,POST,HEAD,PUT,DELETE)
+		1.4.2. HTTP session
+		1.4.2. Status codes
+		1.4.2. Persistent connections
+		1.4.2. HTTPS
+	1.5. Domain names
+	1.6. Domain Names Service Servers
+	1.7. Architecture of the Web
+	1.8. Web servers
+		1.8.1. IIS
+		1.8.2. Apache Server
+2. HTML
+	2.1. Introduction to HTML5
+	2.2. Basic HTML
+	2.3. Introduction to basic HTML Aligning the Heading
+		2.3.1. Anchor Tag
+		2.3.2. Paragraph
+		2.3.3. Images and Pictures
+		2.3.4. Tables
+	2.4. Framesets
+		2.4.1. New features in HTML5
+		2.4.2. New element
+		2.4.3. New attributes
+		2.4.4. Link relations
+		2.4.5. Microdata
+		2.4.6. ARIA accessibility
+		2.4.7. Multimedia
+		2.4.8. 2D and 3D drawing support
+	2.5. HTML Forms
+	2.6. HTML Controls
+		2.6.1. Input
+		2.6.2. Text Area
+		2.6.3. Radio Button
+		2.6.4. Check Box
+		2.6.5. Dropdown
+		2.6.6. List box
+		2.6.7. Submit button
+		2.6.8. Set button
+		2.6.9. Button
+	2.7. List and Tables
+	2.8. Document Object Model (DOM)
+	2.9. Elements
+	2.10.Events
+	2.11.HTML 5
+		2.11.1. Elements
+		2.11.2. Objects
+		2.11.3. Events
+		2.11.4. Canvas
+		2.11.5. HTML5 Validation
+		2.11.6. Audio & Video Support
+		2.11.7. Geo-location Support
+
+----------------------------------------------------------------------------------------------------------------------------
+1.1. Brief history of Internet
+----------------------------------------------------------------------------------------------------------------------------
+https://sciencenode.org/feature/a-brief-history-of-the-internet-.php
+1958 - Advanced Research Projects Agency (ARPA), now known as the Defense Advanced Research Projects Agency (DARPA). 
+
+This network came to be known as the ARPA Network, or ARPAnet. Packet switching made data transmission possible in 1965, and by 1969, military contractor Bolt, Beranek, and Newman (BBN) developed an early form of routing devices known as interface message processors (IMPs), which revolutionized data transmission.
+
+ In 1981, the NSF expanded ARPAnet to national computer science researchers when it funded the Computer Science Network (CSNET). BBN assumed CSNET operation management in 1984.
+
+ ARPAnet adopted the transmission control protocol (TCP) in1983 and separated out the military network (MILnet), assigning a subset for public research. Launched formally as the National Science Foundation Network (NSFNET) in 1985, engineers designed it to connect university computer science departments iacross the US.
+
+ "ARPAnet's transition to the open networking protocols TCP and IP in 1983 accelerated the already burgeoning spread of internetworking technology," says Stephen Wolff, principal scientist with Internet2. 
+
+ 1989 saw a major step forward in internet communications. Tim Berners-Lee of the European Organization for Nuclear Research (CERN) created the hypertext transfer protocol (http), a standardization that gave diverse computer platforms the ability to access the same internet sites. For this reason, Berners-Lee is widely regarded as the father of the world wide web (www).
+
+ The Mosaic web browser, created in 1993 at the National Center for Supercomputing Applications (NCSA) at the University of Illinois Urbana-Champaign, was a key development that emerged from the NSFNET. Mosaic was the first to show images in line with text, and it offered many other graphical user interface norms we’ve come to expect today (like the browser’s URL address bar and back/forward/reload options for viewing webpages.)
+----------------------------------------------------------------------------------------------------------------------------
+	1.2. How the Internet Works?
+----------------------------------------------------------------------------------------------------------------------------
+
+https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Internet_work
+
+----------------------------------------------------------------------------------------------------------------------------
+	1.3. Internet Protocol
+----------------------------------------------------------------------------------------------------------------------------
+nternet Protocol (IP) is the principal set (or communications protocol) of digital message formats and rules for exchanging messages between computers across a single network or a series of interconnected networks, using the Internet Protocol Suite (often referred to as TCP/IP). Messages are exchanged as datagrams, also known as data packets or just packets.
+----------------------------------------------------------------------------------------------------------------------------
+	1.4. HTTP Protocol
+----------------------------------------------------------------------------------------------------------------------------
+The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. This is the foundation for data communication for the World Wide Web (i.e. internet) since 1990. HTTP is a generic and stateless protocol which can be used for other purposes as well using extensions of its request methods, error codes, and headers.
+
+This tutorial is based on RFC-2616 specification, which defines the protocol referred to as HTTP/1.1. HTTP/1.1 is a revision of the original HTTP (HTTP/1.0). A major difference between HTTP/1.0 and HTTP/1.1 is that HTTP/1.0 uses a new connection for each request/response exchange, where as HTTP/1.1 connection may be used for one or more request/response exchanges.
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.1. Difference HTTP 1.0, HTTP 1.1 & HTTP 2.0 and ES7 standard
+		--------------------------------------------------------------------------------------------------------------------
+
+		HTTP 1.0					HTTP 1.1						HTTP 2.0					ES7
+16 status codes which was 	24 status codes that were able
+a reserved number poor      to solve the previous limitations
+resolution reporting.
+
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.2. Stateless nature of the protocol
+		--------------------------------------------------------------------------------------------------------------------
+		HTTP is a stateless protocol. A stateless protocol does not require the server to retain information or status about each user for the duration of multiple requests.
+
+		But some web applications may have to track the user's progress from page to page, for example when a web server is required to customize the content of a web page for a user. Solutions for these cases include:
+
+		the use of HTTP cookies.
+		server side sessions,
+		hidden variables (when the current page contains a form), and
+		URL-rewriting using URI-encoded parameters, e.g., /index.php?session_id=some_unique_session_code.
+
+		What makes the protocol stateless is that the server is not required to track state over multiple requests, not that it cannot do so if it wants to. This simplifies the contract between client and server, and in many cases (for instance serving up static data over a CDN) minimizes the amount of data that needs to be transferred. If servers were required to maintain the state of clients' visits the structure of issuing and responding to requests would be more complex. As it is, the simplicity of the model is one of its greatest features.
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.2. Methods (GET,POST,HEAD,PUT,DELETE)
+		--------------------------------------------------------------------------------------------------------------------
+		1) GET Method: The Get method is used to getting the data from the server. Get method appends the parameters passed as query string to a URL, in the form of key- value pairs. for example, if a parameter is name = Williams, then this string will be appended in the URL. By default the method is Get.
+
+		2) POST Method: The post method is used for sending data to the server. In post method the query string is appended along the request object, they do not get appended in the URL, so parameters transfer in hidden form.
+
+		3) HEAD Method: When a user wants to know about the headers, like MIME types, charset, Content- Length then we use Head method. With this no body content is returned.
+
+		These three are commonly used methods of jsp while Get and Post methods are most widely used. There are more methods of http protocols which are rarely used by they have been given here for your knowledge.
+
+		4) TRACE Method: Trace on the jsp resource returns the content of the resource. Asks for a loopback of the request message, so that the use can see what is being recieved on the other side.
+
+		5) DELETE Method: It is used for delete the resources, files at the requested URL
+
+		6) OPTIONS Method: It lists the Http methods to which the thing at the requested URL can respond.
+
+		7) PUT Method: It put the enclosed information at the requestedURL.
+
+		8) CONNECT Method: It connects for the purpose of tunneling.
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.2. HTTP session
+		--------------------------------------------------------------------------------------------------------------------
+		In client-server protocols, like HTTP, sessions consist of three phases:
+		The client establishes a TCP connection (or the appropriate connection if the transport layer is not TCP).
+		The client sends its request, and waits for the answer.
+		The server processes the request, sending back its answer, providing a status code and appropriate data.
+		As of HTTP/1.1, the connection is no longer closed after completing the third phase, and the client is now granted a further request: this means the second and third phases can now be performed any number of times.
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.2. Status codes
+		--------------------------------------------------------------------------------------------------------------------
+		1xx: information 	100 Continue 101 Switching Protocols 103 Checkpoint
+		2xx: Successful		200 OK 201 Created 202 Accepted 203 Non-Authoritative Information 204 No Content 
+							205 Reset Content 206 Partial Content
+		3xx: Redirection	300 Multiple Choices 302 Found
+		4xx: Client error 	400 Bad Request 401 Unauthorized 403 Forbidden 404 Not Found 405 Method Not Allowed
+		5xx: Server error 	500 Internal Server Error 502 Bad Gateway 503 Service Unavailable 504 Gateway Timeout
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.2. Persistent connections
+		--------------------------------------------------------------------------------------------------------------------
+		https://www.geeksforgeeks.org/http-non-persistent-persistent-connection/
+		--------------------------------------------------------------------------------------------------------------------
+		1.4.2. HTTPS
+		--------------------------------------------------------------------------------------------------------------------
+		Also, another syntactic difference between http and htpps is that http uses default port 80 while https uses default port 443. But it should be noted that this security in https is achieved at the cost of processing time because Web Server and Web Browser needs to exchange encryption keys using Certificates before actual data can be transferred. Basically, setting up of a secure session is done before the actual hypertext exchange between server and browser.
+
+		Differences between HTTP and HTTPS
+
+		In HTTP, URL begins with “http://” whereas URL starts with “https://”
+		HTTP uses port number 80 for communication and HTTPS uses 443
+		HTTP is considered to be unsecure and HTTPS is secure
+		HTTP Works at Application Layer and HTTPS works at Transport Layer
+		In HTTP, Encryption is absent and Encryption is present in HTTPS as discussed above
+		HTTP does not require any certificates and HTTPS needs SSL Certificates
+----------------------------------------------------------------------------------------------------------------------------
+	1.5. Domain names
+----------------------------------------------------------------------------------------------------------------------------
+	Domain names are used to identify one or more IP addresses. For example, the domain name microsoft.com represents about a dozen IP addresses. Domain names are used in URLs to identify particular Web pages. For example, in the URL http://www.pcwebopedia.com/index.html, the domain name is pcwebopedia.com.
+
+	Every domain name has a suffix that indicates which top level domain (TLD) it belongs to. There are only a limited number of such domains. For example:
+
+	gov - Government agencies
+	edu - Educational institutions
+	org - Organizations (nonprofit)
+	mil - Military
+	com - commercial business
+	net - Network organizations
+	ca - Canada
+	th - Thailand
+	Because the Internet is based on IP addresses, not domain names, every Web server requires a Domain Name System (DNS) server to translate domain names into IP addresses.
+	------------------------------------------------------------------------------------------------------------------------
+	1.6. Domain Names Service Servers
+	------------------------------------------------------------------------------------------------------------------------
+	A DNS server is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases, serves to resolve, or translate, those common names to IP addresses as requested.
+
+	DNS servers run special software and communicate with each other using special protocols.
+
+	In more easy to understand terms: a DNS server on the internet is the device that translates that www.lifewire.com you type in your browser to the 151.101.129.121 IP address that it really is.
+
+	nslookup lifewire.com
+	------------------------------------------------------------------------------------------------------------------------
+	1.7. Architecture of the Web
+	------------------------------------------------------------------------------------------------------------------------
+	Client 				   Server
+	
+	Legacy App
+	HTML  <------------>    HTML
+	
+	Widget App
+	Widget  -----ajax---->    Web
+	Widget  <----json-----  Service
+	Widget    <----html----- Businees Login
+
+	Single Page Application
+	javascript -----json---->web services
+	layer  <--------json---->Business Login
+	         ^    js/html
+	         |--------------Business Logic
+	------------------------------------------------------------------------------------------------------------------------
+	1.8. Web servers
+	------------------------------------------------------------------------------------------------------------------------
+	A Web server is a program that uses HTTP (Hypertext Transfer Protocol) to serve the files that form Web pages to users, in response to their requests, which are forwarded by their computers' HTTP clients. Dedicated computers and appliances may be referred to as Web servers as well.
+
+	The process is an example of the client/server model. All computers that host Web sites must have Web server programs. Leading Web servers include Apache (the most widely-installed Web server), Microsoft's Internet Information Server (IIS) and nginx (pronounced engine X) from NGNIX. Other Web servers include Novell's NetWare server, Google Web Server (GWS) and IBM's family of Domino servers.
+	    --------------------------------------------------------------------------------------------------------------------
+		1.8.1. IIS
+		--------------------------------------------------------------------------------------------------------------------
+		Stands for "Internet Information Services." IIS is a web server software package designed for Windows Server. It is used for hosting websites and other content on the Web.
+
+		Microsoft’s Internet Information Services provides a graphical user interface (GUI) for managing websites and the associated users. It provides a visual means of creating, configuring, and publishing sites on the web. The IIS Manager tool allows web administrators to modify website options, such as default pages, error pages, logging settings, security settings, and performance optimizations.
+		--------------------------------------------------------------------------------------------------------------------
+		1.8.2. Apache Server
+		--------------------------------------------------------------------------------------------------------------------
+		Apache is the most widely used web server software. Developed and maintained by Apache Software Foundation, Apache is an open source software available for free. It runs on 67% of all webservers in the world. It is fast, reliable, and secure. It can be highly customized to meet the needs of many different environments by using extensions and modules. Most WordPress hosting providers use Apache as their web server software. However, WordPress can run on other web server software as well.
+------------------------------------------------------------------------------------------------------------------------
+Chapter 2
+------------------------------------------------------------------------------------------------------------------------
+2. HTML
+	2.1. Introduction to HTML5
+------------------------------------------------------------------------------------------------------------------------
+	The most interesting new HTML5 elements are: 
+
+	New semantic elements like <header>, <footer>, <article>, and <section>.
+
+	New attributes of form elements like number, date, time, calendar, and range.
+
+	New graphic elements: <svg> and <canvas>.
+
+	New multimedia elements: <audio> and <video>.
+	The default character encoding in HTML5 is UTF-8.
+
+	New HTML5 Elements
+	The most interesting new HTML5 elements are: 
+
+	New semantic elements like <header>, <footer>, <article>, and <section>.
+
+	New attributes of form elements like number, date, time, calendar, and range.
+
+	New graphic elements: <svg> and <canvas>.
+
+	New multimedia elements: <audio> and <video>.
+
+	In the next chapter, HTML5 Support, you will learn how to "teach" older browsers to handle "unknown" (new) HTML elements.
+
+	New HTML5 API's (Application Programming Interfaces)
+	The most interesting new API's in HTML5 are:
+
+	HTML Geolocation
+	HTML Drag and Drop
+	HTML Local Storage
+	HTML Application Cache
+	HTML Web Workers
+	HTML SSE
+	Tip: HTML Local storage is a powerful replacement for cookies.
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+		<meta charset="UTF-8">
+			<title>Title of the document</title>
+		</head>
+--------------------------------------------------------------------------------------------------------------------------------------------
+	2.2. Basic HTML
+--------------------------------------------------------------------------------------------------------------------------------------------
+	2.3. Introduction to basic HTML Aligning the Heading
+		
+		<h1 align="left|right|center|justify">
+		eg. <h1 align="justify">BABU MUSHAI</h1>
+		<h1> .....<h6>
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.3.1. Anchor Tag
+		-------------------------------------------------------------------------------------------------------------------------------------
+			   <a href="http://www.great-workout.com/">Great Workout</a>.
+	    ------------------------------------------------------------------------------------------------------------------------------------
+		2.3.2. Paragraph
+		------------------------------------------------------------------------------------------------------------------------------------
+			<p>This is some text in a paragraph.</p>
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.3.3. Images and Pictures
+		------------------------------------------------------------------------------------------------------------------------------------
+			<img src="smiley.gif" alt="Smiley face" height="42" width="42">
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.3.4. Tables
+		------------------------------------------------------------------------------------------------------------------------------------
+			<table>
+			  	<thead>
+			   			<tr>
+			     			 <th>Month</th>
+			      			 <th>Savings</th>
+			   		    </tr>
+			  	</thead>
+			  <tbody>
+			    <tr>
+			      <td>January</td>
+			      <td>$100</td>
+			    </tr>
+			    <tr>
+			      <td>February</td>
+			      <td>$80</td>
+			    </tr>
+			  </tbody>
+			  <tfoot>
+			    <tr>
+			      <td>Sum</td>
+			      <td>$180</td>
+			    </tr>
+			  </tfoot>
+			</table>
+		* Browsers can use these elements to enable scrolling of the table body independently of the header and footer. Also, when printing a large table that spans multiple pages, these elements can enable the table header and footer to be printed at the top and bottom of each page.
+--------------------------------------------------------------------------------------------------------------------------------------------
+	2.4. Framesets
+--------------------------------------------------------------------------------------------------------------------------------------------
+		<frameset cols="25%,*,25%">
+		  <frame src="frame_a.htm">
+		  <frame src="frame_b.htm">
+		  <frame src="frame_c.htm">
+		</frameset>
+
+		The <frameset> tag is not supported in HTML5.
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.1. New features in HTML5 (Read Introduction)
+		------------------------------------------------------------------------------------------------------------------------------------
+
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.2. New element
+		------------------------------------------------------------------------------------------------------------------------------------
+		Structure Level Elements
+		<article>  
+
+		A self-contained composition in a document that is independently distributable or reusable, e.g. a forum post, a magazine or newspaper article, or blog entry.
+
+		<aside>  
+
+		Defines content tangentially related to the content surrounding it, such as related reading links and glossaries, which may or not be nested within an article element.
+
+		<figcaption>  
+
+		Defines a caption for a <figure> element
+
+		<figure>  
+
+		Used in conjunction with the <figcaption> element to mark up diagrams, illustrations, photos, and code listings, etc.
+
+		<header>  
+
+		Not be confused with the <head> element, the <header> tag typically contains the section?s heading (an h1?h6 element), as well as other content, such as a navigation links, table of contents, a search form, or any relevant logos.
+
+		<footer>  
+
+		For content located at the very bottom of the web page or nearest section. A footer typically contains information about its section such as who wrote it, links to related documents, copyright data, etc. It in turn may contain entire sections, with appendices, indexes, license agreements, and other similar content.
+
+		<main>  
+
+		Delineates the main content of the body of a document or web app. As such, the main content area holds content that is directly related to or expands upon the central topic of the page. Moreover, it helps screen readers and other assistive technologies understand where the main page content begins.
+
+		<mark>  
+
+		Meant to bring the reader?s attention to a part of the text due to its contextual relevance.
+
+		<nav>  
+
+		Denotes a section with navigation links, either to other pages or to parts within the same page.
+
+		<section>  
+
+		Unlike the <div> tag, which is used for a myriad of purposes, not the least of which is formatting content, the <section> element demarcates a thematic grouping of content. Each section typically includes a heading element and associated content within DIVs and Paragraphs. Examples include introduction, blog entries, and contact information.
+
+		<details>  
+
+		Produces an expandable box to display additional information. The expanding/collapsing behaviour does not depend on scripting, so it should work even if JavaScript is disabled or not supported.
+
+		<summary>  
+
+		An optional element that summarizes the contents of the parent details element. As such, it may contain a description, caption, or legend.
+
+		<time>  
+
+		Contains both human-friendly contents, along with a machine-readable form of those contents in the datetime attribute. The kinds of content range from various kinds of dates, to times, time-zone offsets, and durations
+
+		Here's a good article on HTML5 semantics.
+
+		Text-level Elements
+		<bdi>  
+
+		Defines a part of text that might be formatted in a different direction from other text
+
+		<wbr>  
+
+		Defines a possible line-break in text that is written as one long word.
+
+		New Form Elements
+		HTML5 introduces a number of new input types, attributes, and other elements to the HTML language.
+
+		<datalist>  
+
+		Defines pre-defined options for input controls. It works in a similar way to an autocomplete textbox.
+
+		<keygen>  
+
+		Defines a key-pair generator field (for forms). When the control's form is submitted, the private key is stored in the local keystore, and the public key is packaged and sent to the server.
+
+		<output>  
+
+		Defines the result of a calculation
+
+		<progress>  
+
+		Presents a progress bar that tracks the progress of a task.
+
+		New Input Types
+		HTML5 introduced a number of new input types for forms to address specific behavioral and formatting requirements that were lacking for the HTML 4.01 spec. For instance, handling the inputting of dates, numbers, telephone numbers, etc.
+
+		*New Input Types
+			color
+			date
+			datetime
+			datetime-local
+			email
+			month
+			number
+			range
+			search
+			tel
+			time
+			url
+			week
+
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.3. New attributes
+		------------------------------------------------------------------------------------------------------------------------------------
+		HTML5 added the following attributes for <input>:
+
+		autocomplete - The autocomplete attribute helps users complete forms based on earlier input.
+		autofocus
+		form
+		formaction
+		formenctype
+		formmethod
+		formnovalidate
+		formtarget
+		height and width
+		list
+		min and max
+		multiple
+		pattern (regexp)
+		placeholder
+		required
+		step
+		
+		* attributes for <form>:
+			autocomplete
+			novalidate
+
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.4. Link relations
+		------------------------------------------------------------------------------------------------------------------------------------
+		They include:
+
+			<rel='alternate'>
+			may be used with link, a, and area elements
+			meaning depends on the values of the other attributes such as 'stylesheet' or 'type'
+			<rel='icon'>
+			may be used with link elements
+			specified resource is an icon representing the page or site
+			<rel='nofollow'>
+			may be used with a and area elements
+			the link is not endorsed by the original author or publisher of the page
+			<rel='prefetch'>
+			may be used with link elements
+			preemptively fetches and caches the specified resource
+			<rel='archives'>
+			may be used with link, a, and area elements
+			indicates that the referenced document describes a collection of records, documents, or other materials of historical interest.
+			<rel='external'>
+			may be used with a and area elements
+			indicates that the link is leading to a document that is not part of the current site
+			<rel='license'>
+			may be used with link, a, and area elements
+			the referenced document provides the copyright license terms
+			<rel='noreferrer'>
+			may be used with link, a, and area elements
+			user agent must not include a Referrer HTTP header  in the request
+			<rel='pingback'>
+			may be used with link elements
+			usage is still being defined, but it creates a hyperlink
+			<rel='sidebar'>
+			may be used with link, a, and area elements
+			the referenced document, if retrieved, is intended to be shown in a secondary browsing context (if possible). It isn’t clear if this means a new tab, a new window, or an iFrame.
+			<rel='tag'>
+			may be used with link, a, and area elements
+			the tag that the referenced document represents applies to the current document
+
+			eg. <link rel=icon href="favicon.ico">
+				<link rel=icon href="mac.icns" sizes="128x128 512x512 8192x8192 32768x32768">
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.5. Microdata
+		------------------------------------------------------------------------------------------------------------------------------------
+		Microdata is a standardized way to provide additional semantics in your web pages.
+
+		Microdata lets you define your own customized elements and start embedding custom properties in your web pages. At a high level, microdata consists of a group of name-value pairs.
+
+		The groups are called items, and each name-value pair is a property. Items and properties are represented by regular elements.
+
+		Example
+		To create an item, the itemscope attribute is used.
+
+		To add a property to an item, the itemprop attribute is used on one of the item's descendants.
+
+		Here there are two items, each of which has the property "name" −
+
+		 Live Demo
+		<html>
+		   <body>
+		      
+		      <div itemscope>
+		         <p>My name is <span itemprop = "name">Zara</span>.</p>
+		      </div>
+		      
+		      <div itemscope>
+		         <p>My name is <span itemprop = "name">Nuha</span>.</p>
+		      </div>
+		      
+		   </body>
+		</html>
+
+		1	
+		itemscope
+
+		This is used to create an item. The itemscope attribute is a Boolean attribute that tells that there is Microdata on this page, and this is where it starts.
+
+		2	
+		itemtype
+
+		This attribute is a valid URL which defines the item and provides the context for the properties.
+
+		3	
+		itemid
+
+		This attribute is global identifier for the item.
+
+		4	
+		itemprop
+
+		This attribute defines a property of the item.
+
+		5	
+		itemref
+
+		This attribute gives a list of additional elements to crawl to find the name-value pairs of the item.
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.6. ARIA accessibility
+		------------------------------------------------------------------------------------------------------------------------------------
+		WAI-ARIA is a spec defining support for accessible web apps. It defines bunch of markup extensions (mostly as attributes on HTML5 elements), which can be used by the web app developer to provide additional information about the semantics of the various elements to assistive technologies like screen readers. Of course, for ARIA to work, the HTTP user agent that interprets the markup needs to support ARIA, but the spec is created in such a way, as to allow down-level user agents to ignore the ARIA-specific markup safely without affecting the web app's functionality.
+
+		Here's an example from the ARIA spec:
+
+		<ul role="menubar">
+
+		  <!-- Rule 2A: "File" label via aria-labelledby -->
+		  <li role="menuitem" aria-haspopup="true" aria-labelledby="fileLabel"><span id="fileLabel">File</span>
+		    <ul role="menu">
+
+		      <!-- Rule 2C: "New" label via Namefrom:contents -->
+		      <li role="menuitem" aria-haspopup="false">New</li>
+		      <li role="menuitem" aria-haspopup="false">Open…</li>
+		      ...
+		    </ul>
+		  </li>
+		  ...
+		</ul>
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.7. Multimedia
+		------------------------------------------------------------------------------------------------------------------------------------
+		<video width="320" height="240" controls>
+			  <source src="movie.mp4" type="video/mp4">
+			  <source src="movie.ogg" type="video/ogg">
+			Your browser does not support the video tag.
+		</video>
+			MP4	video/mp4
+			WebM	video/webm
+			Ogg	video/ogg
+		<audio controls>
+			  <source src="horse.ogg" type="audio/ogg">
+			  <source src="horse.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		MP3	audio/mpeg
+		OGG	audio/ogg
+		WAV	audio/wav
+		------------------------------------------------------------------------------------------------------------------------------------
+		2.4.8. 2D and 3D drawing support (Canavas)
+		------------------------------------------------------------------------------------------------------------------------------------
+		https://www.w3schools.com/tags/ref_canvas.asp
+--------------------------------------------------------------------------------------------------------------------------------------------
+	2.5. HTML Forms
+--------------------------------------------------------------------------------------------------------------------------------------------
+		<form>
+		  First name:<br>
+		  <input type="text" name="firstname"><br>
+		  Last name:<br>
+		  <input type="text" name="lastname">
+		</form>
+
+		 global attributes
+			1. name = string
+			2. disabled = "disabled" or "" (empty string) or empty
+			3. form = ID reference NEW
+			4. type = "text"
+			5. maxlength = non-negative integer
+			6. readonly = "readonly" or "" (empty string) or empty
+			7. size = positive integer
+			8. value = string without line breaks
+			9. autocomplete = "on" or "off" NEW ---Specifies whether the element represents an input control for which a UA is meant to store 										 the value entered by the user (so that the UA can prefill the form later).
+			10.autofocus = "autofocus" or "" (empty string) or empty NEW
+			11.list = ID reference NEW
+			12.pattern = pattern NEW
+			13.required = "required" or "" (empty string) or empty NEW
+			14.plac1eholder = string without line breaks NEW
+			15.dirname = non-empty string NEW --Enabl1es submission of a value for the directionality of the element, and gives the 											name the field that contains that value.
+												Any string that is not empty.
+			ltr = left to right
+			rtl = right to left
+--------------------------------------------------------------------------------------------------------------------------------------------
+	2.6. HTML Controls
+		2.6.1. Input
+		2.6.2. Text Area
+		2.6.3. Radio Button
+		2.6.4. Check Box
+		2.6.5. Dropdown
+		2.6.6. List box
+		2.6.7. Submit button
+		2.6.8. Set button
+		2.6.9. Button
+---------------------------------------------------------------------------------------------------------------------------------------------
+		INPUT
+		type=button: 										link, menuitem, menuitemcheckbox, menuitemradio, radio, switch, tab
+		type=checkbox: 										button, menuitemcheckbox, option, switch
+		type=image:											link, menuitem, menuitemcheckbox, menuitemradio, radio, switch
+		type=radio: 										menuitemradio
+		type=color|date|datetime|datetime-local|email|file: None
+		type=hidden|month|number|password|range|reset:	    None
+		type=search|submit|tel|text|url|week:				None
+----------------------------------------------------------------------------------------------------------------------------------------------
+		TEXTAREA
+
+		<label for="story">Tell us your story:</label>
+		<textarea id="story" name="story" rows="5" cols="33">
+			It was a dark and stormy night...
+		</textarea>
+		autocapitalize 
+		autocomplete	 
+		autofocus	 	 	
+		cols	 	 	 	 	 	 	 	 	 	 	 	 	 
+		disabled	 	 	 	 	 	 	 	 	 	 	 	 	 
+		form	 	 	 	 	 	 	 	 	 	 	 	 	 
+		maxlength
+		minlength
+		name
+		placeholder
+		readonly
+		required
+		rows
+		spellcheck
+		wrap
+----------------------------------------------------------------------------------------------------------------------------------------------
+		RADIO BUTTON
+		<label>Radio buttons</label>            
+          <input type = "radio"
+                 name = "radSize"
+                 id = "sizeSmall"
+                 value = "small"
+                 checked = "checked" />
+----------------------------------------------------------------------------------------------------------------------------------------------
+		CHECKBOX
+		<input type="checkbox" name="vehicle3" value="Boat" checked> I have a boat<br>
+----------------------------------------------------------------------------------------------------------------------------------------------
+		DROPDOWN LIST BOX
+		<select>
+		  <option value="volvo">Volvo</option>
+		  <option value="saab">Saab</option>
+		  <option value="mercedes">Mercedes</option>
+		  <option value="audi">Audi</option>
+		</select>
+		autofocus	HTML5
+		disabled
+		form		HTML5
+		multiple
+		name
+		required	HTML5
+		size
+
+		<input list="browsers">
+
+		<datalist id="browsers">
+		  <option value="Internet Explorer">
+		  <option value="Firefox">
+		  <option value="Google Chrome">
+		  <option value="Opera">
+		  <option value="Safari">
+		</datalist>
+----------------------------------------------------------------------------------------------------------------------------------------------
+		SUBIMT BUTTON
+		<input type="submit" value="Send Request">
+----------------------------------------------------------------------------------------------------------------------------------------------
+		RSET BUTTON
+		<input type="reset" value="Reset">
+----------------------------------------------------------------------------------------------------------------------------------------------
+		BUTTON
+		<button class="favorite styled" type="button">
+  			  Add to favorites
+		</button>
+		autofocus     HTML5
+ 		autocomplete
+		disabled
+		form 		  HTML5
+		formaction 	  HTML5
+		formenctype   HTML5
+		formmethod    HTML5
+		formnovalidateHTML5
+		formtarget	  HTML5
+		name
+		type 
+		value
+----------------------------------------------------------------------------------------------------------------------------------------------
+	2.7. List and Tables (check 2.3.4. Tables and DropDown List)
+----------------------------------------------------------------------------------------------------------------------------------------------
+	2.8. Document Object Model (DOM)	
+----------------------------------------------------------------------------------------------------------------------------------------------
+		The HTML DOM is an Object Model for HTML. It defines:
+		HTML elements as objects
+		Properties for all HTML elements
+		Methods for all HTML elements
+		Events for all HTML elements
+
+		The HTML DOM is an API (Programming Interface) for JavaScript:
+		JavaScript can add/change/remove HTML elements
+		JavaScript can add/change/remove HTML attributes
+		JavaScript can add/change/remove CSS styles
+		JavaScript can react to HTML events
+		JavaScript can add/change/remove HTML events
+
+		The HTML DOM model is constructed as a tree of Objects:
+
+		Finding HTML Elements
+		When you want to access HTML elements with JavaScript, you have to find the elements first.
+
+		There are a couple of ways to do this:
+
+		Finding HTML elements by id                         - var x = document.getElementsByTagName("p");
+		Finding HTML elements by tag name 					- var y = x.getElementsByTagName("p");
+		Finding HTML elements by class name                 - var x = document.getElementsByClassName("intro");
+		Finding HTML elements by CSS selectors 				- var x = document.querySelectorAll("p.intro");
+		Finding HTML elements by HTML object collections    - <script>
+											document.getElementById("demo").innerHTML =	"Number of images: " + document.images.length;
+														   	  </script>
+----------------------------------------------------------------------------------------------------------------------------------------------
+	2.9. Elements
+----------------------------------------------------------------------------------------------------------------------------------------------
+		https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/91/03/metablogapi/5086.HTML5PageLayout_2.jpg
+
+		<article>
+		<aside>
+		<details>
+		<figcaption>
+		<figure>
+		<footer>
+		<header>
+		<main>
+		<mark>
+		<nav>
+		<section>
+		<summary>
+		<time>		
+----------------------------------------------------------------------------------------------------------------------------------------------
+	2.10.Events
+----------------------------------------------------------------------------------------------------------------------------------------------
+			Window Event Attributes
+			Window Events triggered for a window object and apply in <body> tag
+			Attributes			Description	In HTML5?
+			onafterprint		Script is run after the document is printed	
+			onbeforeprint		Script is run before the document is printed	
+			onbeforeunload		Script is run before the document is unloaded	
+			onerror				Script is run when any error occur	
+			onhaschange			Script is run when document has changed	
+			onload				Event fires after the page loading finished	 
+			onmessage			Script is run when document goes in offline	
+			onoffline			Script is run when document comes in online	
+			onpagehide			Script is run when document window is hidden	
+			onpageshow			Script is run when document window become visible	
+			onpopstate			Script is run when document window history changes	
+			onredo				Script is run when document perform redo	
+			onresize			Event fires when browser window is resized	
+			onstorage			Script is run when web storage area is updated	
+			onundo				Script is run when document performs undo	
+			onunload			Event fires when browser window has been closed	 
+
+			Form Events
+			Form Events triggered by perform some action inside HTML form elements.
+			Attributes			Description	In HTML5?
+			onblur				Event fire when element loses focus	 
+			onchange			Event fire when element value is changed	 
+			oncontextmenu		Event fire when context menu is triggered	
+			onfocus				Event fire when element gets focus	 
+			onformchange		Event fire when form changes	
+			onforminput			Event fire when form get input field	 
+			oninput				Event fire when element get input field	
+			oninvalid			Event fire when element is invalid	
+			onreset				Event fire when clicked on form reset button	REMOVE
+			onselect			Event fire after allow to select text in an element	 
+			onsubmit			Event fire when form is submitted	 
+
+
+			Keyboard Events
+			Attributes			Description	In HTML5?
+			onkeydown			Event fire when pressing a key	 
+			onkeypress			Event fire when press a key	 
+			onkeyup				Event fire when releases a key	 
+
+			Mouse Events
+			Mouse Events triggered by mouse action.
+			Attributes			Description	In HTML5?
+			onclick				Event fire when mouse click on element	 
+			ondblclick			Event fire when mouse double click on element	 
+			ondrag				Script is run when element is dragged	
+			ondragend			Script is run at end of drag operation	
+			ondragenter			Script is run when element has dragged to a valid drop target	
+			ondragleave			Script is run when element leaves valid drop target	
+			ondragover			Script is run when element is dragged over on valid drop target	
+			ondragstart			Script is run at start of drag operation	
+			ondrop				Script is run when dragged element is dropped	
+			onmousedown			Event fire when mouse button is pressed down on element	 
+			onmousemove			Event fire when mouse pointer moves over an element	 
+			onmouseout			Event fire when mouse pointer moves out an element	 
+			onmouseover			Event fire when mouse pointer moves over on element	 
+			onmouseup			Event fire when mouse button is released over an element	 
+			onmousewheel		Event fire when mouse wheel being rotated	
+			onscroll			Event fire when element scrollbar being scrolled	
+
+
+			Media Events
+			Media Events triggered by common media elements like <img>, <audio>, <embed>, <object>, and <video>.
+			Attributes			Description	In HTML5?
+			onabort				Script is run when element is abort	 
+			oncanplay			Script is run when file is ready for start playing	
+			oncanplaythrough	Script is run when file is played all way without pausing for buffering	
+			ondurationchange	Script is run when media length changes	
+			onemptied			Script is run when something unavailable/disconnects	
+			onended				Script is run when media has reach to end position	
+			onerror				Script is run when error occurs file loaded time	
+			onloadeddata		Script is run when media is loaded	
+			onloadedmetadata	Script is run when meta data are loaded	
+			onloadstart			Script is run when file being loaded	
+			onpause				Script is run when media is paused	
+			onplay				Script is run when media is ready to start playing	
+			onplaying			Script is run when media is actually start for playing	
+			onprogress			Script is run when browser is process of getting media data	
+			onratechange		Script is run when playback rate changes	
+			onreadystatechange	Script is run when ready state changes for each time	
+			onseeked			Script is run when seeking attribute value set to false, that indicate seeking has ended	
+			onseeking			Script is run when seeking attribute value set to true, that indicate seeking has active	
+			onstalled			Script is run when browser is unable to fetch media data for any reason	
+			onsuspend			Script is run when fetching media data is stopped before it is completely loaded for any reason	
+			ontimeupdate		Script is run when playing position has changed	
+			onvolumechange		Script is run each time volume is changed	
+			onwaiting			Script is run when media has paused(for buffer more data)	
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	2.11.HTML 5
+		2.11.1. Elements
+		2.11.2. Objects
+		2.11.3. Events
+		2.11.4. Canvas
+		2.11.5. HTML5 Validation
+		2.11.6. Audio & Video Support
+		2.11.7. Geo-location Support
+
+		ALL TOPICS ARE ABOVE
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	REGULAR EXPRESSION
+	https://www.geeksforgeeks.org/write-regular-expressions/
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	
