@@ -1,6 +1,16 @@
 4. 5. 6. PHP
 	4.1.  Introduction to PHP
+		  * The term PHP is an acronym for PHP: Hypertext Preprocessor. PHP is a server-side scripting language designed specifically for web development.
+		  
 	4.2.  Basic rule of PHP
+		  * PHP owns the top-level namespace but tries to find decent descriptive names and avoid any obvious clashes.
+
+		  * Function names use underscores between words, while class names use both the camelCase and PascalCase rules.
+
+          * PHP will prefix any global symbols of an extension with the name of the extension. (In the past, there have been numerous exceptions to this rule.)
+          * Iterators and Exceptions are however simply postfixed with "Iterator" and "Exception."
+          * PHP reserves all symbols starting with __ as magical. It is recommended that you do not create symbols starting with __ in PHP unless you want to use documented magical functionality.
+
 	4.3.  PHP in action
 	4.4.  Working with text, variable and numbers
 	4.5.  Making decisions and repeating yourself
