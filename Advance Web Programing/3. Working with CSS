@@ -1,0 +1,133 @@
+3. Working with CSS
+	i.   Introduction to CSS
+	ii.  Styling with CSS
+	iii. Structuring pages with CSS
+	iv.  Cascading style sheet
+	v.   Inline Styling (Inlin CSS)
+	vi.  External Syling(External CSS)
+	vii. CSS Fonts
+	viii.The CSS Box Model
+	ix.  The id Attribute
+	x.   The class Attribute
+	xi.  Linking a style to an HTML document
+	xii. Internal style sheet 
+	xiii.Multiple style
+
+----------------------------------------------------------------------------------------------------------------------------
+3. Working with CSS
+	i.   Introduction to CSS
+		What is CSS?
+			CSS stands for Cascading Style Sheets
+			CSS describes how HTML elements are to be displayed on screen, paper, or in other media
+			CSS saves a lot of work. It can control the layout of multiple web pages all at once
+			External stylesheets are stored in CSS files
+	ii.  Styling with CSS
+		//p is selector
+			p {
+				//property:value
+		  		 color: red;
+		 		 text-align: center;
+			  }
+
+	iii. Structuring pages with CSS
+		//check image "css structure"
+
+	iv.  Cascading style sheet
+		 WHAT IS CSS?Cascading Style Sheets (CSS) is a simple mechanism for adding style (e.g., fonts, colors, spacing) to Web documents.
+		 Extention of CSS file ".css"
+
+	v.   v.i.  Inline Styling (Inlin CSS)
+		
+				<h1 style="color:blue;margin-left:30px;">This is a heading</h1>
+
+		 v.ii. Internal Styling (Inlin CSS)
+
+		 <head>
+			<style>
+				body {background-color: powderblue;}
+				h1   {color: blue;}
+				p    {color: red;}
+			</style>
+			</head>
+		<body>
+
+			<h1>This is a heading</h1>
+			<p>This is a paragraph.</p>
+
+
+	vi.  External Syling(External CSS)
+			<head>
+				<link rel="stylesheet" type="text/css" href="mystyle.css">
+			</head>
+	vii. CSS Fonts
+			* The CSS font properties define the font family, boldness, size, and the style of a text.
+			font-family: "Times New Roman", Times, serif;
+			font-style: normal;italic;oblique
+			font-size: 40px; /* 40px/16=2.5em */ 100%; 10vw;
+			font-weight: normal;bold
+			font-variant: normal;;small-caps;
+			* viewport is the browser window size. 1vw = 1% of viewport width. If the viewport is 50cm wide, 1vw is 0.5cm.
+
+	viii.The CSS Box Model
+		 //check image
+
+	ix.  The id Attribute
+		* The id attribute specifies a unique id for an HTML element (the value must be unique within the HTML document).
+		* The id value can be used by CSS and JavaScript to perform certain tasks for a unique element with the specified id value.
+		* In CSS, to select an element with a specific id, write a hash (#) character, followed by the id of the element:
+		<style>
+			#myHeader {
+			  background-color: lightblue;
+			  color: black;
+			  padding: 40px;
+			  text-align: center;
+			} 
+		</style>
+
+		<h1 id="myHeader">My Header</h1>
+
+	x.   The class Attribute
+		* The HTML class attribute is used to define equal styles for elements with the same class name.
+		* So, all HTML elements with the same class attribute will have the same format and style.
+		* Here we have three <div> elements that point to the same class name:
+		<style>
+			.cities {
+			  background-color: black;
+			  color: white;
+			  margin: 20px;
+			  padding: 20px;
+			} 
+		</style>
+		</head>
+		<body>
+			<div class="cities">
+			  <h2>London</h2>
+			  <p>London is the capital of England.</p>
+			</div>
+
+			<div class="cities">
+			  <h2>Paris</h2>
+			  <p>Paris is the capital of France.</p>
+			</div>
+
+	xi.  Linking a style to an HTML document
+		<head>
+			<link rel="stylesheet" type="text/css" href="mystyle.css">
+		</head>
+	xii. Internal style sheet
+		<style>
+			body {
+			  background-color: linen;
+			}
+
+			h1 {
+			  color: maroon;
+			  margin-left: 40px;
+			} 
+		</style> 
+	xiii.Multiple style
+	<LINK REL=StyleSheet HREF="style.css" TYPE="text/css" MEDIA=screen>
+	<LINK REL=StyleSheet HREF="color-8b.css" TYPE="text/css" TITLE="8-bit Color Style" MEDIA="screen, print">
+	<LINK REL="Alternate StyleSheet" HREF="color-24b.css" TYPE="text/css" TITLE="24-bit Color Style" MEDIA="screen, print">
+	<LINK REL=StyleSheet HREF="aural.css" TYPE="text/css" MEDIA=aural>
+----------------------------------------------------------------------------------------------------------------------------
