@@ -44,3 +44,396 @@
 	10.13.Cross-Site Scripting(XSS)
 	10.14.Angular Java script Services for Ajax and Promises
 	10.15.Security Standars(OWASP)
+
+
+8.1.  Introduction to XML
+		  What is XML?
+			The Extensible Markup Language (XML) is a simple text-based format for representing structured information: documents, data, configuration, books, transactions, invoices, and much more. It was derived from an older standard format called SGML (ISO 8879), in order to be more suitable for Web use.
+
+		  What is XML Used For?
+			XML is one of the most widely-used formats for sharing structured information today: between programs, between people, between computers and people, both locally and across networks.
+	8.2.  Revision of HTML and Client Server Architecture
+			Check Client-Server image
+	8.3.  Reason for XML
+			ML can be used to describe and identify information accurately and unambiguously, in a way that computers can be programmed to ‘understand’ your information (well, at least manipulate as if they could understand it).
+
+			XML allows sets of documents which are all the same type to be created and handled consistently and without structural errors, because it provides a standardised way of describing, controlling, or allowing/disallowing particular types of document structure. 
+			XML provides a robust and durable format for information storage and transmission. Robust because it is based on a proven standard, and can thus be tested and verified; durable (persistent) because it uses plain-text file formats which will outlast proprietary binary ones.
+			If everyone uses the same syntax it makes writing these systems much faster and more reliable.
+			XML information can be manipulated programmatically (under machine control), so XML documents can be pieced together from disparate sources, or taken apart and re-used in different ways. They can be converted into any other format with no loss of information.
+	8.4.  XML and the browser
+			<?xml version="1.0" encoding="UTF-8"?>
+			<note>
+			<to>Tove</to>
+			<from>Jani</from>
+			<heading>Reminder</heading>
+			<body>Don't forget me this weekend!</body>
+			</note>
+	8.5.  XML Validation
+			An XML document with correct syntax is called "Well Formed".
+
+			The syntax rules were described in the previous chapters:
+
+			XML documents must have a root element
+			XML elements must have a closing tag
+			XML tags are case sensitive
+			XML elements must be properly nested
+			XML attribute values must be quoted
+	8.6.  XML as the mode of data transfer
+			Typical use cases could be passing data in XML format during some REST API call’s though JSON is quickly catching on this front. SOAP used XML
+			SOAP is an acronym for Simple Object Access Protocol. It is an XML-based messaging protocol for exchanging information among computers. SOAP is an application of the XML specification.
+			AJAX call.
+	8.7.  XML Parser
+			All major browsers have a built-in XML parser to access and manipulate XML.
+			XML Parser
+			The XML DOM (Document Object Model) defines the properties and methods for accessing and editing XML.
+			However, before an XML document can be accessed, it must be loaded into an XML DOM object.
+			All modern browsers have a built-in XML parser that can convert text into an XML DOM object.
+
+			Types of XML Parsers
+			These are the two main types of XML Parsers:
+
+			DOM
+			SAX
+			DOM (Document Object Model)
+			A DOM document is an object which contains all the information of an XML document. It is composed like a tree structure. The DOM Parser implements a DOM API. This API is very simple to use.
+
+			Features of DOM Parser
+			A DOM Parser creates an internal structure in memory which is a DOM document object and the client applications get information of the original XML document by invoking methods on this document object.
+
+			DOM Parser has a tree based structure.
+
+			Advantages
+			1) It supports both read and write operations and the API is very simple to use.
+
+			2) It is preferred when random access to widely separated parts of a document is required.
+
+			Disadvantages
+			1) It is memory inefficient. (consumes more memory because the whole XML document needs to loaded into memory).
+
+			2) It is comparatively slower than other parsers.
+
+			SAX (Simple API for XML)
+			A SAX Parser implements SAX API. This API is an event based API and less intuitive.
+
+			Features of SAX Parser
+			It does not create any internal structure.
+
+			Clients does not know what methods to call, they just overrides the methods of the API and place his own code inside method.
+
+			It is an event based parser, it works like an event handler in Java.
+
+			Advantages
+			1) It is simple and memory efficient.
+
+			2) It is very fast and works for huge documents.
+
+			Disadvantages
+			1) It is event-based so its API is less intuitive.
+
+			2) Clients never know the full information because the data is broken into pieces.
+	8.8.  XML SAX Parser (see above discription)
+	8.9.  A basic XML Document
+			<?xml version="1.0" encoding="UTF-8"?>
+			<note>
+			  <to>Tove</to>
+			  <from>Jani</from>
+			  <heading>Reminder</heading>
+			  <body>Don't forget me this weekend!</body>
+			</note>
+	8.10. Parts of the XML Document
+			//check image 
+	8.11. XML Schema
+			What is an XML Schema?
+			An XML Schema describes the structure of an XML document.
+			The XML Schema language is also referred to as XML Schema Definition (XSD).
+			
+			The purpose of an XML Schema is to define the legal building blocks of an XML document:
+			the elements and attributes that can appear in a document
+			the number of (and order of) child elements
+			data types for elements and attributes
+			default and fixed values for elements and attributes
+
+			Why Learn XML Schema?
+			In the XML world, hundreds of standardized XML formats are in daily use.
+			Many of these XML standards are defined by XML Schemas.
+			XML Schema is an XML-based (and more powerful) alternative to DTD.
+
+			XML Schemas Support Data Types
+			One of the greatest strength of XML Schemas is the support for data types.
+
+			It is easier to describe allowable document content
+			It is easier to validate the correctness of data
+			It is easier to define data facets (restrictions on data)
+			It is easier to define data patterns (data formats)
+			It is easier to convert data between different data types
+			
+			XML Schemas use XML Syntax
+			Another great strength about XML Schemas is that they are written in XML.
+			You don't have to learn a new language
+			You can use your XML editor to edit your Schema files
+			You can use your XML parser to parse your Schema files
+			You can manipulate your Schema with the XML DOM
+			You can transform your Schema with XSLT
+			XML Schemas are extensible, because they are written in XML.
+
+			With an extensible Schema definition you can:
+			Reuse your Schema in other Schemas
+			Create your own data types derived from the standard types
+			Reference multiple schemas in the same document
+
+			XML Schemas Secure Data Communication
+			When sending data from a sender to a receiver, it is essential that both parts have the same "expectations" about the content.
+			With XML Schemas, the sender can describe the data in a way that the receiver will understand.
+			A date like: "03-11-2004" will, in some countries, be interpreted as 3.November and in other countries as 11.March.
+			However, an XML element with a data type like this:
+			<date type="date">2004-03-11</date>
+			ensures a mutual understanding of the content, because the XML data type "date" requires the format "YYYY-MM-DD".
+
+			Well-Formed is Not Enough
+			A well-formed XML document is a document that conforms to the XML syntax rules, like:
+
+			it must begin with the XML declaration
+			it must have one unique root element
+			start-tags must have matching end-tags
+			elements are case sensitive
+			all elements must be closed
+			all elements must be properly nested
+			all attribute values must be quoted
+			entities must be used for special characters
+			Even if documents are well-formed they can still contain errors, and those errors can have serious consequences.
+
+			Think of the following situation: you order 5 gross of laser printers, instead of 5 laser printers. With XML Schemas, most of these errors can be caught by your validating software.
+	8.12. Namespaces
+			<root>
+
+			<h:table xmlns:h="http://www.w3.org/TR/html4/">
+			  <h:tr>
+			    <h:td>Apples</h:td>
+			    <h:td>Bananas</h:td>
+			  </h:tr>
+			</h:table>
+
+			<f:table xmlns:f="https://www.w3schools.com/furniture">
+			  <f:name>African Coffee Table</f:name>
+			  <f:width>80</f:width>
+			  <f:length>120</f:length>
+			</f:table>
+
+			</root>
+	8.13. The Root Element
+			XML documents must contain one root element that is the parent of all other elements:
+
+	8.14. Tags and Elements (DTD)
+	An element can contain:
+			text
+			attributes
+			other elements
+			or a mix of the above
+
+			<bookstore>
+			  <book category="children">   //category is attribute
+			    <title>Harry Potter</title>
+			    <author>J K. Rowling</author>
+			    <year>2005</year>
+			    <price>29.99</price>
+			  </book>
+			  <book category="web">
+			    <title>Learning XML</title>
+			    <author>Erik T. Ray</author>
+			    <year>2003</year>
+			    <price>39.95</price>
+			  </book>
+			</bookstore>
+	8.15. Attributes and Values
+			 <book category="children">  
+	8.16. CDATA and PCDATA
+			PCDATA - Parsed Character Data
+			XML parsers normally parse all the text in an XML document.
+
+			CDATA - (Unparsed) Character Data
+			The term CDATA is used about text data that should not be parsed by the XML parser.
+			Characters like "<" and "&" are illegal in XML elements.
+	8.17. XML Tree Structure
+	8.18. XML style language
+			XSL - More Than a Style Sheet Language
+			XSL consists of four parts:
+
+			XSLT - a language for transforming XML documents
+			XPath - a language for navigating in XML documents
+			XSL-FO - a language for formatting XML documents (discontinued in 2013)
+			XQuery - a language for querying XML documents
+
+
+	9.1.  XML DTD
+			What is DTD
+				DTD stands for Document Type Definition. It defines the legal building blocks of an XML document. It is used to define document structure with a list of legal elements and attributes.
+
+			Purpose of DTD
+				Its main purpose is to define the structure of an XML document. It contains a list of legal elements and define the structure with the help of them.
+	9.2.  Creating Document Type Declarations
+			Let's create the DTD file.
+			<!ELEMENT employee (firstname,lastname,email)>  
+			<!ELEMENT firstname (#PCDATA)>  
+			<!ELEMENT lastname (#PCDATA)>  
+			<!ELEMENT email (#PCDATA)>  
+
+	9.3.  Creating Document Type Definition
+			Let's create the DTD file. employee.dtd (external dta eg.)
+			<!ELEMENT employee (firstname,lastname,email)>  
+			<!ELEMENT firstname (#PCDATA)>  
+			<!ELEMENT lastname (#PCDATA)>  
+			<!ELEMENT email (#PCDATA)>  
+
+
+			<?xml version="1.0"?>  
+			<?xml-stylesheet type="text/css" href="cssemployee.css"?>  
+			<!DOCTYPE employee SYSTEM "employee.dtd">  
+			<employee>  
+			  <firstname>vimal</firstname>  
+			  <lastname>jaiswal</lastname>  
+			  <email>vimal@javatpoint.com</email>  
+			</employee> 
+	9.4.  Internal and External DTD`s
+
+			<?xml version = "1.0" encoding = "UTF-8" standalone = "yes" ?>
+
+			<!DOCTYPE address [
+			   <!ELEMENT address (name,company,phone)>
+			   <!ELEMENT name (#PCDATA)>
+			   <!ELEMENT company (#PCDATA)>
+			   <!ELEMENT phone (#PCDATA)>
+			]>
+
+			<address>
+			   <name>Tanmay Patil</name>
+			   <company>TutorialsPoint</company>
+			   <phone>(011) 123-4567</phone>
+			</address>
+	9.5.  Associationg DTD`s with XML documents. (The XML Declaration and DOCTYPE declaration)
+	9.6.  Validating documents against a DTD
+			How to associate an XML Document with a DTD
+			To validate an XML Document against a DTD (Document Type Declaration), you need to associate your XML Document with the DTD: Click Schema > Associate XML Document with DTD, Relax NG Schema, or XML Schema..., and select a DTD. You can also do this yourself, for example:
+			<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+			</html>
+			This tells XMLBlueprint to validate the XML Document against DTD "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd". The 'PUBLIC' part is optional, this is also possible:
+			<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html SYSTEM "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+			<html xmlns="http://www.w3.org/1999/xhtml">
+			</html>
+	9.7.  Internal and External General Entities
+			INTERNAL (PARSED)
+			EXTERNAL (PARSED)
+			EXTERNAL (UNPARSED)
+
+			INTERNAL (PARSED) GENERAL ENTITY Declaration:
+			Internal parsed entities generally reference text. The correct definition is that they refer to data that an XML processor has to parse.
+			<!ENTITY name "entity_value">
+			where:
+			entity value: any character that is not an '&', '%' or ' " ', a parameter entity reference ('%Name;'), an entity reference ('&Name;') or a Unicodeglossary character reference.
+
+			<?xml version="1.0" standalone="yes" ?>
+			<!DOCTYPE author [
+			  <!ELEMENT author (#PCDATA)>
+			  <!ENTITY js "Jo Smith">
+			]>
+			<author>&js;</author>
+
+			EXTERNAL (PARSED) GENERAL ENTITY Declaration:
+			External parsed entities generally reference text. The correct definition is that they refer to data that an XML processor has to parse. External entities are useful for creating a common reference that can be shared between multiple documents. Any changes that are made to external entities are automatically updated in the documents they are referenced. There are two types of external entities: private, and public. Private external entities are identified by the keyword SYSTEM, and are intended for use by a single author or group of authors. Public external entities are identified by the keyword PUBLIC and are intended for broad use.
+			<!ENTITY name SYSTEM "URI">
+			<!ENTITY name PUBLIC "public_ID" "URI">
+			where:
+			URI: In practice, this is a URL where the external parsed entity can be found.
+			public_ID: This may be used by an XML processor to generate an alternate URI where the external parsed entity can be found. If it cannot be found at this URI, the XML processor must use the normal URI.
+
+			<?xml version="1.0" standalone="no" ?>
+			<!DOCTYPE copyright [
+			  <!ELEMENT copyright (#PCDATA)>
+			  <!ENTITY c SYSTEM "http://www.xmlwriter.net/copyright.xml">
+			]>
+			<copyright>&c;</copyright>
+
+			EXTERNAL (UNPARSED) GENERAL ENTITY Declaration:
+
+			External unparsed entities generally reference non-XML data. The 100% correct definition is that they refer to data that an XML processor does not have to parse.
+			<!ENTITY name SYSTEM "URI" NDATA name>
+			<!ENTITY name PUBLIC "public_ID" "URI" NDATA name>
+			<?xml version="1.0" standalone="no" ?>
+			<!DOCTYPE img [
+			  <!ELEMENT img EMPTY>
+			  <!ATTLIST img src ENTITY #REQUIRED> 
+			  <!ENTITY logo SYSTEM "http://www.xmlwriter.net/logo.gif" NDATA gif>
+			  <!NOTATION gif PUBLIC "gif viewer">
+			]>
+			<img src="logo"/>
+	9.8.  Element Type(ELEMENT) Declarations
+			ELEMENT Type Declaration
+			Element type declarations set the rules for the type and number of elements that may appear in an XML document, what elements may appear inside each other, and what order they must appear in.
+
+			<!ELEMENT name allowable_contents>
+			Example:
+			<!ELEMENT foo (#PCDATA)>
+			<!ELEMENT img EMPTY>
+			Rules:
+			All element typesglossary used in an XML document must be declared in the Document Type Definition (DTD) using an Element Type Declarationvalidity constraint.
+			An element type cannot be declared more than oncevalidity constraint.
+			The name in the element type's end tagglossary must match the name in the element type's start tagglossarywell-formedness constraint. Element names are case sensitive.
+			The keyword ELEMENT must be in upper casewell-formedness constraint.
+
+	9.9.  Attribute (ATTLIST) Declarations
+			Declaring Attributes
+			An attribute declaration has the following syntax:
+
+			<!ATTLIST element-name attribute-name attribute-type attribute-value>
+
+			DTD example:
+
+			<!ATTLIST payment type CDATA "check">
+
+			XML example:
+
+			<payment type="check" />
+			The attribute-type can be one of the following:
+
+			Type	Description
+			CDATA	The value is character data
+			(en1|en2|..)	The value must be one from an enumerated list
+			ID	The value is a unique id
+			IDREF	The value is the id of another element
+			IDREFS	The value is a list of other ids
+			NMTOKEN	The value is a valid XML name
+			NMTOKENS	The value is a list of valid XML names
+			ENTITY	The value is an entity
+			ENTITIES	The value is a list of entities
+			NOTATION	The value is a name of a notation
+			xml:	The value is a predefined xml value
+			The attribute-value can be one of the following:
+
+			Value	Explanation
+			value	The default value of the attribute
+			#REQUIRED	The attribute is required
+			#IMPLIED	The attribute is optional
+			#FIXED value	The attribute value is fixed
+	9.10. Using INCLUDE AND IGNORE
+			INCLUDE
+			<?xml-stylesheet type="text/css" href="cssemployee.css"?>
+
+			IGNORE
+	10.1. W3C DOM and Data Binging
+	10.2. Introduction to DOM
+	10.3. The DOM Document Object and its properties
+	10.4. Getting Elements by name
+	10.5. Editing Events on client side
+	10.6. Handling Events on client side
+	10.7. Data Binding in Internet browser
+	10.8. Using Data Source Objects (MSHTML, TDC, XML DSO, DATA Islands)
+	10.9. XML and XSLT
+	10.10.RSS Feed
+	10.11.Introduction to Web security
+	10.12.SQL Injection
+	10.13.Cross-Site Scripting(XSS)
+	10.14.Angular Java script Services for Ajax and Promises
+	10.15.Security Standars(OWASP)
