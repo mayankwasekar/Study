@@ -1,0 +1,40 @@
+10. Node and Angular
+	10.1.  Introduction to Node.js
+	10.2.  Node modules
+	10.3.  Selectors
+	10.4.  Syntax
+	10.5.  Developing node.js web application
+	10.6.  Event-driven I/O server-side JavaScript
+
+	11.	   Express
+	11.1.  Introduction to Express
+	11.2.  First Express Application
+	11.3.  Application, Request and Responce Objects
+	11.4.  Implementing MVC Pattern
+	11.5.  Express application configuration
+	11.6.  Rendering Views
+
+	12.	   Angular
+	12.1.  Introduction
+	12.2.  Angular 2 Architecture
+	12.3.  Language Choices
+	12.4.  Introduction to Components
+	12.5.  Templates, Interpolation and Directives
+	12.6.  Data Bindings and Pipes
+	12.7.  Building Nested Components
+	12.8.  Services and Dependency Injection
+	12.9.  Retrieving Data Using HTTP
+	12.10. Navigation and Routing Basics
+	12.11. Angular Modules
+
+	14.1.  Introduction to Testing web Application
+	14.2.  JavaScript Application Testing
+	14.3.  Testing Express Application
+	14.4.  Testing AngularJS Application
+	14.5.  Testing based on
+		14.5.1.  Functionality Testing
+		14.5.2.  Performance Testing
+		14.5.3.  Usability Testing
+		14.5.4.  Server Side Interface
+		14.5.5.  Client Side Compatibility
+		14.5.6.  Security

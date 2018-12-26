@@ -1,0 +1,15 @@
+7. JQuery
+	7.1  Introduction to jQuery
+	7.2. Basics of jQuery coding
+	7.3. Selecting the elements
+	7.4. Bringing pages to life with jQuery
+
+	8.1. Energizing pages with animations and effects
+	8.2. jQuery Effects
+	8.3. jQuery traversal and manupulation
+	8.4. Data attributes and templets
+	8.5. DOM with jQuery utility functions
+	8.6. jQuery Plugins
+	8.7. jQuery / Google Web Toolkit
+
+	

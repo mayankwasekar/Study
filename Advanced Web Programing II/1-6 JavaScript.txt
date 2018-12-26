@@ -1,0 +1,604 @@
+1. Introduction to JavaScript
+	1.1. Introduction to JavaScript
+	1.2. Advantage of using Java Script on client side over VB Script
+	1.3. Variables in Java Script
+	1.4. Statements
+	1.5. Operators
+	1.6. Comments
+	1.7. Constructs
+	1.8. Functions
+	1.9. Expressions
+	1.10.JavaScript Console
+	1.11.Scope
+	1.12.Events
+	1.13.Strings, Sting Methods
+	1.14.Numbers, Number Methods
+	1.15.Dates, Date Formats, Date Methods
+	1.16.Arrays, Array Methods
+
+	2.1. Booleans
+	2.2. Comparisons
+	2.3. Control Structures
+	2.4. Conditions
+	2.5. Switch
+	2.6. Loop For
+	2.7. Loop While
+	2.8. Break
+	2.9. Functions,Function Definitions,Function Parameters,Function Invocation, Function Closures
+
+	3.1. Objects,Object Definitions,Object Properties,Object Methods,Object Prototypes
+	3.2. Object Oriented Programing
+		3.2.1.  Method
+		3.2.2.  Constructor
+		3.2.3.  Inheritance
+		3.2.4.  Encapsulation
+		3.2.5.  Abstraction
+		3.2.6.  Polymorphism
+
+	4.1. JavaScript Validations
+	4.2. Document Object Model, Document and Events(DOM Manipulation)
+	4.3. HTML DOM
+	4.4. DOM Intro
+	4.5. DOM Methods
+	4.6. DOM Document
+	4.7. DOM Elements
+	4.8. DOM HTML
+	4.9. DOM CSS
+	4.10.DOM Animations
+	4.11.DOM Events
+	4.12.DOM EventListener
+	4.13.DOM Navigation
+	4.14.DOM Nodes
+	4.15.DOM Nodelist
+	4.16.Object hierarchy in Java Script
+
+	5.1. Debugging
+	5.2. Type Conversion, Regular Expression
+	5.3. Errors, Debugging
+	5.4. Forms
+		5.4.1. Forms Validation
+		5.4.2. Forms API
+	
+	6.1. JS Browser BOM, Window, Screen, Location, History, Navigator, Popup alert, Timing, Cookies
+	6.2. JavaScript Windows
+	6.3. Pushing code quality via JSLint Tool
+	6.4. Security in Java Script
+
+	1.1. Introduction to JavaScript
+		JavaScript is what is called a Client-side Scripting Language. 
+		JavaScript can update and change both HTML and CSS
+		JavaScript can calculate, manipulate and validate data
+		script is interpreted
+
+	1.2. Advantage of using Java Script on client side over VB Script
+
+	1.3. Variables in Java Script
+			Numbers
+			Strings
+			Objects	- Objects are variables too. But objects can contain many values.
+					  var car = {type:"Fiat", model:"500", color:"white"};
+			Arrays	- JavaScript arrays are used to store multiple values in a single variable.
+					  var cars = ["Saab", "Volvo", "BMW"];
+			Functions	- function myFunction(p1, p2) {
+						    return p1 * p2;              // The function returns the product of p1 and p2
+						}
+	1.4. Statements
+			var x, y, z;    // Statement 1
+			x = 5;          // Statement 2
+			y = 6;          // Statement 3
+			z = x + y;      // Statement 4
+	1.5. Operators
+			var a = 5, b = 10, c = "5";
+			var x = a;
+			a == c; // returns true
+			a === c; // returns false
+			a == x; // returns true
+	1.6. Comments
+	1.7. Constructs
+			<p id="demo"></p>
+
+			<script>
+			// Constructor function for Person objects
+			function Person(first, last, age, eye) {
+			  this.firstName = first;
+			  this.lastName = last;
+			  this.age = age;
+			  this.eyeColor = eye;
+			}
+
+			// Create a Person object
+			var myFather = new Person("John", "Doe", 50, "blue");
+
+			// Display age
+			document.getElementById("demo").innerHTML =
+			"My father is " + myFather.age + "."; 
+
+	1.8. Functions
+	1.9. Expressions
+			The expression x = 7 is an example of the first type. 
+	1.10.JavaScript Console
+			JavaScript can "display" data in different ways:
+
+			Writing into an HTML element, using innerHTML.
+			Writing into the HTML output using document.write().
+			Writing into an alert box, using window.alert().
+			Writing into the browser console, using console.log().
+	1.11.Scope
+			In JavaScript there are two types of scope:
+
+			Local scope
+			Global scope
+	1.12.Events
+			Common HTML Events
+			Here is a list of some common HTML events:
+			Event			Description
+			onchange		An HTML element has been changed
+			onclick	The 	user clicks an HTML element
+			onmouseover		The user moves the mouse over an HTML element
+			onmouseout		The user moves the mouse away from an HTML element
+			onkeydown		The user pushes a keyboard key
+			onload			The browser has finished loading the page
+
+			<button onclick="this.innerHTML = Date()">The time is?</button>
+	1.13.Strings, String Methods
+			String Properties
+			Property				Description
+			constructor				Returns the string's constructor function
+			length					Returns the length of a string
+			prototype				Allows you to add properties and methods to an object
+			String Methods
+			Method	Description
+			charAt()				Returns the character at the specified index (position)
+			charCodeAt()			Returns the Unicode of the character at the specified index
+			concat()				Joins two or more strings, and returns a new joined strings
+			endsWith()				Checks whether a string ends with specified string/characters
+			fromCharCode()			Converts Unicode values to characters
+			includes()				Checks whether a string contains the specified string/characters
+			indexOf()				Returns the position of the first found occurrence of a specified value in a string
+			lastIndexOf()			Returns the position of the last found occurrence of a specified value in a string
+			localeCompare()			Compares two strings in the current locale
+			match()					Searches a string for a match against a regular expression, and returns the matches
+			repeat()				Returns a new string with a specified number of copies of an existing string
+			replace()				Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced
+			search()				Searches a string for a specified value, or regular expression, and returns the position of the match
+			slice()					Extracts a part of a string and returns a new string
+			split()					Splits a string into an array of substrings
+			startsWith()			Checks whether a string begins with specified characters
+			substr()				Extracts the characters from a string, beginning at a specified start position, and through the specified number of character
+			substring()				Extracts the characters from a string, between two specified indices
+			toLocaleLowerCase()		Converts a string to lowercase letters, according to the host's locale
+			toLocaleUpperCase()		Converts a string to uppercase letters, according to the host's locale
+			toLowerCase()			Converts a string to lowercase letters
+			toString()				Returns the value of a String object
+			toUpperCase()			Converts a string to uppercase letters
+			trim()					Removes whitespace from both ends of a string
+			valueOf()				Returns the primitive value of a String object
+	1.14.Numbers, Number Methods
+			Global JavaScript Methods
+			JavaScript global methods can be used on all JavaScript data types.
+			These are the most relevant methods, when working with numbers:
+			Method					Description
+			Number()				Returns a number, converted from its argument.
+			parseFloat()			Parses its argument and returns a floating point number
+			parseInt()				Parses its argument and returns an integer
+	1.15.Dates, Date Formats, Date Methods
+			Method				Description
+			getFullYear()		Get the year as a four digit number (yyyy)
+			getMonth()			Get the month as a number (0-11)
+			getDate()			Get the day as a number (1-31)
+			getHours()			Get the hour (0-23)
+			getMinutes()		Get the minute (0-59)
+			getSeconds()		Get the second (0-59)
+			getMilliseconds()	Get the millisecond (0-999)
+			getTime()			Get the time (milliseconds since January 1, 1970)
+			getDay()			Get the weekday as a number (0-6)
+			Date.now()			Get the time. ECMAScript 5.
+			Methods
+			Date.UTC()
+			Date.now()
+			Date.parse()
+			Date.prototype.getDate()
+			Date.prototype.getDay()
+			Date.prototype.getFullYear()
+			Date.prototype.getHours()
+			Date.prototype.getMilliseconds()
+			Date.prototype.getMinutes()
+			Date.prototype.getMonth()
+			Date.prototype.getSeconds()
+			Date.prototype.getTime()
+			Date.prototype.getTimezoneOffset()
+			Date.prototype.getUTCDate()
+			Date.prototype.getUTCDay()
+			Date.prototype.getUTCFullYear()
+			Date.prototype.getUTCHours()
+			Date.prototype.getUTCMilliseconds()
+			Date.prototype.getUTCMinutes()
+			Date.prototype.getUTCMonth()
+			Date.prototype.getUTCSeconds()
+			Date.prototype.getYear()
+			Date.prototype.setDate()
+			Date.prototype.setFullYear()
+			Date.prototype.setHours()
+			Date.prototype.setMilliseconds()
+			Date.prototype.setMinutes()
+			Date.prototype.setMonth()
+			Date.prototype.setSeconds()
+			Date.prototype.setTime()
+			Date.prototype.setUTCDate()
+			Date.prototype.setUTCFullYear()
+			Date.prototype.setUTCHours()
+			Date.prototype.setUTCMilliseconds()
+			Date.prototype.setUTCMinutes()
+			Date.prototype.setUTCMonth()
+			Date.prototype.setUTCSeconds()
+			Date.prototype.setYear()
+			Date.prototype.toDateString()
+			Date.prototype.toGMTString()
+			Date.prototype.toISOString()
+			Date.prototype.toJSON()
+			Date.prototype.toLocaleDateString()
+			Date.prototype.toLocaleFormat()
+			Date.prototype.toLocaleString()
+			Date.prototype.toLocaleTimeString()
+			Date.prototype.toSource()
+			Date.prototype.toString()
+			Date.prototype.toTimeString()
+			Date.prototype.toUTCString()
+			Date.prototype.valueOf()
+			Date.prototype[@@toPrimitive]
+	1.16.Arrays, Array Methods
+			var fruits = ['Apple', 'Banana'];
+
+			console.log(fruits.length);
+			// 2
+
+			Properties
+			Array.length
+			Array.prototype
+			Array.prototype[@@unscopables]
+			Methods
+			Array.from()
+			Array.isArray()
+			Array.observe()
+			Array.of()
+			Array.prototype.concat()
+			Array.prototype.copyWithin()
+			Array.prototype.entries()
+			Array.prototype.every()
+			Array.prototype.fill()
+			Array.prototype.filter()
+			Array.prototype.find()
+			Array.prototype.findIndex()
+			Array.prototype.flat()
+			Array.prototype.flatMap()
+			Array.prototype.forEach()
+			Array.prototype.includes()
+			Array.prototype.indexOf()
+			Array.prototype.join()
+			Array.prototype.keys()
+			Array.prototype.lastIndexOf()
+			Array.prototype.map()
+			Array.prototype.pop()
+			Array.prototype.push()
+			Array.prototype.reduce()
+			Array.prototype.reduceRight()
+			Array.prototype.reverse()
+			Array.prototype.shift()
+			Array.prototype.slice()
+			Array.prototype.some()
+			Array.prototype.sort()
+			Array.prototype.splice()
+			Array.prototype.toLocaleString()
+			Array.prototype.toSource()
+			Array.prototype.toString()
+			Array.prototype.unshift()
+			Array.prototype.values()
+			Array.prototype[@@iterator]()
+			Array.unobserve()
+			get Array[@@species]
+
+	2.1. Booleans
+			var x = Boolean(expression);     // preferred
+			var x = new Boolean(expression); // don't use
+	2.2. Comparisons
+			console.log(1 == 1);
+			// expected output: true
+
+			console.log("1" == 1);
+			// expected output: true
+
+			console.log(1 === 1);
+			// expected output: true
+
+			console.log("1" === 1);
+			// expected output: false
+	2.3. Control Structures
+			<script>
+			function myFunction() {
+			  var hour = new Date().getHours(); 
+			  var greeting;
+			  if (hour < 18) {
+			    greeting = "Good day";
+			  } else {
+			    greeting = "Good evening";
+			  }
+			  document.getElementById("demo").innerHTML = greeting;
+			}
+			</script>
+	2.4. Conditions
+			In JavaScript we have the following conditional statements:
+			if
+			else
+			else if
+			switch
+
+			Conditional (Ternary) Operator
+			variablename = (condition) ? value1:value2 
+	2.5. Switch
+			switch (new Date().getDay()) {
+			  case 0:
+			    day = "Sunday";
+			    break;
+			  case 1:
+			    day = "Monday";
+			    break;
+			  case 2:
+			     day = "Tuesday";
+			    break;
+			  case 3:
+			    day = "Wednesday";
+			    break;
+			  case 4:
+			    day = "Thursday";
+			    break;
+			  case 5:
+			    day = "Friday";
+			    break;
+			  case 6:
+			    day = "Saturday";
+			}
+	2.6. Loop For
+			var i;
+			for (i = 0; i < cars.length; i++) { 
+			  text += cars[i] + "<br>";
+			}
+	2.7. Loop While
+			while (i < 10) {
+			  text += "The number is " + i;
+			  i++;
+			}
+	2.8. Break
+			for (i = 0; i < 10; i++) {
+			  if (i === 3) { break; }
+			  text += "The number is " + i + "<br>";
+			}
+
+			for (i = 0; i < 10; i++) {
+			  if (i === 3) { continue; }
+			  text += "The number is " + i + "<br>";
+			}
+	2.9. Functions,Function Definitions,Function Parameters,Function Invocation, Function Closures
+			Function Invocation - Calling a function.
+			// invoking function using constructor
+			function myFunction(arg1, arg2) {
+			  this.firstName = arg1;
+			  this.lastName  = arg2;
+			}
+
+			// This creates a new object
+			var x = new myFunction("John", "Doe");
+			x.firstName; 
+
+			Function Closures
+			function init() {
+			  var name = 'Mozilla'; // name is a local variable created by init
+			  function displayName() { // displayName() is the inner function, a closure
+			    alert(name); // use variable declared in the parent function    
+			  }
+			  displayName();    
+			}
+			init();
+			init() creates a local variable called name and a function called displayName(). The displayName() function is an inner function that is defined inside init() and is only available within the body of the  init() function. The displayName() function has no local variables of its own. However, because inner functions have access to the variables of outer functions, displayName() can access the variable name declared in the parent function, init(). However, the same local variables in displayName() will be used if they exist.
+	3.1. Objects,Object Definitions,Object Properties,Object Methods,Object Prototypes
+			JavaScript is designed on a simple object-based paradigm. An object is a collection of properties, and a property is an association between a name (or key) and a value. A property's value can be a function, in which case the property is known as a method. In addition to objects that are predefined in the browser, you can define your own objects. This chapter describes how to use objects, properties, functions, and methods, and how to create your own objects.
+
+			Properties
+			Properties
+			Object.prototype                   iMP
+			Object.prototype.__count__
+			Object.prototype.__noSuchMethod__
+			Object.prototype.__parent__
+			Object.prototype.__proto__
+			Object.prototype.constructor       iMP
+
+			Method
+			Methods
+			Object.assign()
+			Object.create()
+			Object.defineProperties()
+			Object.defineProperty()
+			Object.entries()
+			Object.freeze()
+			Object.fromEntries()
+			Object.getNotifier()
+			Object.getOwnPropertyDescriptor()
+			Object.getOwnPropertyDescriptors()
+			Object.getOwnPropertyNames()
+			Object.getOwnPropertySymbols()
+			Object.getPrototypeOf()
+			Object.is()
+			Object.isExtensible()
+			Object.isFrozen()
+			Object.isSealed()
+			Object.keys()
+			Object.observe()
+			Object.preventExtensions()
+			Object.prototype.__defineGetter__()
+			Object.prototype.__defineSetter__()
+			Object.prototype.__lookupGetter__()
+			Object.prototype.__lookupSetter__()
+			Object.prototype.eval()
+			Object.prototype.hasOwnProperty()
+			Object.prototype.isPrototypeOf()
+			Object.prototype.propertyIsEnumerable()
+			Object.prototype.toLocaleString()
+			Object.prototype.toSource()
+			Object.prototype.toString()
+			Object.prototype.unwatch()
+			Object.prototype.valueOf()
+			Object.prototype.watch()
+			Object.seal()
+			Object.setPrototypeOf()
+			Object.unobserve()
+			Object.values()
+
+			Object Prototypes
+			Nearly all objects in JavaScript are instances of Object; a typical object inherits properties (including methods) from Object.prototype, although these properties may be shadowed (a.k.a. overridden). However, an Object may be deliberately created for which this is not true (e.g. by Object.create(null)), or it may be altered so that this is no longer true (e.g. with Object.setPrototypeOf).
+	3.2. Object Oriented Programing
+		3.2.1.  Method
+				<p id="demo"></p>
+
+				<script>
+				// Create an object:
+				var person = {
+				  firstName: "John",
+				  lastName : "Doe",
+				  id     : 5566,
+				  fullName : function() {			//closure function
+				    return this.firstName + " " + this.lastName;
+				  }
+				};
+
+				// Display data from the object:
+				document.getElementById("demo").innerHTML = person.fullName();
+				</script>
+		3.2.2.  Constructor
+				class Polygon {
+				  constructor() {
+				    this.name = "Polygon";
+				  }
+				}
+
+				var poly1 = new Polygon();
+
+				console.log(poly1.name);
+				// expected output: "Polygon"
+		3.2.3.  Inheritance
+				var ClassA = function() {
+				    this.name = "class A";
+				}
+
+				ClassA.prototype.print = function() {
+				    console.log(this.name);
+				}
+
+				var a = new ClassA();
+
+				a.print();
+		3.2.4.  Encapsulation
+				public class Person
+				{
+				  //properties/fields
+				  private int height = 68;
+				  private int weight = 170;
+				  private string name = "Rob Gravelle";
+				  private string socialInsuranceNumber = "555 555 555";
+
+				  //methods/actions
+				  public void setHeight(int height) {this.height=height;}
+				  public int getHeight() { return this.height; }
+				  public void setWeight(int weight) {this.weight = weight;}
+				  public int getWeight() { return this.weight; }
+				  public void setName(string name) {this.name=name;}
+				  public int getName() { return this.name; }
+				  public int setSocialInsuranceNumber(string socialInsuranceNumber) { this.socialInsuranceNumber=socialInsuranceNumber; }
+				}
+				//instanciate the Person class
+				Person aPerson = new Person();
+				string myName = aPerson.getName(); //myName now contains "Rob Gravelle"
+				aPerson.setName("mud"); //change the name
+				string myName = aPerson.getName(); //aPerson's name is now "mud"
+				string sinNo = aPerson.getSocialInsuranceNumber() //will throw an exception.  No getter implemented for that field!
+		3.2.5.  Abstraction
+				var foo = function () {};
+
+				// logs "foo is a Function: true"
+				console.log('foo is a Function: ' + (foo instanceof Function));
+
+				// logs "foo.prototype is an Object: true"
+				console.log('foo.prototype is an Object: ' + (foo.prototype instanceof Object));
+		3.2.6.  Polymorphism
+				https://developer.mozilla.org/ms/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript
+
+				Polymorphism is one of the tenets of Object Oriented Programming (OOP). It is the practice of designing objects to share behaviors and to be able to override shared behaviors with specific ones. Polymorphism takes advantage of inheritance in order to make this happen.
+
+				In OOP everything is considered to be modeled as an object. This abstraction can be taken all the way down to nuts and bolts for a car, or as broad as simply a car type with a year, make, and model.
+
+				To have a polymorphic car scenario there would be the base car type, and then there would subclasses which would inherit from car and provide their own behaviors on top of the basic behaviors a car would have. For example, a subclass could be TowTruck which would still have a year make and model, but might also have some extra behaviors and properties which could be as basic as a flag for IsTowing to as complicated as the specifics of the lift.
+
+				Getting back to the example of people and employees, all employees are people, but all people are not employees. Which is to say that people will be the super class, and employee the sub class. People may have ages and weights, but they do not have salaries. Employees are people so they will inherently have an age and weight, but also because they are employees they will have a salary.
+
+				So in order to facilitate this, we will first write out the super class (Person)
+
+				function Person(age,weight){
+				 this.age = age;
+				 this.weight = weight;
+				}
+				And we will give Person the ability to share their information
+
+				Person.prototype.getInfo = function(){
+				 return "I am " + this.age + " years old " +
+				    "and weighs " + this.weight +" kilo.";
+				};
+				Next we wish to have a subclass of Person, Employee
+
+				function Employee(age,weight,salary){
+				 this.age = age;
+				 this.weight = weight;
+				 this.salary = salary;
+				}
+				Employee.prototype = new Person();
+				And we will override the behavior of getInfo by defining one which is more fitting to an Employee
+
+				Employee.prototype.getInfo = function(){
+				 return "I am " + this.age + " years old " +
+				    "and weighs " + this.weight +" kilo " +
+				    "and earns " + this.salary + " dollar.";  
+				};
+				These can be used similar to your original code use
+
+				var person = new Person(50,90);
+				var employee = new Employee(43,80,50000);
+
+				console.log(person.getInfo());
+				console.log(employee.getInfo());
+				However, there isn't much gained using inheritance here as Employee's constructor is so similar to person's, and the only function in the prototype is being overridden. The power in polymorphic design is to share behaviors.
+				
+	4.1. JavaScript Validations
+	4.2. Document Object Model, Document and Events(DOM Manipulation)
+	4.3. HTML DOM
+	4.4. DOM Intro
+	4.5. DOM Methods
+	4.6. DOM Document
+	4.7. DOM Elements
+	4.8. DOM HTML
+	4.9. DOM CSS
+	4.10.DOM Animations
+	4.11.DOM Events
+	4.12.DOM EventListener
+	4.13.DOM Navigation
+	4.14.DOM Nodes
+	4.15.DOM Nodelist
+	4.16.Object hierarchy in Java Script
+
+	5.1. Debugging
+	5.2. Type Conversion, Regular Expression
+	5.3. Errors, Debugging
+	5.4. Forms
+		5.4.1. Forms Validation
+		5.4.2. Forms API
+	
+	6.1. JS Browser BOM, Window, Screen, Location, History, Navigator, Popup alert, Timing, Cookies
+	6.2. JavaScript Windows
+	6.3. Pushing code quality via JSLint Tool
+	6.4. Security in Java Script
