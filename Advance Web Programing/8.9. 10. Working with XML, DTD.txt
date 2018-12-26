@@ -422,16 +422,247 @@
 			<?xml-stylesheet type="text/css" href="cssemployee.css"?>
 
 			IGNORE
-	10.1. W3C DOM and Data Binging
+	10.1. W3C DOM and Data Binding
+			The Document Object Model (DOM) is a programming API for HTML and XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated. In the DOM specification, the term "document" is used in the broad sense - increasingly, XML is being used as a way of representing many different kinds of information that may be stored in diverse systems, and much of this would traditionally be seen as data rather than as documents. Nevertheless, XML presents this data as documents, and the DOM may be used to manage this data.
+
+			With the Document Object Model, programmers can create and build documents, navigate their structure, and add, modify, or delete elements and content. Anything found in an HTML or XML document can be accessed, changed, deleted, or added using the Document Object Model, with a few exceptions - in particular, the DOM interfaces for the internal subset and external subset have not yet been specified.
 	10.2. Introduction to DOM
 	10.3. The DOM Document Object and its properties
+			Property / Method	Description
+			accessKey	Sets or returns the accesskey attribute of an element
+			addEventListener()	Attaches an event handler to the specified element
+			appendChild()	Adds a new child node, to an element, as the last child node
+			attributes	Returns a NamedNodeMap of an element's attributes
+			blur()	Removes focus from an element
+			childElementCount	Returns the number of child elements an element has
+			childNodes	Returns a collection of an element's child nodes (including text and comment nodes)
+			children	Returns a collection of an element's child element (excluding text and comment nodes)
+			classList	Returns the class name(s) of an element
+			className	Sets or returns the value of the class attribute of an element
+			click()	Simulates a mouse-click on an element
+			clientHeight	Returns the height of an element, including padding
+			clientLeft	Returns the width of the left border of an element
+			clientTop	Returns the width of the top border of an element
+			clientWidth	Returns the width of an element, including padding
+			cloneNode()	Clones an element
+			compareDocumentPosition()	Compares the document position of two elements
+			contains()	Returns true if a node is a descendant of a node, otherwise false
+			contentEditable	Sets or returns whether the content of an element is editable or not
+			dir	Sets or returns the value of the dir attribute of an element
+			exitFullscreen()	Cancels an element in fullscreen mode
+			firstChild	Returns the first child node of an element
+			firstElementChild	Returns the first child element of an element
+			focus()	Gives focus to an element
+			getAttribute()	Returns the specified attribute value of an element node
+			getAttributeNode()	Returns the specified attribute node
+			getBoundingClientRect()	Returns the size of an element and its position relative to the viewport
+			getElementsByClassName()	Returns a collection of all child elements with the specified class name
+			getElementsByTagName()	Returns a collection of all child elements with the specified tag name
+			hasAttribute()	Returns true if an element has the specified attribute, otherwise false
+			hasAttributes()	Returns true if an element has any attributes, otherwise false
+			hasChildNodes()	Returns true if an element has any child nodes, otherwise false
+			id	Sets or returns the value of the id attribute of an element
+			innerHTML	Sets or returns the content of an element
+			innerText	Sets or returns the text content of a node and its descendants
+			insertAdjacentElement()	Inserts a HTML element at the specified position relative to the current element
+			insertAdjacentHTML()	Inserts a HTML formatted text at the specified position relative to the current element
+			insertAdjacentText()	Inserts text into the specified position relative to the current element
+			insertBefore()	Inserts a new child node before a specified, existing, child node
+			isContentEditable	Returns true if the content of an element is editable, otherwise false
+			isDefaultNamespace()	Returns true if a specified namespaceURI is the default, otherwise false
+			isEqualNode()	Checks if two elements are equal
+			isSameNode()	Checks if two elements are the same node
+			isSupported()	Returns true if a specified feature is supported on the element
+			lang	Sets or returns the value of the lang attribute of an element
+			lastChild	Returns the last child node of an element
+			lastElementChild	Returns the last child element of an element
+			namespaceURI	Returns the namespace URI of an element
+			nextSibling	Returns the next node at the same node tree level
+			nextElementSibling	Returns the next element at the same node tree level
+			nodeName	Returns the name of a node
+			nodeType	Returns the node type of a node
+			nodeValue	Sets or returns the value of a node
+			normalize()	Joins adjacent text nodes and removes empty text nodes in an element
+			offsetHeight	Returns the height of an element, including padding, border and scrollbar
+			offsetWidth	Returns the width of an element, including padding, border and scrollbar
+			offsetLeft	Returns the horizontal offset position of an element
+			offsetParent	Returns the offset container of an element
+			offsetTop	Returns the vertical offset position of an element
+			ownerDocument	Returns the root element (document object) for an element
+			parentNode	Returns the parent node of an element
+			parentElement	Returns the parent element node of an element
+			previousSibling	Returns the previous node at the same node tree level
+			previousElementSibling	Returns the previous element at the same node tree level
+			querySelector()	Returns the first child element that matches a specified CSS selector(s) of an element
+			querySelectorAll()	Returns all child elements that matches a specified CSS selector(s) of an element
+			removeAttribute()	Removes a specified attribute from an element
+			removeAttributeNode()	Removes a specified attribute node, and returns the removed node
+			removeChild()	Removes a child node from an element
+			removeEventListener()	Removes an event handler that has been attached with the addEventListener() method
+			replaceChild()	Replaces a child node in an element
+			requestFullscreen()	Shows an element in fullscreen mode
+			scrollHeight	Returns the entire height of an element, including padding
+			scrollIntoView()	Scrolls the specified element into the visible area of the browser window
+			scrollLeft	Sets or returns the number of pixels an element's content is scrolled horizontally
+			scrollTop	Sets or returns the number of pixels an element's content is scrolled vertically
+			scrollWidth	Returns the entire width of an element, including padding
+			setAttribute()	Sets or changes the specified attribute, to the specified value
+			setAttributeNode()	Sets or changes the specified attribute node
+			style	Sets or returns the value of the style attribute of an element
+			tabIndex	Sets or returns the value of the tabindex attribute of an element
+			tagName	Returns the tag name of an element
+			textContent	Sets or returns the textual content of a node and its descendants
+			title	Sets or returns the value of the title attribute of an element
+			toString()	Converts an element to a string
+
 	10.4. Getting Elements by name
+			var x = document.getElementsByName("fname");
+			First Name: <input name="fname" type="text" value="Michael"><br>
 	10.5. Editing Events on client side
+			Examples of using JavaScript to react to events
+
+			Input Events
+			onblur - When a user leaves an input field
+			onchange - When a user changes the content of an input field
+			onchange - When a user selects a dropdown value
+			onfocus - When an input field gets focus
+			onselect - When input text is selected
+			onsubmit - When a user clicks the submit button
+			onreset - When a user clicks the reset button
+			onkeydown - When a user is pressing/holding down a key
+			onkeypress - When a user is pressing/holding down a key
+			onkeyup - When the user releases a key
+			onkeyup - When the user releases a key
+			onkeydown vs onkeyup - Both
+			Mouse Events
+			onmouseover/onmouseout - When the mouse passes over an element
+			onmousedown/onmouseup - When pressing/releasing a mouse button
+			onmousedown - When mouse is clicked: Alert which element
+			onmousedown - When mouse is clicked: Alert which button
+			onmousemove/onmouseout - When moving the mouse pointer over/out of an image
+			onmouseover/onmouseout - When moving the mouse over/out of an image
+			onmouseover an image map
+			Click Events
+			Acting to the onclick event
+			onclick - When button is clicked
+			ondblclick - When a text is double-clicked
+			Load Events
+			onload - When the page has been loaded
+			onload - When an image has been loaded
+			onerror - When an error occurs when loading an image
+			onunload - When the browser closes the document
+			onresize - When the browser window is resized
+			Others
+			What is the keycode of the key pressed?
+			What are the coordinates of the cursor?
+			What are the coordinates of the cursor, relative to the screen?
+			Was the shift key pressed?
+			Which event type occurred?
 	10.6. Handling Events on client side
+			<script>
+			function myFunction() {
+			  var x = document.getElementById("fname");
+			  x.value = x.value.toUpperCase();
+			}
+			</script>
+			</head>
+			<body>
+
+			Enter your name: <input type="text" id="fname" onblur="myFunction()">
+
+			<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+
 	10.7. Data Binding in Internet browser
+			<script type="text/javascript" >  
+				function showcommentform() {  
+					var data="Name:<br><input type='text' name='name'><br>Comment:<br><textarea rows='5' cols='50'></textarea><br><input type='submit' value='comment'>";  
+					  
+					document.getElementById('mylocation').innerHTML=data;  
+					 }  
+			  
+			</script>  
+			<form name="myForm">  
+			<input type="button" value="comment" onclick="showcommentform()">  
+			<div id="mylocation"></div>  
+			</form>
 	10.8. Using Data Source Objects (MSHTML, TDC, XML DSO, DATA Islands)
+			MSHTML was introduced in Microsoft Internet Explorer 4.0. It is the main HTML component of the Windows Internet Explorer browser and can be used in other applications. It hosts Microsoft ActiveX Controls and supports the OLE Control '96 (OC96) specification for windowless controls.
+
+			A data source object (DSO) is a Microsoft ActiveX object embedded within a Web page. It employs a process called data binding, in which an ActiveX control communicates directly with another Web page, or with an external XML data source.
+
+			A data island is a data store, such as on a PDA or other computing device, that has non-existent or limited external connectivity. This limits the ability of the user to synchronize with or copy the data to other devices. Though new data can be added to the system, the ability to move that data elsewhere is impractical or impossible. Data islands, in general, contain a very huge set of data relative to its small physical space that it occupies.
 	10.9. XML and XSLT
+
+			XSLT (eXtensible Stylesheet Language Transformations) is the recommended style sheet language for XML.
+
+			XSLT is far more sophisticated than CSS. With XSLT you can add/remove elements and attributes to or from the output file. You can also rearrange and sort elements, perform tests and make decisions about which elements to hide and display, and a lot more.
+
+			XSLT uses XPath to find information in an XML document.
+
+			<?xml version="1.0" encoding="UTF-8"?>
+			<breakfast_menu>
+
+			<food>
+			<name>Belgian Waffles</name>
+			<price>$5.95</price>
+			<description>Two of our famous Belgian Waffles with plenty of real maple syrup</description>
+			<calories>650</calories>
+			</food>
+
+			<food>
+			<name>Strawberry Belgian Waffles</name>
+			<price>$7.95</price>
+			<description>Light Belgian waffles covered with strawberries and whipped cream</description>
+			<calories>900</calories>
+			</food>
+
+			<food>
+			<name>Berry-Berry Belgian Waffles</name>
+			<price>$8.95</price>
+			<description>Light Belgian waffles covered with an assortment of fresh berries and whipped cream</description>
+			<calories>900</calories>
+			</food>
+
+			<food>
+			<name>French Toast</name>
+			<price>$4.50</price>
+			<description>Thick slices made from our homemade sourdough bread</description>
+			<calories>600</calories>
+			</food>
+
+			<food>
+			<name>Homestyle Breakfast</name>
+			<price>$6.95</price>
+			<description>Two eggs, bacon or sausage, toast, and our ever-popular hash browns</description>
+			<calories>950</calories>
+			</food>
+
+			</breakfast_menu>
+
+
+
+			Example XSLT Stylesheet:
+			<?xml version="1.0" encoding="UTF-8"?>
+			<html xsl:version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+			<body style="font-family:Arial;font-size:12pt;background-color:#EEEEEE">
+			<xsl:for-each select="breakfast_menu/food">
+			  <div style="background-color:teal;color:white;padding:4px">
+			    <span style="font-weight:bold"><xsl:value-of select="name"/> - </span>
+			    <xsl:value-of select="price"/>
+			    </div>
+			  <div style="margin-left:20px;margin-bottom:1em;font-size:10pt">
+			    <p>
+			    <xsl:value-of select="description"/>
+			    <span style="font-style:italic"> (<xsl:value-of select="calories"/> calories per serving)</span>
+			    </p>
+			  </div>
+			</xsl:for-each>
+			</body>
+			</html>
 	10.10.RSS Feed
+			How does RSS work?
+
+			RSS works by having the Web site author maintain a list of notifications on their Web site in a standard way. This list of notifications is called an RSS feed. People who are interested in finding out the latest headlines or changes can check this list. Special computer programs called RSS aggregators have been developed that automatically access the RSS feeds of Web sites you care about on your behalf and organize the results for you. (RSS feeds and aggregators are also sometimes called RSS channels and RSS readers.)
 	10.11.Introduction to Web security
 	10.12.SQL Injection
 	10.13.Cross-Site Scripting(XSS)

@@ -38,3 +38,405 @@
 			13.3.5. Tables,Images,Jumbotraon,Wells,Alerts,Buttons,Button Groups, Badges/Labels,Progress Bars, Pagination, List Groups,Panels,Dropdowns,Collapse,Tabs/Pills,Navbar,Froms,Inputs
 			13.3.6. Bootstrap Grids, Grid System, Stacked/Horizontal
 			13.3.7. Bootratrp Themes, Templets
+
+
+	11.1.   Introduction to the JavaScript Object notation(JSON)
+			JSON stands for JavaScript Object Notation
+			JSON is a lightweight format for storing and transporting data
+			JSON is often used when data is sent from a server to a web page
+			JSON is "self-describing" and easy to understand
+			https://www.json.org/
+	11.2.   Need of JSON
+			JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others. These properties make JSON an ideal data-interchange language.
+
+			JSON is built on two structures:
+
+			A collection of name/value pairs. In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
+			An ordered list of values. In most languages, this is realized as an array, vector, list, or sequence.
+			These are universal data structures. Virtually all modern programming languages support them in one form or another. It makes sense that a data format that is interchangeable with programming languages also be based on these structures.
+	11.3.   JSON Syntax Rules
+			JSON syntax is derived from JavaScript object notation syntax:
+
+			Data is in name/value pairs
+				A name/value pair consists of a field name (in double quotes), followed by a colon, followed by a value:	"name":"John"
+			Data is separated by commas
+			Curly braces hold objects
+			Square brackets hold arrays
+			In JSON, keys must be strings, written with double quotes:
+			{ "name":"John" }
+			In JSON, values must be one of the following data types:
+
+			a string
+			a number
+			an object (JSON object)
+			an array
+			a boolean
+			null
+
+			Example
+			var person = { name: "John", age: 31, city: "New York" };
+			You can access a JavaScript object like this:
+
+			Example
+			// returns John
+			person.name;
+			person["name"];
+			//modified
+			person.name = "Gilbert";
+			person["name"] = "Gilbert";
+	11.4.   JSON Data - a Name and a Value.
+	11.5.   JSON Objects
+			JSON objects are surrounded by curly braces {}.
+			JSON objects are written in key/value pairs.
+			Keys must be strings, and values must be a valid JSON data type (string, number, object, array, boolean or null).
+			Keys and values are separated by a colon.
+			Each key/value pair is separated by a comma.
+			myObj = { "name":"John", "age":30, "car":null };
+			x = myObj.name;
+
+			//nested object
+			myObj = {
+			  "name":"John",
+			  "age":30,
+			  "cars": {
+			    "car1":"Ford",
+			    "car2":"BMW",
+			    "car3":"Fiat"
+			  }
+			 }
+			 //looping object
+			 for (x in myObj) {
+			 	 document.getElementById("demo").innerHTML += x;
+			}
+	11.6.   JSON Arrays
+			[ "Ford", "BMW", "Fiat" ]
+			Arrays in JSON are almost the same as arrays in JavaScript.
+
+			In JSON, array values must be of type string, number, object, array, boolean or null.
+
+			In JavaScript, array values can be all of the above, plus any other valid JavaScript expression, including functions, dates, and undefined.
+
+			x = myObj.cars[0];
+			for (i in myObj.cars) {
+			  x += myObj.cars[i];
+			}
+	11.7.   JSON Uses JavaScript Syntax
+	11.8.   JSON Files
+			Colors JSON Example
+			Google Maps JSON Example
+			YouTube JSON Example
+			Twitter JSON Example
+			GeoIP JSON Example
+			WordPress JSON Example
+			Database JSON Example
+			Local REST JSON Example
+			Test Data JSON Example
+			JSON Server Example
+			{
+			  "as": "AS16509 Amazon.com, Inc.",
+			  "city": "Boardman",
+			  "country": "United States",
+			  "countryCode": "US",
+			  "isp": "Amazon",
+			  "lat": 45.8696,
+			  "lon": -119.688,
+			  "org": "Amazon",
+			  "query": "54.148.84.95",
+			  "region": "OR",
+			  "regionName": "Oregon",
+			  "status": "success",
+			  "timezone": "America\/Los_Angeles",
+			  "zip": "97818"
+			}
+	11.9.   JSON & Security Concerns, Cross Site Request Forgery(CSRF), Injection Attacs
+			JSON alone is not much of a threat. After all, it’s only a data interchange format. By itself, it is just a document, or a stream, of data. The real security concerns with JSON arise in the way that it is used. In this chapter, we will take a look at two of the most common security concerns for JSON on the Web: cross-site request forgery and cross-site scripting.
+
+			Before we move forward in discussing security concerns, and enter into the remaining chapters of this book, we need an understanding of client-side and server-side relationships. Let’s take a quick look at these relationships, for those that do not yet understand this concept.
+
+			CSRF - https://blog.cm2.pw/forging-content-type-header-with-flash/
+	11.10.  JS XMLHttpRequest functions 
+			XMLHttpRequest is an API.
+			The XMLHttpRequest Object
+			The XMLHttpRequest object can be used to request data from a web server.
+
+			The XMLHttpRequest object is a developers dream, because you can:
+
+			Update a web page without reloading the page
+			Request data from a server - after the page has loaded
+			Receive data from a server  - after the page has loaded
+			Send data to a server - in the background
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			       // Typical action to be performed when the document is ready:
+			       document.getElementById("demo").innerHTML = xhttp.responseText;
+			    }
+			};
+			xhttp.open("GET", "filename", true);
+			xhttp.send();
+
+			MethodsSection
+			XMLHttpRequest.abort()
+			Aborts the request if it has already been sent.
+			XMLHttpRequest.getAllResponseHeaders()
+			Returns all the response headers, separated by CRLF, as a string, or null if no response has been received.
+			XMLHttpRequest.getResponseHeader()
+			Returns the string containing the text of the specified header, or null if either the response has not yet been received or the header doesn't exist in the response.
+			XMLHttpRequest.open()
+			Initializes a request. This method is to be used from JavaScript code; to initialize a request from native code, use openRequest() instead.
+			XMLHttpRequest.overrideMimeType()
+			Overrides the MIME type returned by the server.
+			XMLHttpRequest.send()
+			Sends the request. If the request is asynchronous (which is the default), this method returns as soon as the request is sent.
+			XMLHttpRequest.setRequestHeader()
+			Sets the value of an HTTP request header. You must call setRequestHeader()after open(), but before send().
+			Non-standard methodsSection
+			XMLHttpRequest.init()
+			Initializes the object for use from C++ code.
+			Warning: This method must not be called from JavaScript.
+			XMLHttpRequest.openRequest()
+			Initializes a request. This method is to be used from native code; to initialize a request from JavaScript code, use open() instead. See the documentation for open().
+			XMLHttpRequest.sendAsBinary()
+			A variant of the send() method that sends binary data.
+	11.11.  JavaScript XMLHttpRequest & Web APIs
+
+	11.12.  JSON & Client Side Frameworks
+	11.13.  JSON & Server Side Frameworks
+	11.14.  Replacing XML with JSON
+			No.			JSON														XML
+			1)	JSON stands for JavaScript Object Notation.		XML stands for eXtensible Markup Language.
+			2)	JSON is simple to read and write.				XML is less simple than JSON.
+			3)	JSON is easy to learn.							XML is less easy than JSON.
+			4)	JSON is data-oriented.							XML is document-oriented.
+			5)	JSON doesn't provide display capabilities.		XML provides the capability to display data because it 														is a markup language.
+			6)	JSON supports array.							XML doesn't support array.
+			7)	JSON is less secured than XML.					XML is more secured.
+			8)	JSON files are more human readable than XML.	XML files are less human readable.
+			9)	JSON supports only text and number data type.	XML support many data types such as text, number, 														images, charts, graphs etc. Moreover, XML offeres 														options for transferring the format or structure of 													the data with actual data.
+	11.15.  JSON parsing
+
+	12.1.   Ajax Framework
+			AJAX is a developer's dream, because you can:
+			Asynchronous JavaScript and XML:
+			Update a web page without reloading the page
+			Request data from a server - after the page has loaded
+			Receive data from a server - after the page has loaded
+			Send data to a server - in the background
+			
+			var xhttp = new XMLHttpRequest();
+			XMLHttpRequest Object Methods
+			Method	Description
+			new XMLHttpRequest()	Creates a new XMLHttpRequest object
+			abort()	Cancels the current request
+			getAllResponseHeaders()	Returns header information
+			getResponseHeader()	Returns specific header information
+			open(method,url,async,user,psw)	Specifies the request
+
+			method: the request type GET or POST
+			url: the file location
+			async: true (asynchronous) or false (synchronous)
+			user: optional user name
+			psw: optional password
+			send()	Sends the request to the server
+			Used for GET requests
+			send(string)	Sends the request to the server.
+			Used for POST requests
+			setRequestHeader()	Adds a label/value pair to the header to be sent
+			XMLHttpRequest Object Properties
+			Property	Description
+			onreadystatechange	Defines a function to be called when the readyState property changes
+			readyState	Holds the status of the XMLHttpRequest.
+			0: request not initialized 
+			1: server connection established
+			2: request received 
+			3: processing request 
+			4: request finished and response is ready
+			responseText	Returns the response data as a string
+			responseXML	Returns the response data as XML data
+			status	Returns the status-number of a request
+			200: "OK"
+			403: "Forbidden"
+			404: "Not Found"
+			For a complete list go to the Http Messages Reference
+			statusText	Returns the status-text (e.g. "OK" or "Not Found")
+
+			Send a Request To a Server
+			To send a request to a server, we use the open() and send() methods of the XMLHttpRequest object:
+
+			xhttp.open("GET", "ajax_info.txt", true);
+			xhttp.send();
+			Method	Description
+			open(method, url, async)	Specifies the type of request
+
+			method: the type of request: GET or POST
+			url: the server (file) location
+			async: true (asynchronous) or false (synchronous)
+			send()	Sends the request to the server (used for GET)
+			send(string)	Sends the request to the server (used for POST)
+
+			Example
+			xhttp.open("GET", "demo_get2.asp?fname=Henry&lname=Ford", true);
+			xhttp.send();
+
+	12.2.   Ajax using HTML, CSS, JavaScript and DOM
+			<!DOCTYPE html>
+			<html>
+			<body>
+
+			<h1>The XMLHttpRequest Object</h1>
+
+			<p id="demo">Let AJAX change this text.</p>
+
+			<button type="button" onclick="loadDoc()">Change Content</button>
+
+			<script>
+			function loadDoc() {
+			  var xhttp;
+			  if (window.XMLHttpRequest) {
+			    // code for modern browsers
+			    xhttp = new XMLHttpRequest();
+			    } else {
+			    // code for IE6, IE5
+			    xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			  xhttp.onreadystatechange = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+			      document.getElementById("demo").innerHTML = this.responseText;
+			    }
+			  };
+			  xhttp.open("GET", "ajax_info.txt", true);
+			  xhttp.send();
+			}
+			</script>
+
+			</body>
+			</html>
+			complete ex.
+			<html>
+			<head>
+			<script>
+			function showHint(str) {
+			    if (str.length == 0) { 
+			        document.getElementById("txtHint").innerHTML = "";
+			        return;
+			    } else {
+			        var xmlhttp = new XMLHttpRequest();
+			        xmlhttp.onreadystatechange = function() {
+			            if (this.readyState == 4 && this.status == 200) {
+			                document.getElementById("txtHint").innerHTML = this.responseText;
+			            }
+			        };
+			        xmlhttp.open("GET", "gethint.php?q=" + str, true);
+			        xmlhttp.send();
+			    }
+			}
+			</script>
+			</head>
+			<body>
+
+			<p><b>Start typing a name in the input field below:</b></p>
+			<form> 
+			First name: <input type="text" onkeyup="showHint(this.value)">
+			</form>
+			<p>Suggestions: <span id="txtHint"></span></p>
+			</body>
+			</html>
+
+	12.3.   Ajax Architecture
+			//check image
+
+	12.4.   Creating a windows web services
+	12.5.   XMLHttpRequest
+	12.6.   Web services and Ajax
+	12.7.   JPSpan
+			JPSPAN is an Ajax framework. it uses PHP as server side language and Ajax in client side (browser). This is a great framework for PHP programmers interested in Ajax.
+
+			JPSPAN provides tools to "hook up" PHP and Javascript, for the purpose of fetching data from PHP into a web page which has already loaded, without reloading the entire page.
+	12.8.   DWR
+			DWR will generate the JavaScript to allow web browsers to securely call into Java code almost as if it was running locally. It can marshal virtually any data including collections, POJOs, XML and binary data like images and PDF files. All that is required is a security policy that defines what is allowed.
+
+			With Reverse Ajax, DWR allows Java code running on a server to use client side APIs to publish updates to arbitrary groups of browsers. This allows interaction 2 ways - browser calling server and server calling browser. DWR supports Comet, Polling and Piggyback (sending data in with normal requests) as ways to publish to browsers.
+
+			DWR provides integration with Spring, Struts, Guice, Hibernate and others.
+	12.9.   AJAX using JSON and JQuery
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script>
+			$(document).ready(function(){
+			  $("button").click(function(){
+			    $.post("demo_test_post.asp",
+			    {
+			      name: "Donald Duck",
+			      city: "Duckburg"
+			    },
+			    function(data,status){
+			      alert("Data: " + data + "\nStatus: " + status);
+			    });
+			  });
+			});
+			</script>
+			</head>
+			<body>
+
+			<button>Send an HTTP POST request to a page and get the result back</button>
+
+			</body>
+	13.1.   Responsive Web Design
+			Setting The Viewport
+			When making responsive web pages, add the following <meta> element in all your web pages:
+
+			Example
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			This will set the viewport of your page, which will give the browser instructions on how to control the page's dimensions and scaling
+
+			Responsive Images
+			Responsive images are images that scale nicely to fit any browser size.
+
+			Using the width Property
+			If the CSS width property is set to 100%, the image will be responsive and scale up and down:
+			<img src="img_girl.jpg" style="width:100%;">
+			<img src="img_girl.jpg" style="max-width:100%;height:auto;">
+
+			Show Different Images Depending on Browser Width
+			<picture>
+			  <source srcset="img_smallflower.jpg" media="(max-width: 600px)">
+			  <source srcset="img_flowers.jpg" media="(max-width: 1500px)">
+			  <source srcset="flowers.jpg">
+			  <img src="img_smallflower.jpg" alt="Flowers">
+			</picture>
+			Responsive Text Size
+			The text size can be set with a "vw" unit, which means the "viewport width".
+
+			That way the text size will follow the size of the browser window:
+			<h1 style="font-size:10vw">Hello World</h1>
+
+			<style>
+			.left, .right {
+			  float: left;
+			  width: 20%; /* The width is 20%, by default */
+			}
+
+			.main {
+			  float: left;
+			  width: 60%; /* The width is 60%, by default */
+			}
+
+			/* Use a media query to add a breakpoint at 800px: */
+			@media screen and (max-width: 800px) {
+			  .left, .main, .right {
+			    width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+			  }
+			}
+	13.2.   The Best Experience for All Users
+		13.2.1. Desktop
+		13.2.2. Tablet
+		13.2.3. Mobile
+	13.3.   Bootstrap
+			13.3.1. Overview of Bootstrap
+			13.3.2. Need to use Bootstrap
+			13.3.3. Bootstrap Grid System, Grid Classes, Basic Structure of a Bootstrap Grid
+			13.3.4. Typography
+			13.3.5. Tables,Images,Jumbotraon,Wells,Alerts,Buttons,Button Groups, Badges/Labels,Progress Bars, Pagination, List Groups,Panels,Dropdowns,Collapse,Tabs/Pills,Navbar,Froms,Inputs
+			13.3.6. Bootstrap Grids, Grid System, Stacked/Horizontal
+			13.3.7. Bootratrp Themes, Templets
+			
