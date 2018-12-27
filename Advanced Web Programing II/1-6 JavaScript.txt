@@ -642,6 +642,7 @@
 
 			<input type="button" value="Show text"
 			onclick="document.getElementById('p1').style.visibility='visible'">
+			
 	4.3. HTML DOM (see above eg.)
 	4.4. DOM Intro
 			The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects. That way, programming languages can connect to the page.
@@ -986,18 +987,492 @@
 			element.addEventListener("click", mySecondFunction);
 
 	4.13.DOM Navigation
+			DOM Nodes
+			According to the W3C HTML DOM standard, everything in an HTML document is a node:
+
+			The entire document is a document node
+			Every HTML element is an element node
+			The text inside HTML elements are text nodes
+			Every HTML attribute is an attribute node (deprecated)
+			All comments are comment nodes
+
+			Node Relationships
+			The nodes in the node tree have a hierarchical relationship to each other.
+
+			The terms parent, child, and sibling are used to describe the relationships.
+
+			In a node tree, the top node is called the root (or root node)
+			Every node has exactly one parent, except the root (which has no parent)
+			A node can have a number of children
+			Siblings (brothers or sisters) are nodes with the same parent
+
+			From the HTML above you can read:
+
+			<html> is the root node
+			<html> has no parents
+			<html> is the parent of <head> and <body>
+			<head> is the first child of <html>
+			<body> is the last child of <html>
+			and:
+
+			<head> has one child: <title>
+			<title> has one child (a text node): "DOM Tutorial"
+			<body> has two children: <h1> and <p>
+			<h1> has one child: "DOM Lesson one"
+			<p> has one child: "Hello world!"
+			<h1> and <p> are siblings
+
+			Navigating Between Nodes
+			You can use the following node properties to navigate between nodes with JavaScript:
+
+			parentNode
+			childNodes[nodenumber]
+			firstChild
+			lastChild
+			nextSibling
+			previousSibling
+
+			var myTitle = document.getElementById("demo").firstChild.nodeValue;
 	4.14.DOM Nodes
+			<head> has one child: <title>
+			<title> has one child (a text node): "DOM Tutorial"
+			<body> has two children: <h1> and <p>
+			<h1> has one child: "DOM Lesson one"
+			<p> has one child: "Hello world!"
+			<h1> and <p> are siblings
+			<html> parent node , <head>,<title>,<body>,<h1>,<p>,<h1>  are child nodes.
+
 	4.15.DOM Nodelist
+			A NodeList object is a list (collection) of nodes extracted from a document.
+			A NodeList object is almost the same as an HTMLCollection object.
+			var myNodelist = document.querySelectorAll("p");
+			var i;
+			for (i = 0; i < myNodelist.length; i++) {
+			  myNodelist[i].style.backgroundColor = "red";
+			}
 	4.16.Object hierarchy in Java Script
+			//check html-dom-objects
+
+
 
 	5.1. Debugging
+			Code Debugging
+			Programming code might contain syntax errors, or logical errors.
+			Many of these errors are difficult to diagnose.
+			Often, when programming code contains errors, nothing will happen. There are no error messages, and you will get no indications where to search for errors.
+			Searching for (and fixing) errors in programming code is called code debugging.
+
+			JavaScript Debuggers
+			Debugging is not easy. But fortunately, all modern browsers have a built-in JavaScript debugger.
+			Built-in debuggers can be turned on and off, forcing errors to be reported to the user.
+			With a debugger, you can also set breakpoints (places where code execution can be stopped), and examine variables while the code is executing.
+			Normally, otherwise follow the steps at the bottom of this page, you activate debugging in your browser with the F12 key, and select "Console" in the debugger menu.
+
+			Console.log() method
+			<script>
+			a = 5;
+			b = 6;
+			c = a + b;
+			console.log(c);
+			</script>
+
+			Setting Breakpoints
+			The debugger Keyword
+			var x = 15 * 5;
+			debugger;
+			document.getElementById("demo").innerHTML = x;
 	5.2. Type Conversion, Regular Expression
+			JavaScript Data Types
+			In JavaScript there are 5 different data types that can contain values:
+			string
+			number
+			boolean
+			object
+			function
+			There are 3 types of objects:
+
+			Object
+			Date
+			Array
+			And 2 data types that cannot contain values:
+
+			null
+			undefined
+
+			String(false)
+			true.toString()
+			String(Date())
+			Date().toString()
 	5.3. Errors, Debugging
+			function myFunction() {
+			  var message, x;
+			  message = document.getElementById("p01");
+			  message.innerHTML = "";
+			  x = document.getElementById("demo").value;
+			  try { 
+			    if(x == "") throw "is empty";
+			    if(isNaN(x)) throw "is not a number";
+			    x = Number(x);
+			    if(x > 10) throw "is too high";
+			    if(x < 5) throw "is too low";
+			  }
+			  catch(err) {
+			    message.innerHTML = "Error: " + err + ".";
+			  }
+			  finally {
+			    document.getElementById("demo").value = "";
+			  }
+			}
 	5.4. Forms
 		5.4.1. Forms Validation
+				<script> 
+				function GEEKFORGEEKS()                                    
+				{ 
+				    var name = document.forms["RegForm"]["Name"];               
+				    var email = document.forms["RegForm"]["EMail"];    
+				    var phone = document.forms["RegForm"]["Telephone"];  
+				    var what =  document.forms["RegForm"]["Subject"];  
+				    var password = document.forms["RegForm"]["Password"];  
+				    var address = document.forms["RegForm"]["Address"];  
+				   
+				    if (name.value == "")                                  
+				    { 
+				        window.alert("Please enter your name."); 
+				        name.focus(); 
+				        return false; 
+				    } 
+				   
+				    if (address.value == "")                               
+				    { 
+				        window.alert("Please enter your address."); 
+				        name.focus(); 
+				        return false; 
+				    } 
+				       
+				    if (email.value == "")                                   
+				    { 
+				        window.alert("Please enter a valid e-mail address."); 
+				        email.focus(); 
+				        return false; 
+				    } 
+				   
+				    if (email.value.indexOf("@", 0) < 0)                 
+				    { 
+				        window.alert("Please enter a valid e-mail address."); 
+				        email.focus(); 
+				        return false; 
+				    } 
+				   
+				    if (email.value.indexOf(".", 0) < 0)                 
+				    { 
+				        window.alert("Please enter a valid e-mail address."); 
+				        email.focus(); 
+				        return false; 
+				    } 
+				   
+				    if (phone.value == "")                           
+				    { 
+				        window.alert("Please enter your telephone number."); 
+				        phone.focus(); 
+				        return false; 
+				    } 
+				   
+				    if (password.value == "")                        
+				    { 
+				        window.alert("Please enter your password"); 
+				        password.focus(); 
+				        return flase; 
+				    } 
+				   
+				    if (what.selectedIndex < 1)                  
+				    { 
+				        alert("Please enter your course."); 
+				        what.focus(); 
+				        return false; 
+				    } 
+				   
+				    return true; 
+				}</script> 
 		5.4.2. Forms API
+				JQuery, etc.
 	
 	6.1. JS Browser BOM, Window, Screen, Location, History, Navigator, Popup alert, Timing, Cookies
+			The Browser Object Model (BOM)
+			There are no official standards for the Browser Object Model (BOM).
+
+			Since modern browsers have implemented (almost) the same methods and properties for JavaScript interactivity, it is often referred to, as methods and properties of the BOM.
+
+			The Window Object
+			The window object is supported by all browsers. It represents the browser's window.
+			All global JavaScript objects, functions, and variables automatically become members of the window object.
+			Global variables are properties of the window object.
+			Global functions are methods of the window object.
+			Even the document object (of the HTML DOM) is a property of the window object:
+
+			window.document.getElementById("header");
+			is the same as:
+			document.getElementById("header");
+		
+			Window Size
+			Two properties can be used to determine the size of the browser window.
+			Both properties return the sizes in pixels:
+
+			window.innerHeight - the inner height of the browser window (in pixels)
+			window.innerWidth - the inner width of the browser window (in pixels)
+			The browser window (the browser viewport) is NOT including toolbars and scrollbars.
+			For Internet Explorer 8, 7, 6, 5:
+
+			document.documentElement.clientHeight
+			document.documentElement.clientWidth
+			or
+			document.body.clientHeight
+			document.body.clientWidth
+			A practical JavaScript solution (covering all browsers):
+			<script>
+				var w = window.innerWidth
+				|| document.documentElement.clientWidth
+				|| document.body.clientWidth;
+
+				var h = window.innerHeight
+				|| document.documentElement.clientHeight
+				|| document.body.clientHeight;
+
+				var x = document.getElementById("demo");
+				x.innerHTML = "Browser inner window width: " + w + ", height: " + h + ".";
+			</script>
+
+			window.open() - open a new window
+			window.close() - close the current window
+			window.moveTo() -move the current window
+			window.resizeTo() -resize the current window
+
+			Screen
+			Window Screen
+			The window.screen object can be written without the window prefix.
+
+			Properties:
+
+			screen.width
+			screen.height
+			screen.availWidth
+			screen.availHeight
+			screen.colorDepth
+			screen.pixelDepth
+
+			document.getElementById("demo").innerHTML = "Available Screen Width: " + screen.availWidth;
+			document.getElementById("demo").innerHTML = "Available Screen Height: " + screen.availHeight;
+
+			Window Screen Color Depth
+			The screen.colorDepth property returns the number of bits used to display one color.
+
+			All modern computers use 24 bit or 32 bit hardware for color resolution:
+			24 bits =      16,777,216 different "True Colors"
+			32 bits = 4,294,967,296 different "Deep Colors"
+			Older computers used 16 bits: 65,536 different "High Colors" resolution.
+
+			Very old computers, and old cell phones used 8 bits: 256 different "VGA colors".
+			document.getElementById("demo").innerHTML = "Screen Color Depth: " + screen.colorDepth;
+
+			Location
+			Window Location
+			The window.location object can be written without the window prefix.
+
+			Some examples:
+
+			window.location.href returns the href (URL) of the current page
+			window.location.hostname returns the domain name of the web host
+			window.location.pathname returns the path and filename of the current page
+			window.location.protocol returns the web protocol used (http: or https:)
+			window.location.assign loads a new document
+			document.getElementById("demo").innerHTML = "Page hostname is " + window.location.hostname;
+			document.getElementById("demo").innerHTML = "Page path is " + window.location.pathname;
+			document.getElementById("demo").innerHTML = "Page protocol is " + window.location.protocol;
+			document.getElementById("demo").innerHTML = "Port number is " + window.location.port;
+			<input type="button" value="Load new document" onclick="newDoc()">
+
+			<script>
+			function newDoc() {
+			  window.location.assign("https://www.w3schools.com")
+			}
+			</script>
+
+			History
+			The window.history object can be written without the window prefix.
+			To protect the privacy of the users, there are limitations to how JavaScript can access this object.
+			Some methods:
+			history.back() - same as clicking back in the browser
+			history.forward() - same as clicking forward in the browser
+			function goBack() {
+			  window.history.back()
+			}
+
+			<input type="button" value="Back" onclick="goBack()">
+
+			Window Navigator
+			The window.navigator object can be written without the window prefix.
+
+			Some examples:
+
+			navigator.appName
+			navigator.appCodeName
+			navigator.platform
+
+			document.getElementById("demo").innerHTML = "cookiesEnabled is " + navigator.cookieEnabled;
+			document.getElementById("demo").innerHTML = "navigator.appName is " + navigator.appName;
+			document.getElementById("demo").innerHTML = "navigator.appCodeName is " + navigator.appCodeName;
+			document.getElementById("demo").innerHTML = "navigator.product is " + navigator.product;
+			document.getElementById("demo").innerHTML = navigator.appVersion;
+			document.getElementById("demo").innerHTML = navigator.userAgent;
+
+			Warning !!!
+			The information from the navigator object can often be misleading, and should not be used to detect browser versions because:
+			Different browsers can use the same name
+			The navigator data can be changed by the browser owner
+			Some browsers misidentify themselves to bypass site tests
+			Browsers cannot report new operating systems, released later than the browser
+
+			document.getElementById("demo").innerHTML = navigator.platform;
+			document.getElementById("demo").innerHTML = navigator.language;
+			document.getElementById("demo").innerHTML = navigator.onLine;
+			document.getElementById("demo").innerHTML = navigator.javaEnabled();
+
+			Popup
+			Alert Box
+			window.alert("sometext");
+			alert("I am an alert box!");
+			window.confirm("sometext");
+			prompt("Please enter your name", "Harry Potter");
+			
+			<p>Line-breaks in a popup box.</p>
+			<button onclick="alert('Hello\nHow are you?')">Try it</button>
+
+			Timing
+			Timing Events
+			The window object allows execution of code at specified time intervals.
+
+			These time intervals are called timing events.
+
+			The two key methods to use with JavaScript are:
+
+			setTimeout(function, milliseconds)
+			Executes a function, after waiting a specified number of milliseconds.
+			setInterval(function, milliseconds)
+			Same as setTimeout(), but repeats the execution of the function continuously.
+			The setTimeout() and setInterval() are both methods of the HTML DOM Window object.
+
+			1.
+			<button onclick="setTimeout(myFunction, 3000)">Try it</button>
+
+			<script>
+			function myFunction() {
+			  alert('Hello');
+			}
+			</script>
+			2.
+			<button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>
+			<button onclick="clearTimeout(myVar)">Stop it</button>
+			3.
+			var myVar = setInterval(myTimer, 1000);
+
+			function myTimer() {
+			  var d = new Date();
+			  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+			}
+
+			Cookie
+			What are Cookies?
+			Cookies are data, stored in small text files, on your computer.
+
+			When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user.
+
+			Cookies were invented to solve the problem "how to remember information about the user":
+
+			When a user visits a web page, his name can be stored in a cookie.
+			Next time the user visits the page, the cookie "remembers" his name.
+			Set cookie
+			document.cookie = "username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC; path=/";
+			read cookie
+			var x = document.cookie;
+			delete 
+			document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 	6.2. JavaScript Windows
-	6.3. Pushing code quality via JSLint Tool
+			Window Object
+			The window object represents an open window in a browser.
+			Property	Description
+			closed	Returns a Boolean value indicating whether a window has been closed or not
+			console	Returns a reference to the Console object, which provides methods for logging information to the browser's console (See Console object)
+			defaultStatus	Sets or returns the default text in the statusbar of a window
+			document	Returns the Document object for the window (See Document object)
+			frameElement	Returns the <iframe> element in which the current window is inserted
+			frames	Returns all <iframe> elements in the current window
+			history	Returns the History object for the window (See History object)
+			innerHeight	Returns the height of the window's content area (viewport) including scrollbars
+			innerWidth	Returns the width of a window's content area (viewport) including scrollbars
+			length	Returns the number of <iframe> elements in the current window
+			localStorage	Allows to save key/value pairs in a web browser. Stores the data with no expiration date
+			location	Returns the Location object for the window (See Location object)
+			name	Sets or returns the name of a window
+			navigator	Returns the Navigator object for the window (See Navigator object)
+			opener	Returns a reference to the window that created the window
+			outerHeight	Returns the height of the browser window, including toolbars/scrollbars
+			outerWidth	Returns the width of the browser window, including toolbars/scrollbars
+			pageXOffset	Returns the pixels the current document has been scrolled (horizontally) from the upper left corner of the window
+			pageYOffset	Returns the pixels the current document has been scrolled (vertically) from the upper left corner of the window
+			parent	Returns the parent window of the current window
+			screen	Returns the Screen object for the window (See Screen object)
+			screenLeft	Returns the horizontal coordinate of the window relative to the screen
+			screenTop	Returns the vertical coordinate of the window relative to the screen
+			screenX	Returns the horizontal coordinate of the window relative to the screen
+			screenY	Returns the vertical coordinate of the window relative to the screen
+			sessionStorage	Allows to save key/value pairs in a web browser. Stores the data for one session
+			scrollX	An alias of pageXOffset
+			scrollY	An alias of pageYOffset
+			self	Returns the current window
+			status	Sets or returns the text in the statusbar of a window
+			top	Returns the topmost browser window
+
+			Window Object Methods
+			Method	Description
+			alert()	Displays an alert box with a message and an OK button
+			atob()	Decodes a base-64 encoded string
+			blur()	Removes focus from the current window
+			btoa()	Encodes a string in base-64
+			clearInterval()	Clears a timer set with setInterval()
+			clearTimeout()	Clears a timer set with setTimeout()
+			close()	Closes the current window
+			confirm()	Displays a dialog box with a message and an OK and a Cancel button
+			focus()	Sets focus to the current window
+			getComputedStyle()	Gets the current computed CSS styles applied to an element
+			getSelection()	Returns a Selection object representing the range of text selected by the user
+			matchMedia()	Returns a MediaQueryList object representing the specified CSS media query string
+			moveBy()	Moves a window relative to its current position
+			moveTo()	Moves a window to the specified position
+			open()	Opens a new browser window
+			print()	Prints the content of the current window
+			prompt()	Displays a dialog box that prompts the visitor for input
+			requestAnimationFrame()	Requests the browser to call a function to update an animation before the next repaint
+			resizeBy()	Resizes the window by the specified pixels
+			resizeTo()	Resizes the window to the specified width and height
+			scroll()	Deprecated. This method has been replaced by the scrollTo() method.
+			scrollBy()	Scrolls the document by the specified number of pixels
+			scrollTo()	Scrolls the document to the specified coordinates
+			setInterval()	Calls a function or evaluates an expression at specified intervals (in milliseconds)
+			setTimeout()	Calls a function or evaluates an expression after a specified number of milliseconds
+			stop()	Stops the window from loading
+	6.3. Pushing code quality via JSHint Tool
+			JSHint is a community-driven tool that detects errors and potential problems in JavaScript code. Since JSHint is so flexible, you can easily adjust it in the environment you expect your code to execute. JSHint is open source and will always stay this way.
+
+			https://github.com/jshint/jshint/
 	6.4. Security in Java Script
+			Cross Site Scripting (XSS) - Reflected, Stored and DOM based.
+			SQL and NoSQL injections
+			Authentication and password management issues
+			Session management issues
+			Access control issues
+			Unsafe use of cryptography - Hashing, Encryption, Decryption and Random number generators
+			Error Handling and Logging issues
+
+			Here is a JavaScript Secure Coding Practices guide:
+
+			GitHub - https://github.com/Checkmarx/JS-SCP
+			GitBooks - https://checkmarx.gitbooks.io/js-scp/
