@@ -11,5 +11,500 @@
 	8.5. DOM with jQuery utility functions
 	8.6. jQuery Plugins
 	8.7. jQuery / Google Web Toolkit
-
 	
+
+	7.1  Introduction to jQuery
+		What is jQuery?
+			jQuery is a lightweight, "write less, do more", JavaScript library.
+
+			The purpose of jQuery is to make it much easier to use JavaScript on your website.
+			jQuery takes a lot of common tasks that require many lines of JavaScript code to accomplish, and wraps them into 			 methods that you can call with a single line of code.
+			jQuery also simplifies a lot of the complicated things from JavaScript, like AJAX calls and DOM manipulation.
+			The jQuery library contains the following features:
+
+			HTML/DOM manipulation
+			CSS manipulation
+			HTML event methods
+			Effects and animations
+			AJAX
+			Utilities
+			Tip: In addition, jQuery has plugins for almost any task out there.
+
+			Why jQuery?
+			There are lots of other JavaScript frameworks out there, but jQuery seems to be the most popular, and also the most extendable.
+			Many of the biggest companies on the Web use jQuery, such as:
+			Google
+			Microsoft
+			IBM
+			Netflix
+			Will jQuery work in all browsers?
+
+			The jQuery team knows all about cross-browser issues, and they have written this knowledge into the jQuery library. jQuery will run exactly the same in all major browsers.
+	7.2. Basics of jQuery coding
+			$(document).ready(function(){ 
+			      $("button").click(function(){ 
+			           $(".gfg").hide(); 
+			      };) 
+			});
+	7.3. Selecting the elements
+			jQuery Selectors
+			jQuery selectors allow you to select and manipulate HTML element(s).
+
+			jQuery selectors are used to "find" (or select) HTML elements based on their name, id, classes, types, attributes, values of attributes and much more. It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
+			All selectors in jQuery start with the dollar sign and parentheses: $().
+
+			The element Selector
+			The jQuery element selector selects elements based on the element name.
+			You can select all <p> elements on a page like this:
+
+			$("p")
+			Example
+
+			When a user clicks on a button, all <p> elements will be hidden:
+
+			Example
+			$(document).ready(function(){
+			  $("button").click(function(){
+			    $("p").hide();
+			  });
+			});
+			The #id Selector
+			The jQuery #id selector uses the id attribute of an HTML tag to find the specific element.
+			An id should be unique within a page, so you should use the #id selector when you want to find a single, unique element.
+			To find an element with a specific id, write a hash character, followed by the id of the HTML element:
+
+			$("#test")
+			Example
+
+			When a user clicks on a button, the element with id="test" will be hidden:
+
+			Example
+			$(document).ready(function(){
+			  $("button").click(function(){
+			    $("#test").hide();
+			  });
+			});
+	7.4. Bringing pages to life with jQuery
+
+	8.1. Energizing pages with animations and effects
+			jQuery Event Methods
+			Event methods trigger or attach a function to an event handler for the selected elements.
+
+			The following table lists all the jQuery methods used to handle events.
+
+			Method / Property	Description
+			bind()	Deprecated in version 3.0. Use the on() method instead. Attaches event handlers to elements
+			blur()	Attaches/Triggers the blur event
+			change()	Attaches/Triggers the change event
+			click()	Attaches/Triggers the click event
+			dblclick()	Attaches/Triggers the double click event
+			delegate()	Deprecated in version 3.0. Use the on() method instead. Attaches a handler to current, or future, specified child elements of the matching elements
+			die()	Removed in version 1.9. Removes all event handlers added with the live() method
+			error()	Removed in version 3.0. Attaches/Triggers the error event
+			event.currentTarget	The current DOM element within the event bubbling phase
+			event.data	Contains the optional data passed to an event method when the current executing handler is bound
+			event.delegateTarget	Returns the element where the currently-called jQuery event handler was attached
+			event.isDefaultPrevented()	Returns whether event.preventDefault() was called for the event object
+			event.isImmediatePropagationStopped()	Returns whether event.stopImmediatePropagation() was called for the event object
+			event.isPropagationStopped()	Returns whether event.stopPropagation() was called for the event object
+			event.namespace	Returns the namespace specified when the event was triggered
+			event.pageX	Returns the mouse position relative to the left edge of the document
+			event.pageY	Returns the mouse position relative to the top edge of the document
+			event.preventDefault()	Prevents the default action of the event
+			event.relatedTarget	Returns which element being entered or exited on mouse movement
+			event.result	Contains the last/previous value returned by an event handler triggered by the specified event
+			event.stopImmediatePropagation()	Prevents other event handlers from being called
+			event.stopPropagation()	Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event
+			event.target	Returns which DOM element triggered the event
+			event.timeStamp	Returns the number of milliseconds since January 1, 1970, when the event is triggered
+			event.type	Returns which event type was triggered
+			event.which	Returns which keyboard key or mouse button was pressed for the event
+			focus()	Attaches/Triggers the focus event
+			focusin()	Attaches an event handler to the focusin event
+			focusout()	Attaches an event handler to the focusout event
+			hover()	Attaches two event handlers to the hover event
+			keydown()	Attaches/Triggers the keydown event
+			keypress()	Attaches/Triggers the keypress event
+			keyup()	Attaches/Triggers the keyup event
+			live()	Removed in version 1.9. Adds one or more event handlers to current, or future, selected elements
+			load()	Removed in version 3.0. Attaches an event handler to the load event
+			mousedown()	Attaches/Triggers the mousedown event
+			mouseenter()	Attaches/Triggers the mouseenter event
+			mouseleave()	Attaches/Triggers the mouseleave event
+			mousemove()	Attaches/Triggers the mousemove event
+			mouseout()	Attaches/Triggers the mouseout event
+			mouseover()	Attaches/Triggers the mouseover event
+			mouseup()	Attaches/Triggers the mouseup event
+			off()	Removes event handlers attached with the on() method
+			on()	Attaches event handlers to elements
+			one()	Adds one or more event handlers to selected elements. This handler can only be triggered once per element
+			$.proxy()	Takes an existing function and returns a new one with a particular context
+			ready()	Specifies a function to execute when the DOM is fully loaded
+			resize()	Attaches/Triggers the resize event
+			scroll()	Attaches/Triggers the scroll event
+			select()	Attaches/Triggers the select event
+			submit()	Attaches/Triggers the submit event
+			toggle()	Removed in version 1.9. Attaches two or more functions to toggle between for the click event
+			trigger()	Triggers all events bound to the selected elements
+			triggerHandler()	Triggers all functions bound to a specified event for the selected elements
+			unbind()	Deprecated in version 3.0. Use the off() method instead. Removes an added event handler from selected elements
+			undelegate()	Deprecated in version 3.0. Use the off() method instead. Removes an event handler to selected elements, now or in the future
+			unload()	Removed in version 3.0. Attaches an event handler to the unload event
+
+			<script>
+			$(document).ready(function(){
+			  $("p").on({
+			    mouseenter: function(){
+			      $(this).css("background-color", "lightgray");
+			    },  
+			    mouseleave: function(){
+			      $(this).css("background-color", "lightblue");
+			    }, 
+			    click: function(){
+			      $(this).css("background-color", "yellow");
+			    }  
+			  });
+			});
+			</script>
+	8.2. jQuery Effects
+			jQuery Effect Methods
+			The following table lists all the jQuery methods for creating animation effects.
+
+			Method	Description
+			animate()	Runs a custom animation on the selected elements
+			clearQueue()	Removes all remaining queued functions from the selected elements
+			delay()	Sets a delay for all queued functions on the selected elements
+			dequeue()	Removes the next function from the queue, and then executes the function
+			fadeIn()	Fades in the selected elements
+			fadeOut()	Fades out the selected elements
+			fadeTo()	Fades in/out the selected elements to a given opacity
+			fadeToggle()	Toggles between the fadeIn() and fadeOut() methods
+			finish()	Stops, removes and completes all queued animations for the selected elements
+			hide()	Hides the selected elements
+			queue()	Shows the queued functions on the selected elements
+			show()	Shows the selected elements
+			slideDown()	Slides-down (shows) the selected elements
+			slideToggle()	Toggles between the slideUp() and slideDown() methods
+			slideUp()	Slides-up (hides) the selected elements
+			stop()	Stops the currently running animation for the selected elements
+			toggle()	Toggles between the hide() and show() methods
+	8.3. jQuery traversal and manupulation
+			What is Traversing?
+			jQuery traversing, which means "move through", are used to "find" (or select) HTML elements based on their relation to other elements. Start with one selection and move through that selection until you reach the elements you desire.
+
+			The image below illustrates an HTML page as a tree (DOM tree). With jQuery traversing, you can easily move up (ancestors), down (descendants) and sideways (siblings) in the tree, starting from the selected (current) element. This movement is called traversing - or moving through - the DOM tree.
+
+			<div>
+				<ul>
+					<li>
+						<span></span>
+						<span></span>
+					</li>
+					<li><b></li>
+				</ul>
+			</div>
+
+			The <div> element is the parent of <ul>, and an ancestor of everything inside of it
+			The <ul> element is the parent of both <li> elements, and a child of <div>
+			The left <li> element is the parent of <span>, child of <ul> and a descendant of <div>
+			The <span> element is a child of the left <li> and a descendant of <ul> and <div>
+			The two <li> elements are siblings (they share the same parent)
+			The right <li> element is the parent of <b>, child of <ul> and a descendant of <div>
+			The <b> element is a child of the right <li> and a descendant of <ul> and <div>
+
+			jQuery Traversing - Ancestors
+			parent()
+			parents()
+			parentsUntil()
+			$(document).ready(function(){
+			  $("span").parent();
+			});
+
+			jQuery Traversing - Descendants
+			children()
+			find()
+			$(document).ready(function(){
+			  $("div").children();
+			});
+
+			jQuery Traversing - Siblings
+			siblings()
+			next()
+			nextAll()
+			nextUntil()
+			prev()
+			prevAll()
+			prevUntil()
+
+			jQuery Traversing - Filtering
+			The first(), last(), eq(), filter() and not() Methods
+
+	8.4. Data attributes and templets
+			<!doctype html>
+			<html lang="en">
+			<head>
+			  <meta charset="utf-8">
+			  <title>data demo</title>
+			  <style>
+			  div {
+			    margin: 5px;
+			    background: yellow;
+			  }
+			  button {
+			    margin: 5px;
+			    font-size: 14px;
+			  }
+			  p {
+			    margin: 5px;
+			    color: blue;
+			  }
+			  span {
+			    color: red;
+			  }
+			  </style>
+			  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+			</head>
+			<body>
+			 
+			<div>A div</div>
+			<button>Get "blah" from the div</button>
+			<button>Set "blah" to "hello"</button>
+			<button>Set "blah" to 86</button>
+			<button>Remove "blah" from the div</button>
+			<p>The "blah" value of this div is <span>?</span></p>
+			 
+			<script>
+			$( "button" ).click(function() {
+			  var value;
+			 
+			  switch ( $( "button" ).index( this ) ) {
+			    case 0 :
+			      value = $( "div" ).data( "blah" );
+			      break;
+			    case 1 :
+			      $( "div" ).data( "blah", "hello" );
+			      value = "Stored!";
+			      break;
+			    case 2 :
+			      $( "div" ).data( "blah", 86 );
+			      value = "Stored!";
+			      break;
+			    case 3 :
+			      $( "div" ).removeData( "blah" );
+			      value = "Removed!";
+			      break;
+			  }
+			 
+			  $( "span" ).text( "" + value );
+			});
+			</script>
+			 
+			</body>
+			</html>
+	8.5. DOM with jQuery utility functions
+			.clearQueue()
+			Remove from the queue all items that have not yet been run.
+
+			Also in: Effects > Custom | Data
+			.dequeue()
+			Execute the next function on the queue for the matched elements.
+
+			Also in: Deprecated > Deprecated 1.3 | Removed
+			jQuery.boxModel
+			States if the current page, in the user’s browser, is being rendered using the W3C CSS Box Model. This property was removed in jQuery 1.8. Please try to use feature detection instead.
+
+			Also in: Deprecated > Deprecated 1.3 | Properties > Properties of the Global jQuery Object | Removed
+			jQuery.browser
+			Contains flags for the useragent, read from navigator.userAgent. This property was removed in jQuery 1.9 and is available only through the jQuery.migrate plugin. Please try to use feature detection instead.
+
+			jQuery.contains()
+			Check to see if a DOM element is a descendant of another DOM element.
+
+			Also in: Data
+			jQuery.data()
+			Store arbitrary data associated with the specified element and/or return the value that was set.
+
+			Also in: Data
+			jQuery.dequeue()
+			Execute the next function on the queue for the matched element.
+
+			jQuery.each()
+			A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects with a length property (such as a function’s arguments object) are iterated by numeric index, from 0 to length-1. Other objects are iterated via their named properties.
+
+			jQuery.extend()
+			Merge the contents of two or more objects together into the first object.
+
+			jQuery.fn.extend()
+			Merge the contents of an object onto the jQuery prototype to provide new jQuery instance methods.
+
+			jQuery.globalEval()
+			Execute some JavaScript code globally.
+
+			jQuery.grep()
+			Finds the elements of an array which satisfy a filter function. The original array is not affected.
+
+			jQuery.inArray()
+			Search for a specified value within an array and return its index (or -1 if not found).
+
+			jQuery.isArray()
+			Determine whether the argument is an array.
+
+			jQuery.isEmptyObject()
+			Check to see if an object is empty (contains no enumerable properties).
+
+			Also in: Deprecated > Deprecated 3.3
+			jQuery.isFunction()
+			Determines if its argument is callable as a function.
+
+			jQuery.isNumeric()
+			Determines whether its argument represents a JavaScript number.
+
+			jQuery.isPlainObject()
+			Check to see if an object is a plain object (created using “{}” or “new Object”).
+
+			Also in: Deprecated > Deprecated 3.3
+			jQuery.isWindow()
+			Determine whether the argument is a window.
+
+			jQuery.isXMLDoc()
+			Check to see if a DOM node is within an XML document (or is an XML document).
+
+			jQuery.makeArray()
+			Convert an array-like object into a true JavaScript array.
+
+			jQuery.map()
+			Translate all items in an array or object to new array of items.
+
+			jQuery.merge()
+			Merge the contents of two arrays together into the first array.
+
+			jQuery.noop()
+			An empty function.
+
+			jQuery.now()
+			Return a number representing the current time.
+
+			jQuery.parseHTML()
+			Parses a string into an array of DOM nodes.
+
+			Also in: Deprecated > Deprecated 3.0
+			jQuery.parseJSON()
+			Takes a well-formed JSON string and returns the resulting JavaScript value.
+
+			jQuery.parseXML()
+			Parses a string into an XML document.
+
+			Also in: Events > Event Handler Attachment
+			jQuery.proxy()
+			Takes a function and returns a new one that will always have a particular context.
+
+			Also in: Data
+			jQuery.queue()
+			Show or manipulate the queue of functions to be executed on the matched element.
+
+			Also in: Data
+			jQuery.removeData()
+			Remove a previously-stored piece of data.
+
+			Also in: Deprecated > Deprecated 1.9 | Properties > Properties of the Global jQuery Object
+			jQuery.support
+			A collection of properties that represent the presence of different browser features or bugs. Intended for jQuery’s internal use; specific properties may be removed when they are no longer needed internally to improve page startup performance. For your own project’s feature-detection needs, we strongly recommend the use of an external library such as Modernizr instead of dependency on properties in jQuery.support.
+
+			jQuery.trim()
+			Remove the whitespace from the beginning and end of a string.
+
+			jQuery.type()
+			Determine the internal JavaScript [[Class]] of an object.
+
+			Also in: Deprecated > Deprecated 3.0
+			jQuery.unique()
+			Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.
+
+			jQuery.uniqueSort()
+			Sorts an array of DOM elements, in place, with the duplicates removed. Note that this only works on arrays of DOM elements, not strings or numbers.
+
+			Also in: Effects > Custom | Data
+			.queue()
+			Show or manipulate the queue of functions to be executed on the matched elements.
+
+			<body>
+			<div>"John" found at <span></span></div>
+			<div>4 found at <span></span></div>
+			<div>"Karl" not found, so <span></span></div>
+			<div>"Pete" is in the array, but not at or after index 2, so <span></span></div>
+			 
+			<script>
+			var arr = [ 4, "Pete", 8, "John" ];
+			var $spans = $( "span" );
+			$spans.eq( 0 ).text( jQuery.inArray( "John", arr ) );
+			$spans.eq( 1 ).text( jQuery.inArray( 4, arr ) );
+			$spans.eq( 2 ).text( jQuery.inArray( "Karl", arr ) );
+			$spans.eq( 3 ).text( jQuery.inArray( "Pete", arr, 2 ) );
+			</script>
+	8.6. jQuery Plugins
+			ui (542)
+			jquery (482)
+			form (285)
+			animation (273)
+			input (252)
+			image (210)
+			responsive (184)
+			slider (172)
+			ajax (154)
+				jQuery load() Method
+				The jQuery load() method is a simple, but powerful AJAX method.
+				The required URL parameter specifies the URL you wish to load.
+				The optional data parameter specifies a set of querystring key/value pairs to send along with the request.
+				The optional callback parameter is the name of a function to be executed after the load() method is completed.
+
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+				<script>
+				$(document).ready(function(){
+				  $("button").click(function(){
+				    $("#div1").load("demo_test.txt");
+				  });
+				});
+				</script>
+				</head>
+				<body>
+
+				<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+				<button>Get External Content</button>
+				The optional callback parameter specifies a callback function to run when the load() method is completed. The callback function can have different parameters:
+
+				responseTxt - contains the resulting content if the call succeeds
+				statusTxt - contains the status of the call
+				xhr - contains the XMLHttpRequest object
+
+				GET - Requests data from a specified resource
+				POST - Submits data to be processed to a specified resource
+
+				$("button").click(function(){
+				  $.get("demo_test.asp", function(data, status){
+				    alert("Data: " + data + "\nStatus: " + status);
+				  });
+				});
+
+				<script>
+				$(document).ready(function(){
+				  $("button").click(function(){
+				    $.post("demo_test_post.asp",
+				    {
+				      name: "Donald Duck",
+				      city: "Duckburg"
+				    },
+				    function(data,status){
+				      alert("Data: " + data + "\nStatus: " + status);
+				    });
+				  });
+				});
+				</script>
+				</head>
+				<body>
+
+				<button>Send an HTTP POST request to a page and get the result back</button>
+
+			scroll (140)
+	8.7. jQuery / Google Web Toolkit
+			Google Web Toolkit (GWT) is a development toolkit for building and optimizing complex browser-based applications. GWT is used by many products at Google, including Google AdWords and Orkut. GWT is an open source, completely free, and used by thousands of developers around the world. It is licensed under the Apache License version 2.0. This tutorial will give you a great understanding of GWT concepts needed to get a web application up and running.
