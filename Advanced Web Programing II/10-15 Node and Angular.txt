@@ -38,3 +38,619 @@
 		14.5.4.  Server Side Interface
 		14.5.5.  Client Side Compatibility
 		14.5.6.  Security
+
+
+	10.1.  Introduction to Node.js
+			Node.js is a cross-platform environment and library for running JavaScript applications which is used to create networking and server-side applications.
+			Node.js is an open source server environment
+			Node.js is free
+			Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X, etc.)
+			Node.js uses JavaScript on the server
+			Why Node.js?
+			Node.js uses asynchronous programming!
+
+			A common task for a web server can be to open a file on the server and return the content to the client.
+
+			Here is how PHP or ASP handles a file request:
+
+			Sends the task to the computer's file system.
+			Waits while the file system opens and reads the file.
+			Returns the content to the client.
+			Ready to handle the next request.
+			Here is how Node.js handles a file request:
+
+			Sends the task to the computer's file system.
+			Ready to handle the next request.
+			When the file system has opened and read the file, the server returns the content to the client.
+			Node.js eliminates the waiting, and simply continues with the next request.
+
+			Features of Node.js
+			Following is a list of some important features of Node.js that makes it the first choice of software architects.
+
+			Extremely fast: Node.js is built on Google Chrome's V8 JavaScript Engine, so its library is very fast in code execution.
+			I/O is Asynchronous and Event Driven: All APIs of Node.js library are asynchronous i.e. non-blocking. So a Node.js based server never waits for an API to return data. The server moves to the next API after calling it and a notification mechanism of Events of Node.js helps the server to get a response from the previous API call. It is also a reason that it is very fast.
+			Single threaded: Node.js follows a single threaded model with event looping.
+			Highly Scalable: Node.js is highly scalable because event mechanism helps the server to respond in a non-blocking way.
+			No buffering: Node.js cuts down the overall processing time while uploading audio and video files. Node.js applications never buffer any data. These applications simply output the data in chunks.
+			Open source: Node.js has an open source community which has produced many excellent modules to add additional capabilities to Node.js applications.
+			License: Node.js is released under the MIT license.
+			NodeJs is very memory effient.
+
+			What Can Node.js Do?
+			Node.js can generate dynamic page content
+			Node.js can create, open, read, write, delete, and close files on the server
+			Node.js can collect form data
+			Node.js can add, delete, modify data in your database
+			What is a Node.js File?
+			Node.js files contain tasks that will be executed on certain events
+			A typical event is someone trying to access a port on the server
+			Node.js files must be initiated on the server before having any effect
+			Node.js files have extension ".js"
+
+			Node.js web-based Example
+			A node.js web application contains the following three parts:
+
+			Import required modules: The "require" directive is used to load a Node.js module.
+				var http = require("http");
+			Create server: 			 You have to establish a server which will listen to client's request similar to Apache HTTP Server.
+				http.createServer(function(request, response){
+					response.writeHead(200, {'Content-Type':'text/plain'});
+					response.end("Hello ji world");
+				}).listen(8080);
+				console.log("server start at 8080");
+			Read request and return response: Server created in the second step will read HTTP request made by client which can be a browser or console and return the response.
+	10.2.  Node modules
+			To include a module, use the require() function with the name of the module:
+			var http = require('http');
+
+			Include Your Own Module
+			Now you can include and use the module in any of your Node.js files.
+
+			Example
+			Use the module "myfirstmodule" in a Node.js file:
+
+			var http = require('http');
+			var dt = require('./myfirstmodule');
+
+			http.createServer(function (req, res) {
+			  res.writeHead(200, {'Content-Type': 'text/html'});
+			  res.write("The date and time are currently: " + dt.myDateTime());
+			  res.end();
+			}).listen(8080);
+			The first argument of the res.writeHead() method is the status code, 200 means that all is OK, the second argument is an object containing the response headers.
+
+			Split the Query String
+			There are built-in modules to easily split the query string into readable parts, such as the URL module.
+
+			Example
+			Split the query string into readable parts:
+
+			var http = require('http');
+			var url = require('url');
+
+			http.createServer(function (req, res) {
+			  res.writeHead(200, {'Content-Type': 'text/html'});
+			  var q = url.parse(req.url, true).query;
+			  var txt = q.year + " " + q.month;
+			  res.end(txt);
+			}).listen(8080);
+
+			http://localhost:8080/?year=2017&month=July
+	10.3.  Selectors
+	10.4.  Syntax(see above eg.)
+	10.5.  Developing node.js web application (see above eg.)
+	10.6.  Event-driven I/O server-side JavaScript
+			Non-Blocking I/O + Epoll (Event Driven) + V8 Engine  = Node.js
+
+			EventEmitter class to bind event and event listener:
+
+			// Import events module  
+			var events = require('events');  
+			// Create an eventEmitter object  
+			var eventEmitter = new events.EventEmitter();  
+			To bind event handler with an event:
+
+			// Bind event and even handler as follows  
+			eventEmitter.on('eventName', eventHandler);  
+			To fire an event:
+
+			// Fire an event   
+			eventEmitter.emit('eventName');  
+
+			eg.
+			Node.js Event Example
+			File: main.js
+
+			// Import events module  
+			var events = require('events');  
+			// Create an eventEmitter object  
+			var eventEmitter = new events.EventEmitter();  
+			  
+			// Create an event handler as follows  
+			var connectHandler = function connected() {  
+			   console.log('connection succesful.');  
+			    
+			   // Fire the data_received event   
+			   eventEmitter.emit('data_received');  
+			}  
+			  
+			// Bind the connection event with the handler  
+			eventEmitter.on('connection', connectHandler);  
+			 // Bind the data_received event with the anonymous function  
+			eventEmitter.on('data_received', function(){  
+			   console.log('data received succesfully.');  
+			});  
+			// Fire the connection event   
+			eventEmitter.emit('connection');  
+			console.log("Program Ended.");  
+
+	11.	   Express
+			Express 3.x is a light-weight web application framework to help organize your web application into an MVC architecture on the server side. You can use a variety of choices for your templating language (like EJS, Jade, and Dust.js).
+
+			You can then use a database like MongoDB with Mongoose (for modeling) to provide a backend for your Node.js application. Express.js basically helps you manage everything, from routes, to handling requests and views.
+
+			Redis is a key/value store -- commonly used for sessions and caching in Node.js applications. You can do a lot more with it, but that's what I'm using it for. I use MongoDB for more complex relationships, like line-item <-> order <-> user relationships. There are modules (most notably connect-redis) that will work with Express.js. You will need to install the Redis database on your server.
+
+			Installation
+			Assuming you’ve already installed Node.js, create a directory to hold your application, and make that your working directory.
+
+			$ mkdir myapp
+			$ cd myapp
+			$ npm init
+			This command prompts you for a number of things, such as the name and version of your application. For now, you can simply hit RETURN to accept the defaults for most of them, with the following exception:
+
+			entry point: (index.js)
+			Enter app.js, or whatever you want the name of the main file to be. If you want it to be index.js, hit RETURN to accept the suggested default file name.
+
+			Now install Express in the myapp directory and save it in the dependencies list. For example:
+			npm install -g express (global)
+			$ npm install express --save
+			To install Express temporarily and not add it to the dependencies list:
+
+			$ npm install express --no-save
+
+	11.1.  Introduction to Express
+	11.2.  First Express Application
+			var express = require('express');
+			var app = express();
+
+			app.get('/', function (req, res) {
+			   res.send('Hello World');
+			})
+
+			var server = app.listen(8081, function () {
+			   var host = server.address().address
+			   var port = server.address().port
+			   
+			   console.log("Example app listening at http://%s:%s", host, port)
+			})
+
+			put this file in myapp folder
+	11.3.  Application, Request and Responce Objects
+			//check image ApplicationRequestResponce
+			https://expressjs.com/en/guide/writing-middleware.html
+			Express.js Request and Response objects are the parameters of the callback function which is used in Express applications.
+
+			The express.js request object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on.
+
+			Syntax:
+
+			app.get('/', function (req, res) {  
+			   // --  
+			})  
+			Express.js Request Object Properties
+			The following table specifies some of the properties associated with request object.
+
+			Index	Properties	Description
+			1.	req.app	This is used to hold a reference to the instance of the express application that is using the middleware.
+			2.	req.baseurl	It specifies the URL path on which a router instance was mounted.
+			3.	req.body	It contains key-value pairs of data submitted in the request body. By default, it is undefined, and is populated when you use body-parsing middleware such as body-parser.
+			4.	req.cookies	When we use cookie-parser middleware, this property is an object that contains cookies sent by the request.
+			5.	req.fresh	It specifies that the request is "fresh." it is the opposite of req.stale.
+			6.	req.hostname	It contains the hostname from the "host" http header.
+			7.	req.ip	It specifies the remote IP address of the request.
+			8.	req.ips	When the trust proxy setting is true, this property contains an array of IP addresses specified in the ?x-forwarded-for? request header.
+			9.	req.originalurl	This property is much like req.url; however, it retains the original request URL, allowing you to rewrite req.url freely for internal routing purposes.
+			10.	req.params	An object containing properties mapped to the named route ?parameters?. For example, if you have the route /user/:name, then the "name" property is available as req.params.name. This object defaults to {}.
+			11.	req.path	It contains the path part of the request URL.
+			12.	req.protocol	The request protocol string, "http" or "https" when requested with TLS.
+			13.	req.query	An object containing a property for each query string parameter in the route.
+			14.	req.route	The currently-matched route, a string.
+			15.	req.secure	A Boolean that is true if a TLS connection is established.
+			16.	req.signedcookies	When using cookie-parser middleware, this property contains signed cookies sent by the request, unsigned and ready for use.
+			17.	req.stale	It indicates whether the request is "stale," and is the opposite of req.fresh.
+			18.	req.subdomains	It represents an array of subdomains in the domain name of the request.
+			19.	req.xhr	A Boolean value that is true if the request's "x-requested-with" header field is "xmlhttprequest", indicating that the request was issued by a client library such as jQuery
+
+			Responce Object
+			What it does
+			It sends response back to the client browser.
+			It facilitates you to put new cookies value and that will write to the client browser (under cross domain rule).
+			Once you res.send() or res.redirect() or res.render(), you cannot do it again, otherwise, there will be uncaught error.
+			Response Object Properties
+			Let's see some properties of response object.
+
+			Index	Properties	Description
+			1.	res.app	It holds a reference to the instance of the express application that is using the middleware.
+			2.	res.headersSent	It is a Boolean property that indicates if the app sent HTTP headers for the response.
+			3.	res.locals	It specifies an object that contains response local variables scoped to the request
+			Response Object Methods
+			Following are some methods:
+
+			Response Append method
+			Syntax:
+
+			res.append(field [, value])   
+			This method appends the specified value to the HTTP response header field. That means if the specified value is not appropriate then this method redress that.
+
+			Examples:
+
+			res.append('Link', ['<http://localhost/>', '<http://localhost:3000/>']);  
+			res.append('Warning', '199 Miscellaneous warning');  
+			Response Attachment method
+			Syntax:
+
+			res.attachment([filename])  
+			This method facilitates you to send a file as an attachment in the HTTP response.
+
+			Examples:
+
+			res.attachment('path/to/js_pic.png');    
+			Response Cookie method
+			Syntax:
+
+			res.cookie(name, value [, options])  
+			This method is used to set a cookie name to value. The value can be a string or object converted to JSON.
+
+			Examples:
+
+			res.cookie('name', 'Aryan', { domain: '.xyz.com', path: '/admin', secure: true });  
+			res.cookie('Section', { Names: [Aryan,Sushil,Priyanka] });  
+			res.cookie('Cart', { items: [1,2,3] }, { maxAge: 900000 });  
+			Response ClearCookie method
+			Syntax:
+
+			res.clearCookie(name [, options])   
+			As the name specifies, the clearCookie method is used to clear the cookie specified by name.
+
+			Examples:
+
+			To set a cookie
+
+			res.cookie('name', 'Aryan', { path: '/admin' });  
+			To clear a cookie:
+
+			res.clearCookie('name', { path: '/admin' });  
+			Response Download method
+			Syntax:
+
+			res.download(path [, filename] [, fn])   
+			This method transfers the file at path as an "attachment" and enforces the browser to prompt user for download.
+
+			Example:
+			res.download('/report-12345.pdf');  
+			Response End method
+			Syntax:
+
+			res.end([data] [, encoding])   
+			This method is used to end the response process.
+
+			Example:
+
+			res.end();  
+			res.status(404).end();  
+			Response Format method
+			Syntax:
+
+			res.format(object)   
+			This method performs content negotiation on the Accept HTTP header on the request object, when present.
+
+			Example:
+
+			res.format({  
+			  'text/plain': function(){  
+			    res.send('hey');  
+			  },  
+			 'text/html': function(){  
+			    res.send('  
+			hey');  
+			  },  
+			  'application/json': function(){  
+			    res.send({ message: 'hey' });  
+			  },  
+			 'default': function() {  
+			    // log the request and respond with 406  
+			    res.status(406).send('Not Acceptable');  
+			  }  
+			});  
+			Response Get method
+			Syntax:
+
+			res.get(field)   
+			This method provides HTTP response header specified by field.
+
+			Example:
+
+			res.get('Content-Type');   
+			Response JSON method:
+			Syntax:
+
+			res.json([body])   
+			This method returns the response in JSON format.
+
+			Example:
+
+			res.json(null)  
+			res.json({ name: 'ajeet' })  
+			Response JSONP method
+			Syntax:
+
+			res.jsonp([body])   
+			This method returns response in JSON format with JSONP support.
+
+			Examples:
+
+			res.jsonp(null)  
+			res.jsonp({ name: 'ajeet' })  
+			Response Links method
+			Syntax:
+
+			res.links(links)   
+			This method populates the response?s Link HTTP header field by joining the links provided as properties of the parameter.
+
+			Examples:
+
+			res.links({  
+			  next: 'http://api.rnd.com/users?page=5',  
+			  last: 'http://api.rnd.com/users?page=10'  
+			});  
+			Response Location method
+			Syntax:
+
+			res.location(path)   
+			This method is used to set the response location HTTP header field based on the specified path parameter.
+
+			Examples:
+
+			res.location('http://xyz.com');  
+			Response Redirect method
+			Syntax:
+
+			res.redirect([status,] path)   
+			This method redirects to the URL derived from the specified path, with specified HTTP status
+
+			Examples:
+
+			res.redirect('http://example.com');  
+			Response Render method
+			Syntax:
+
+			res.render(view [, locals] [, callback])  
+			This method renders a view and sends the rendered HTML string to the client.
+
+			Examples:
+
+			// send the rendered view to the client  
+			res.render('index');  
+			// pass a local variable to the view  
+			res.render('user', { name: 'aryan' }, function(err, html) {  
+			  // ...  
+			});  
+			Response Send method
+			Syntax:
+
+			res.send([body])   
+			This method is used to send HTTP response.
+
+			Examples:
+
+			res.send(new Buffer('whoop'));  
+			res.send({ some: 'json' });  
+			res.send('  
+			.....some html  
+			');  
+			Response sendFile method
+			Syntax:
+
+			res.sendFile(path [, options] [, fn])   
+			This method is used to transfer the file at the given path. It sets the Content-Type response HTTP header field based on the filename's extension.
+
+			Examples:
+
+			res.sendFile(fileName, options, function (err) {  
+			  // ...  
+			});  
+			Response Set method
+			Syntax:
+
+			res.set(field [, value])   
+			This method is used to set the response of HTTP header field to value.
+
+			Examples:
+
+			res.set('Content-Type', 'text/plain');  
+			  
+			res.set({  
+			  'Content-Type': 'text/plain',  
+			  'Content-Length': '123',  
+			})  
+			Response Status method
+			Syntax:
+
+			res.status(code)   
+			This method sets an HTTP status for the response.
+
+			Examples:
+
+			res.status(403).end();  
+			res.status(400).send('Bad Request');  
+			Response Type method
+			Syntax:
+
+			res.type(type)   
+			This method sets the content-type HTTP header to the MIME type.
+
+			Examples:
+
+			res.type('.html');              // => 'text/html'  
+			res.type('html');               // => 'text/html'  
+			res.type('json');               // => 'application/json'  
+			res.type('application/json');   // => 'application/json'  
+			res.type('png');                // => image/png:  
+	11.4.  Implementing MVC Pattern
+			Explanation
+			Model: Model represents the structure of data, the format and the constraints with which it is stored. It maintains the data of the application. Essentially, it is the database part of the application.
+
+			View: View is what is presented to the user. Views utilize the Model and present data in a form in which the user wants. A user can also be allowed to make changes to the data presented to the user. They consist of static and dynamic pages which are rendered or sent to the user when the user requests them.
+
+			Controller:Controller controls the requests of the user and then generates appropriate response which is fed to the viewer. Typically, the user interacts with the View, which in turn generates the appropriate request, this request will be handled by a controller. The controller renders the appropriate view with the model data as a response.
+			So, to sum it up:
+
+			Model is data part.
+			View is User Interface part.
+			Controller is request-response handler.
+
+			package.json
+			To start we’re going to want to create a package.json file. You can read more about pakcage.json here.
+			package.json will define some metadata type things like the name and version of the application, 
+			but most importantly, it will specify what modules you will need to download and run the application. 
+			You can read more about modules in Node.js here as well as in any good introduction to Node.js. 
+			Express is itself a Node.js module and it makes use of other Node.js modules. 
+			Some modules like “http” are core Node.js modules (part of the Node.js core) and some like express.js are third-party.
+			Core Node.js modules will always be available to your application because it is running on Node.js
+			http://www.9bitstudios.com/2014/10/creating-an-mvc-express-js-application/
+	11.5.  Express application configuration
+			Express application generator
+			Use the application generator tool, express-generator, to quickly create an application skeleton.
+
+			The express-generator package installs the express command-line tool. Use the following command to do so:
+
+			$ npm install express-generator -g
+			Display the command options with the -h option:
+
+			$ express -h
+
+			  Usage: express [options] [dir]
+
+			  Options:
+
+			    -h, --help          output usage information
+			        --version       output the version number
+			    -e, --ejs           add ejs engine support
+			        --hbs           add handlebars engine support
+			        --pug           add pug engine support
+			    -H, --hogan         add hogan.js engine support
+			        --no-view       generate without view engine
+			    -v, --view <engine> add view <engine> support (ejs|hbs|hjs|jade|pug|twig|vash) (defaults to jade)
+			    -c, --css <engine>  add stylesheet <engine> support (less|stylus|compass|sass) (defaults to plain css)
+			        --git           add .gitignore
+			    -f, --force         force on non-empty directory
+			For example, the following creates an Express app named myapp. The app will be created in a folder named myapp in the current working directory and the view engine will be set to Pug:
+
+			$ express --view=pug myapp
+
+			   create : myapp
+			   create : myapp/package.json
+			   create : myapp/app.js
+			   create : myapp/public
+			   create : myapp/public/javascripts
+			   create : myapp/public/images
+			   create : myapp/routes
+			   create : myapp/routes/index.js
+			   create : myapp/routes/users.js
+			   create : myapp/public/stylesheets
+			   create : myapp/public/stylesheets/style.css
+			   create : myapp/views
+			   create : myapp/views/index.pug
+			   create : myapp/views/layout.pug
+			   create : myapp/views/error.pug
+			   create : myapp/bin
+			   create : myapp/bin/www
+			Then install dependencies:
+
+			$ cd myapp
+			$ npm install
+			On MacOS or Linux, run the app with this command:
+
+			$ DEBUG=myapp:* npm start
+			On Windows, use this command:
+
+			> set DEBUG=myapp:* & npm start
+			Then load http://localhost:3000/ in your browser to access the app.
+
+			The generated app has the following directory structure:
+
+			.
+			├── app.js
+			├── bin
+			│   └── www
+			├── package.json
+			├── public
+			│   ├── images
+			│   ├── javascripts
+			│   └── stylesheets
+			│       └── style.css
+			├── routes
+			│   ├── index.js
+			│   └── users.js
+			└── views
+			    ├── error.pug
+			    ├── index.pug
+			    └── layout.pug
+	11.6.  Rendering Views
+			A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
+
+			Some popular template engines that work with Express are Pug, Mustache, and EJS. The Express application generator uses Jade as its default, but it also supports several others.
+
+			To render template files, set the following application setting properties, set in app.js in the default app created by the generator:
+
+			views, the directory where the template files are located. Eg: app.set('views', './views'). This defaults to the views directory in the application root directory.
+			view engine, the template engine to use. For example, to use the Pug template engine: app.set('view engine', 'pug').
+			Then install the corresponding template engine npm package; for example to install Pug:
+			Jade has been renamed to pug.
+
+			$ npm install pug --save
+			Create a Pug template file named index.pug in the views directory, with the following content:
+
+			html
+			  head
+			    title= title
+			  body
+			    h1= message
+			Then create a route to render the index.pug file. If the view engine property is not set, you must specify the extension of the view file. Otherwise, you can omit it.
+
+			app.get('/', function (req, res) {
+			  res.render('index', { title: 'Hey', message: 'Hello there!' })
+			})
+			When you make a request to the home page, the index.pug file will be rendered as HTML.
+
+			Note: The view engine cache does not cache the contents of the template’s output, only the underlying template itself. The view is still re-rendered with every request even when the cache is on.
+
+
+
+	12.	   Angular
+	12.1.  Introduction
+			What is Angular?
+			Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop
+	12.2.  Angular 2 Architecture
+	12.3.  Language Choices
+	12.4.  Introduction to Components
+	12.5.  Templates, Interpolation and Directives
+	12.6.  Data Bindings and Pipes
+	12.7.  Building Nested Components
+	12.8.  Services and Dependency Injection
+	12.9.  Retrieving Data Using HTTP
+	12.10. Navigation and Routing Basics
+	12.11. Angular Modules
+
+	14.1.  Introduction to Testing web Application
+	14.2.  JavaScript Application Testing
+	14.3.  Testing Express Application
+	14.4.  Testing AngularJS Application
+	14.5.  Testing based on
+		14.5.1.  Functionality Testing
+		14.5.2.  Performance Testing
+		14.5.3.  Usability Testing
+		14.5.4.  Server Side Interface
+		14.5.5.  Client Side Compatibility
+		14.5.6.  Security
