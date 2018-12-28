@@ -136,7 +136,7 @@
 			}).listen(8080);
 
 			http://localhost:8080/?year=2017&month=July
-	10.3.  Selectors
+	10.3.  Selectors (no selectors in Node because it is serve to client)
 	10.4.  Syntax(see above eg.)
 	10.5.  Developing node.js web application (see above eg.)
 	10.6.  Event-driven I/O server-side JavaScript
@@ -633,24 +633,206 @@
 			What is Angular?
 			Angular is a platform that makes it easy to build applications with the web. Angular combines declarative templates, dependency injection, end to end tooling, and integrated best practices to solve development challenges. Angular empowers developers to build applications that live on the web, mobile, or the desktop
 	12.2.  Angular 2 Architecture
+			https://v2.angular.io/docs/ts/latest/guide/architecture.html
 	12.3.  Language Choices
-	12.4.  Introduction to Components
-	12.5.  Templates, Interpolation and Directives
+			With Angular 2 the official site provides example code in several languages; JavaScript, TypeScript and Dart.
+			JavaScript is an implementation of the ECMAScript standard. Several versions exist including ES5 and ES6.
+			TypeScript and Dart are language super sets of JavaScript. 
+			Code Example
+
+			A basic Angular 2 component coded in TypeScript:
+
+			import { Component } from '@angular/core';
+			@Component({
+			selector: 'hello-app',
+			template: '<h1>Hello Angular 2</h1>'
+			})
+			export class AppComponent { }
+
+			 
+
+			The same component coded in JavaScript ES5:
+
+			(function(app) {
+			app.AppComponent = ng.core.Component({
+			selector: 'hello-app',
+			template: '<h1>Hello Angular 2</h1>'
+			})
+			.Class({
+			constructor: function() {}
+			});
+			})(window.app || (window.app = {}));
+
+			npm install -g typescript
+	12.4.  Introduction to Components(core)
+			Decorator that marks a class as an Angular component and provides configuration metadata that determines how the component should be processed, instantiated, and used at runtime.
+			You may be familiar with the component/template duality from your experience with model-view-controller (MVC) or model-view-viewmodel (MVVM). In Angular, the component plays the part of the controller/viewmodel, and the template represents the view.
+			https://angular.io/api/core/Component
+	12.5.  Templates, Interpolation and Directives 
+			You can extend the HTML vocabulary of your templates with components and directives that appear as new elements and attributes. In the following sections, you'll learn how to get and set DOM (Document Object Model) values dynamically through data binding.
+			https://angular.io/guide/template-syntax
+			https://angular.io/guide/attribute-directives
 	12.6.  Data Bindings and Pipes
+			https://angular.io/tutorial/toh-pt1 (Angular Hero for data binding)
+			Every application starts out with what seems like a simple task: get data, transform them, and show them to users. Getting data could be as simple as creating a local variable or as complex as streaming data over a WebSocket.
+			A pipe takes in data as input and transforms it to a desired output. In this page, you'll use pipes to transform a component's birthday property into a human-friendly date.
+			https://angular.io/guide/pipes (Pies)
 	12.7.  Building Nested Components
+			Angular 2 Component = Angular 1 Directive +  Angular 1 Template
+			https://www.c-sharpcorner.com/article/what-are-components-in-angular-and-nested-components/
 	12.8.  Services and Dependency Injection
+			https://angular.io/guide/architecture-services
 	12.9.  Retrieving Data Using HTTP
+			https://angular.io/guide/http
 	12.10. Navigation and Routing Basics
+			https://angular.io/guide/router
 	12.11. Angular Modules
+			https://angular.io/guide/ngmodules
 
 	14.1.  Introduction to Testing web Application
+			1. Functionality Testing:
+			This is used to check if your product is as per the specifications you intended for it as well as the functional requirements you charted out for it in your developmental documentation. Testing Activities Included:
+
+			Test all links in your webpages are working correctly and make sure there are no broken links. Links to be checked will include -
+
+			Outgoing links
+			Internal links
+			Anchor Links
+			MailTo Links
+			Test Forms are working as expected. This will include-
+
+			Scripting checks on the form are working as expected. For example- if a user does not fill a mandatory field in a form an error message is shown.
+			Check default values are being populated
+			Once submitted, the data in the forms is submitted to a live database or is linked to a working email address
+			Forms are optimally formatted for better readability
+			Test Cookies are working as expected. Cookies are small files used by websites to primarily remember active user sessions so you do not need to log in every time you visit a website. Cookie Testing will include
+
+			Testing cookies (sessions) are deleted either when cache is cleared or when they reach their expiry.
+			Delete cookies (sessions) and test that login credentials are asked for when you next visit the site.
+			Test HTML and CSS to ensure that search engines can crawl your site easily. This will include
+
+			Checking for Syntax Errors
+			Readable Color Schemas
+			Standard Compliance. Ensure standards such W3C, OASIS, IETF, ISO, ECMA, or WS-I are followed.
+			Test business workflow- This will include
+
+			Testing your end - to - end workflow/ business scenarios which takes the user through a series of webpages to complete.
+			Test negative scenarios as well, such that when a user executes an unexpected step, appropriate error message or help is shown in your web application.
+			Tools that can be used: QTP , IBM Rational , Selenium
+
+			2. Usability testing:
+			Usability Testing has now become a vital part of any web based project. It can be carried out by testers like you or a small focus group similar to the target audience of the web application.
+
+			Test the site Navigation:
+
+			Menus, buttons or Links to different pages on your site should be easily visible and consistent on all webpages
+			Test the Content:
+
+
+			Content should be legible with no spelling or grammatical errors.
+			Images if present should contain an "alt" text
+			Tools that can be used: Chalkmark, Clicktale, Clixpy and Feedback Army
+
+			3.Interface Testing:
+			Three areas to be tested here are - Application, Web and Database Server
+
+			Application: Test requests are sent correctly to the Database and output at the client side is displayed correctly. Errors if any must be caught by the application and must be only shown to the administrator and not the end user.
+			Web Server: Test Web server is handling all application requests without any service denial.
+			Database Server: Make sure queries sent to the database give expected results.
+			Test system response when connection between the three layers (Application, Web and Database) cannot be established and appropriate message is shown to the end user.
+
+			Tools that can be used: AlertFox, Ranorex
+
+			4. Database Testing:
+			Database is one critical component of your web application and stress must be laid to test it thoroughly. Testing activities will include-
+
+			Test if any errors are shown while executing queries
+			Data Integrity is maintained while creating, updating or deleting data in database.
+			Check response time of queries and fine tune them if necessary.
+			Test data retrieved from your database is shown accurately in your web application
+			Tools that can be used: QTP, Selenium
+
+			5. Compatibility testing.
+			Compatibility tests ensures that your web application displays correctly across different devices. This would include-
+
+			Browser Compatibility Test: Same website in different browsers will display differently. You need to test if your web application is being displayed correctly across browsers, JavaScript, AJAX and authentication is working fine. You may also check for Mobile Browser Compatibility.
+
+			The rendering of web elements like buttons, text fields etc. changes with change in Operating System. Make sure your website works fine for various combination of Operating systems such as Windows, Linux, Mac and Browsers such as Firefox, Internet Explorer, Safari etc.
+
+			Tools that can be used: NetMechanic
+
+			6. Performance Testing:
+			This will ensure your site works under all loads. Testing activities will include but not limited to -
+
+
+			Website application response times at different connection speeds
+			Load test your web application to determine its behavior under normal and peak loads
+			Stress test your web site to determine its break point when pushed to beyond normal loads at peak time.
+			Test if a crash occurs due to peak load, how does the site recover from such an event
+			Make sure optimization techniques like gzip compression, browser and server side cache enabled to reduce load times
+			Tools that can be used: Loadrunner, JMeter
+
+			7. Security testing:
+			Security Testing is vital for e-commerce website that store sensitive customer information like credit cards. Testing Activities will include-
+
+			Test unauthorized access to secure pages should not be permitted
+			Restricted files should not be downloadable without appropriate access
+			Check sessions are automatically killed after prolonged user inactivity
+			On use of SSL certificates, website should re-direct to encrypted SSL pages.
+			Tools that can be used: Babel Enterprise, BFBTester and CROSS
+
+			8. Crowd Testing:
+			You will select a large number of people (crowd) to execute tests which otherwise would have been executed a select group of people in the company. Crowdsourced testing is an interesting and upcoming concept and helps unravel many a unnoticed defects.
+
+			Tools that can be used: People like you and me !!!. And yes , loads of them!
 	14.2.  JavaScript Application Testing
+			Challenges in JavaScript Unit Testing
+			There are certain problems one can find while performing JavaScript Unit Testing such as;
+
+			Many other languages support unit testing in browsers, in the stable as well as in runtime environment but JavaScript can not
+			You can understand some system actions with other languages, but this is not the case with JavaScript
+			Some JavaScript are written for a web application may have multiple dependencies
+			JavaScript is good to use in combination with HTML and CSS rather than on the web
+			Difficulties with page rendering and DOM manipulation
+			To avoid such issues what you can do is;
+
+			Do not use global variables
+			Do not manipulate predefined objects
+			Design core functionalities based on library
+			Try to create small pieces of functionalities with lesser dependencies
+			1. JSUnit: JSUnit is an open source unit testing framework for client-side JavaScript running in the browser. This framework runs on different platforms and browsers. It fulfills server needs such as;
+			Logging results in XML format
+			Running JSUnit from JUnit and Ant and more than one or more browser and remote machines as well
+			2. Unit.js: It is known as an open source assertion library running on browser and Node.js. It is extremely compatible with other JavaScript Unit Testing frameworks like Mocha, Karma, Jasmine, QUnit, Protractor, etc. Provides the full documented API of assertion list
+
+			3. QUnit: It is used for both client-side as well as server-side JavaScript Unit Testing. This Free framework is used for jQuery projects. It follows Common JS unit testing Specification for unit testing. It supports the Node Long-term Support Schedule.
+
+			4. Jasmine: Jasmine is the behavior-driven development framework for JavaScript unit Testing. It is used for testing both synchronous and asynchronous JavaScript Code. It does not require DOM and comes with the easy syntax that can be Written for any test.
+
+			5. Karma: Karma is an open source productive testing environment. Easy workflow control Running on the command line. Offers the freedom to write the tests with Jasmine, Mocha, and QUnit. You can run the test on real devices with easy debugging.
+
+			6. Mocha: Mocha runs on Node.js and in the browser. Mocha performs asynchronous Testing in a simpler way. Provides accuracy and flexibility in reporting. Provides tremendous support of rich features such as test-specific timeouts, JavaScript APIs etc.
+
+			7. Jest: Jest is used by Facebook so far to test all of the JavaScript code. It provides the 'zero-configuration' testing experience. Supports independent and non-interrupting running test without any conflict. Do not require any other setup configuration and libraries.
+
+			8. AVA: AVA is simple JavaScript Unit Testing Framework. Tests are being run in parallel and serially. Parallel tests run without interrupting each other. AVA Supports asynchronous testing as well. AVA uses subprocesses to run the test.
+
+			WARNING : A paradigm that has guided software engineers and developers over the years. Planning and thinking things out before beginning to code helps make development a lot easier and helps with developing more accurate software at the end of the construction process.
 	14.3.  Testing Express Application
+			Debugging Express
+			Express uses the debug module internally to log information about route matches, middleware functions that are in use, application mode, and the flow of the request-response cycle.
+			https://expressjs.com/en/guide/debugging.html
+			Recomended : https://scotch.io/tutorials/test-a-node-restful-api-with-mocha-and-chai
 	14.4.  Testing AngularJS Application
+			https://docs.angularjs.org/guide/unit-testing
 	14.5.  Testing based on
-		14.5.1.  Functionality Testing
-		14.5.2.  Performance Testing
-		14.5.3.  Usability Testing
+		14.5.1.  Functionality Testing (see in introduction)
+		14.5.2.  Performance Testing(see in introduction)
+		14.5.3.  Usability Testing(see in introduction)
 		14.5.4.  Server Side Interface
+					https://www.softwaretestinghelp.com/what-is-interface-testing/
+					Recomended : Postman
 		14.5.5.  Client Side Compatibility
-		14.5.6.  Security
+				Very Very Important
+				Recomended : https://www.owasp.org/index.php/Client_Side_Testing
+		14.5.6.  Security(see in introduction)
