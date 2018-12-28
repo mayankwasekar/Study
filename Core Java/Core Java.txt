@@ -1,0 +1,97 @@
+1-14 Core Java
+	1.1.  Java 8 Basics :Overview of Java, Features of Java, Scope of variables
+	1.2.  JDK and its usage (Java Compiler, Java Runtime, Java Debugger, Java doc)
+	1.3.  Working with Data Types: Structure of a Java Class, Importing Packages, Difference between object reference variables and primitive 		variables, how to read or write to object fields)
+
+	2.1.  Object's lifecycle(creation, reassignment, garbage collection: new, finalize)
+	2.2.  Wrapper classes (Boolean, Double and Integer)
+	2.3.  Operators (Unary, Binary, Arithmetic, Assignment, Compound, Relational, Logical, Equality) and Control Statements (if, if-else, for, while, switch, do-while, break and continue, ternary constructs)
+
+	3.1.  Packages and classpath
+	3.2.  Arrays
+	3.3.  Understanding of String Class, StringBuilder Class, StringBuffer class
+	3.4.  Methods and Encapsulation: Methods, Access Modifiers, Method Overloading, Passing Data, Creating Constructors, Immutable Classes
+
+	4.1.  Class Inheritance, Abstract Classes, Inner Classes, Interface and Implementation classes.
+	4.2.  Understanding Polymorphism: Object vs Reference, Object Casting, Virtual Methods, Method Overriding
+
+	5.1.  Exception-Handling: Basics, Role of Exceptions, Types
+	5.2.  Using try and catch, Multiple Catch, Nested try (throw, throws, finally)
+	5.3.  Built-in Exceptions, Runtime Exceptions Checked Exceptions, Errors
+	5.4.  Creating own Exception Subclasses
+
+	6.1.  Enumerations, Auto boxing, and Annotations
+	6.2.  Lambda Expressions
+	6.3.  Java 8 New Features
+
+	7.1.  Java API: java.util, java.lang, java.math
+
+	8.1.  Generics and Collections
+
+	9.1.  Java NIO (NIO 2) Overview
+	9.2.  NIO classes: Fundamentals, Path Interfaces, Manage metadata of a file or directory,
+	9.3.  Byte Buffers & Channels
+	9.4.  UDP, TCP and IP
+	9.5.  Communication with TCP/IP Protocol
+
+	10.1.  Java Concurrency: Using threads in Java, Life cycle of thread
+	10.2.  Advantages and issues
+	10.3.  Thread class, thread groups
+	10.4.  The Runnable interface
+	10.5.  Executor Framework overview
+
+	11.1.  The java.io Package
+	11.2.  Files
+	11.3.  Byte Streams and Unicode Character Streams
+	11.4.  Persistence of objects
+	11.5.  Object Serialization Methods
+
+	12.1.  Reflection in Java
+		12.1.1. Java Reflection Classes, Methods, Getter Setters, Constructors, Annotations, generics, Arrays, Dynamic method invocation
+
+	13.1.  What is a Java Virtual Machine?
+	13.2.  The Lifetime of a Java Virtual Machine
+	13.3.  The Architecture of the Java Virtual Machine
+	13.4.  Java Mail
+		13.4.1.  javax.mail.internet Class ContentType
+		13.4.2.  Method
+		13.4.3.  java.lang.String, getBaseType()
+		13.4.4.  java.lang.String, getParameter(java.lang.String name)
+
+	14.1.  Introduction of JDBC API
+	14.2.  JDBC Architecture
+	14.3.  JDBC Drivers
+	14.4.  Drivers, Connection, Statement , PreparedStatement and Result Set interfaces and their relationship to provider implementations
+	14.5.  Writing JDBC Application along with DAO & POJO Layers
+	14.6. Stored Procedures and functions invocation
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+	1.1.  Java 8 Basics :Overview of Java, Features of Java, Scope of variables
+----------------------------------------------------------------------------------------------------------------------------------------------
+		Java 8 Programming Language Enhancements
+		Java 8 provides following features for Java Programming:
+
+		Lambda expressions,
+		Method references,
+		Functional interfaces,
+		Stream API,
+		Default methods,
+		Base64 Encode Decode,
+		Static methods in interface,
+		Optional class,
+		Collectors class,
+		ForEach() method,
+		Parallel array sorting,
+		Nashorn JavaScript Engine,
+		Parallel Array Sorting,
+		Type and Repating Annotations,
+		IO Enhancements,
+		Concurrency Enhancements,
+		JDBC Enhancements etc.
+----------------------------------------------------------------------------------------------------------------------------------------------
+	1.2.  JDK and its usage (Java Compiler, Java Runtime, Java Debugger, Java doc)
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+	1.3.  Working with Data Types: Structure of a Java Class, Importing Packages, Difference between object reference variables and primitive 		variables, how to read or write to object fields)
+----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------

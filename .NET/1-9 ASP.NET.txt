@@ -1,0 +1,292 @@
+1-9 ASP.NET
+ 	1.1   Introduction and difference between ASP and ASP .Net Application
+	1.2  ASP .NET Web Forms
+	 	1.2.1.  ASP .NET Programming Model
+	 2.2  Web Forms Code Model
+	 2.3  The code behind Web Forms
+		 2.3.1  Separation of content & Business logic
+	 2.3.2Life Cycle of a Web Forms Page
+ 3   The goals of ASP.Net 4.5
+ 4   Additional new features of Asp.net 4.5
+ 5   Application and page Frame works
+ 6  o Application location option
+ 7  o ASP.Net page Structure options
+ 8  o ASP.Net page directives
+ 9  o ASP.Net page events
+ 10  o Dealing with PostBacks
+ 11  o ASP.Net Application Folder
+ 12   Introduction to Asp .net MVC
+ 13  o Architecture of an ASP .Net MVC application
+ 14   Understanding Controllers and Action
+ 15  o Create a controller
+ 16  o How actions are invoked
+ 17  o Running Action result.
+ 18   Understanding views & Models
+ 19  o Create a view using view data
+ 20  o Typed and Untyped Views
+ 21   Debugging and Error Handling Techniques
+ 22  o Design Time Support
+ 23  o Immediate and Command Window
+ 24  o ASP .NET Tracing
+ 25  Page level
+ 26  Application Level
+ 27  Viewing Trace Data
+ 28  Trace Forwarding
+ 29  TraceListeners
+ 30  Diagnostic Switches
+ 31  Web Events
+ 32  o ASP .NET Debugging
+ 33  IIS Versus ASP .NET development Server
+ 34  Starting a Debugging Session
+ 35  Client Side JavaScript debugging
+ 36  SQL Store Proc Debugging
+ 37  o Exception and error Handling
+ 38  ACTS, Pune
+ 39  Suggested Teaching Guidelines for
+ 40  Microsoft .NET– PG-DAC August 2018
+ 41  PG-DAC, MS.NET Page 6 of 10
+ 42  Handling Exceptions on Page
+ 43  Handling Application Exceptions
+ 44  Http Status codes
+ 45  Assignment Lab:
+ 46   Create a simple ASP .Net MVC application Session.
+ 47   Create a custom view engine
+ 48   Create a product repository and a fake Generic Repository.
+ 49   Create a Simple application in ASP .NET 4.5 in which we use all following
+ 50  Authentication
+ 51  Windows Authentication
+ 52  Passport Authentication
+ 53  Form Based Authentication
+ 54  Session 3:
+ 55  Lecture:
+ 56   Site Navigation
+ 57  o XML Based Site Maps
+ 58  o TreeView Server Control
+ 59  o Menu Server Control
+ 60  o SiteMap Data Provider, Nesting SiteMap files
+ 61  o Sitemap localization
+ 62  o Security Trimming
+ 63   Threading
+ 64  o Threading & Synchronization
+ 65  o Life Cycle of a Thread
+ 66  o Synchronizing critical data using Synchronization objects
+ 67  o Thread Pool
+ 68   Querying with LINQ
+ 69  o LINQ to objects
+ 70  o LINQ to XML
+ 71  o LINQ to SQL
+ 72   Working with XML and LINQ to XML
+ 73  o Basic of XML
+ 74  XML InfoSet
+ 75  XSD-XML Scheme Definition
+ 76  Editing and XML Schema in Visual Studio 2008/2010
+ 77  o XmlReader and XmlWriter
+ 78  o XmalDocument and Xpathdocument
+ 79  o DataSets
+ 80  o The XmalDataSource Control
+ 81  o XSLT
+ 82  o Database and XML
+ 83  For XML AUTO
+ 84  SQL Server 2008/2012 and XML Data Type
+ 85  Session 4:
+ 86  Lecture:
+ 87   Data Binding in Asp.Net 4.5
+ 88  o Data Source Controls
+ 89  o Configuring Data Source Control Caching
+ 90  o Storing Connection Information
+ 91  ACTS, Pune
+ 92  Suggested Teaching Guidelines for
+ 93  Microsoft .NET– PG-DAC August 2018
+ 94  PG-DAC, MS.NET Page 7 of 10
+ 95  o Using Bound List Controls (GridView, Editing GridView Row Data,DetailsView, ListView
+ 96  FormView etc.)
+ 97  o InLine Data-Binding Syntax
+ 98   Data Management with ADO.NET 4.5
+ 99  o Basic ADO.Net features
+ 100  Connection object, Command object, DataReader, DataAdapter, DataSet
+ 101  and DataTable.
+ 102  o DataList Server Control
+ 103  Working with Layout templates and multiple Columns
+ 104  o ListView Server Control
+ 105  Creating layout template
+ 106  Creating ItemTemplate
+ 107  Creating EditItemTemplate
+ 108  Creating EmptyItemTemplate
+ 109  Creating Item template
+ 110  o Asynchronous command Execution
+ 111  o Asynchronous Connections
+ 112  o How to create a Crystal report
+ 113   Entity Framework Repository
+ 114  o Introduction to Entity framework
+ 115  o Database Objects
+ 116  o Entity Framework Data model
+ 117  o Entity Framework Blog Repository
+ 118  Assignment Lab:
+ 119   Create a Simple application in ASP .NET 4.5 where we bind data table with all controls
+ 120   Create a Simple application in ASP .NET 4.5 to prepare an Crystal report
+ 121   Create a Simple application using entity framework
+ 122  Session 5:
+ 123  Lecture:
+ 124   Files I/O and Streams
+ 125  o Working with drivers, Directories, and Files
+ 126  o Reading and Writing files
+ 127  o Working with Serial ports
+ 128  o Networks Communications
+ 129  WebRequest and WebResponse
+ 130  Sending mail
+ 131   . NET Remoting
+ 132  o Accessing .NET component across Application Domain
+ 133   . NET Remoting Architecture
+ 134  o Creation of Proxy Objects by the CLR
+ 135  o Using the Channel Services to transport the Remotable component across Application
+ 136  Domains
+ 137  Using HTTP and TCP Channel
+ 138  o Formatter for creating Message & encoding it
+ 139  SOAP & Binary Formatter
+ 140   WebServices
+ 141  ACTS, Pune
+ 142  Suggested Teaching Guidelines for
+ 143  Microsoft .NET– PG-DAC August 2018
+ 144  PG-DAC, MS.NET Page 8 of 10
+ 145  o The Need for Web Services
+ 146  Introducing Web Services
+ 147  The Web Technology Stack and .NET
+ 148  The .NET Alternatives to WebServices
+ 149  Common Web Service Scenarios
+ 150  o Implementing a Web Service
+ 151  Creating a Web Service Project
+ 152  Implementing Web Service Methods, exposing them and controlling their
+ 153  behavior
+ 154  Managing State in an ASP .NET Web Service
+ 155  Debugging Web Services
+ 156  Session 6:
+ 157  Lecture:
+ 158   Windows Communication foundation
+ 159  o WCF Overview
+ 160  o Contracts
+ 161  Service Contracts
+ 162  Data Contracts
+ 163  Message Contracts
+ 164  o Channel
+ 165  Channel Shapes
+ 166  Operation Contract and Channel Shapes
+ 167  Channel Listeners
+ 168  Channel Factories
+ 169   ChannelFactory<>
+ 170  ICommunicationObject
+ 171  o Binding
+ 172  Cross-Machine Communication Between .NET Applications
+ 173  Local Machine Communication Between .NET Applications
+ 174  Communication Using Basic Web Services
+ 175  Communication Using Advanced Web Services
+ 176   wsHttpBinding
+ 177   ws2007HttpBinding
+ 178   wsDualHttpBinding
+ 179  Assignment Lab:
+ 180   Creating a simple WCF service
+ 181  Session 7:
+ 182  Lecture:
+ 183   Windows Communication foundation
+ 184  o Binding
+ 185  Comparing Binding Performance and Scalability
+ 186  Creating a Custom Binding
+ 187   User-Defined Bindings
+ 188  Binding Element
+ 189  Exposing a Service Contract over Multiple Bindings
+ 190  o Behaviors
+ 191  Concurrency and Instancing (Service Behavior)
+ 192  Exporting and Publishing Metadata (Service Behavior)
+ 193  Implementing Transactions (Operation Behavior
+ 194  ACTS, Pune
+ 195  Suggested Teaching Guidelines for
+ 196  Microsoft .NET– PG-DAC August 2018
+ 197  PG-DAC, MS.NET Page 9 of 10
+ 198  o Hosting
+ 199  Hosting a Service in Windows Process Activation Services
+ 200  Hosting a Service in IIS 7
+ 201  Enabling ASMX Features in an IIS-Hosted Service
+ 202  Self-Hosting
+ 203  Self-Hosting in a Managed Windows Service
+ 204  Hosting Multiple Services in One Process
+ 205  Defining Service and Endpoint Addresses
+ 206  o Workflow
+ 207  Calling a WCF Service from WF
+ 208   Using a Send Activity
+ 209   Writing a Custom Activity
+ 210  Assignment Lab:
+ 211   Create a online shopping portal in ASP.NET and WCF service for communicating
+ 212  between asp.net application and database, Host the WCF service and Asp.NET
+ 213  application on IIS.
+ 214  Session 8:
+ 215  Lecture:
+ 216   Localization
+ 217  o Cultures and regions
+ 218  Understand Culture Type
+ 219  Server side culture declaration
+ 220  Client Side culture declaration
+ 221  o Asp .Net 4.5 recourse files
+ 222  Making use of local resources
+ 223  Making use of global resources
+ 224  o Looking at the resource editor
+ 225   Deploying Asp .Net Applications
+ 226  o Asp .Net Applications and the Web Server
+ 227  How web server works
+ 228  The virtual directory
+ 229  Web Farms
+ 230   IIS7
+ 231  o Modular Architecture of IIS7
+ 232  o IIS7 and asp .net Integrated pipeline
+ 233  o Building a customized Web Server
+ 234  o IIS Manager
+ 235  Application pool, web sites, delegation
+ 236  o Deploying a Simple Site
+ 237   Deploying ASP .NET MVC application
+ 238  o Configuring IIS for ASP .Net MVC
+ 239  o Mixing ASP .net Web Form and Asp .net MVC
+ 240  o Bin Deploying an Asp .NET MVC application
+ 241  Assignment Lab:
+ 242   Create a Virtual directory for an ASP .NET 4.5 application
+ 243   Create a simple Currency Converter web application that uses the user culture to
+ 244  determine the type of conversion to convert one language to other language.
+ 245   Deploy Sample Asp.Net MVC application on IIS.
+ 246  ACTS, Pune
+ 247  Suggested Teaching Guidelines for
+ 248  Microsoft .NET– PG-DAC August 2018
+ 249  PG-DAC, MS.NET Page 10 of 10
+ 250  Session: 9:
+ 251  Lecture:
+ 252   Master pages and user control
+ 253  o Master Page
+ 254  A Simple Master & Content Page
+ 255  A Master Page with Multiple Content Regions
+ 256  Master Page & Relative Paths
+ 257  o Themes
+ 258  How Theme works
+ 259  Applying Simple Theme and Handling Theme conflicts
+ 260  Creating Multiple Skins for same control and Advanced Skins
+ 261  o User Controls
+ 262  Creating Simple User Control
+ 263  Working with Independent and Integrated User Control
+ 264  Using User Control Events and Passing information with Events
+ 265   Understanding HTML Helpers
+ 266  o Standard HTML Helper
+ 267  o Custom HTML helper
+ 268  o DataGrid Helpers
+ 269   Validating form data
+ 270  o Validation Helpers
+ 271  o Model State
+ 272  o Prebinding and Postbinding Validation
+ 273   Model Binders and action Filters
+ 274  o Default Model Binder
+ 275  o Bind with classes and complex classes
+ 276  o Attribute
+ 277  o Log Action Filter
+ 278   Authenticating users
+ 279  o Authorizing User
+ 280  o Membership and Role Manager API
+ 281  o Window Authentication
+ 282   Understanding Routing
+ 283  o Default Route
+ 284  o Custom route
+ 285  o Constraints
+ 286  o Catch –ALL Routes
