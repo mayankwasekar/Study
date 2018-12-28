@@ -88,10 +88,871 @@
 		IO Enhancements,
 		Concurrency Enhancements,
 		JDBC Enhancements etc.
-----------------------------------------------------------------------------------------------------------------------------------------------
+
+		Java 8 Major 8 feature
+		1. Lambda expressions
+		2. Functional Interfaces
+		3. Default Methods
+			Predefined Functional interfaces
+		4. Predicates
+		5. Functions
+			supplier
+			consumer
+		6. Double Colon Operator
+			(Constructor and Method references)
+		7. Stream API
+		8. Date and Time API(Jod Time API)
+		etc.
+		Nashorn java script
+
+
+		1. Lambda Expressions:
+			* lambda introduce in 1930.
+			* lambda calcules is big change in mathematical world.
+			* first programing language which uses lambda expression "LISP"
+			(javascript, ruby, python, c#,c++, c)
+			* Advantage to enable functional programing but java is oop language.
+			a = f()
+			f(f1)
+			* lambda expression is just anonymous function/nameless function
+			* not having name,return type,modifiers(public private protected)
+			* also called closures
+
+			public void m1()
+			{
+				System.out.println("Hello");
+			}
+
+			above method Convert to lambda
+			()->{System.out.println("Hello");}
+			()->System.out.println("Hello");
+			* no need of {} in single line
+			* -> to identify annonymonus function
+			* we can write Consise code
+			* if body contain more than 1 line put {}
+
+			eg. 
+			public void m1(int a, int b)
+			{
+				System.out.println(a+b);
+			}
+			equivalent lambda exp.
+			(int a,int b)->System.out.println(a+b);
+			* based on context compiler automatically guess type of variable sometimes
+			(a,b)->System.out.println(a+b);
+
+			eg.
+			public int square(int n)
+			{
+				return n*n;
+			}
+			equivalent lambda function
+			(n)->return n*n;
+			* if one argument is passing we can remove () paranthesis compiler can also guess return type so we can remove return
+			
+			n->n*n;
+
+			* biggest advantage consise code
+			(a,b)->Sop(a+b)
+
+			* it is mandatory to call/invoke lambda epressions
+
+			To invoke lambda expression we need Functional Interfaces.
+			---------------------
+			eg.
+			Runnable==>run()
+			Callable==>call() multi threading concept
+			Comparable==>compareTo() Collections concept
+			These interfaces only one method.
+			SAM==>Single Abstract Method
+
+			Functional Introduction : The interfaces contains only one abstract method.
+			java 1.8 version onwards default and static methods.
+			prior to java 1.8 only abstract methods
+			default void m1()
+			{
+
+			}
+			static void m1()
+			{
+
+			}
+
+			Serializable -
+			RandomAccess - 
+			Cloneable
+			SingleThreadModel
+			These interfaces not having any method.
+			So it is called Marker interfaces.
+			Object gets some ability such interfaces called Marker interfaces.
+
+			To indicate explicitly functional interface there is one annotation came
+
+			@Functional Interface
+
+			eg. Intrf.java
+			@FunctionalInterface
+			interface Interf
+			{
+				public abstract void m1();
+				//public abstract void m4();
+				default void m2()
+				{
+
+				}
+				static void m3()
+				{
+
+				}
+			}
+			To convey compailer @FunctionalInterface
+
+			@FunctionalInterface vs Inheritance
+			-----------------------------------
+			@FunctionalInterface
+			interface A
+			{
+				public void m1();
+			}
+
+			interface B extends A
+			{
+				public void m2();
+			}
+
+			eg.
+			interface Interf
+			{
+				public void m1();
+			}
+			class Demo implements Interf
+			{
+				public void m1()
+				{
+					System.out.println("m1 implimentation");
+				}
+			}
+			class Test
+			{
+				public static void main(String[] args)
+				{
+					Interf i = new Demo();
+					i.m1();
+				}
+			}
+			eg. lambda interface
+			interface Interf
+			{
+				public void m1();
+			}
+			
+			class Test
+			{
+				public static void main(String[] args)
+				{
+					Interf i = ()->System.out.println("m1 lambda implimantation");
+					i.m1();
+				}
+			}
+			eg.
+			interface Interf
+			{
+				public void m1();
+			}
+			
+			class Test
+			{
+				public static void main(String[] args)
+				{
+					Interf i = ()->System.out.println("m1 lambda implimantation");
+					i.m1();
+				}
+			}
+			eg.
+			interface Interf
+			{
+				public void add(int a,int b);
+
+				default void m1()
+				{
+					System.out.println("Default method");
+				}
+				static void m2()
+				{
+					System.out.println("static method");
+				}
+			}
+			class Test
+			{
+				public static void main(String[] args)
+				{
+					Interf t = (a,b)->System.out.println("Sum is = "+(a+b));
+					t.add(20, 30);
+					t.m1();
+					Interf.m2();
+				}
+			}
+
+			o/p: 
+			Sum is = 50
+			Default method
+			static method
+
+			Anonymou Inner class vs Lambda Expression
+			Annonymous Inner Class can extend a normal class
+			Anonymous Inner class can extend an abstract class
+			anonymous Inner class can impliment an interface which contins any number of abstract methods
+
+
+			lambda expression can implement an interface which contains a single abstract method(for functional interface onlyFI)
+
+			Anonymous Inner class != Lambda Expression
+			Anonymous Inner Class > Lambda Expression
+
+			Default Methods and Multiple Inheritance
+In case both the implemented interfaces contain deafult methods with same method signature, the implementing class should explicitly specify which default method is to be used or it should override the default method.
+
+filter_none
+edit
+play_arrow
+
+brightness_4
+// A simple Java program to demonstrate multiple 
+// inheritance through default methods. 
+interface TestInterface1 
+{ 
+    // default method 
+    default void show() 
+    { 
+        System.out.println("Default TestInterface1"); 
+    } 
+} 
+  
+interface TestInterface2 
+{ 
+    // Default method 
+    default void show() 
+    { 
+        System.out.println("Default TestInterface2"); 
+    } 
+} 
+  
+// Implementation class code 
+class TestClass implements TestInterface1, TestInterface2 
+{ 
+    // Overriding default show method 
+    public void show() 
+    { 
+        // use super keyword to call the show 
+        // method of TestInterface1 interface 
+        TestInterface1.super.show(); 
+  
+        // use super keyword to call the show 
+        // method of TestInterface2 interface 
+        TestInterface2.super.show(); 
+    } 
+  
+    public static void main(String args[]) 
+    { 
+        TestClass d = new TestClass(); 
+        d.show(); 
+    } 
+} 
+Output:
+
+Default TestInterface1
+Default TestInterface2
+Important Points:
+
+Interfaces can have default methods with implementation from java 8 onwards.
+Interfaces can have static methods as well similar to static method of classes.
+Default methods were introduced to provide backward compatibility for old interfaces so that they can have new methods without effecting existing code.
+-------------------------------------------------------------------------------------------------------------------------------
 	1.2.  JDK and its usage (Java Compiler, Java Runtime, Java Debugger, Java doc)
-----------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------
-	1.3.  Working with Data Types: Structure of a Java Class, Importing Packages, Difference between object reference variables and primitive 		variables, how to read or write to object fields)
-----------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
+The Java Development Kit (JDK) is a software development environment used for developing Java applications and applets. It includes the Java Runtime Environment (JRE), an interpreter/loader (java), a compiler (javac), an archiver (jar), a documentation generator (javadoc) and other tools needed in Java development.
+
+People new to Java may be confused about whether to use the JRE or the JDK. To run Java applications and applets, simply download the JRE. However, to develop Java applications and applets as well as run them, the JDK is needed.
+
+Java developers are initially presented with two JDK tools, java and javac. Both are run from the command prompt. Java source files are simple text files saved with an extension of .java. After writing and saving Java source code, the javac compiler is invoked to create .class files. Once the .class files are created, the 'java' command can be used to run the java program.
+
+For developers who wish to work in an integrated development environment (IDE), a JDK bundled with Netbeans can be downloaded from the Oracle website. Such IDEs speed up the development process by introducing point-and-click and drag-and-drop features for creating an application.
+
+There are different JDKs for various platforms. The supported platforms include Windows, Linux and Solaris. Mac users need a different software development kit, which includes adaptations of some tools found in the JDK.
+
+JRE
+The Java Runtime Environment (JRE) is a set of software tools for development of Java applications. It combines the Java Virtual Machine (JVM), platform core classes and supporting libraries.
+
+JRE is part of the Java Development Kit (JDK), but can be downloaded separately. JRE was originally developed by Sun Microsystems Inc., a wholly-owned subsidiary of Oracle Corporation. 
+
+Also known as Java runtime.
+JRE consists of the following components:
+
+Deployment technologies, including deployment, Java Web Start and Java Plug-in.
+User interface toolkits, including Abstract Window Toolkit (AWT), Swing, Java 2D, Accessibility, Image I/O, Print Service, Sound, drag and drop (DnD) and input methods.
+Integration libraries, including Interface Definition Language (IDL), Java Database Connectivity (JDBC), Java Naming and Directory Interface (JNDI), Remote Method Invocation (RMI), Remote Method Invocation Over Internet Inter-Orb Protocol (RMI-IIOP) and scripting.
+Other base libraries, including international support, input/output (I/O), extension mechanism, Beans, Java Management Extensions (JMX), Java Native Interface (JNI), Math, Networking, Override Mechanism, Security, Serialization and Java for XML Processing (XML JAXP).
+Lang and util base libraries, including lang and util, management, versioning, zip, instrument, reflection, Collections, Concurrency Utilities, Java Archive (JAR), Logging, Preferences API, Ref Objects and Regular Expressions.
+Java Virtual Machine (JVM), including Java HotSpot Client and Server Virtual Machines.
+
+Java Debugger
+JDB or Java Debugger is a command line utility which enables us to debug our developed java code with real time values. It provides inspection of the parameters which are used in the program. JDB tool comes with the SUN JDK. The executable library resides within /bin directory as a shell file on UNIX Platform or as an exe file on Microsoft Platform.
+
+What is Debugging?
+Debugging is a technical process which helps to find bugs and remove them within a program in an efficient manner. The process of debugging includes testing and monitoring. In a tightly coupled environment, it becomes more complicated to debug. We normally debug a program using the debugger tools which suits our environment. A debugger enables us to step through each and every aspect of the code, inspect the elements at runtime, and get rid of errors, if any.
+-------------------------------------------------------------------------------------------------------------------------------
+	1.3.  Working with Data Types: 
+			Structure of a Java Class, 
+			Importing Packages, 
+			Difference between object reference variables and primitive variables, 
+			how to read or write to object fields
+-------------------------------------------------------------------------------------------------------------------------------
+A class can contain any of the following variable types.
+
+Local variables − Variables defined inside methods, constructors or blocks are called local variables. The variable will be declared and initialized within the method and the variable will be destroyed when the method has completed.
+
+Instance variables − Instance variables are variables within a class but outside any method. These variables are initialized when the class is instantiated. Instance variables can be accessed from inside any method, constructor or blocks of that particular class.
+
+Class variables − Class variables are variables declared within a class, outside any method, with the static keyword.
+public class Puppy {
+   int puppyAge;
+
+   public Puppy(String name) {
+      // This constructor has one parameter, name.
+      System.out.println("Name chosen is :" + name );
+   }
+
+   public void setAge( int age ) {
+      puppyAge = age;
+   }
+
+   public int getAge( ) {
+      System.out.println("Puppy's age is :" + puppyAge );
+      return puppyAge;
+   }
+
+   public static void main(String []args) {
+      /* Object creation */
+      Puppy myPuppy = new Puppy( "tommy" );
+
+      /* Call class method to set puppy's age */
+      myPuppy.setAge( 2 );
+
+      /* Call another class method to get puppy's age */
+      myPuppy.getAge( );
+
+      /* You can access instance variable as follows as well */
+      System.out.println("Variable Value :" + myPuppy.puppyAge );
+   }
+}
+
+There can be only one public class per source file.
+
+A source file can have multiple non-public classes.
+
+The public class name should be the name of the source file as well which should be appended by .java at the end. For example: the class name is public class Employee{} then the source file should be as Employee.java.
+
+If the class is defined inside a package, then the package statement should be the first statement in the source file.
+
+If import statements are present, then they must be written between the package statement and the class declaration. If there are no package statements, then the import statement should be the first line in the source file.
+
+Import and package statements will imply to all the classes present in the source file. It is not possible to declare different import and/or package statements to different classes in the source file.
+
+Importing Packages
+What Is a Package?
+A package is a namespace that organizes a set of related classes and interfaces. Conceptually you can think of packages as being similar to different folders on your computer. You might keep HTML pages in one folder, images in another, and scripts or applications in yet another. Because software written in the Java programming language can be composed of hundreds or thousands of individual classes, it makes sense to keep things organized by placing related classes and interfaces into packages.
+
+The Java platform provides an enormous class library (a set of packages) suitable for use in your own applications. This library is known as the "Application Programming Interface", or "API" for short. Its packages represent the tasks most commonly associated with general-purpose programming. For example, a String object contains state and behavior for character strings; a File object allows a programmer to easily create, delete, inspect, compare, or modify a file on the filesystem; a Socket object allows for the creation and use of network sockets; various GUI objects control buttons and checkboxes and anything else related to graphical user interfaces. There are literally thousands of classes to choose from. This allows you, the programmer, to focus on the design of your particular application, rather than the infrastructure required to make it work.
+
+The Java Platform API Specification contains the complete listing for all packages, interfaces, classes, fields, and methods supplied by the Java SE platform. Load the page in your browser and bookmark it. As a programmer, it will become your single most important piece of reference documentation.
+
+Making own package:
+package mypack;  
+public class Simple{  
+ public static void main(String args[]){  
+    System.out.println("Welcome to package");  
+   }  
+}  
+How to compile java package
+If you are not using any IDE, you need to follow the syntax given below:
+
+javac -d directory javafilename  
+For example
+
+javac -d . Simple.java  
+The -d switch specifies the destination where to put the generated class file. You can use any directory name like /home (in case of Linux), d:/abc (in case of windows) etc. If you want to keep the package within the same directory, you can use . (dot).
+
+How to access package from another package?
+There are three ways to access the package from outside the package.
+
+import package.*;
+import package.classname;
+fully qualified name.
+
+//save by B.java  
+package mypack;  
+import pack.*;  
+  
+class B{  
+  public static void main(String args[]){  
+   A obj = new A();  
+   obj.msg();  
+  }  
+}  
+
+Difference between object reference variables and primitive variables, 
+These are the primitive types in Java:
+
+boolean
+byte
+short
+char
+int
+long
+float
+double
+(all above are put on stack memory)
+All the other types are reference types: they reference objects.(put on heap but the reference variable on stack which point to heap memory)
+
+how to read or write to object fields
+class Doctor {
+	protected int age;
+	protected void setAge(int val) { age = val; }
+	protected int getAge() { return age; }
+}
+
+class Surgeon extends Doctor {
+	Surgeon(String val) {
+		specialization = val;
+	}
+	String specialization;
+	String getSpecialization() { return specialization; }
+}
+
+class Hospital {
+	public static void main(String args[]) {
+		Surgeon s1 = new Surgeon("Liver");
+		Surgeon s2 = new Surgeon("Heart");
+		s1.age = 45;
+		System.out.println(s1.age + s2.getSpecialization());
+		System.out.println(s2.age + s1.getSpecialization());
+	}
+}	
+-------------------------------------------------------------------------------------------------------------------------------
+2.1.  Object's lifecycle(creation, reassignment, garbage collection: new, finalize)
+-------------------------------------------------------------------------------------------------------------------------------
+Life cycle of an object in Java is an extremely important thing to always be aware of. Java employs a different approach to object lifecycle in comparison to languages like C++, as here the JVM helps the developer with object allocation and cleanup using a garbage collector, or GC for short, and I think that it is important to have at least a basic understanding of what that is before looking into lifecycle of objects. A garbage collector is a memory management tool that can perform several operations:
+
+Allocation of object into young generation and promotion of aged objects into old generation;
+Finding live objects in the old generation through concurrent marking phase. The marking is triggered, when Java heap occupancy exceeds a threshold;
+Recovering free memory by compacting live objects through parallel copying.
+So the garbage collector takes care of objects that are no longer used. How does it know that it is time to do that?
+
+An object is considered garbage when it can no longer be reached from any other object in the running program. So the simplest approach would be to just iterate over any reachable object, with any objects left out being garbage. This approach is dependent on the number of objects, which is unacceptable for applications that maintain a lot of live objects.
+
+JVM incorporates a number of different GC algorithms that are combined using generational collection. This method exploits several properties that most of applications have in order to minimize the time for garbage collection. The most important of these properties is generation hypothesis, which says that most objects survive for only a short period of time. The minimization of GC time is important because during that time the application is effectively frozen.
+
+So, after this introduction let’s look into how the generations are divided from the garbage-first (G1) garbage collector point of view:
+
+
+The heap is divided into two generations, young and tenured. Young consists of Eden, two Survivor spaces, and a Virtual space. Most of the objects that are created are initially allocated in Eden. After that, live objects are moved to a single Survivor space, while the other one is cleared of objects that became garbage. After that process is finished, the Survivor spaces are swapped, with all live objects copied from one to another and garbage cleaned. This process is called minor collection. After some cycles of minor collection, still living objects are moved into tenured generation. Eventually, the tenured generation is filled up and also needs to be cleaned. The process of garbage collection in the entire heap, including the tenured generation is called major collection, and happens less often than minor collections.
+
+Now, we understand how the garbage collection is organized, but how to efficiently determine if an object is a live object or not?
+
+In order to do so, GC builds several object trees with roots of the trees being objects that can be reached from the application. Examples of such objects are:
+
+Local variables in the stack of the thread;
+Active Java threads;
+Static variables.
+So after building object trees the GC will have the objects divided into reachable, and, therefore, live objects, and non-reachable objects, or garbage.
+
+
+Now it should be clearer why resource leaks are very dangerous - imagine a socket or a JDBC connection that has not been properly closed - the garbage collector will find it to be reachable and not collect it, taking away resources from your application.
+
+So, let’s move on to the actual object lifecycle in Java.
+
+
+Created - memory was allocated, object placed in Eden;
+Initialized - object is initialized with a value and becomes ready to be used;
+In use - object is used for some period of time, until no references to it remain;
+Unreachable - after there are no references to the object it enters this state, and can be collected by the GC;
+Finalized - object is garbage collected and memory it occupied is freed up.
+But that is not the most fine-grained view one can take. There exist several types of references in java.lang.ref package and they differ in how GC treats them:
+
+Strong reference - that is what is generally just named reference, meaning that some other object has a reference to it;
+Soft reference - the GC will try to preserve object with only soft references to it as long as possible, but the object will be garbage collected if there is imminent danger of an OutOfMemory error;
+Weak reference - this is weaker than soft reference, as the GC will collect this object at any time. Typically used for storing object reference is such a way so it will still be collected if all other references disappear;
+Phantom reference - this reference also does not save an object from garbage collection, but adds an option to “access” object state after it has already been collected.
+
+The improved diagram with different reference types.
+
+Turns out, object lifecycle is not as simple as it is generally regarded in Java. While this answer still does not reflect many finer aspects of working with GC and object lifecycle, I hope it provides a good overview of how to think about memory allocation in Java.
+https://www.quora.com/Java-programming-language-What-is-the-life-cycle-of-an-object-in-Java
+-------------------------------------------------------------------------------------------------------------------------------
+2.2.  Wrapper classes (Boolean, Double and Integer)
+-------------------------------------------------------------------------------------------------------------------------------
+Wrapper class in Java
+Wrapper class in java provides the mechanism to convert primitive(int,double,float....) into object and object into primitive.
+
+Since J2SE 5.0, autoboxing(into object) and unboxing(into primitive) feature converts primitive into object and object into primitive automatically. The automatic conversion of primitive into object is known as autoboxing and vice-versa unboxing.
+
+The eight classes of java.lang package are known as wrapper classes in java. The list of eight wrapper classes are given below:
+
+Primitive Type	Wrapper class
+boolean	Boolean
+char	Character
+byte	Byte
+short	Short
+int	Integer
+long	Long
+float	Float
+double	Double
+
+ 
+Wrapper class Example: Primitive to Wrapper
+public class WrapperExample1{  
+public static void main(String args[]){  
+//Converting int into Integer  
+int a=20;  
+Integer i=Integer.valueOf(a);//converting int into Integer  
+Integer j=a;//autoboxing, now compiler will write Integer.valueOf(a) internally  
+  
+System.out.println(a+" "+i+" "+j);  
+}}  
+Output:
+
+20 20 20
+Wrapper class Example: Wrapper to Primitive
+public class WrapperExample2{    
+public static void main(String args[]){    
+//Converting Integer to int    
+Integer a=new Integer(3);    
+int i=a.intValue();//converting Integer to int  
+int j=a;//unboxing, now compiler will write a.intValue() internally    
+    
+System.out.println(a+" "+i+" "+j);    
+}}    
+Output:
+
+3 3 3
+-------------------------------------------------------------------------------------------------------------------------------
+2.3.  Operators (Unary, Binary, Arithmetic, Assignment, Compound, Relational, Logical, Equality) and 
+Control Statements (if, if-else, for, while, switch, do-while, break and continue, ternary constructs)
+-------------------------------------------------------------------------------------------------------------------------------
+Operator type 			Category 				Precedence
+Unary					postfix					expr++ expr--
+						prefix					++expr --expr +expr -expr ~ !
+Arithmetic				multiplicative			* / %
+						additive				+ -
+Shift					shift					<< >> >>>
+Relational				comparison				< > <= >= instanceof
+						equality				== !=
+Bitwise					bitwise AND				&
+						bitwise exclusive OR	^
+						bitwise inclusive OR	|
+Logical					logical AND				&&
+						logical OR				||
+Ternary					ternary					? :
+Assignment				assignment				= += -= *= /= %= &= ^= |= <<= >>= >>>=
+
+Binary Operators
+Syntax:
+
+static <T> BinaryOperator<T> 
+    maxBy(Comparator<? super T> comparator)
+Parameters: It takes in only one parameter namely, comparator which is an object of the Comparator class.
+
+Returns: This method returns a BinaryOperator which return the maximum of the two objects passed while calling it based on the given comparator.
+
+Below is the code to illustrate maxBy() method:
+
+Program:
+import java.util.function.BinaryOperator; 
+  
+public class GFG { 
+    public static void main(String args[]) 
+    { 
+        BinaryOperator<Integer> 
+            op = BinaryOperator 
+                     .maxBy( 
+                         (a, b) -> (a > b) ? 1 : ((a == b) ? 0 : -1)); 
+  
+        System.out.println(op.apply(98, 11)); 
+    } 
+} 
+Output:
+98
+2. minBy()
+This method returns a BinaryOperator which returns the lesser of the two elements based on a given comparator
+
+Syntax:
+
+static <T> BinaryOperator<T> 
+    minBy(Comparator<? super T> comparator)
+Parameters: It takes in only one parameter namely, comparator which is an object of the Comparator class.
+
+Returns: This method returns a BinaryOperator which return the minimum of the two objects passed while calling it based on the given comparator.
+
+Below is the code to illustrate minBy() method:
+
+Program:
+import java.util.function.BinaryOperator; 
+  
+public class GFG { 
+    public static void main(String args[]) 
+    { 
+        BinaryOperator<Integer> 
+            op = BinaryOperator 
+                     .minBy( 
+                         (a, b) -> (a > b) ? 1 : ((a == b) ? 0 : -1)); 
+  
+        System.out.println(op.apply(98, 11)); 
+    } 
+} 
+Output:
+11
+
+Compound Operator
+1.    += (compound addition assignment operator)
+2.    -=  (compound subtraction assignment operator)
+3.    *= (compound multiplication assignment operator)
+4.    /= (compound division assignment operator)
+5.    %= (compound modulo assignment operator)
+6.    &= (compound Bitwise & assignment operator)
+7.    |= (compound Bitwise | assignment operator)
+8.    ^= (compound Bitwise ^ assignment operator)
+9.    >>= (compound right-shift assignment operator)
+10.    >>>=(compound right-shift filled 0 assignment operator)
+11.    <<=(compound left-shift assignment operator)
+
+Control Statements
+Switch : The Java switch expression must be of byte, short, int, long (with its Wrapper type), enums and string.
+Break or Continue : 
+class Test {
+   public static void main(String[] args) {
+      
+      for (int i = 1; i <= 10; ++i) {      
+         if (i == 5) {
+            break; OR continue;
+         }      
+         System.out.println(i);
+      }   
+   }
+}
+Ternary Operator : result = testStatement ? value1 : value2;
+-------------------------------------------------------------------------------------------------------------------------------
+	3.1.  Packages and classpath
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	3.2.  Arrays
+	3.3.  Understanding of String Class, StringBuilder Class, StringBuffer class
+	3.4.  Methods and Encapsulation: Methods, Access Modifiers, Method Overloading, Passing Data, Creating Constructors, Immutable Classes
+
+	4.1.  Class Inheritance, Abstract Classes, Inner Classes, Interface and Implementation classes.
+	4.2.  Understanding Polymorphism: Object vs Reference, Object Casting, Virtual Methods, Method Overriding
+
+	5.1.  Exception-Handling: Basics, Role of Exceptions, Types
+	5.2.  Using try and catch, Multiple Catch, Nested try (throw, throws, finally)
+	5.3.  Built-in Exceptions, Runtime Exceptions Checked Exceptions, Errors
+	5.4.  Creating own Exception Subclasses
+
+	6.1.  Enumerations, Auto boxing, and Annotations
+	6.2.  Lambda Expressions
+	6.3.  Java 8 New Features
+
+	7.1.  Java API: java.util, java.lang, java.math
+
+	8.1.  Generics and Collections
+
+	9.1.  Java NIO (NIO 2) Overview
+	9.2.  NIO classes: Fundamentals, Path Interfaces, Manage metadata of a file or directory,
+	9.3.  Byte Buffers & Channels
+	9.4.  UDP, TCP and IP
+	9.5.  Communication with TCP/IP Protocol
+
+	10.1.  Java Concurrency: Using threads in Java, Life cycle of thread
+	10.2.  Advantages and issues
+	10.3.  Thread class, thread groups
+	10.4.  The Runnable interface
+	10.5.  Executor Framework overview
+
+	11.1.  The java.io Package
+	11.2.  Files
+	11.3.  Byte Streams and Unicode Character Streams
+	11.4.  Persistence of objects
+	11.5.  Object Serialization Methods
+
+	12.1.  Reflection in Java
+		12.1.1. Java Reflection Classes, Methods, Getter Setters, Constructors, Annotations, generics, Arrays, Dynamic method invocation
+
+	13.1.  What is a Java Virtual Machine?
+	13.2.  The Lifetime of a Java Virtual Machine
+	13.3.  The Architecture of the Java Virtual Machine
+	13.4.  Java Mail
+		13.4.1.  javax.mail.internet Class ContentType
+		13.4.2.  Method
+		13.4.3.  java.lang.String, getBaseType()
+		13.4.4.  java.lang.String, getParameter(java.lang.String name)
+
+	14.1.  Introduction of JDBC API
+	14.2.  JDBC Architecture
+	14.3.  JDBC Drivers
+	14.4.  Drivers, Connection, Statement , PreparedStatement and Result Set interfaces and their relationship to provider implementations
+	14.5.  Writing JDBC Application along with DAO & POJO Layers
+	14.6. Stored Procedures and functions invocation
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------
