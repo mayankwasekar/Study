@@ -740,14 +740,35 @@ class Test {
    }
 }
 Ternary Operator : result = testStatement ? value1 : value2;
--------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
 	3.1.  Packages and classpath
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
+This post targets at telling what the CLASSPATH environment variable if responsible for. While programming in Java, we many times use import statements. An example is:
+
+import org.company.Menu 
+
+What does this import means? It makes the Menu class available in the package org.company to our current class. Such that when we call
+
+Menu menu = new Menu() 
+The JVM knows where to find the class Menu. Now, how will the JVM know this location? It is impractical for it to go through every folder on your system and search for it. Thus, using the CLASSPATH variable we provide it the place where we want it to look. We put directories and jars in the CLASSPATH variable.
+
+Built-in Packages
+These packages consist of a large number of classes which are a part of Java API.Some of the commonly used built-in packages are:
+1) java.lang: Contains language support classes(e.g classed which defines primitive data types, math operations). This package is automatically imported.
+2)  java.io: Contains classed for supporting input / output operations.
+3)  java.util: Contains utility classes which implement data structures like Linked List, Dictionary and support ; for Date / Time operations.
+4)  java.applet: Contains classes for creating Applets.
+5)  java.awt: Contain classes for implementing the components for graphical user interfaces (like button , ;menus etc).
+6)  java.net: Contain classes for supporting networking operations.
+----------------------------------------------------------------------------------------------------------------------------------------------
+3.2.  Arrays
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	3.2.  Arrays
+	
 	3.3.  Understanding of String Class, StringBuilder Class, StringBuffer class
 	3.4.  Methods and Encapsulation: Methods, Access Modifiers, Method Overloading, Passing Data, Creating Constructors, Immutable Classes
 
