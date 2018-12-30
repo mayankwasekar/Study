@@ -640,20 +640,20 @@ Output:
 Control Statements (if, if-else, for, while, switch, do-while, break and continue, ternary constructs)
 -------------------------------------------------------------------------------------------------------------------------------
 Operator type 			Category 				Precedence
-Unary					postfix					expr++ expr--
-						prefix					++expr --expr +expr -expr ~ !
-Arithmetic				multiplicative			* / %
-						additive				+ -
-Shift					shift					<< >> >>>
-Relational				comparison				< > <= >= instanceof
-						equality				== !=
-Bitwise					bitwise AND				&
-						bitwise exclusive OR	^
-						bitwise inclusive OR	|
-Logical					logical AND				&&
-						logical OR				||
-Ternary					ternary					? :
-Assignment				assignment				= += -= *= /= %= &= ^= |= <<= >>= >>>=
+Unary				postfix					expr++ expr--
+				prefix					++expr --expr +expr -expr ~ !
+Arithmetic			multiplicative		         	* / %
+				additive				+ -
+Shift				shift					<< >> >>>
+Relational			comparison				< > <= >= instanceof
+				equality				== !=
+Bitwise				bitwise AND				&
+				bitwise exclusive OR			^
+				bitwise inclusive OR			|
+Logical				logical AND				&&
+				logical OR				||
+Ternary				ternary					? :
+Assignment			assignment				= += -= *= /= %= &= ^= |= <<= >>= >>>=
 
 Binary Operators
 Syntax:
