@@ -63,17 +63,28 @@
 https://sciencenode.org/feature/a-brief-history-of-the-internet-.php
 1958 - Advanced Research Projects Agency (ARPA), now known as the Defense Advanced Research Projects Agency (DARPA). 
 
-This network came to be known as the ARPA Network, or ARPAnet. Packet switching made data transmission possible in 1965, and by 1969, military contractor Bolt, Beranek, and Newman (BBN) developed an early form of routing devices known as interface message processors (IMPs), which revolutionized data transmission.
+This network came to be known as the ARPA Network, or ARPAnet. Packet switching made data transmission possible in 1965, and by 1969,
+military contractor Bolt, Beranek, and Newman (BBN) developed an early form of routing devices known as interface message processors 
+(IMPs), which revolutionized data transmission.
 
- In 1981, the NSF expanded ARPAnet to national computer science researchers when it funded the Computer Science Network (CSNET). BBN assumed CSNET operation management in 1984.
+ In 1981, the NSF expanded ARPAnet to national computer science researchers when it funded the Computer Science Network (CSNET). 
+ BBN assumed CSNET operation management in 1984.
 
- ARPAnet adopted the transmission control protocol (TCP) in1983 and separated out the military network (MILnet), assigning a subset for public research. Launched formally as the National Science Foundation Network (NSFNET) in 1985, engineers designed it to connect university computer science departments iacross the US.
+ ARPAnet adopted the transmission control protocol (TCP) in1983 and separated out the military network (MILnet), assigning a subset for
+ public research. Launched formally as the National Science Foundation Network (NSFNET) in 1985, engineers designed it to connect 
+ university computer science departments iacross the US.
 
- "ARPAnet's transition to the open networking protocols TCP and IP in 1983 accelerated the already burgeoning spread of internetworking technology," says Stephen Wolff, principal scientist with Internet2. 
+ "ARPAnet's transition to the open networking protocols TCP and IP in 1983 accelerated the already burgeoning spread of internetworking
+ technology," says Stephen Wolff, principal scientist with Internet2. 
 
- 1989 saw a major step forward in internet communications. Tim Berners-Lee of the European Organization for Nuclear Research (CERN) created the hypertext transfer protocol (http), a standardization that gave diverse computer platforms the ability to access the same internet sites. For this reason, Berners-Lee is widely regarded as the father of the world wide web (www).
+ 1989 saw a major step forward in internet communications. Tim Berners-Lee of the European Organization for Nuclear Research (CERN) 
+ created the hypertext transfer protocol (http), a standardization that gave diverse computer platforms the ability to access the same 
+ internet sites. For this reason, Berners-Lee is widely regarded as the father of the world wide web (www).
 
- The Mosaic web browser, created in 1993 at the National Center for Supercomputing Applications (NCSA) at the University of Illinois Urbana-Champaign, was a key development that emerged from the NSFNET. Mosaic was the first to show images in line with text, and it offered many other graphical user interface norms we’ve come to expect today (like the browser’s URL address bar and back/forward/reload options for viewing webpages.)
+ The Mosaic web browser, created in 1993 at the National Center for Supercomputing Applications (NCSA) at the University of
+ Illinois Urbana-Champaign, was a key development that emerged from the NSFNET. Mosaic was the first to show images in line
+ with text, and it  offered many other graphical user interface norms we’ve come to expect today (like the browser’s URL address bar 
+ and back/forward/reload options for viewing webpages.)
 ----------------------------------------------------------------------------------------------------------------------------
 	1.2. How the Internet Works?
 ----------------------------------------------------------------------------------------------------------------------------
@@ -83,13 +94,19 @@ https://developer.mozilla.org/en-US/docs/Learn/Common_questions/How_does_the_Int
 ----------------------------------------------------------------------------------------------------------------------------
 	1.3. Internet Protocol
 ----------------------------------------------------------------------------------------------------------------------------
-nternet Protocol (IP) is the principal set (or communications protocol) of digital message formats and rules for exchanging messages between computers across a single network or a series of interconnected networks, using the Internet Protocol Suite (often referred to as TCP/IP). Messages are exchanged as datagrams, also known as data packets or just packets.
+nternet Protocol (IP) is the principal set (or communications protocol) of digital message formats and rules for exchanging messages
+between computers across a single network or a series of interconnected networks, using the Internet Protocol Suite (often referred 
+to as TCP/IP). Messages are exchanged as datagrams, also known as data packets or just packets.
 ----------------------------------------------------------------------------------------------------------------------------
 	1.4. HTTP Protocol
 ----------------------------------------------------------------------------------------------------------------------------
-The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems. This is the foundation for data communication for the World Wide Web (i.e. internet) since 1990. HTTP is a generic and stateless protocol which can be used for other purposes as well using extensions of its request methods, error codes, and headers.
+The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems.
+This is the foundation for data communication for the World Wide Web (i.e. internet) since 1990. HTTP is a generic and stateless
+protocol which can be used for other purposes as well using extensions of its request methods, error codes, and headers.
 
-This tutorial is based on RFC-2616 specification, which defines the protocol referred to as HTTP/1.1. HTTP/1.1 is a revision of the original HTTP (HTTP/1.0). A major difference between HTTP/1.0 and HTTP/1.1 is that HTTP/1.0 uses a new connection for each request/response exchange, where as HTTP/1.1 connection may be used for one or more request/response exchanges.
+This tutorial is based on RFC-2616 specification, which defines the protocol referred to as HTTP/1.1. HTTP/1.1 is a revision of the
+original HTTP (HTTP/1.0). A major difference between HTTP/1.0 and HTTP/1.1 is that HTTP/1.0 uses a new connection for each
+request/response exchange, where as HTTP/1.1 connection may be used for one or more request/response exchanges.
 		--------------------------------------------------------------------------------------------------------------------
 		1.4.1. Difference HTTP 1.0, HTTP 1.1 & HTTP 2.0 and ES7 standard
 		--------------------------------------------------------------------------------------------------------------------
@@ -102,28 +119,40 @@ resolution reporting.
 		--------------------------------------------------------------------------------------------------------------------
 		1.4.2. Stateless nature of the protocol
 		--------------------------------------------------------------------------------------------------------------------
-		HTTP is a stateless protocol. A stateless protocol does not require the server to retain information or status about each user for the duration of multiple requests.
+		HTTP is a stateless protocol. A stateless protocol does not require the server to retain information or status about
+		each user for the duration of multiple requests.
 
-		But some web applications may have to track the user's progress from page to page, for example when a web server is required to customize the content of a web page for a user. Solutions for these cases include:
+		But some web applications may have to track the user's progress from page to page, for example when a web server is
+		required to customize the content of a web page for a user. Solutions for these cases include:
 
 		the use of HTTP cookies.
 		server side sessions,
 		hidden variables (when the current page contains a form), and
 		URL-rewriting using URI-encoded parameters, e.g., /index.php?session_id=some_unique_session_code.
 
-		What makes the protocol stateless is that the server is not required to track state over multiple requests, not that it cannot do so if it wants to. This simplifies the contract between client and server, and in many cases (for instance serving up static data over a CDN) minimizes the amount of data that needs to be transferred. If servers were required to maintain the state of clients' visits the structure of issuing and responding to requests would be more complex. As it is, the simplicity of the model is one of its greatest features.
+		What makes the protocol stateless is that the server is not required to track state over multiple requests,
+		not that it cannot do so if it wants to. This simplifies the contract between client and server, and in many cases
+		(for instance serving up static data over a CDN) minimizes the amount of data that needs to be transferred. If servers
+		were required to maintain the state of clients' visits the structure of issuing and responding to requests would be 
+		more complex. As it is, the simplicity of the model is one of its greatest features.
 		--------------------------------------------------------------------------------------------------------------------
 		1.4.2. Methods (GET,POST,HEAD,PUT,DELETE)
 		--------------------------------------------------------------------------------------------------------------------
-		1) GET Method: The Get method is used to getting the data from the server. Get method appends the parameters passed as query string to a URL, in the form of key- value pairs. for example, if a parameter is name = Williams, then this string will be appended in the URL. By default the method is Get.
+		1) GET Method: The Get method is used to getting the data from the server. Get method appends the parameters passed
+		as query string to a URL, in the form of key- value pairs. for example, if a parameter is name = Williams, 
+		then this string will be appended in the URL. By default the method is Get.
 
-		2) POST Method: The post method is used for sending data to the server. In post method the query string is appended along the request object, they do not get appended in the URL, so parameters transfer in hidden form.
+		2) POST Method: The post method is used for sending data to the server. In post method the query string is 
+		appended along the request object, they do not get appended in the URL, so parameters transfer in hidden form.
 
-		3) HEAD Method: When a user wants to know about the headers, like MIME types, charset, Content- Length then we use Head method. With this no body content is returned.
+		3) HEAD Method: When a user wants to know about the headers, like MIME types, charset, Content- Length then we 
+		use Head method. With this no body content is returned.
 
-		These three are commonly used methods of jsp while Get and Post methods are most widely used. There are more methods of http protocols which are rarely used by they have been given here for your knowledge.
+		These three are commonly used methods of jsp while Get and Post methods are most widely used. There are more
+		methods of http protocols which are rarely used by they have been given here for your knowledge.
 
-		4) TRACE Method: Trace on the jsp resource returns the content of the resource. Asks for a loopback of the request message, so that the use can see what is being recieved on the other side.
+		4) TRACE Method: Trace on the jsp resource returns the content of the resource. Asks for a loopback of the 
+		request message, so that the use can see what is being recieved on the other side.
 
 		5) DELETE Method: It is used for delete the resources, files at the requested URL
 
