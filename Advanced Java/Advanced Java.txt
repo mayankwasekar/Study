@@ -1,0 +1,691 @@
+Session 1: J2EE Overview
+Lecture
+ J2EE Container
+	J2EE/Java EE applications aren't self contained. In order to be executed, they need to be deployed in a container. In other words, the container provides an execution environment on top of the JVM.
+
+	Also, applications rely on several APIs like JPA, EJB, servlet, JMS, JNDI, etc. The role of the EE compliant container is to provide a standard implementation of all or some of these APIs. This means you can theoretically run your application on top of any container as long as it relies on standard APIs.
+
+	From a technical perspective, a container is just another Java SE application with a main() method. EE applications on the other hand are a collection of services/beans/servlets/etc. The container finds these components and runs them, providing API implementations, monitoring, scalability, reliability and so on.
+
+ Packaging Web applications
+	You need to package your web application as a .war file to deploy it directly to Apache Tomcat. WAR stands for web archive. A different server might require a different format, for instance a glassfish server will need a .jar file whereas a websphere application server will require an .ear.
+
+
+You need to package your web application as a .war file to deploy it directly to Apache Tomcat. WAR stands for web archive. A different server might require a different format, for instance a glassfish server will need a .jar file whereas a websphere application server will require an .ear.
+
+ 
+
+Installing and verifying a standalone Apache Tomcat
+We will use a stand-alone tomcat for this example. Just download latest tomcat (.zip) version, unzip into a folder.
+
+Now start tomcat server by running the startup.bat under the bin folder of tomcat installation.
+
+You can verify if the server is running by typing localhost:<port> in the browser (e.g. http://localhost:8081).
+
+You can view and change the default port for tomcat in the file server.xml under the conf folder of tomcat installation. Look for the element Connector configured for the HTTP protocol:
+
+<Connector port="8081" protocol="HTTP/1.1"
+
+connectionTimeout="20000"
+
+redirectPort="8443" />
+
+ 
+
+You can stop tomcat by running shutdown.bat under the bin folder of tomcat installation.
+
+ 
+
+Packaging a war file to deploy into Apache Tomcat
+We can package the application either from eclipse or using java jar command. We will see both.
+
+In eclipse,
+
+right click your dynamic web project,
+
+select export > WAR file,
+
+specify a destination folder
+
+and click finish.
+
+You can also optionally select optimize to a particular server already configured and also export source files along with class files.
+
+Alternatively, you can create the war using java jar command as: Go to the workspace location of your project by right clicking the project, select Properties, and see the value for Location. Go inside the WebContent folder and run the below command from the command line:
+
+jar -cvf myDynaServletApp.war myWebApp *
+
+Note: Make sure that there is a folder WebContent/WEB-INF/classes and is your output folder with your class files. Else, right click your project in eclipse, go to Build Path > Configure Build Path and change the output folder in the Source tab to <project>/ WebContent/WEB-INF/classes. Browse and select the folder creating any folders if necessary than typing the location manually, as it is less error prone.
+
+ J2EE compliant web application
+	It means that it passes the Java EE Technology Compatibility Kit.
+
+Sun (now Oracle) created the specification for Java EE (previously called J2EE) along with a large test suite checking that the application server behaves as the specification requires. This is a non-trivial test to pass, but means that if you write your application according to the Java EE specification it will be able to be deployed and executed on any Java EE application server (of that level).
+
+Note that the configuration is outside the specification. This means that the configuration of the application server to provide the things your application needs, is non-standard and it may be a quite substantial effort for you to add support for a new application server.
+ Deployment tools.
+	#1 Jenkins - Power and flexibility in Jenkins: The Build Pipeline Plugin makes it easy to chain Jenkins jobs to organize a deployment pipeline.
+	#2 Chef - Chef is a provisioning automation framework that simplifies the configuration of your development or production environment—whether on-premises or cloud-based. It is a Ruby-based tool that does wonders to deploy any infrastructure needed for your Java application.
+	#3 Vagrant - Of all the tools mentioned in this article, Vagrant is probably the least concerned with deployment per se. Vagrant is focused on the developer, but it bridges development and production, helping to reduce inherent risk by minimizing discrepancies between the different environments of the deployment process.
+	#4 Packer - It’s all in the image: Packer bundles the environment and the application, producing a ready-to-run virtual image appliance.
+	#5 Docker - Creating ready-to-boot virtual machine images is a sophisticated way to use cloud computing so you can scale your application. But dealing with full stacks, complete operating systems, application servers, and the rest might be overkill. In many cases, all you want is to add one more application to your stack.
+	#6 Flyway - Powerful database migrations: Flyway can leverage the use of the JDBC API to handle schema migrations. 
+	#7 Rundeck - Managing multiple nodes: Rundeck runs commands in several nodes, and aggregates the results.
+	#8 Go: - ThoughtWorks has just released Go, a continuous integration and release management server, as an open source, Apache-licensed project. Go is a Java-based server and has a role similar to Jenkins, but the two have slightly different concepts. Constructed around the full build pipeline rather than around independent jobs, Go focuses on the code-build-test-deploy process. This structure makes continuous deployment a main focus in your project and helps the team think about it from the start. It’s still too early to say whether developers will accept Go and what place it will claim in this market. However, it’s a great concept and a fully functional tool that can be easily integrated with the seven other tools.
+ Web application life cycle
+	The web container maintains the life cycle of a servlet instance. Let's see the life cycle of the servlet:
+
+	Servlet class is loaded.
+	Servlet instance is created.
+	init method is invoked.
+	service method is invoked.
+	destroy method is invoked.
+ Deploying web applications.
+	Deploying a war file into Apache Tomcat
+Copy paste the war file into the webapps folder and start (startup.bat) if it is not running or restart (shutdown.bat, startup.bat) if already running. Server will unzip the war file and create a project root folder.
+
+After you start the server you will see an additional project root folder under webapps.
+
+To redeploy, you will have to shutdown, remove both war and folder, place new war and then startup again.
+
+ 
+
+Format the servlet url and verify the servlet/jsp deployment
+The url will be of the form host:port/<projectrootfolder>/servleturlpattern. Server is localhost and port it 8081 in my case. You can view and change the default port for tomcat in the file server.xml under the conf folder of tomcat installation. Url pattern is either configured in a web.xml file (web deployment descriptor) or through annotations.
+
+I am using the same project that we have done for ‘Hello World Dynamic Servlet’ where we have configured the url patern through annotations:
+
+@WebServlet("/HelloWorldServlet")
+
+public class HelloWorldServlet extends HttpServlet {
+
+…
+
+Also, my project root folder created is DynaServletProject.
+
+So my final url is:
+
+http://localhost:8081/DynaServletProject/HelloWorldServlet
+ Web Services Support
+	 The J2EE platform provides a framework for developing and deploying web services on the Java platform. The Java API for XML-based RPC (JAX-RPC) enables Java technology developers to develop SOAP based interoperable and portable web services. Developers use the standard JAX-RPC programming model to develop SOAP based web service clients and endpoints. A web service endpoint is described using a Web Services Description Language (WSDL) document. JAX-RPC enables JAX-RPC clients to invoke web services developed across heterogeneous platforms. In a similar manner, JAX-RPC web service endpoints can be invoked by heterogeneous clients
+Session 2,3,4
+Lecture
+ Servlets : Dynamic Content Generation
+	Servlet technology is used to create a web application (resides at server side and generates a dynamic web page).
+	There are many interfaces and classes in the Servlet API such as Servlet, GenericServlet, HttpServlet, ServletRequest, ServletResponse, etc.
+	What is a Servlet?
+	Servlet can be described in many ways, depending on the context.
+
+	Servlet is a technology which is used to create a web application.
+	Servlet is an API that provides many interfaces and classes including documentation.
+	Servlet is an interface that must be implemented for creating any Servlet.
+	Servlet is a class that extends the capabilities of the servers and responds to the incoming requests. It can respond to any requests.
+	Servlet is a web component that is deployed on the server to create a dynamic web page.
+ Advantages of Servlets over CGI
+	There are many problems in CGI technology:
+
+	If the number of clients increases, it takes more time for sending the response.
+	For each request, it starts a process, and the web server is limited to start processes.
+	It uses platform dependent language e.g. C, C++, perl.
+	The advantages of Servlet are as follows:
+
+	Better performance: because it creates a thread for each request, not process.
+	Portability: because it uses Java language.
+	Robust: JVM manages Servlets, so we don't need to worry about the memory leak, garbage collection, etc.
+	Secure: because it uses java language.
+ Servlet Life cycle
+	The web container maintains the life cycle of a servlet instance. Let's see the life cycle of the servlet:
+
+	Servlet class is loaded.
+	Servlet instance is created.
+	init method is invoked.
+	service method is invoked.
+	destroy method is invoked.
+	there are three states of a servlet: new, ready and end. The servlet is in new state if servlet instance is created. After invoking the init() method, Servlet comes in the ready state. In the ready state, servlet performs all the tasks. When the web container invokes the destroy() method, it shifts to the end state.
+ Servlet API & Deployment
+	The javax.servlet and javax.servlet.http packages represent interfaces and classes for servlet api.
+
+The javax.servlet package contains many interfaces and classes that are used by the servlet or web container. These are not specific to any protocol.
+
+The javax.servlet.http package contains interfaces and classes that are responsible for http requests only.
+
+Let's see what are the interfaces of javax.servlet package.
+Interfaces in javax.servlet package
+There are many interfaces in javax.servlet package. They are as follows:
+
+Servlet
+ServletRequest
+ServletResponse
+RequestDispatcher
+ServletConfig
+ServletContext
+SingleThreadModel
+Filter
+FilterConfig
+FilterChain
+ServletRequestListener
+ServletRequestAttributeListener
+ServletContextListener
+ServletContextAttributeListener
+Classes in javax.servlet package
+There are many classes in javax.servlet package. They are as follows:
+
+GenericServlet
+ServletInputStream
+ServletOutputStream
+ServletRequestWrapper
+ServletResponseWrapper
+ServletRequestEvent
+ServletContextEvent
+ServletRequestAttributeEvent
+ServletContextAttributeEvent
+ServletException
+UnavailableException
+Interfaces in javax.servlet.http package
+There are many interfaces in javax.servlet.http package. They are as follows:
+
+HttpServletRequest
+HttpServletResponse
+HttpSession
+HttpSessionListener
+HttpSessionAttributeListener
+HttpSessionBindingListener
+HttpSessionActivationListener
+HttpSessionContext (deprecated now)
+Classes in javax.servlet.http package
+There are many classes in javax.servlet.http package. They are as follows:
+
+HttpServlet
+Cookie
+HttpServletRequestWrapper
+HttpServletResponseWrapper
+HttpSessionEvent
+HttpSessionBindingEvent
+HttpUtils (deprecated now)
+
+
+ Servlet Annotations
+	Annotation represents the metadata. If you use annotation, deployment descriptor (web.xml file) is not required. But you should have tomcat7 as it will not run in the previous versions of tomcat. @WebServlet annotation is used to map the servlet with the specified name.
+	import javax.servlet.annotation.WebServlet;  
+	@WebServlet("/Simple") 
+ The Servlet interface
+	Servlet Interface
+	Methods of Servlet interface
+	Servlet interface provides commonbehaviorto all the servlets.Servlet interface defines methods that all servlets must implement.
+
+	Servlet interface needs to be implemented for creating any servlet (either directly or indirectly). It provides 3 life cycle methods that are used to initialize the servlet, to service the requests, and to destroy the servlet and 2 non-life cycle methods.
+
+	Methods of Servlet interface
+	There are 5 methods in Servlet interface. The init, service and destroy are the life cycle methods of servlet. These are invoked by the web container.
+
+	Method	Description
+	public void init(ServletConfig config) - initializes the servlet. It is the life cycle method of servlet and invoked by the web container only once.
+	public void service(ServletRequest request,ServletResponse response) - provides response for the incoming request. It is invoked at each request by the web container.
+	public void destroy() - is invoked only once and indicates that servlet is being destroyed.
+	public ServletConfig getServletConfig()	- returns the object of ServletConfig.
+	public String getServletInfo()	- returns information about servlet such as writer, copyright, version etc.
+ The HttpServlet, HttpServletRequest, HttpServletResponse
+	The HttpServlet class extends the GenericServlet class and implements Serializable interface. It provides http specific methods such as doGet, doPost, doHead, doTrace etc
+	HttpServletRequest is an interface and extends the ServletRequest interface. By extending the ServletRequest this interface is able to allow request information for HTTP Servlets. Object of the HttpServletRequest is created by the Servlet container and, then, it is passed to the service method (doGet(), doPost(), etc.) of the Servlet.
+	HttpServletResponse is a predefined interface present in javax.servlet.http package. It can be said that it is a mirror image of request object. The response object is where the servlet can write information about the data it will send back. Whereas the majority of the methods in the request object start with GET, indicating that they get a value, many of the important methods in the response object start with SET, indicating that they change some property. Note that these interfaces adhere to the usual naming conventions for beans.
+
+	There are many methods in HttpServlet class. They are as follows:
+
+	public void service(ServletRequest req,ServletResponse res) dispatches the request to the protected service method by converting the request and response object into http type.
+	protected void service(HttpServletRequest req, HttpServletResponse res) receives the request from the service method, and dispatches the request to the doXXX() method depending on the incoming http request type.
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) handles the GET request. It is invoked by the web container.
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) handles the POST request. It is invoked by the web container.
+	protected void doHead(HttpServletRequest req, HttpServletResponse res) handles the HEAD request. It is invoked by the web container.
+	protected void doOptions(HttpServletRequest req, HttpServletResponse res) handles the OPTIONS request. It is invoked by the web container.
+	protected void doPut(HttpServletRequest req, HttpServletResponse res) handles the PUT request. It is invoked by the web container.
+	protected void doTrace(HttpServletRequest req, HttpServletResponse res) handles the TRACE request. It is invoked by the web container.
+	protected void doDelete(HttpServletRequest req, HttpServletResponse res) handles the DELETE request. It is invoked by the web container.
+	protected long getLastModified(HttpServletRequest req) returns the time when HttpServletRequest was last modified since midnight January 1, 1970 GMT.
+ Exception Handling
+	We can define custom error handling using a web.xml file descriptor in which we can define the following types of policies:
+
+Status code error handling – it allows us to map HTTP error codes (client and server) to a static HTML error page or an error handling servlet
+Exception type error handling – it allows us to map exception types to static HTML error pages or an error handling servlet
+Status Code Error Handling with an HTML Page
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1">
+ 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error-404.html</location> <!-- /src/main/webapp/error-404.html-->
+    </error-page>
+ 
+</web-app>
+Exception Type Error Handling with a Servlet
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1">
+    <error-page> 
+        <exception-type>java.lang.Exception</exception-type> 
+        <location>/errorHandler</location> 
+    </error-page>
+</web-app>
+ Servlet , DAO , POJO DB Layers
+	Basically in servlet calling your DAO to get data from DB. But throughout the application there are many Variables so for that you need bean. i.e POJO
+
+	The Data Access Object is basically an object or an interface that provides access to an underlying database or any other persistence storage.
+	Let's say we have an entity to represent an employee:
+
+public class Employee {
+
+    private int id;
+    private String name;
+
+
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+}
+The employee entities will be persisted into a corresponding Employee table in a database. A simple DAO interface to handle the database operation required to manipulate an employee entity will be like:
+
+interface EmployeeDAO {
+
+    List<Employee> findAll();
+    List<Employee> findById();
+    List<Employee> findByName();
+    boolean insertEmployee(Employee employee);
+    boolean updateEmployee(Employee employee);
+    boolean deleteEmployee(Employee employee);
+
+}
+Next we have to provide a concrete implementation for that interface to deal with SQL server, and another to deal with flat files, etc.
+http://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm
+POJO
+Normal Class: A Java class
+
+Java Beans:
+
+All properties private (use getters/setters)
+A public no-argument constructor
+Implements Serializable.
+Pojo: Plain Old Java Object is a Java object not bound by any restriction other than those forced by the Java Language Specification. I.e., a POJO should not have to
+
+Extend prespecified classes
+Implement prespecified interface
+Contain prespecified annotations
+
+POJO stands for Plain Old Java Object. It is an ordinary Java object, not bound by any special restriction other than those forced by the Java Language Specification and not requiring any class path. POJOs are used for increasing the readability and re-usability of a program. POJOs have gained most acceptance because they are easy to write and understand. They were introduced in EJB 3.0 by Sun microsystems.
+
+A POJO should not:
+
+Extend prespecified classes, Ex: public class GFG extends javax.servlet.http.HttpServlet { … } is not a POJO class.
+Implement prespecified interfaces, Ex: public class Bar implements javax.ejb.EntityBean { … } is not a POJO class.
+Contain prespecified annotations, Ex: @javax.persistence.Entity public class Baz { … } is not a POJO class.
+POJOs basically defines an entity. Like in you program, if you want a Employee class then you can create a POJO as follows:
+
+// Employee POJO class to represent entity Employee 
+public class Employee 
+{ 
+	// default field 
+	String name; 
+
+	// public field 
+	public String id; 
+
+	// private salary 
+	private double salary; 
+
+	//arg-constructor to initialize fields 
+	public Employee(String name, String id, 
+							double salary) 
+	{ 
+		this.name = name; 
+		this.id = id; 
+		this.salary = salary; 
+	} 
+
+	// getter method for name 
+	public String getName() 
+	{ 
+		return name; 
+	} 
+
+	// getter method for id 
+	public String getId() 
+	{ 
+		return id; 
+	} 
+
+	// getter method for salary 
+	public Double getSalary() 
+	{ 
+		return salary; 
+	} 
+} 
+The above example is a well defined example of POJO class. As you can see, there is no restriction on access-modifier of fields. They can be private, default, protected or public. It is also not necessary to include any constructor in it.
+ Session
+Session simply means a particular interval of time.
+
+Session Tracking is a way to maintain state (data) of an user. It is also known as session management in servlet.
+
+Http protocol is a stateless so we need to maintain state using session tracking techniques. Each time user requests to the server, server treats the request as the new request. So we need to maintain the state of an user to recognize to particular user.
+
+HTTP is stateless that means each request is considered as the new request.
+Why use Session Tracking?
+To recognize the user It is used to recognize the particular user.
+Session Tracking Techniques
+There are four techniques used in Session tracking:
+
+Cookies
+Hidden Form Field
+URL Rewriting
+HttpSession
+ Session Management
+In such case, container creates a session id for each user.The container uses this id to identify the particular user.An object of HttpSession can be used to perform two tasks:
+
+1. bind objects
+2. view and manipulate information about a session, such as the session identifier, creation time, and last accessed time.
+How to get the HttpSession object ?
+The HttpServletRequest interface provides two methods to get the object of HttpSession:
+
+public HttpSession getSession():Returns the current session associated with this request, or if the request does not have a session, creates one.
+public HttpSession getSession(boolean create):Returns the current HttpSession associated with this request or, if there is no current session and create is true, returns a new session.
+Commonly used methods of HttpSession interface
+public String getId():Returns a string containing the unique identifier value.
+public long getCreationTime():Returns the time when this session was created, measured in milliseconds since midnight January 1, 1970 GMT.
+public long getLastAccessedTime():Returns the last time the client sent a request associated with this session, as the number of milliseconds since midnight January 1, 1970 GMT.
+public void invalidate():Invalidates this session then unbinds any objects bound to it.
+
+
+https://www.javatpoint.com/http-session-in-session-tracking
+ Session Tracking with
+https://www.javatpoint.com/servlet-http-session-login-and-logout-example
+o Cookies
+A cookie is a small piece of information that is persisted between the multiple client requests.
+
+A cookie has a name, a single value, and optional attributes such as a comment, path and domain qualifiers, a maximum age, and a version number.
+How Cookie works
+By default, each request is considered as a new request. In cookies technique, we add cookie with response from the servlet. So cookie is stored in the cache of the browser. After that if request is sent by the user, cookie is added with request by default. Thus, we recognize the user as the old user.
+Types of Cookie
+There are 2 types of cookies in servlets.
+
+Non-persistent cookie
+Persistent cookie
+
+Non-persistent cookie
+It is valid for single session only. It is removed each time when user closes the browser.
+
+Persistent cookie
+It is valid for multiple session . It is not removed each time when user closes the browser. It is removed only if user logout or signout.
+Advantage of Cookies
+Simplest technique of maintaining the state.
+Cookies are maintained at client side.
+Disadvantage of Cookies
+It will not work if cookie is disabled from the browser.
+Only textual information can be set in Cookie object.
+https://www.javatpoint.com/servlet-login-and-logout-example-using-cookies
+o HttpSession
+ Request Dispatcher
+The RequestDispatcher interface provides the facility of dispatching the request to another resource it may be html, servlet or jsp. This interface can also be used to include the content of another resource also. It is one of the way of servlet collaboration.
+
+There are two methods defined in the RequestDispatcher interface.
+Methods of RequestDispatcher interface
+The RequestDispatcher interface provides two methods. They are:
+
+public void forward(ServletRequest request,ServletResponse response)throws ServletException,java.io.IOException:Forwards a request from a servlet to another resource (servlet, JSP file, or HTML file) on the server.
+public void include(ServletRequest request,ServletResponse response)throws ServletException,java.io.IOException:Includes the content of a resource (servlet, JSP page, or HTML file) in the response.
+
+ Page Navigation
+ Complete Case study Servlet Based
+Session 5:
+Lecture
+ Internationalization and Localization: Basics
+Internationalization (i18n)
+the process of changing your software so that it isn't hardwired to one language/locale/culture.
+Localization (l10n)
+the process of adding the appropriate resources to your software so that a particular language/locale is supported. It's bigger in scope than just this Wikipedia entry, but it's a good start.
+
+The value of distinguishing between them is that (theoretically) once your program goes through the i18n process, you can then iterate many l10n processes as you need them; also, it's nice to be precise with language.
+ Read and set the locale by using the locale object
+Creating a Locale
+Creating a java.util.Locale instance can be done in four different ways:
+
+Locale constants
+Locale constructors
+Locale.Builder class (from Java 7)
+Locale.forLanguageTag factory method (from Java 7)
+Each of these methods are covered in the sections below.
+
+Locale Constants
+The java.util.Locale class contains a set of constants that represent the most commonly used languages in the world. These are:
+
+Locale.CANADA
+Locale.CANADA_FRENCH
+Locale.CHINA
+Locale.CHINESE
+Locale.ENGLISH
+Locale.FRANCE
+Locale.FRENCH
+Locale.GERMAN
+Locale.GERMANY
+Locale.ITALIAN
+Locale.ITALY
+Locale.JAPAN
+Locale.JAPANESE
+Locale.KOREA
+Locale.KOREAN
+Locale.PRC
+Locale.ROOT
+Locale.SIMPLIFIED_CHINESE
+Locale.TAIWAN
+Locale.TRADITIONAL_CHINESE
+Locale.UK
+Locale.US
+You use one of these constants simply by referring to it, like this:
+
+Locale locale = Locale.JAPANESE;
+Locale Constructors
+You can also create a java.util.Locale instance by using one of its constructors. The constructors are:
+
+Locale(String language)
+
+Locale(String language, String country)
+
+Locale(String language, String country, String variant)
+The language parameter should be a 2 or 3 letter ISO language code from the ISO 639 standard. You can also use a language subtag of up to 8 characters.
+
+The country should be a 2 character ISO country cod from the ISO 3166 standard. Alternatively a UN M.49 character area code can be used.
+
+The variant should be any valid BCP 47 variant of a language.
+
+Here are a few examples:
+
+Locale locale = new Locale("en");       // English language
+
+Locale locale = new Locale("en", "UK"); // English language, United Kingdom
+Locale locale = new Locale("en", "CA"); // English language, Canada
+Locale Builder
+From Java 7 you can use the Locale.Builder class to build a Locale instance. Here is an example:
+
+Locale cLocale = new Locale.Builder().setLanguage("en")
+                                     .setRegion("US").build();
+Locale.forLanguageTag()
+The factory method Locale.forLanguageTag() can also be used to create a Locale instance. Here is an example:
+
+Locale aLocale = Locale.forLanguageTag("en-US");
+Using the Locale Instance
+Once you have a Locale instance you can use it as input to other components that use a Locale to localize their functions. Here are a few examples:
+
+Locale locale = new Locale("da", "DK");
+
+ResourceBundle resourceBundle =
+        ResourceBundle.getBundle("bundleName", locale);
+This example creates a Locale representing the danish language in Denmark, and uses this Locale to obtain a ResourceBundle containing texts in danish.
+
+The ResourceBundle class is covered in more detail in the text about the ResourceBundle class.
+ Create and read Properties file
+Normally, Java properties file is used to store project configuration data or settings. In this tutorial, we will show you how to read and write to/from a properties file.
+1. Write to properties file
+Set the property value, and write it into a properties file named config.properties.
+output = new FileOutputStream("config.properties");
+
+		// set the properties value
+		prop.setProperty("database", "localhost");
+		prop.setProperty("dbuser", "mkyong");
+		prop.setProperty("dbpassword", "password");
+
+		// save properties to project root folder
+		prop.store(output, null);
+2. Load a properties file
+Load a properties file from the file system and retrieved the property value.
+input = new FileInputStream("config.properties");
+
+		// load a properties file
+		prop.load(input);
+3. Load a properties file from classpath
+Load a properties file config.properties from project classpath, and retrieved the property value.
+
+P.S Assume properties file “config.properties” is in your project classpath root folder.
+String filename = "config.properties";
+    		input = App3.class.getClassLoader().getResourceAsStream(filename);
+    		if(input==null){
+    	            System.out.println("Sorry, unable to find " + filename);
+    		    return;
+    		}
+
+    		//load a properties file from class path, inside static method
+    		prop.load(input);
+
+Session 6 & 7:
+Lecture
+ JSP: Separating UI from Content generation code
+ MVC architecture
+ Life cycle of a JSP page
+ Directives, Implicit and Explicit Objects, Scriptlets, Expressions, Expression Language
+ Scope
+ JSP Error Page handling
+ Session Tracking
+ JSP Using JavaBeans
+ Custom Actions and Tag Libraries in JSP
+Session 8 :
+Lecture
+JavaBeans
+ JavaBean Component
+Model of MVC architecture
+ Writing JavaBeans Components
+ Properties
+ Methods
+ Events
+ JavaBeans Component Design Conventions
+ Creating and Using a JavaBeans Component
+ Setting JavaBeans Component Properties
+ Retrieving JavaBeans Component Properties
+ JSP Using JavaBeans
+Session 9 & 10 : JNDI , Annotations ,Transaction Management
+Lecture
+ JNDI API
+ JNDI Overview
+ Java Annotations : Purpose, Basics, Annotation Elements
+ Retention Policy
+ Built-in Annotations
+ Java Custom Annotations
+ Using Custom Annotation
+ Transaction Management
+ Transaction Timeouts , Transactions in Web Components
+ Transactions and Concurrency
+ Transaction Management example
+Session 11:
+Lecture
+ Design Patterns in Java: Overview, Usage, Types of Design Patterns
+ Creational: Factory, Singleton, Builder, Prototype
+ Structural: Adapter, Composite, Proxy, Facade, Bridge, Decorator
+ Behavioral: Template method, Mediator, Chain of
+Responsibility,Observer,Strategy,Command,State,Visitor
+ MVC Pattern, Data Access Object Pattern
+ Front Controller Pattern
+ Service Locator Pattern
+ Transfer Object Pattern
+Session 12 & 13:
+Lecture
+ Apache Maven: Overview, Environment Setup, Ant vs Maven
+ POM, Build Life Cycle, Build Profiles
+ Maven Repository
+ Create, Build and Test Project & Build Automation
+ Manage Dependencies, Deployment Automation
+Session 14 & 15:
+Lecture
+ Hibernate Framework
+o Introduction to Hibernate Framework
+o Architecture
+ Hibernate in IDE
+o Creating web application using Hibernate API
+o Life-cycle of Hibernate Entities
+ HB with annotation example
+ Hibernate Mappings and Relationships
+ Collection and Component Mapping
+ HQL ,Named Queries , Criteria Queries
+ Introduction to Struts 2 Architecture
+ Building web pages using Struts 2 , Action Classes & Interceptors
+Session 16 :
+Lecture
+ Introduction to JSF 2.0
+ Discussion on benefits of JSF
+ JSF UI component model
+ JSF Architecture
+ Life cycle of a JSF
+ First application of JSF
+ Introduce basic JSF Tags
+ Various Navigation methods
+ JSF Event Handling
+Session 17 & 18 :
+Lecture
+ Overview of Spring4/5 Architecture.
+ AOP Overview
+ Spring Modules Overview
+ Spring MVC architecture
+ Understanding Spring 4 annotations
+ Spring Application
+ Spring in IDE
+ Spring in Eclipse
+ Dependency Injection
+Session 19 & 20:
+Lecture
+ What is IoC(Inversion of Control)
+ IOC container
+ Dependency Injection
+ Spring AOP
+ AOP Concepts
+ Spring ORM
+ Spring MVC
+ Model, Model & View , HandlerMapping, ViewResolver, Front Controller
+ Deployment of web application using Spring MVC Form with CRUD, File Upload
+example
+ Integration of Spring MVC with Hibernate
+ Spring Boot Basics , Overview & Demo
+Session 21 & 22:
+Lecture
+Building REST services with Spring
+ Introduction to web services
+ SOAP Vs RESTful web services
+ RESTful web service introduction
+ Create RESTful web service in java using Spring framework
+ RESTful web service JSON example
+ RESTful web service CRUD example
+ AngularJS and Spring based RESTful web service CRUD Integration
+Session 23:
+Lecture
+ Testing in Spring
+ Unit Testing of Spring MVC Controllers:
+ Unit Testing of Spring Service Layer
+ Integration Testing of Spring MVC Applications: REST API
+ Unit Testing Spring MVC Controllers with REST
