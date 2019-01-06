@@ -1,0 +1,437 @@
+Session 1:
+ Web Application Security Risks
+1. Injection
+Injection flaws, such as SQL injection, LDAP injection, and CRLF injection, occur when an attacker sends untrusted data to an interpreter that is executed as a command without proper authorization.
+
+* Application security testing can easily detect injection flaws. Developers should use parameterized queries when coding to prevent injection flaws.
+
+2. Broken Authentication and Session Management
+Incorrectly configured user and session authentication could allow attackers to compromise passwords, keys, or session tokens, or take control of users’ accounts to assume their identities.
+
+* Multi-factor authentication, such as FIDO or dedicated apps, reduces the risk of compromised accounts.
+
+3. Sensitive Data Exposure
+Applications and APIs that don’t properly protect sensitive data such as financial data, usernames and passwords, or health information, could enable attackers to access such information to commit fraud or steal identities.
+
+* Encryption of data at rest and in transit can help you comply with data protection regulations.
+
+4. XML External Entity
+Poorly configured XML processors evaluate external entity references within XML documents. Attackers can use external entities for attacks including remote code execution, and to disclose internal files and SMB file shares.
+
+* Static application security testing (SAST) can discover this issue by inspecting dependencies and configuration.
+
+5. Broken Access Control
+Improperly configured or missing restrictions on authenticated users allow them to access unauthorized functionality or data, such as accessing other users’ accounts, viewing sensitive documents, and modifying data and access rights.
+
+* Penetration testing is essential for detecting non-functional access controls; other testing methods only detect where access controls are missing.
+
+6. Security Misconfiguration
+This risk refers to improper implementation of controls intended to keep application data safe, such as misconfiguration of security headers, error messages containing sensitive information (information leakage), and not patching or upgrading systems, frameworks, and components.
+
+* Dynamic application security testing (DAST) can detect misconfigurations, such as leaky APIs.
+
+7. Cross-Site Scripting
+Cross-site scripting (XSS) flaws give attackers the capability to inject client-side scripts into the application, for example, to redirect users to malicious websites.
+
+* Developer training complements security testing to help programmers prevent cross-site scripting with best coding best practices, such as encoding data and input validation.
+
+8. Insecure deserialization
+Insecure deserialization flaws can enable an attacker to execute code in the application remotely, tamper or delete serialized (written to disk) objects, conduct injection attacks, and elevate privileges.
+
+* Application security tools can detect deserialization flaws but penetration testing is frequently needed to validate the problem.
+
+9. Using Components With Known Vulnerabilities
+Developers frequently don’t know which open source and third-party components are in their applications, making it difficult to update components when new vulnerabilities are discovered. Attackers can exploit an insecure component to take over the server or steal sensitive data.
+
+* Software composition analysis conducted at the same time as static analysis can identify insecure versions of components.
+
+10. Insufficient Logging and Monitoring
+The time to detect a breach is frequently measured in weeks or months. Insufficient logging and ineffective integration with security incident response systems allow attackers to pivot to other systems and maintain persistent threats.
+ Identifying the Application Security Risks
+Identifying Vulnerabilities and Risks on Your Network
+A vulnerability is a weak spot in your network that might be exploited by a security threat. Risks are the potential consequences and impacts of unaddressed vulnerabilities. In other words, failing to do Windows Updates on your Web server is vulnerability. Some of the risks associated with that vulnerability include loss of data, hours or days of site downtime and the staff time needed to rebuild a server after it’s been compromised.
+Key Actions
+Understand common attacks. Attacks on and within your network come in many different varieties. Many times the attackers do not even know who they are attacking, but there are instances of networks or organizations that are specifically targeted. Learning the different methods used to compromise computers and networks will give you the necessary perspective to proceed.
+Inventory your vulnerabilities. Establish a full list of potential vulnerabilities. Take special care to identify anything unknown about your network. For example, a library new to network security might think they have a “firewall” while they might just have a router provided by their ISP. For more on this topic, read 10 Steps to Creating Your Own IT Security Audit.
+Use vulnerability scanning tools. Many tools exist to check the existing security state of your network. These tools check for open ports, unpatched software and other weaknesses. Some of these programs focus on a specific machine, while others can scan your entire network. Microsoft offers one such tool, the Microsoft Baseline Security Analyzer. This tool checks for updates and common configuration errors for Microsoft products. Nmap is another popular, free scanning program. For more about Nmap and other vulnerability scanning tools, see Further Resources.
+Assess the risks. The various vulnerabilities on your network represent potential costs — time, money and assets — to your library. These costs, along with the chance someone will exploit these vulnerabilities, help determine the level of risk involved. Risk assessment is a combination of both quantifying (the cost of the threat) and qualifying (the odds of the attack). Each library will have to determine its own tolerance for risk depending on the situation. Some examples are provided here. 
+Patron information: Having your patron data compromised is unacceptable for any library. You would need to design your network and implement security to minimize this risk. While you can almost never remove risk completely, you can reduce risk to very low levels.
+Slow Internet connection: A library shares an Internet connection between public networks and staff networks. Since the cost of adding another Internet connection, increasing the speed of the current connection or purchasing complex network monitoring equipment might be too prohibitive, the library has a higher tolerance for a periodically slow Internet connection. Another library hosts its own Web site, online catalogue and email server, which require a more stable Internet connection, so a much lower tolerance for this risk exists.
+ Guide line for providing security for web application
+All developers should be required to add a minimum level of in-code comments using an agreed-upon comment style, along with more verbose supporting documentation (Wikipedia has a comprehensive list of comment styles). Although time spent on commenting and documenting code slows down the initial stages of development, it is recouped several times over as the project progresses and code is reviewed and changed.
+
+Probably the most important check developers need to complete is that all data has been validated for type, length, format and range boundary.
+Probably the most important check developers need to complete is that all data has been validated for type, length, format and range boundary. Validation should work on the principle of accepting only what is explicitly allowed and discarding all other input. So, if a function is expecting a date, it should first check the data entered is indeed a valid date before using it. Likewise, if a postcode should be 6, 7 or 8 characters long, this length must be checked; an email address should also be checked to verify it matches a valid email format.
+
+Boundary and range are probably the checks most commonly omitted. The range for a person’s age in years is going to be between 1 and generally no more than 110, but what happens if someone enters zero or 2 million? Many developers may assume the valid range for the price of a product is a positive currency value. But what if the application needs to support a promotion, such as “buy one get one free”?  Some applications calculate the total value by adding a third item with a negative value. Code should never make assumptions about what is normal.
+
+Certainly all free-form input, such as comments, must be sanitized by encoding it to ensure special characters such as < and > can’t be misused by hackers trying to inject malicious code. Developers should never rely on client-side validation -- JavaScript code that runs in the user’s browser -- as this is easy for a malicious user to circumvent. It’s a good idea to run tests with any client-side checks turned off to ensure the server-side validation is effective.
+
+It is important that functions receiving data passed by other functions don’t assume the data has already been validated, as the previous function may have validated it against a different set of requirements or rules. A good example is a telephone number. A function to retrieve and display a user’s telephone from a database may well accept + and () symbols, but if this function then passes the data to a function that actually calls the number, these characters could cause the function to fail if they are not removed before being processed.
+
+URLs used to pass data to an application are a favourite attack vector, so they need to be extensively tested. A good test is to add an extremely large amount of data to the URL query string to make sure the validation checks constrain inputs before processing them. Functions intended to receive data via a POST action should also be sent data via GET to make sure it is rejected. POST action handlers should also use a ValidateAntiForgeryToken type attribute to prevent XSRF attacks. (ValidateAntiForgeryToken is an attribute within the ASP.NET Framework that is used to detect whether a server request has been tampered with.)
+
+Next, try to access restricted pages as a user without the correct permissions to make sure permissions are explicitly tested and checked by the application. Pages handling sensitive data should only be available via HTTPS, while sensitive data should never be passed in query strings or stored in cookies.
+
+If the application accepts uploaded files, the function handling them needs to be tested by uploading files of an incorrect size, including empty and very large, corrupted and incorrect formats, and executables with a renamed extension. The code should be able to handle all these instances gracefully without hanging or crashing the system. Also check how the application handles data such as erroneous product IDs or commands a user shouldn’t have access to.
+
+Developers need to code so any errors and exceptions are logged, but don’t leak information in an error message to the client about the application or system, as this may help an attacker fingerprint the application. Certain security events should trigger a notification to the application administrator.
+
+All these checks focus on data the application receives, but developers also need to ensure the application correctly displays data their code outputs. Output that includes input, even if it is coming from a trusted database, should be encoded with HtmlEncode and UrlEncode type methods in order to combat cross-site scripting attacks.
+
+Complex applications should be tested using a vulnerability scanner and other tools. For example, to see how the application handles a denial-of-service attack, use Microsoft’s free TinyGet utility. This is a command-line HTTP client that provides detailed output and response validation. As it supports multiple threads and looping, you can use it to stress test and troubleshoot HTTP client-to-server communication.
+Session 2:
+ Data Extraction
+Data extraction is where data is analyzed and crawled through to retrieve relevant information from data sources (like a database) in a specific pattern. Further data processing is done, which involves adding metadata and other data integration; another process in the data workflow.
+
+The majority of data extraction comes from unstructured data sources and different data formats. This unstructured data can be in any form, such as tables, indexes, and analytics.
+Data in a warehouse may come from different sources, a data warehouse requires three different methods to utilize the incoming data. These processes are known as Extraction, Transformation, and Loading (ETL).
+
+The process of data extraction involves retrieval of data from disheveled data sources. The data extracts are then loaded into the staging area of the relational database. Here extraction logic is used and source system is queried for data using application programming interfaces. Following this process, the data is now ready to go through the transformation phase of the ETL process.
+ Advanced Identification/Exploitation
+https://stackoverflow.com/questions/1851293/what-are-some-advanced-and-modern-resources-on-exploit-writing
+ Foundation of Security(Identification, Authentication, Authorization, Access Control)
+Identification
+Identification is nothing more than claiming you are somebody. You identify yourself when you speak to someone on the phone that you don’t know, and they ask you who they’re speaking to. When you say, “I’m Jason.”, you’ve just identified yourself.
+
+In the information security world, this is analogous to entering a username. It’s not analogous to entering a password. Entering a password is a method for verifying that you are who you identified yourself as, and that’s the next one on our list.
+
+Authentication
+Authentication is how one proves that they are who they say they are. When you claim to be Jane Smith by logging into a computer system as “jsmith”, it’s most likely going to ask you for a password. You’ve claimed to be that person by entering the name into the username field (that’s the identification part), but now you have to prove that you are really that person. Most systems use a password for this, which is based on “something you know”, i.e. a secret between you and the system.
+
+Another form of authentication is presenting something you have, such as a driver’s license, an RSA token, or a smart card. You can also authenticate via something you are. This is the foundation for biometrics. When you do this, you first identify yourself and then submit a thumb print, a retina scan, or another form of bio-based authentication.
+
+Once you’ve successfully authenticated, you have now done two things: you’ve claimed to be someone, and you’ve proven that you are that person. The only thing that’s left is for the system to determine what you’re allowed to do.
+
+Authorization
+Authorization is what takes place after a person has been both identified and authenticated; it’s the step determines what a person can then do on the system.
+
+An example in people terms would be someone knocking on your door at night. You say, “Who is it?”, and wait for a response. They say, “It’s John.” in order to identify themselves. You ask them to back up into the light so you can see them through the peephole. They do so, and you authenticate them based on what they look like (biometric). At that point you decide they can come inside the house.
+
+If they had said they were someone you didn’t want in your house (identification), and you then verified that it was that person (authentication), the authorization phase would not include access to the inside of the house
+Session 3:
+ Classic SDLC model
+A process model can be defined as a strategy (also known as software engineering paradigm), comprising process, methods, and tools layers as well as the generalphases for developing the software. It provides a basisfor controlling various activities required to develop and maintain the software. Inaddition, it helps the software development team in facilitating and understandingthe activities involved in the project.
+A process model for software engineering depends on the nature and application of the software project. Thus, it is essential to define process models for each software project. IEEE defines a process model as 'a framework containing the processes, activities, and tasks involved in the development, operation, and maintenance of a software product, spanning the life of the system from the definition of its requirements to the termination of its use.' A process model reflects the' goals of software development such as developing a high quality product and meeting the schedule on time. In addition, it provides a flexible framework for enhancing the processes. Other advantages of the software process model are listed below. 
+
+Enables effective communication: It enhances understanding and provides a specific basis for process execution.
+
+Facilitates process reuse: Process development is a time consuming and expensive activity. Thus, the software development team utilizes the existing processes for different projects.
+
+Effective: Since process models can be used again and again; reusable processes provide all effective means for implementing processes for software development.
+
+Facilitates process management: Process models provide a framework for defining process status criteria and measures for software development. Thus, effective management is essential to provide a clear description of the plans for the software project.
+ Secure Software Development Life Cycle
+OWASP Secure Software Development Life Cycle Project(S-SDLC) defines security software development process as well as guides, tools, checklists and templates of activities in each phase.
+
+
+The project’s final goal is to help users to reduce security issues, and raise the overall security level from every stage by using the methodology.
+
+
+OWASP Secure Software Development Life Cycle Project defines security software development process as well as guides, tools, checklists and templates of activities in each phase.
+
+
+The delivery will contain(not final):
+
+•	Introduction: S-SDLC frame
+
+•	Training guideline: Providing Security Training System
+
+•	Requirements Phase: Risk Evaluation Guideline, and Requirements Criteria Doc.
+
+•	Design Phase: Security Design Review Guideline and Threat Modeling Guideline.
+
+•	Implement Phase: Security Coding Guide(C/C++、JAVA、PHP，C#)
+
+•	Validation Phase: Actives level, Security Testing Guideline
+
+•	Release/maintenance Phase: Vulnerability Management and Incident Response Guideline
+
+Detail information is in below table of content:
+
+A SSDLC or secure software development life cycle, is a firmly established process model for application development. Although there are many variants of the software development life cycle (SDLC), they all strive to provide a set of best practices to ensure the smooth delivery of software solutions from design to deployment.
+
+With the recent increase in malicious tactics targeting application vulnerabilities, the success criteria for security must now prioritize one basic tenet: application security. 
+
+A Fundamental Flaw in Software Development Security
+Traditional SSDLC models categorize development and testing activities to structure a reliable, scalable, and repeatable project plan. These categories are commonly: 
+
+Planning and Requirements
+Architecture and Design
+Coding and Development
+Testing and Results
+This standard blueprint addresses the needs for efficient deployment. It does not, however, provide a means to prepare for an explosive growth of cyber attacks. 
+
+As applications and data become more interconnected, applications are increasingly seen as weak points in an organization’s security profile. This growing threat has prompted the need for a secure software development life cycle.
+
+A Model for Software Development Life Cycle Security
+Security risks identified late in the development cycle are costly to fix and trigger several steps that delay application deployment, including: 
+
+Isolating at-risk code
+Patching
+Refactoring
+Testing
+The same is true for the open source components used to build those applications. If you don't identify vulnerable components early, there is a marked risk that they will cause problems after launch.  
+
+To combat these shortcomings and to establish security practices, many companies are enacting controls at each stage of software development: 
+
+Architecture & Design
+	Secure Architectures
+	Threat Modeling
+Coding & Development
+	Coding Best Practices
+	Open Source Component Audit
+Testing & Results
+	Vulnerability Assessment
+	SAST/DAST Testing
+Release & Maintenance
+	Security Configuration and Deployment
+	Vulnerability Monitoring
+Session 4:
+ PKI
+A public key infrastructure (PKI) supports the distribution, revocation and verification of public keys used for public key encryption, and enables linking of identities with public key certificates. A PKI enables users and systems to securely exchange data over the internet and verify the legitimacy of certificate-holding entities, such as webservers, other authenticated servers and individuals. The PKI enables users to authenticate digital certificate holders, as well as to mediate the process of certificate revocation, using cryptographic algorithms to secure the process.
+ Cryptographic algorithms
+What is Cryptography? – An Introduction to Cryptographic Algorithms
+Recommended by 28 users
+What is Cryptography? – An Introduction to Cryptographic Algorithms
+Encryption is essentially important because it secures data and information from unauthorized access and thus maintains the confidentiality. Here’s a blog post to help you understand ” what is cryptography “ and how can it be used to protect corporate secrets, secure classified information, and personal information to guard against things like identity theft
+
+What Is Cryptography?
+Cryptography is the practice and study of techniques for securing communication and data in the presence of adversaries.
+Alright, now that you know ” what is cryptography ” let’s see how cryptography can help secure the connection between Andy and Sam.
+
+So, to protect his message, Andy first convert his readable message to unreadable form. Here, he converts the message to some random numbers. After that, he uses a key to encrypt his message, in Cryptography, we call this ciphertext. 
+
+Andy sends this ciphertext or encrypted message over the communication channel, he won’t have to worry about somebody in the middle of discovering his private messages. Suppose, Eaves here discover the message and he somehow manages to alter it before it reaches Sam.
+Now, Sam would need a key to decrypt the message to recover the original plaintext. In order to convert the ciphertext into plain text, Sam would need to use the decryption key. Using the key he would convert the ciphertext or the numerical value to the corresponding plain text.
+
+After using the key for decryption what will come out is the original plaintext message, is an error. Now, this error is very important. It is the way Sam knows that message sent by Andy is not the same as the message that he received. Thus, we can say that encryption is important to communicate or share information over the network.
+ Types of symmetric key and Asymmetric key algorithms
+symmetric algorithms: (also called “secret key”) use the same key
+for both encryption and decryption;
+The most widely-used algorithm used in symmetric key cryptography is AES (Advanced Encryption Standard). It comprises three block ciphers, AES-128, AES-192 and AES-256, each of which is deemed sufficient to protect government classified information up to the SECRET level with TOP SECRET information requiring either 192 or 256 key lengths.
+
+Other common symmetric encryption algorithms include Blowfish, Twofish, Data Encryption Standard (DES), 3DES and RC4, although recent attacks have revealed weaknesses in the RC4 algorithm.
+
+asymmetric algorithms: (also called “public key”) use different
+keys for encryption and decryption.
+ Digital Signature, Hash function,
+A digital signature is a mathematical technique used to validate the authenticity and integrity of a message, software or digital document. The digital equivalent of a handwritten signature or stamped seal, a digital signature offers far more inherent security, and it is intended to solve the problem of tampering and impersonation in digital communications.
+Digital signatures can provide the added assurances of evidence of origin, identity and status of an electronic document, transaction or message and can acknowledge informed consent by the signer.
+
+In many countries, including the United States, digital signatures are considered legally binding in the same way as traditional document signatures. The United States Government Publishing Office publishes electronic versions of the budget, public and private laws, and congressional bills with digital signatures.
+Hash function
+A hash function is any function that can be used to map data of arbitrary size to data of a fixed size. The values returned by a hash function are called hash values, hash codes, digests, or simply hashes. Hash functions are often used in combination with a hash table, a common data structure used in computer software for rapid data lookup. Hash functions accelerate table or database lookup by detecting duplicated records in a large file. One such application is finding similar stretches in DNA sequences. They are also useful in cryptography. A cryptographic hash function allows one to easily verify that some input data maps to a given hash value, but if the input data is unknown, it is deliberately difficult to reconstruct it (or any equivalent alternatives) by knowing the stored hash value. This is used for assuring integrity of transmitted data, and is the building block for HMACs, which provide message authentication.
+Session 5:
+ Other HTTP fields
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html
+ Injection in stored procedures
+What is SQL Injection Attack?
+SQL Injection is one of the many web attack mechanisms (hacking technique) used by hackers to steal data from organizations. It is perhaps one of the most common application layer attack techniques.
+
+Improper coding of your web applications that allows hacker to inject SQL commands into say a login form to allow them to gain access to the data held within your database.
+How to avoid SQL Injection attacks
+ Developers should expose a database only via a API. And user privileges should be carefully made so that the client has no direct access to tables and views.
+Execute privileges should be granted only to users who are authorized to perform DDL and DML operations.
+Appropriately choose the privileges or rights such as AUTHID CURRENT_USER and AUTHID DEFINER.
+Limit user inputs, like restrict users to specified web pages using the restricted language for input, not specifying VARCHAR        parameter when the parameter will be used as a number, and using int instead of number if you need only positive integers.
+Developers should use SQL statement text which are compile-time-fixed.
+All the input values should be validated before putting them under code to perform database transactions.
+Use of Stored Procedures (in right way) reduces risk of SQL Injection Attack.
+How to avoid SQL Injection attacks using Stored Procedures
+
+Some database programmers believe that by using stored procedures, their code are safe from SQL injection Attacks.
+
+That is not true because, if dynamic query is used inside the stored procedures and the dynamic query is constructed by concatenating the parameters it is at high risk of attack.
+
+The easiest way to prevent SQL injection from happening, is to use parameters and sp_executesql to execute the dynamically generated statement.
+ Threat Risk Modelling
+What
+Most of the time, a threat model includes:
+
+A description / design / model of what you’re worried about
+A list of assumptions that can be checked or challenged in the future as the threat landscape changes
+A list of potential threats to the system
+A list of actions to be taken for each threat
+A way of validating the model and threats, and verification of success of actions taken
+Our motto is: Threat modelling: the sooner the better, but never too late.
+
+Why
+The inclusion of threat modelling in the SDLC can help
+
+Build a secure design
+Efficient investment of resources; appropriately prioritize security, development, and other tasks
+Bring Security and Development together to collaborate on a shared understanding, informing development of the system
+Identify threats and compliance requirements, and evaluate their risk
+Define and build required controls.
+Balance risks, controls, and usability
+Identify where building a control is unnecessary, based on acceptable risk
+Document threats and mitigation
+Ensure business requirements (or goals) are adequately protected in the face of a malicious actor, accidents, or other causes of impact
+Identification of security test cases / security test scenarios to test the security requirements.
+1. What are we building?
+As a starting point you need to define the scope of the Threat Model. To do that you need to understand the application you are building, examples of helpful techniques are:
+
+Architecture diagrams
+Dataflow transitions
+Data classifications
+You will also need to gather people from different roles with sufficient technical and risk awareness to agree on the framework to be used during the Threat Modelling exercise.
+2. What can go wrong?
+This is a research activity in which you want to find the main threats that apply to your application.
+
+3. What are we going to do about that?
+In this phase you turn your findings into specific actions.
+
+4. Did we do a good enough job?
+Finally, carry out a retrospective activity over the work you have done to check quality, feasibility, progress, and/or planning.
+
+ OWASP Top 10 of 2017
+A1:2017-Injection
+A2:2017-Broken Authentication
+A3:2017-Sensitive Data Exposure
+A4:2017-XML External Entities (XXE)
+A5:2017-Broken Access Control
+A6:2017-Security Misconfiguration
+A7:2017-Cross-Site Scripting (XSS)
+A8:2017-Insecure Deserialization
+A9:2017-Using Components with Known Vulnerabilities
+A10:2017-Insufficient Logging&Monitoring
+Session 6:
+ Threat, vulnerability and attack identification
+Threat – Anything that can exploit a vulnerability, intentionally or accidentally, and obtain, damage, or destroy an asset.
+
+A threat is what we’re trying to protect against.
+
+Vulnerability – Weaknesses or gaps in a security program that can be exploited by threats to gain unauthorized access to an asset.
+
+A vulnerability is a weakness or gap in our protection efforts.
+
+Risk – The potential for loss, damage or destruction of an asset as a result of a threat exploiting a vulnerability.
+
+1. Find risks and make a note of where they are.
+
+The starting point for securing your company from cyber threats is to identify where they are through a full risk assessment. This step will show you what your company possesses that may be of interest to a cyber thief. Remember that customer data is often the most important thing to protect, because although the direct cost of losing it may be small compared with research data or intellectual property, you’re likely to lose more through fines and lawsuits. Furthermore, the cost to your public image and the loss of customer trust can take years to recover.
+
+Consider all your company’s data, as well as where it comes from, where it’s stored, who has access to it and what security procedures they must go through to reach it. Are these measures secure enough? Do you use two-factor authentication (additional security beyond basic password protection)? Are your people trustworthy? Do you have strict protocols, policies or automated restrictions in place to protect your networks, email and other systems? Do you encrypt data on your network, and do you dispose of old computers safely? You should be asking yourself all these questions.
+
+If your employees are using their personal laptops and phones at work, you may want to enact a written policy to prevent them from activities that compromise the security of your systems. Or if they use company-provided devices, you may need rules about what they do with those systems at home or how they use social media at the office. Regular staff training on digital security is a must for any organization.
+
+2. Keep track of both internal and external hazards.
+
+Once you’ve identified and documented where you may be at risk, the next step is to focus your attention on those who may have a desire to compromise the security of your business. It’s useful to learn about the kinds of cybercrimes that may threaten you, and how they’re typically carried out, so you can better protect yourself. Cyber criminals come in all shapes and sizes, and although you’re more likely to be under threat from individuals in remote locations, there’s also a risk from people in your organization.
+
+One danger is “undercover hackers,” who join companies to gain easy access to their security systems and to steal data. An unscrupulous employee may also be willing to help cyberattackers in exchange for a share of the financial reward. Or perhaps a staff member who feels wronged wants to bring the business down. This situation is rare, so you need not constantly look over your shoulder or analyze every word uttered in the staff kitchen, but it’s important to be aware of this threat.
+
+3. Identify where your systems are vulnerable.
+
+Now you should have a clear idea of who might target your business and where they are, and you should have taken stock of your assets that may attract these attackers. Next, you must find any weaknesses in your data security before they do. You can use various methods to analyze the security of your systems and networks, and some of them are even free. Such tools keep your software up to date and identify known vulnerabilities.
+
+An intrusion detection and prevention system (IDPS) is similar to a firewall, except it identifies internal threats in addition to suspicious activity outside of your network. As you may have guessed from the name, these systems also protect your networks from identified threats.
+
+Penetration testing is another useful way to keep your systems secure, and you should use it regularly. A penetration test mimics an attack in order to check your IT systems and networks for weaknesses that a cyber criminal could exploit. Penetration-test reports also offer solutions and advice that will help you reduce the risk of a breach.
+
+4. Determine the impact of threats and how likely they are to occur.
+
+A business-impact analysis can help you identify the likely outcomes of various kinds of cybersecurity breaches. Such a breach could have implications that go beyond financial loss—for instance, your operations may be affected as you take steps to recover from the impact and put new measures in place to protect yourself from future attacks, and any damage to your public image and trust rating will have a serious effect on your relationships with existing and potential new customers, as well as the press. It’s vital to take this threat seriously: 60% of small companies cease to exist within half a year of falling victim to cybercrime.
+
+Different types of attacks could have implications for different people in your organization, and the scale of the attack will also determine whether company-wide procedures and protocol changes are necessary or whether a local team can address the situation. Have a business-continuity plan in place to prepare for and deal with any issues that may arise. Or if you want to go a step further, consider implementing a cybersecurity incident-response plan.
+
+5. Prioritize risks and start resolving them.
+
+Now that you know what you might be losing and how you’re likely to come under attack, you should be able to identify your most pressing security issues. Start by drawing up a list of priorities and work through them one by one, putting in place the necessary measures to keep your business as safe as possible. You should extensively test any changes you make to ensure they’re working and they don’t hamper your operations. Some of these steps may require outside assistance; plenty of IT service providers can work with you to keep your systems secure.
+
+Although they most likely have your best interests at heart, don’t forget that your employees are still the biggest threat to your IT security. This doesn’t mean they’re out to ruin your company, but because they don’t necessarily understand the technology they use or the various cyber threats, regular training is necessary to make sure they’re up to date on the latest risks and aware of the importance of avoiding them. Having staff read and sign policies that document best practices is another way of encouraging safe behavior and ensuring accountability.
+
+You can never guarantee that you’ll be completely safe from cyberattacks, so it’s important that you’re well prepared should the worst happen. Make sure everyone in your organization is aware of the risks and knows exactly how to respond. This process includes ensuring they have received the training and resources they require to succeed in this task.
+ Injection and Inclusion
+By far the most common form of Injection Attack is the infamous SQL Injection attack. SQL Injections are not only extremely common but also very deadly. I cannot emphasise enough the importance of understanding this attack, the conditions under which it can be successfully accomplished and the steps required to defend against it.
+
+SQL Injections operate by injecting data into a web appplication which is then used in SQL queries. 
+$db = new mysqli('localhost', 'username', 'password', 'storedb');
+$result = $db->query(
+    'SELECT * FROM transactions WHERE user_id = ' . $_POST['user_id']
+);
+
+A file inclusion vulnerability is a type of web vulnerability that is most commonly found to affect web applications that rely on a scripting run time. This issue is caused when an application builds a path to executable code using an attacker-controlled variable in a way that allows the attacker to control which file is executed at run time. A file include vulnerability is distinct from a generic directory traversal attack, in that directory traversal is a way of gaining unauthorized file system access, and a file inclusion vulnerability subverts how an application loads code for execution. Successful exploitation of a file include vulnerability will result in remote code execution on the web server that runs the affected web application.
+https://en.wikipedia.org/wiki/File_inclusion_vulnerability
+Session 7:
+ Buffer Overflows and Input Validation
+Attackers generally use buffer overflows to corrupt the execution stack of a web application. By sending carefully crafted input to a web application, an attacker can cause the web application to execute arbitrary code, possibly taking over the machine. Attackers have managed to identify buffer overflows in a staggering array of products and components.
+https://www.owasp.org/index.php/Buffer_Overflows
+Input validation, also known as data validation, is the proper testing of any input supplied by a user or application. Input validation prevents improperly formed data from entering an information system. Because it is difficult to detect a malicious user who is trying to attack software, applications should check and validate all input entered into a system. Input validation should occur when data is received from an external party, especially if the data is from untrusted sources. Incorrect input validation can lead to injection attacks, memory leakage, and compromised systems. While input validation can be either whitelisted or blacklisted, it is preferable to whitelist data. Whitelisting only passes expected data. In contrast, blacklisting relies on programmers predicting all unexpected data. As a result, programs make mistakes more easily with blacklisting.
+ Access Control
+Access control is a security technique that regulates who or what can view or use resources in a computing environment. It is a fundamental concept in security that minimizes risk to the business or organization.
+There are two types of access control: physical and logical. Physical access control limits access to campuses, buildings, rooms and physical IT assets. Logical access control limits connections to computer networks, system files and data.
+
+To secure a facility, organizations use electronic access control systems that rely on user credentials, access card readers, auditing and reports to track employee access to restricted business locations and proprietary areas, such as data centers. Some of these systems incorporate access control panels to restrict entry to rooms and buildings as well as alarms and lockdown capabilities to prevent unauthorized access or operations.
+Session 8:
+ SQL, OS, XXE injection
+SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed. This information may include any number of items, including sensitive company data, user lists or private customer details.
+
+The impact SQL injection can have on a business is far reaching. A successful attack may result in the unauthorized viewing of user lists, the deletion of entire tables and, in certain cases, the attacker gaining administrative rights to a database, all of which are highly detrimental to a business.
+https://www.owasp.org/index.php/OS_Injection
+https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing
+
+ Cross site scripting
+https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+ Case Study On Web Application Framework
+https://codesamplez.com/development/web-application-case-studies
+https://blog.github.com/2014-09-02-making-mysql-better-at-github/
+Session 9:
+ Web DOS attack
+A denial-of-service attack is a security event that occurs when an attacker prevents legitimate users from accessing specific computer systems, devices, services or other IT resources. Denial-of-service (DoS) attacks typically flood servers, systems or networks with traffic in order to overwhelm the victim's resources and make it difficult or impossible for legitimate users to access them.
+While an attack that crashes a server can often be dealt with successfully by simply rebooting the system, flooding attacks can be more difficult to recover from. Recovering from a distributed denial-of-service (DDoS) attack, in which attack traffic comes from a large number of sources, can be even more difficult.
+
+DoS and DDoS attacks often use vulnerabilities in the way networking protocols handle network traffic; for example, by transmitting a large number of packets to a vulnerable network service from different Internet Protocol (IP) addresses in order to overwhelm the service and make it unavailable to legitimate users.
+ Types of DOS attack
+DOS and DDOS
+COMMON DDOS ATTACKS TYPES
+Some of the most commonly used DDoS attack types include:
+
+UDP Flood
+A UDP flood, by definition, is any DDoS attack that floods a target with User Datagram Protocol (UDP) packets. The goal of the attack is to flood random ports on a remote host. This causes the host to repeatedly check for the application listening at that port, and (when no application is found) reply with an ICMP ‘Destination Unreachable’ packet. This process saps host resources, which can ultimately lead to inaccessibility.
+
+ICMP (Ping) Flood
+Similar in principle to the UDP flood attack, an ICMP flood overwhelms the target resource with ICMP Echo Request (ping) packets, generally sending packets as fast as possible without waiting for replies. This type of attack can consume both outgoing and incoming bandwidth, since the victim’s servers will often attempt to respond with ICMP Echo Reply packets, resulting a significant overall system slowdown.
+
+SYN Flood
+A SYN flood DDoS attack exploits a known weakness in the TCP connection sequence (the “three-way handshake”), wherein a SYN request to initiate a TCP connection with a host must be answered by a SYN-ACK response from that host, and then confirmed by an ACK response from the requester. In a SYN flood scenario, the requester sends multiple SYN requests, but either does not respond to the host’s SYN-ACK response, or sends the SYN requests from a spoofed IP address. Either way, the host system continues to wait for acknowledgement for each of the requests, binding resources until no new connections can be made, and ultimately resulting in denial of service.
+
+Ping of Death
+A ping of death (“POD”) attack involves the attacker sending multiple malformed or malicious pings to a computer. The maximum packet length of an IP packet (including header) is 65,535 bytes. However, the Data Link Layer usually poses limits to the maximum frame size – for example 1500 bytes over an Ethernet network. In this case, a large IP packet is split across multiple IP packets (known as fragments), and the recipient host reassembles the IP fragments into the complete packet. In a Ping of Death scenario, following malicious manipulation of fragment content, the recipient ends up with an IP packet which is larger than 65,535 bytes when reassembled. This can overflow memory buffers allocated for the packet, causing denial of service for legitimate packets.
+
+Slowloris
+Slowloris is a highly-targeted attack, enabling one web server to take down another server, without affecting other services or ports on the target network. Slowloris does this by holding as many connections to the target web server open for as long as possible. It accomplishes this by creating connections to the target server, but sending only a partial request. Slowloris constantly sends more HTTP headers, but never completes a request. The targeted server keeps each of these false connections open. This eventually overflows the maximum concurrent connection pool, and leads to denial of additional connections from legitimate clients.
+
+NTP Amplification
+In NTP amplification attacks, the perpetrator exploits publically-accessible Network Time Protocol (NTP) servers to overwhelm a targeted server with UDP traffic. The attack is defined as an amplification assault because the query-to-response ratio in such scenarios is anywhere between 1:20 and 1:200 or more. This means that any attacker that obtains a list of open NTP servers (e.g., by a using tool like Metasploit or data from the Open NTP Project) can easily generate a devastating high-bandwidth, high-volume DDoS attack.
+
+HTTP Flood
+In an HTTP flood DDoS attack, the attacker exploits seemingly-legitimate HTTP GET or POST requests to attack a web server or application. HTTP floods do not use malformed packets, spoofing or reflection techniques, and require less bandwidth than other attacks to bring down the targeted site or server. The attack is most effective when it forces the server or application to allocate the maximum resources possible in response to each single request.
+
+Zero-day DDoS Attacks
+The “Zero-day” definition encompasses all unknown or new attacks, exploiting vulnerabilities for which no patch has yet been released. The term is well-known amongst the members of the hacker community, where the practice of trading zero-day vulnerabilities has become a popular activity.
+ Attacker motivation
+What’s the Motivation for Attackers?
+The single greatest motivator for cyberattacks in today’s world is, arguably, profit. It comes as no surprise that cybercrime is estimated to become a $2.1 trillion problem by 2019 — and there’s no shortage of attackers who want a share of the pie.
+
+Methods of attack that lead to monetary gain abound. Cybercriminals use financial malware such as Carbanak, Dyre, Dridex, Rovnix and Shifu to steal funds directly from victims’ bank accounts. Or they extort money from victims through ransomware such as Cryptolocker and Tesla. Another profit-motivated attack is extortion by distributed denial-of-service (DDoS) attacks, which has grown in popularity over the last few years.
+
+Retailers, both online and physical, face a serious threat from profit-motivated attackers who are after user and financial transaction details. Such attacks can involve malware that targets point-of-sale (POS) systems.
+
+It’s Not Always About Money
+But profit isn’t always the motive for cybercrime. For example, a private company that develops technology for the military can be the target of industrial espionage. At risk is sensitive information that could have military, economic and political value to the attacker or to the attacker’s paying customer. In this case, attackers could be state-sponsored or a for-profit criminal group acting on behalf of a state or even corporate entity.
+
+Organizations that run industrial control systems (ICS) — power companies, chemical companies, water systems and the like — could be the target of attackers motivated by sabotage. These cybercriminals in turn can be motivated by underlying political, patriotic or ideological beliefs.
+
+Vanity, Revenge, Outrage and More
+There are also more personal — or more vindictive — reasons to explain why attackers do what they do. Companies or individuals can be the target, and the consequences can range from annoying to downright dangerous.
+Session 10:
+ Web server Security
+Separate servers should be used for internal and external-facing applications and servers for external-facing applications should be hosted on a DMZ or containerized service network to prevent an attacker from exploiting a vulnerability to gain access to sensitive internal information.
+
+Penetration tests should be run on a regular basis to identify potential attack vectors, which are often caused by out-of-date server modules, configuration or coding errors and poor patch management. Web site security logs should be audited on a continuous basis and stored in a secure location. Other best practices include using a separate development server for testing and debugging, limiting the number of superuser and administrator accounts and deploying an intrusion detection system (IDS) that includes monitoring and analysis of user and system activities, the recognition of patterns typical of attacks, and the analysis of abnormal activity patterns.
+https://www.owasp.org/index.php/Secure_Configuration_Guide
+ Performance Testing
+https://www.softwaretestingclass.com/what-is-performance-testing/
+https://www.tutorialspoint.com/software_testing_dictionary/performance_testing.htm

@@ -1,0 +1,101 @@
+Session 1
+ Introduction to Software Engineering
+a. Software Process
+	A software process (also knows as software methodology) is a set of related activities that leads to the production of the software. These activities may involve the development of the software from the scratch, or, modifying an existing system.
+b. Software Process Model
+	A software process model is a simplified representation of a software process. Each model represents a process from a specific perspective.
+
+	We’re going to take a quick glance about very general process models. These generic models are abstractions of the process that can be used to explain different approaches to the software development. They can be adapted and extended to create more specific processes.
+c. Software Product
+	Software is more than just a program code. A program is an executable code, which serves some computational purpose. Software is considered to be collection of executable programming code, associated libraries and documentations. Software, when made for a specific requirement is called software product.
+ Requirements Engineering
+a. Types of Requirements
+b. Steps involved in Requirements Engineering
+c. Requirement Analysis Modelling
+Session 2 ,3
+ Design and Architectural Engineering
+a. Characteristics of Good Design
+b. Function Oriented vs Object Oriented System
+c. Modularity, Cohesion, Coupling, Layering
+d. Design Models
+e. UML
+ Object Oriented Analysis and Design
+Session 4:
+ User Interface Design
+a. Good User Interface Designing
+b. User Interface Model
+c. Usability
+ Coding
+a. Programming Principles
+b. Coding Conventions
+Session 5:
+ Software Metrics
+a. Line of Code
+b. Function Point Count(Fp Estimation)
+c. Extended Function Point Metrics
+d. Object Oriented Metrics
+ Software Configuration Management
+a. Basic Concepts
+b. Software Configuration Management Process
+c. Configuration Identification and Control
+d. SCM and SEI Capability Maturity Model
+Session 6:
+ Project Management
+a. Process and Project
+b. Project Management
+c. Program Management
+d. Portfolio Management
+e. Project Scope Management
+f. Project Quality Management
+Session 7:
+ Risk Analysis and Management
+a. Software Risk
+b. Risk Management Plan
+ Project Time and Cost Management
+a. Time Management
+b. Cost Management
+Session 8:
+ Software Testing
+a. Psychology of Testing
+b. Testing Scope and Objective
+c. Type of Software Testing
+Session 9:
+ Software Maintenance
+a. Maintenance Activities, Process and Cost
+b. Difference between Software Maintenance and Support
+c. Common Metrics in Software Maintenance and support
+Session 10, 11, 12:
+ Agile Software Development
+a. What is Agile?
+b. Characteristics of Agile Projects
+c. Agile Manifesto
+d. Generic Agile Project Life Cycle
+e. Agile Concepts
+f. Epic, Futures, User Stories
+g. Communication in Agile Projects
+h. Agile Methodologies
+i. Scrum
+j. Kanban
+k. XP
+l. Agile Project Management
+m. Scaling Agile Methods
+Session 13:
+ Case Study: SDLC Case Study
+Session 14:
+ Case Study: Software Project Management Lifecycle – a Product Development Case
+Study
+Session 15:
+ Case Study: Maintenance Project Case Study- Life Cycle and How it is Managed
+Session 16:
+ Case Study: Testing Case Study – How the Testing Methodologies are Used in a
+Project
+Session 17, 18, 19, 20:
+ Emerging Trends
+a. Rapid Delivery
+b. Open Source Software Development
+c. Web Services
+d. Security Engineering
+e. Service Oriented Software Engineering
+f. Aspect Oriented Software Development
+g. Test Driven Development
+h. Social Computing
