@@ -1,6 +1,8 @@
 Session 1: J2EE Overview
+
 Lecture
  J2EE Container
+
 	J2EE/Java EE applications aren't self contained. In order to be executed, they need to be deployed in a container. In other words, the container provides an execution environment on top of the JVM.
 
 	Also, applications rely on several APIs like JPA, EJB, servlet, JMS, JNDI, etc. The role of the EE compliant container is to provide a standard implementation of all or some of these APIs. This means you can theoretically run your application on top of any container as long as it relies on standard APIs.
@@ -13,9 +15,7 @@ Lecture
 
 You need to package your web application as a .war file to deploy it directly to Apache Tomcat. WAR stands for web archive. A different server might require a different format, for instance a glassfish server will need a .jar file whereas a websphere application server will require an .ear.
 
- 
-
-Installing and verifying a standalone Apache Tomcat
+Installing and verifying a standalone Apache Tomcat.
 We will use a stand-alone tomcat for this example. Just download latest tomcat (.zip) version, unzip into a folder.
 
 Now start tomcat server by running the startup.bat under the bin folder of tomcat installation.
