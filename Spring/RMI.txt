@@ -1,0 +1,83 @@
+RMI
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	Adder.java
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	For creating the remote interface, extend the Remote interface and declare the RemoteException with all the methods of the remote interface
+	import java.rmi.*;
+		public interface Adder extends Remote{
+
+		public int add(int x,int y)throws RemoteException;
+	}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	AdderRemote.java
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	For providing the implementation of the Remote interface, we need to
+
+    Either extend the UnicastRemoteObject class,
+    or use the exportObject() method of the UnicastRemoteObject class
+
+	import java.rmi.*;
+	import java.rmi.server.*;
+
+	public class AdderRemote extends UnicastRemoteObject implements Adder{
+		AdderRemote()throws RemoteException{
+		super();
+	}
+	public int add(int x,int y)
+	{
+		return x+y;
+	}
+
+	}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	MyServer.java
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	import java.rmi.*;  
+    import java.rmi.registry.*;  
+    
+    public class MyServer{  
+	    public static void main(String args[]){  
+	    try{  
+			    Adder stub=new AdderRemote();  
+			    Naming.rebind("rmi://localhost:5000/sonoo",stub);  
+		    }catch(Exception e){
+		    	System.out.println(e);
+		    }  
+	    }  
+    }  
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	MyClient.java
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	import java.rmi.*;  
+    
+    public class MyClient{  
+	    public static void main(String args[]){  
+		    try{  
+			    Adder stub=(Adder)Naming.lookup("rmi://localhost:5000/sonoo");  
+			    System.out.println(stub.add(34,4));  
+		    }catch(Exception e){}  
+	    }  
+    }  
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	For running this rmi example,     
+    1) compile all the java files  
+      
+    javac *.java  
+      
+    2)create stub and skeleton object by rmic tool  (deprecated no need to make skeleton) 
+    rmic AdderRemote  
+      
+    3)start rmi registry in one command prompt  
+      
+    rmiregistry 5000  
+      
+    4)start the server in another command prompt  
+      
+    java MyServer  
+      
+    5)start the client application in another command prompt  
+      
+    java MyClient  
