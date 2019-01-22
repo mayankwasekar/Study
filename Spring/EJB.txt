@@ -1,0 +1,260 @@
+EJB
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	Intro
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	It is a specification provided by Sun Microsystems to develop secured, robust and scalable distributed applications.
+	To run EJB application, you need an application server (EJB Container) such as Jboss, Glassfish, Weblogic, Websphere etc. It performs:
+
+    life cycle management,
+    security,
+    transaction management, and
+    object pooling.
+
+	* EJB application is deployed on the server, so it is called server side component also.
+
+	* EJB is like COM (Component Object Model) provided by Microsoft. But, it is different from Java Bean, RMI and Web Services.
+
+	When use Enterprise Java Bean?
+	    Application needs Remote Access. In other words, it is distributed.
+	    Application needs to be scalable. EJB applications supports load balancing, clustering and fail-over.
+	    Application needs encapsulated business logic. EJB application is separated from presentation and persistent layer.
+
+	Types of Enterprise Java Bean
+	There are 3 types of enterprise bean in java.
+	1. Session Bean - Session bean contains business logic that can be invoked by local, remote or webservice client.
+	2. Message Driven Bean - Like Session Bean, it contains the business logic but it is invoked by passing message.
+	3. Entity Bean - It encapsulates the state that can be persisted in the database. It is deprecated. Now, it is replaced with JPA (Java Persistent API).
+	
+	Difference between RMI and EJB
+	Both RMI and EJB, provides services to access an object running in another JVM (known as remote object) from another JVM.
+	
+	RMI																							
+		In RMI, middleware services such as security, transaction management, object pooling etc. need to be done by the java programmer.	
+		RMI is not a server-side component. It is not required to be deployed on the server.	
+		RMI is built on the top of socket programming.	
+	
+	EJB
+		In EJB, middleware services are provided by EJB Container automatically.
+		EJB is a server-side component, it is required to be deployed on the server.
+		EJB technology is built on the top of RMI.
+
+	EJB and Webservice
+		In EJB, bean component and bean client both must be written in java language.
+		If bean client need to be written in other language such as .net, php etc, we need to go with webservices (SOAP or REST). So EJB with web service will be better option. 
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	1. Session Bean
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	Session Bean
+	Session bean encapsulates business logic only, it can be invoked by local, remote and webservice client.
+	It can be used for calculations, database access etc.
+
+	The life cycle of session bean is maintained by the application server (EJB Container).
+	Types of Session Bean
+	There are 3 types of session bean.
+	1) Stateless Session Bean: It doesn't maintain state of a client between multiple method calls.
+
+	2) Stateful Session Bean: It maintains state of a client across multiple requests.
+
+	3) Singleton Session Bean: One instance per application, it is shared between clients and supports concurrent access.
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	1) Stateless Session Bean:
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+		Stateless Session bean is a business object that represents business logic only. It doesn't have state (data).
+		The stateless bean objects are pooled by the EJB container to service the request on demand.
+		It can be accessed by one client at a time. In case of concurrent access, EJB container routes each request to different instance.
+
+		Annotations used in Stateless Session Bean
+		There are 3 important annotations used in stateless session bean:
+		    @Stateless
+		    @PostConstruct
+		    @PreDestroy
+		
+		Example of a Simple Stateless EJB
+		The following code shows a simple business interface for the ServiceBean stateless session EJB:
+
+		package examples;
+		/**
+		* Business interface of the Service stateless session EJB
+		*/
+		public interface Service {
+		  public void sayHelloFromServiceBean();
+		}
+
+		The code shows that the Service business interface has one method, sayHelloFromServiceBean(), that takes no parameters and returns void.
+		The following code shows the bean file that implements the preceding Service interface; the code in bold is described after the example:
+
+		package examples;
+		import static javax.ejb.TransactionAttributeType.*;
+		import javax.ejb.Stateless;
+		import javax.ejb.TransactionAttribute;
+		import javax.interceptor.ExcludeDefaultInterceptors;
+
+		/**
+		 * Bean file that implements the Service business interface.
+		 * Class uses following EJB 3.0 annotations:
+		 *   - @Stateless - specifies that the EJB is of type stateless session
+		 *   - @TransactionAttribute - specifies that the EJB never runs in a
+		 *       transaction
+		 *   - @ExcludeDefaultInterceptors - specifies any configured default
+		 *      interceptors should not be invoked for this class
+		 */
+
+		@Stateless
+		@TransactionAttribute(NEVER)
+		@ExcludeDefaultInterceptors
+		public class ServiceBean
+		  implements Service
+		{
+
+		  public void sayHelloFromServiceBean() {
+		    System.out.println("Hello From Service Bean!");
+		  }
+
+		}
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	2) Stateful Session Bean:
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	Example of a Simple Stateful EJB
+
+	The following code shows a simple business interface for the AccountBean stateful session EJB:
+
+	package examples;
+
+	/**
+	 * Business interface for the Account stateful session EJB.
+	 */
+
+	public interface Account {
+
+	  public void deposit(int amount);
+	  public void withdraw(int amount);
+	  public void sayHelloFromAccountBean();
+
+	}
+
+	The code shows that the Account business interface has three methods, deposit, withdraw, and sayHelloFromAccountBean.
+	The following code shows the bean file that implements the preceding Account interface; the code in bold is described after the example:
+
+	package examples;
+	import static javax.ejb.TransactionAttributeType.*;
+	
+	import javax.ejb.Stateful;
+	import javax.ejb.TransactionAttribute;
+	import javax.ejb.Remote;
+	import javax.ejb.EJB;
+
+	import javax.annotation.PreDestroy;
+
+	import javax.interceptor.Interceptors;
+	import javax.interceptor.ExcludeClassInterceptors;
+	import javax.interceptor.InvocationContext;
+
+	/**
+	 * Bean file that implements the Account business interface.
+	 * Uses the following EJB annotations:
+	 *    -  @Stateful: specifies that this is a stateful session EJB
+	 *    -  @TransactionAttribute - specifies that this EJB never runs
+	 *         in a transaction
+	 *    -  @Remote - specifies the Remote interface for this EJB
+	 *    -  @EJB - specifies a dependency on the ServiceBean stateless
+	 *         session ejb
+	 *    -  @Interceptors - Specifies that the bean file is associated with an
+	 *         Interceptor class; by default all business methods invoke the
+	 *         method in the interceptor class annotated with @AroundInvoke.
+	 *    -  @ExcludeClassInterceptors - Specifies that the interceptor methods
+	 *         defined for the bean class should NOT fire for the annotated
+	 *         method.
+	 *    -  @PreDestroy - Specifies lifecycle method that is invoked when the
+	 *         bean is about to be destoryed by EJB container.
+	 *
+	 */
+
+	@Stateful
+	@TransactionAttribute(NEVER)
+	@Remote({examples.Account.class})
+	@Interceptors({examples.AuditInterceptor.class})
+	public class AccountBean
+	 implements Account
+	{
+
+	  private int balance = 0;
+
+	  @EJB(beanName="ServiceBean")
+	  private Service service;
+
+	  public void deposit(int amount) {
+	    balance += amount;
+	    System.out.println("deposited: "+amount+" balance: "+balance);
+	  }
+
+	  public void withdraw(int amount) {
+	    balance -= amount;
+	    System.out.println("withdrew: "+amount+" balance: "+balance);
+	  }
+
+	  @ExcludeClassInterceptors
+	  public void sayHelloFromAccountBean() {
+	    service.sayHelloFromServiceBean();
+	  }
+
+	  @PreDestroy
+	  public void preDestroy() {
+	   System.out.println("Invoking method: preDestroy()");  
+	  }
+
+	}
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	3) Singleton Session Bean:
+	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	Example of an Interceptor Class
+
+	The following code shows an example of an interceptor class, specifically the AuditInterceptor class that is referenced by the preceding AccountBean stateful session bean with the @Interceptors({examples.AuditInterceptor.class}) annotation; the code in bold is described after the example:
+
+	package examples;
+
+	import javax.interceptor.AroundInvoke;
+	import javax.interceptor.InvocationContext;
+
+	import javax.ejb.PostActivate;
+	import javax.ejb.PrePassivate;
+
+	/**
+	 * Interceptor class.  The interceptor method is annotated with the
+	 *  @AroundInvoke annotation.
+	 */
+
+	public class AuditInterceptor {
+
+	  public AuditInterceptor() {}
+
+	  @AroundInvoke
+	  public Object audit(InvocationContext ic) throws Exception {
+	    System.out.println("Invoking method: "+ic.getMethod());
+	    return ic.proceed();
+	  }
+
+	  @PostActivate
+	  public void postActivate(InvocationContext ic) {
+	    System.out.println("Invoking method: "+ic.getMethod());
+	  }
+
+	  @PrePassivate
+	  public void prePassivate(InvocationContext ic) {
+	    System.out.println("Invoking method: "+ic.getMethod());
+	  }
+
+	}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+RMI
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	Adder.java
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+	For creating the remote interface, extend the Remote interface and declare the RemoteException with all the methods of the remote interface
+	import java.rmi.*;
+		public interface Adder extends Remote{
+
+		public int add(int x,int y)throws RemoteException;
+	}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
