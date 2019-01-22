@@ -115,6 +115,16 @@ EJB
 	-----------------------------------------------------------------------------------------------------------------------------------------------------
 	2) Stateful Session Bean:
 	-----------------------------------------------------------------------------------------------------------------------------------------------------
+	Annotations used in Stateful Session Bean
+
+	There are 5 important annotations used in stateful session bean:
+
+    @Stateful
+    @PostConstruct
+    @PreDestroy
+    @PrePassivate
+    @PostActivate
+
 	Example of a Simple Stateful EJB
 
 	The following code shows a simple business interface for the AccountBean stateful session EJB:
@@ -138,7 +148,7 @@ EJB
 
 	package examples;
 	import static javax.ejb.TransactionAttributeType.*;
-	
+
 	import javax.ejb.Stateful;
 	import javax.ejb.TransactionAttribute;
 	import javax.ejb.Remote;
@@ -247,9 +257,8 @@ EJB
 
 	}
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-RMI
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-	Adder.java
+	2. Message Driven Bean
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 	For creating the remote interface, extend the Remote interface and declare the RemoteException with all the methods of the remote interface
 	import java.rmi.*;
