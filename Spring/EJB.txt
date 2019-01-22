@@ -102,8 +102,7 @@ EJB
 		@Stateless
 		@TransactionAttribute(NEVER)
 		@ExcludeDefaultInterceptors
-		public class ServiceBean
-		  implements Service
+		public class ServiceBean implements Service
 		{
 
 		  public void sayHelloFromServiceBean() {
@@ -260,10 +259,5 @@ EJB
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 	2. Message Driven Bean
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-	For creating the remote interface, extend the Remote interface and declare the RemoteException with all the methods of the remote interface
-	import java.rmi.*;
-		public interface Adder extends Remote{
-
-		public int add(int x,int y)throws RemoteException;
-	}
+	
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
