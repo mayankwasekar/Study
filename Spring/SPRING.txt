@@ -1,0 +1,38 @@
+SPRING
+
+Developer : Rod Johnson
+
+Organization : Spring Org / Pivotal
+
+Initial Name : Interface 21
+
+			Spring --------- EJB (Enterprice Java Beans)
+			Spring --------- EJB ---------- RMI (Remote Method Invocation)
+
+Difference between AWT & SWING
+
+AWT				SWING------------JDK
+|
+|				
+OS				OS
+Heavy Weight	Light Weight
+
+
+EJB								SPRING
+^								^	^
+|								|	|
+|							   	|	|
+Application Server				|	Spring JAR <----------- JDK
+								|
+								No Need of Application Server
+
+Heavy Weight					Light Weight
+
+VIEW				|				Controller				|				Model
+					|										|			
+					|										|			   Services
+					|										|		-------------------
+					|										|--------->Business Login-------->DAO --------->  DATABASE
+																					       	  DAO	<---------
+
+																					       	  
