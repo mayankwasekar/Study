@@ -1,0 +1,116 @@
+    1  ll
+    2  cd Java/
+    3  cd Platform/
+    4  mkdir Persistence
+    5  cd Persistence/
+    6  vi FileStreamTest.java
+    7  javac FileStreamTest.java 
+    8  java FileStreamTest FileStreamTest.java data1.txt
+    9  ll
+   10  vi data1.txt 
+   11  java FileStreamTest data1.txt data2.txt
+   12  vi data2.txt 
+   13  vi FileChannelTest.java
+   14  javap java.nio.channels.FileChannel
+   15  vi FileChannelTest.java
+   16  javac FileChannelTest.java 
+   17  vi FileChannelTest.java
+   18  javac FileChannelTest.java 
+   19  vi FileChannelTest.java
+   20  javac FileChannelTest.java 
+   21  vi data2.txt 
+   22  java FileChannelTest data2.txt 
+   23  vi data2.txt 
+   24  java FileChannelTest data2.txt 
+   25  vi data2.txt 
+   26  vi DataIOTest.java
+   27  javac DataIOTest.java 
+   28  java DataIOTest HDD 4999.95 15000
+   29  java DataIOTest 
+   30  ll
+   31  vi product.dat 
+   32  cp DataIOTest.java TextIOTest.java
+   33  vi TextIOTest.java 
+   34  javac TextIOTest.java 
+   35  java TextIOTest HDD 4999.95 15000
+   36  java TextIOTest
+   37  vi product.txt
+   38  ll product.*
+   39  cp -r ~/Shared/hr serhr
+   40  ll serhr/
+   41  vi serhr/Employee.java 
+   42  vi serhr/Department.java 
+   43  vi serhr/Employee.java 
+   44  javac -d . serhr/*.java
+   45  vi ObjSerTest.java
+   46  javac ObjSerTest.java 
+   47  java ObjSerTest Accounting
+   48  java ObjSerTest 
+   49  vi dept.dat 
+   50  vi serhr/Employee.java 
+   51  javac -d . serhr/Employee.java 
+   52  java ObjSerTest Accounting
+   53  java ObjSerTest 
+   54  cp -r ~/Shared/hr xmlhr
+   55  vi xmlhr/Department.java 
+   56  javac -d . xmlhr/*.java
+   57  cp ObjSerTest.java XmlBindTest.java
+   58  vi XmlBindTest.java 
+   59  javac XmlBindTest.java 
+   60  java XmlBindTest Accounting
+   61  java XmlBindTest 
+   62  vi dept.xml 
+   63  vi xmlhr/Employee.java 
+   64  javac -d . xmlhr/Employee.java 
+   65* java XmlBindTest Accou
+   66  java XmlBindTest 
+   67  vi dept.xml 
+   68  vi XmlBindTest.java 
+   69  cd ..
+   70  mkdir Communication
+   71  cd Communication/
+   72  mkdir Sockets
+   73  cd Sockets/
+   74  vi ServerSocketTest1.java
+   75  javac ServerSocketTest1.java 
+   76  java ServerSocketTest1 &
+   77  java ServerSocketTest1 
+   78  netstat -noa
+   79  netstat -noa |more
+   80  telnet localhost 2055
+   81  sudo -i ~/Shared/telnet.rpm 
+   82  sudo rpm -i ~/Shared/telnet.rpm 
+   83  telnet localhost 2055
+   84  kill 4848
+   85  vi ServerSocketTest1.java
+   86  javac ServerSocketTest1.java 
+   87  java ServerSocketTest1 &
+   88  telnet localhost 2055
+   89  ps
+   90  kill 5001
+   91  cp ServerSocketTest1.java ServerSocketTest2.java
+   92  vi ServerSocketTest2.java
+   93  javac ServerSocketTest2.java
+   94  java ServerSocketTest2 &
+   95  ps -A
+   96  telnet localhost 2055
+   97  vi SocketTest.java
+   98  javac SocketTest.java 
+   99  java SocketTest ORCL
+  100  java SocketTest TCS
+  101  ps
+  102  kill 5067
+  103  vi DatagramSocketTest.java
+  104  javac DatagramSocketTest.java 
+  105  java DatagramSocketTest &
+  106  vi MulticastSocketTest.java
+  107  javac MulticastSocketTest.java 
+  108  java MulticastSocketTest 
+  109  vi DatagramSocketTest.java
+  110  kill 5286
+  111  javac DatagramSocketTest.java 
+  112  java DatagramSocketTest &
+  113  javac DatagramSocketTest.java 
+  114  java MulticastSocketTest 
+  115  vi ServerSocketTest2.java 
+  116  history >cmd13-10-2018.txt

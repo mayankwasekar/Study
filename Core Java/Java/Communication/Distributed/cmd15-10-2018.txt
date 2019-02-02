@@ -1,0 +1,1000 @@
+    2  cd ..
+    3  ll
+    4  cd C++
+    5  cd Foundations/
+    6  cd C++
+    7  cd Templates/
+    8  ll
+    9  cd Basics
+   10  ll
+   11  vi functmplttest2.cpp
+   12  c++ -o functmplttest2 functmplttest2.cpp
+   13  ./functmplttest2
+   14  vi functmplttest2.cpp
+   15  c++ -o functmplttest2 functmplttest2.cpp
+   16  ./functmplttest2
+   17  vi functmplttest2.cpp
+   18  c++ -o functmplttest2 functmplttest2.cpp
+   19  ./functmplttest2
+   20  vi functmplttest2.cpp
+   21  c++ -o functmplttest2 functmplttest2.cpp
+   22  ./functmplttest2
+   23  vi interval.h
+   24  vi functmplttest2.cpp
+   25  c++ -o functmplttest2 functmplttest2.cpp
+   26  vi functmplttest2.cpp
+   27  c++ -o functmplttest2 functmplttest2.cpp
+   28  ./functmplttest2
+   29  vi classtmplttest1.cpp
+   30  c++ -o classtmplttest1 classtmplttest1.cpp 
+   31  ./classtmplttest1
+   32  vi classtmplttest1.cpp
+   33  c++ -o classtmplttest1 classtmplttest1.cpp 
+   34  vi interval.h 
+   35  c++ -o classtmplttest1 classtmplttest1.cpp 
+   36  vi interval.h 
+   37  c++ -o classtmplttest1 classtmplttest1.cpp 
+   38  ./classtmplttest1
+   39  cp classtmplttest1.cpp classtmplttest2.cpp
+   40  vi classtmplttest2.cpp
+   41  c++ -o classtmplttest2 classtmplttest2.cpp
+   42  ./classtmplttest2
+   43  cp classtmplttest2.cpp classtmplttest3.cpp
+   44  vi classtmplttest3.cpp
+   45  c++ -o classtmplttest3 classtmplttest3.cpp
+   46  ./classtmplttest3
+   47  cd ..
+   48  mkdir stl
+   49  cd stl
+   50  cd ..
+   51  remdir stl
+   52  rmdir stl
+   53  mkdir STL
+   54  cd STL
+   55  vi vectortest1.cpp
+   56  cp ../Basics/interval.h .
+   57  vi vectortest1.cpp 
+   58  c++ -o vectortest1 vectortest1.cpp 
+   59  ./vectortest1
+   60  vi vectortest1.cpp 
+   61  cp vectortest1.cpp vectortest2.cpp
+   62  vi vectortest2.cpp
+   63  c++ -o vectortest2 vectortest2.cpp 
+   64  ./vectortest2
+   65  vi vectortest2.cpp
+   66  c++ -o vectortest2 vectortest2.cpp 
+   67  vi vectortest2.cpp
+   68  c++ -o vectortest2 vectortest2.cpp 
+   69  ./vectortest2
+   70  cp vectortest2.cpp listtest.cpp
+   71  vi listtest.cpp 
+   72  c++ -o listtest listtest.cpp 
+   73  vi listtest.cpp 
+   74  c++ -o listtest listtest.cpp 
+   75  ./listtest
+   76  cp listtest.cpp dequetest.cpp
+   77  vi dequetest.cpp 
+   78  c++ -o dequetest dequetest.cpp 
+   79  ./dequetest
+   80  cp vectortest2.cpp settest.cpp
+   81  vi settest.cpp 
+   82  c++ -o settest settest.cpp 
+   83  vi interval.h 
+   84  c++ -o settest settest.cpp 
+   85  ./settest
+   86  vi settest.cpp 
+   87  c++ -o settest settest.cpp 
+   88  vi settest.cpp 
+   89  c++ -o settest settest.cpp 
+   90  ./settest 
+   91  cp settest.cpp maptest.cpp
+   92  vi maptest.cpp 
+   93  c++ -o maptest maptest.cpp 
+   94  ./maptest 
+   95  vi maptest.cpp 
+   96  c++ -o maptest maptest.cpp 
+   97  ./maptest 
+   98  cp vectortest1.cpp stacktest.cpp
+   99  vi stacktest.cpp 
+  100  c++ -o stacktest stacktest.cpp 
+  101  ./stacktest
+  102  vi stacktest.cpp 
+  103  c++ -o stacktest stacktest.cpp 
+  104  ./stacktest
+  105  cp stacktest.cpp queuetest.cpp
+  106  vi queuetest.cpp 
+  107  c++ -o queuetest queuetest.cpp 
+  108  ./queuetest 
+  109  vi queuetest.cpp 
+  110  c++ -o queuetest queuetest.cpp 
+  111  ./queuetest 
+  112  cp stacktest.cpp priorquetest.cpp
+  113  vi priorquetest.cpp 
+  114  c++ -o priorquetest priorquetest.cpp 
+  115  ./priorquetest 
+  116  vi priorquetest.cpp 
+  117  c++ -o priorquetest priorquetest.cpp 
+  118  ./priorquetest 
+  119  vi priorquetest.cpp 
+  120  c++ -o priorquetest priorquetest.cpp 
+  121  ./priorquetest 
+  122  cp vectortest2.cpp sorttest.cpp
+  123  vi sorttest.cpp 
+  124  c++ -o sorttest sorttest.cpp 
+  125  ./sorttest
+  126  vi sorttest.cpp 
+  127  c++ -o sorttest sorttest.cpp 
+  128  ./sorttest
+  129  vi sorttest.cpp 
+  130  c++ -o sorttest sorttest.cpp 
+  131  ./sorttest
+  132  history > cmd10-08-2018
+  133  cd ..
+  134  cp -r Templates/ ~/Shared/
+  135  ls
+  136  cd practice/
+  137  cp -r ../Foundations/C++ .
+  138  ll
+  139  cd C++
+  140  ll
+  141  cd Inheritance/
+  142  ll
+  143  vi banking1.h
+  144  vi banking1.cpp
+  145  vi adttest1.cpp
+  146  clear
+  147  ll
+  148  vi banking2.h
+  149  vi adttest2.cpp
+  150  vi banking2.h
+  151  vi adttest2.cpp
+  152  vi virtfunctest.cpp
+  153  vi rttitest1.cpp
+  154  vi banking2.cpp
+  155  vi mivitest.cpp
+  156  vi cmd07-09-18.txt 
+  157  vi adtmitest.cpp
+  158  vi banking2.h
+  159  exit
+  160  vi Foundations/C++/Functions/funcovldtest.cpp 
+  161  javac -version
+  162  mkdir Java
+  163  cd Java
+  164  mkdir Language
+  165  cd Language/
+  166  vi Hello.java
+  167  javac Hello.java 
+  168  ll
+  169  java Greeter
+  170  vi Greeter.class 
+  171  java Greeter
+  172  javac Hello.java 
+  173  java Greeter
+  174  javap Greeter
+  175  javap -c Greeter
+  176  mkdir Basics
+  177  cd 
+  178  cd Basics
+  179  cd Language
+  180  cd /
+  181  cd SoftDev/
+  182  cd Java
+  183  cd Language/
+  184  cd Basics/
+  185  vi ForEachTest.java
+  186  javac ForEachTest.java 
+  187  java ForEachTest Jack Jill Jeff
+  188  java ForEachTest Jack and Jill Jeff
+  189  java ForEachTest "Jack and Jill" Jeff
+  190  vi MethodTest.java
+  191  javac MethodTest.java 
+  192  vi MethodTest.java 
+  193  javac MethodTest.java 
+  194  java MethodTest
+  195  vi VarArgTest.java
+  196  javac VarArgTest.java 
+  197  java VarArgTest
+  198  vi VarArgTest.java
+  199  javac VarArgTest.java 
+  200  vi VarArgTest.java
+  201  javac VarArgTest.java 
+  202  java VarArgTest
+  203  vi VarArgTest.java
+  204  javac VarArgTest.java 
+  205  vi VarArgTest.java
+  206  javac VarArgTest.java 
+  207  java VarArgTest
+  208  vi VarArgTest.java
+  209  javac VarArgTest.java 
+  210  java VarArgTest
+  211  vi TryCatchTest.java
+  212  javac TryCatchTest.java 
+  213  java TryCatchTest 3.5
+  214  java TryCatchTest 3.O5
+  215  java TryCatchTest 
+  216  vi TryCatchTest.java
+  217  javac TryCatchTest.java 
+  218  vi TryCatchTest.java
+  219  javac TryCatchTest.java 
+  220  java TryCatchTest 3.5
+  221  java TryCatchTest 
+  222  java TryCatchTest 3.O5
+  223  java TryCatchTest 3.5D
+  224  java TryCatchTest 3.5f
+  225  java TryCatchTest 3.5a
+  226  cp TryCatchTest.java TryFinallyTest.java
+  227  vi TryFinallyTest.java 
+  228  javac TryFinallyTest.java 
+  229  vi TryFinallyTest.java 
+  230  javac TryFinallyTest.java 
+  231  vi TryFinallyTest.java 
+  232  javac TryFinallyTest.java 
+  233  java TryFinallyTest 3.5
+  234  java TryFinallyTest 3.O5
+  235  vi TryFinallyTest.java 
+  236  javac TryFinallyTest.java 
+  237  java TryFinallyTest 3.5
+  238  java TryFinallyTest 3.O5
+  239  history >cmd06-10-2018.txt
+  240  vi cmd06-10-2018.txt 
+  241  cd ..
+  242  cp -r Java ~/Shared 
+  243  cp -r Java ~/Shared
+  244  cd Java/Language/Basics/
+  245  vi cmd06-10-2018.txt 
+  246  ls
+  247  vi cmd06-10-2018.txt 
+  248  cd /SoftDev/
+  249  ls
+  250  cd Foundations/
+  251  ls
+  252  cd C++/
+  253  ls
+  254  cd Functions/
+  255  ls
+  256  vi functest.cpp 
+  257  vi myfunc.c
+  258  vi funcovldtest.cpp 
+  259  cd ..
+  260  cd Java/Language/Basics/
+  261  ci cmd06-10-2018.txt 
+  262  vi cmd06-10-2018.txt 
+  263  cd ..
+  264  cp -r Java ~/Shared/
+  265  halt
+  266  cat cmd08-10-2018.txt
+  267  clear
+  268  cd Java/
+  269  cd Language/
+  270  cd OOP/
+  271  vi AbstractClassTest.java
+  272  javac AbstractClassTest.java 
+  273  java AbstractClassTest 4000
+  274  java AbstractClassTest 16000
+  275  vi src/Profitable.java
+  276  javac -d . src/Profitable.java 
+  277  javap edu.met.banking.Profitable
+  278  vi src/SavingsAccount.java 
+  279  javac -d . src/SavingsAccount.java
+  280  vi InterfaceTest1.java
+  281  vi src/SavingsAccount.java 
+  282  javac -d . src/SavingsAccount.java
+  283  vi InterfaceTest1.java
+  284  javac InterfaceTest1.java 
+  285  java InterfaceTest1
+  286  vi InterfaceTest1.java
+  287  javac InterfaceTest1.java 
+  288  java InterfaceTest1
+  289  vi InterfaceTest1.java
+  290  vi InterfaceTest2.java
+  291  javac InterfaceTest2.java
+  292  java InterfaceTest2
+  293  vi InnerClassTest.java
+  294  javac InnerClassTest.java 
+  295  java InnerClassTest
+  296  vi InnerClassTest.java
+  297  javac InnerClassTest.java 
+  298  java InnerClassTest
+  299  vi InnerClassTest.java
+  300  javac InnerClassTest.java 
+  301  java InnerClassTest
+  302  ll InnerClassTest*.class
+  303  vi InnerClassTest.java
+  304  javac InnerClassTest.java 
+  305  java InnerClassTest
+  306  ll InnerClassTest*.class
+  307  vi InnerClassTest.java
+  308  javac InnerClassTest.java 
+  309  java InnerClassTest
+  310  ll InnerClassTest*.class
+  311  vi InnerClassTest.java
+  312  javac InnerClassTest.java 
+  313  vi InnerClassTest.java
+  314  javac InnerClassTest.java 
+  315  java InnerClassTest
+  316  cp InnerClassTest.java LambdaTest.java
+  317  vi LambdaTest.java 
+  318  javac LambdaTest.java 
+  319  java LambdaTest
+  320  ll LambdaTest*.class
+  321  vi LambdaTest.java 
+  322  javac LambdaTest.java 
+  323  java LambdaTest
+  324  javap -p LambdaTest
+  325  vi GCTest.java
+  326  javac GCTest.java 
+  327  java GCTest
+  328  vi GCTest.java
+  329  javac GCTest.java 
+  330  java GCTest
+  331  vi GCTest.java
+  332  javac GCTest.java 
+  333  java GCTest
+  334  vi GCTest.java
+  335  javac GCTest.java 
+  336  vi GCTest.java
+  337  javac GCTest.java 
+  338  java GCTest
+  339  java GCTest 3
+  340  java GCTest three
+  341  vi GCTest.java
+  342  javac GCTest.java 
+  343  java GCTest 3
+  344  java GCTest three
+  345  cd ..
+  346  mkdir Generics
+  347  cd Generics/
+  348  mkdir Basics
+  349  cd Basics/
+  350  vi AutoBoxTest1.java
+  351  javac AutoBoxTest1.java 
+  352  vi AutoBoxTest1.java
+  353  javac AutoBoxTest1.java 
+  354  javac -source 1.4 AutoBoxTest1.java 
+  355  javac AutoBoxTest1.java 
+  356  javap -p -c AutoBoxTest1
+  357  vi AutoBoxTest1.java
+  358  javac AutoBoxTest1.java 
+  359  java AutoBoxTest1 john
+  360  java AutoBoxTest1 jim
+  361  vi AutoBoxTest2.java
+  362  javac AutoBoxTest2.java
+  363  java AutoBoxTest2 -3
+  364  vi AutoBoxTest2.java
+  365  javac AutoBoxTest2.java
+  366  java AutoBoxTest2 -3
+  367  java AutoBoxTest2 5
+  368  vi AutoBoxTest2.java
+  369  javac AutoBoxTest2.java
+  370  vi AutoBoxTest2.java
+  371  javac AutoBoxTest2.java
+  372  java AutoBoxTest2 -3
+  373  java AutoBoxTest2 5
+  374  vi AutoBoxTest2.java
+  375  javac AutoBoxTest2.java
+  376  java AutoBoxTest2 -3
+  377  java AutoBoxTest2 5
+  378  cp AutoBoxTest2.java GenMethodTest.java
+  379  vi GenMethodTest.java 
+  380  javac GenMethodTest.java 
+  381  vi GenMethodTest.java 
+  382  javac GenMethodTest.java 
+  383  java GenMethodTest -3
+  384  java GenMethodTest 5
+  385  cp GenMethodTest.java BoundedTypeTest.java
+  386  vi BoundedTypeTest.java 
+  387  javac BoundedTypeTest.java 
+  388  vi BoundedTypeTest.java 
+  389  javap java.lang.String
+  390  javap java.lang.Double
+  391  javac BoundedTypeTest.java 
+  392  java BoundedTypeTest
+  393  cp ../../Language/OOP/Interval.java .
+  394  javac Interval.java 
+  395  vi BoundedTypeTest.java 
+  396  javac BoundedTypeTest.java 
+  397  vi Interval.java
+  398  javac Interval.java
+  399  javac BoundedTypeTest.java 
+  400  java BoundedTypeTest
+  401  history > cmd09-10-2018.txt
+  402  cat cmd09-10-2018.txt 
+  403  cd Java
+  404  cd Java
+  405  cd Generics/
+  406  vi GenClassTest.java
+  407  javac GenClassTest.java 
+  408  vi GenClassTest.java
+  409  javac GenClassTest.java 
+  410  java GenClassTest
+  411  vi GenClassTest.java
+  412  javac GenClassTest.java 
+  413  ll
+  414  mv * Basics/
+  415  cd Basics/
+  416  javac GenClassTest.java 
+  417  java GenClassTest
+  418  cp GenClassTest.java WildcardTest.java
+  419  vi WildcardTest.java 
+  420  javac WildcardTest.java 
+  421  java WildcardTest
+  422  vi WildcardTest.java 
+  423  javac WildcardTest.java 
+  424  vi WildcardTest.java 
+  425  javac WildcardTest.java 
+  426  java WildcardTest
+  427  vi WildcardTest.java 
+  428  javac WildcardTest.java 
+  429  vi WildcardTest.java 
+  430  javac WildcardTest.java 
+  431  vi WildcardTest.java 
+  432  javac WildcardTest.java 
+  433  java WildcardTest
+  434  javap java.lang.Iterable
+  435  javap java.util.Iterator
+  436  cp GenClassTest.java IterationTest.java
+  437  vi IterationTest.java 
+  438  javac IterationTest.java 
+  439  java IterationTest
+  440  vi IterationTest.java 
+  441  javac IterationTest.java 
+  442  vi IterationTest.java 
+  443  javac IterationTest.java 
+  444  vi IterationTest.java 
+  445  javac IterationTest.java 
+  446  java IterationTest
+  447  cd ..
+  448  mkdir Collection
+  449  cd Collection/
+  450  cd ..
+  451  rmdir Collection/
+  452  mkdir Collections
+  453  cd Collections/
+  454  cp ../Basics/Interval.java .
+  455  vi ListTest1.java
+  456  javac ListTest1.java 
+  457  java ListTest1
+  458  cp ListTest1.java ListTest2.java
+  459  vi ListTest2.java
+  460  javac ListTest2.java 
+  461  java ListTest2
+  462  cp ListTest1.java SetTest1.java
+  463  vi SetTest1.java 
+  464  javac SetTest1.java 
+  465  vi SetTest1.java 
+  466  javac SetTest1.java 
+  467  java SetTest1
+  468  cp SetTest1.java SetTest2.java
+  469  vi SetTest2.java
+  470  javac SetTest2.java
+  471  java SetTest2
+  472  vi SetTest2.java
+  473  javac SetTest2.java
+  474  java SetTest2
+  475  cp SetTest1.java MapTest1.java
+  476  vi MapTest1.java 
+  477  javac MapTest1.java 
+  478  java MapTest1
+  479  vi MapTest1.java 
+  480  javac MapTest1.java 
+  481  java MapTest1
+  482  cp MapTest1.java MapTest2.java
+  483  vi MapTest2.java
+  484  javac MapTest2.java
+  485  java MapTest2
+  486  vi StreamAPITest1.java
+  487  javac StreamAPITest1.java 
+  488  java StreamAPITest1
+  489  vi StreamAPITest1.java
+  490  cp ListTest1.java StreamAPITest2.java
+  491  vi StreamAPITest2.java
+  492  javac StreamAPITest2.java 
+  493  java StreamAPITest2
+  494  java StreamAPITest2 300
+  495  vi StreamAPITest2.java
+  496  javac StreamAPITest2.java 
+  497  java StreamAPITest2 
+  498  cd ..
+  499  mkdir Runtime
+  500  cd Runtime/
+  501  mkdir Reflection
+  502  cd Reflection/
+  503  cp -r ../../Language/OOP/payroll/ .
+  504  cp ../../Language/OOP/Interval.java .
+  505  javac Interval.java 
+  506  vi ObjectAccessTest.java
+  507  javac ObjectAccessTest.java 
+  508  vi ObjectAccessTest.java
+  509  javac ObjectAccessTest.java 
+  510  java ObjectAccessTest
+  511  vi ObjectAccessTest.java
+  512  javac ObjectAccessTest.java 
+  513  java ObjectAccessTest
+  514  vi ObjectAccessTest.java
+  515  javac ObjectAccessTest.java 
+  516  java ObjectAccessTest
+  517  vi ObjectAccessTest.java
+  518  javac ObjectAccessTest.java 
+  519  java ObjectAccessTest
+  520  vi Interval.java
+  521  javac Interval.java
+  522  java ObjectAccessTest
+  523  vi Interval.java
+  524  javac Interval.java
+  525  java ObjectAccessTest
+  526  vi ObjectAccessTest.java
+  527  javap java.lang.reflect.Field
+  528  javap java.lang.reflect.AccessibleObject
+  529  vi ObjectAccessTest.java
+  530  javac ObjectAccessTest.java 
+  531  java ObjectAccessTest
+  532  cp -r ~/Shared/finance/ .
+  533  ll finance/
+  534  vi finance/LoanPolicy.java 
+  535  vi finance/HomeLoan.java 
+  536  vi finance/EducationLoan.java 
+  537  vi finance/PersonalLoan.java 
+  538  vi finance/BusinessLoan.java 
+  539  javac finance/*.java
+  540  vi EarlyBindTest.java
+  541  javac EarlyBindTest.java 
+  542  java EarlyBindTest
+  543  java EarlyBindTest 500000 finance.EducationLoan
+  544  java EarlyBindTest 500000 
+  545  java EarlyBindTest 500000 finance.HomeLoan
+  546  java EarlyBindTest 500000 finance.BusinessLoan
+  547  cp EarlyBindTest.java LateBindTest.java
+  548  vi LateBindTest.java 
+  549  javac LateBindTest.java 
+  550  java LateBindTest 500000 finance.EducationLoan interestRate
+  551  java LateBindTest 500000 finance.PersonalLoan interestRate
+  552  java LateBindTest 500000 finance.PersonalLoan interestRateForEmployees
+  553  java LateBindTest 500000 finance.BusinessLoan rateOfInterest
+  554  vi LateBindTest.java 
+  555  history >cmd10-10-2018.txt
+  556  vi cmd10-10-2018.txt 
+  557  cd ..
+  558  cp -r Java ~/Shared/
+  559  halt
+  560  cd Java
+  561  cd Language/OOP/
+  562  jar cf banklib.jar edu
+  563  ll
+  564  jar tf banklib.jar 
+  565  mv banklib.jar ../../Runtime/Reflection/
+  566  cd Java/Runtime/Reflection/cmd-inf/
+  567  ll commands/
+  568  vi commands/Greet.java 
+  569  vi commands/Dice.java 
+  570  vi commands/Clock.java 
+  571  javac commands/*.java
+  572  vi commands/Greet.java 
+  573  javac commands/Greet.java 
+  574  vi commands/Greet.java 
+  575  javac commands/Greet.java 
+  576  cd ../../../Language/OOP/
+  577  javap edu.met.banking.Banker
+  578  vi src/Banker.java 
+  579  cd ../../Generics/Basics/
+  580  vi BoundedTypeTest.java 
+  581  history >cmd09-10-2018.txt 
+  582  pwd
+  583  history >cmd11-10-2018.txt
+  584  vi cmd11-10-2018.txt 
+  585  mv cmd11-10-2018.txt cmd11-10-2018-II.txt 
+  586  exit
+  587  cd Java/
+  588  cd Runtime/
+  589  cd Reflection/
+  590  vi finance/ReducingBalance.java
+  591  javac finance/Reducie.java
+  592  vi finance/EducationLoan.java
+  593  vi finance/HomeLoan.java
+  594  javac finance/HomeLoan.java
+  595  vi finance/PersonalLoan.java
+  596  javac finance/PersonalLoan.java
+  597  vi finance/ReducingBalance.java
+  598  javac finance/ReducingBalance.java
+  599  javac finance/HomeLoan.java
+  600  javac finance/PersonalLoan.java
+  601  vi finance/PersonalLoan.java
+  602  javac finance/PersonalLoan.java
+  603  vi finance/ReducingBalance.java
+  604  javac finance/*.java
+  605  cp EarlyBindTest.java AnnotationTest1.java
+  606  vi AnnotationTest1.java 
+  607  javac AnnotationTest1.java 
+  608  java AnnotationTest1 500000 finance.EducationLoan
+  609  java AnnotationTest1 500000 finance.PersonalLoan
+  610  vi finance/MaxDuration.java
+  611  javac finance/MaxDuration.java
+  612  vi finance/EducationLoan.java
+  613  vi finance/HomeLoan.java
+  614  vi finance/PersonalLoan.java
+  615  javac finance/*.java
+  616  cp LateBindTest.java AnnotationTest2.java
+  617  vi AnnotationTest2.java
+  618  javac AnnotationTest2.java
+  619  java AnnotationTest2 500000 finance.EducationLoan interestRate
+  620  java AnnotationTest2 500000 finance.HomeLoan interestRate
+  621  java AnnotationTest2 500000 finance.PersonalLoan interestRate
+  622  java AnnotationTest2 500000 finance.PersonalLoan interestRateForEmployees
+  623  javap -c finance.PersonalLoan
+  624  cp ../../Language/OOP/InterfaceTest1.class .
+  625  java InterfaceTest1
+  626  java -cp .:../../Language/OOP/ InterfaceTest1
+  627  export CLASSPATH=.:../../Language/OOP/
+  628  java InterfaceTest1
+  629  unset CLASSPATH
+  630  java InterfaceTest1
+  631  javap -cp .:banklib.jar InterfaceTest1
+  632  java -cp .:banklib.jar InterfaceTest1
+  633  mkdir cmd-inf
+  634  cp -r ~/Shared/commands/ cmd-inf/
+  635  vi ClassLoaderTest.java
+  636  javac ClassLoaderTest.java 
+  637  java ClassLoaderTest
+  638  java -cp .:cmd-inf/ ClassLoaderTest
+  639  vi ClassLoaderTest.java
+  640  javac ClassLoaderTest.java
+  641  java ClassLoaderTest
+  642  cp ClassLoaderTest.java SandboxTest.java
+  643  vi SandboxTest.java 
+  644  javac SandboxTest.java 
+  645  java SandboxTest
+  646  vi SandboxTest.java 
+  647  javac SandboxTest.java 
+  648  vi SandboxTest.java 
+  649  javac SandboxTest.java 
+  650  vi SandboxTest.java 
+  651  javac SandboxTest.java 
+  652  vi SandboxTest.java 
+  653  javac SandboxTest.java 
+  654  java SandboxTest
+  655  cd ..
+  656  mkdir JNI
+  657  cd JNI/
+  658  export CPATH=/usr/java/jdk1.8.0_121/include/:/usr/java/jdk1.8.0_121/include/linux/
+  659  vi NativeMethodTest.java
+  660  javac NativeMethodTest.java 
+  661  java NativeMethodTest 70 84
+  662  vi nmt.c
+  663  cc -shared -fPIC -o libnmt.so nmt.c 
+  664  vi NativeMethodTest.java
+  665  javac NativeMethodTest.java 
+  666  java NativeMethodTest 70 84
+  667  java -Djava.library.path=. NativeMethodTest 70 84
+  668  export LD_LIBRARY_PATH=.
+  669  java NativeMethodTest 70 84
+  670  vi StringAccessTest.java
+  671  javac -h . StringAccessTest.java
+  672  vi StringAccessTest.java
+  673  javac -h . StringAccessTest.java
+  674  vi StringHelper.h
+  675  vi strh.cpp
+  676  c++ -shared -fPIC -o libstrh.so strh.cpp 
+  677  java StringAccessTest monday
+  678  java StringAccessTest sunday
+  679  vi StringAccessTest.java
+  680  javac -h . StringAccessTest.java
+  681  java StringAccessTest monday
+  682  history >cmd11-10-2018.txt
+  683  vi cmd11-10-2018.txt
+  684  mv cmd11-10-2018.txt cmd11-10-2018-I.txt
+  685  cd /SoftDev/
+  686  cp -r Java ~/Shared/
+  687  halt
+  688  cd Java/Runtime/JNI/
+  689  export CPATH=/usr/java/jdk1.8.0_121/include/:/usr/java/jdk1.8.0_121/include/linux/
+  690  export LD_LIBRARY_PATH=.
+  691  vi StringHelper.h
+  692  vi strh.cpp 
+  693  c++ -shared -fPIC -o libstrh.so strh.cpp 
+  694  java StringAccessTest monday
+  695  vi ArrayAccessTest.java
+  696  javac -h . ArrayAccessTest.java 
+  697  vi ArrayHelper.h
+  698  vi arrh.cpp
+  699  c++ -shared -fPIC -o libarrh.so arrh.cpp 
+  700  java ArrayAccessTest 1.2 2.3 3.4
+  701  vi ArrayAccessTest.java
+  702  javac -h . ArrayAccessTest.java 
+  703  vi ArrayHelper.h
+  704  vi arrh.cpp
+  705  c++ -shared -fPIC -o libarrh.so arrh.cpp 
+  706  java ArrayAccessTest 1.2 2.3 3.4
+  707  cp ~/Shared/box4c.o .
+  708  vi ObjectAccessTest.java
+  709  javac -h . ObjectAccessTest.java 
+  710  vi LegacyBox.h
+  711  javap -p -s LegacyBox
+  712  vi lbox.cpp
+  713  c++ -shared -fPIC -o liblbox.so lbox.cpp box4c.o 
+  714  java ObjectAccessTest 12 8 7 1
+  715  java ObjectAccessTest 12 8 7 2
+  716  java ObjectAccessTest 12 8 7 4
+  717  cd ..
+  718  mkdir Platform
+  719  cd Platform/
+  720  mkdir Concurrency
+  721  cd Concurrency/
+  722  cp ~/Shared/threads/* .
+  723  vi ThreadRunTest.java
+  724  javac ThreadRunTest.java 
+  725  java ThreadRunTest
+  726  vi ThreadRunTest.java
+  727  javac ThreadRunTest.java 
+  728  java ThreadRunTest
+  729  java ThreadRunTest 70
+  730  vi ThreadRunTest.java
+  731  javac ThreadRunTest.java 
+  732  java ThreadRunTest 70
+  733  java ThreadRunTest 80
+  734  vi ThreadRunTest.java
+  735  vi ThreadSyncTest.java 
+  736  javac ThreadSyncTest.java 
+  737  java ThreadSyncTest
+  738  vi ThreadSyncTest.java 
+  739  javac ThreadSyncTest.java 
+  740  java ThreadSyncTest
+  741  vi ThreadSyncTest.java 
+  742  javac ThreadSyncTest.java 
+  743  java ThreadSyncTest
+  744  vi ThreadSyncTest.java 
+  745  vi ThreadCoordTest.java 
+  746  javac ThreadCoordTest.java 
+  747  java ThreadCoordTest
+  748  vi ThreadCoordTest.java 
+  749  javac ThreadCoordTest.java 
+  750  java ThreadCoordTest
+  751  vi ThreadCoordTest.java 
+  752  javac ThreadCoordTest.java 
+  753  java ThreadCoordTest
+  754  vi ThreadCoordTest.java 
+  755  javac ThreadCoordTest.java 
+  756  java ThreadCoordTest
+  757  vi ThreadCoordTest.java 
+  758  javac ThreadCoordTest.java 
+  759  java ThreadCoordTest
+  760  vi ThreadCoordTest.java 
+  761  vi ThreadLocalTest.java 
+  762  javac ThreadLocalTest.java 
+  763  java ThreadLocalTest
+  764  vi ThreadLocalTest.java 
+  765  javac ThreadLocalTest.java 
+  766  java ThreadLocalTest
+  767  vi ThreadLocalTest.java 
+  768  javac ThreadLocalTest.java 
+  769  java ThreadLocalTest
+  770  vi ExecutorTest1.java
+  771  javac ExecutorTest1.java 
+  772  vi ExecutorTest1.java
+  773  javac ExecutorTest1.java 
+  774  vi ExecutorTest1.java
+  775  javac ExecutorTest1.java 
+  776  java ExecutorTest1
+  777  vi ExecutorTest1.java
+  778  javac ExecutorTest1.java 
+  779  java ExecutorTest1
+  780  vi ExecutorTest1.java
+  781  vi ExecutorTest2.java
+  782  javac ExecutorTest2.java
+  783  java ExecutorTest2
+  784  vi ExecutorTest2.java
+  785  javac ExecutorTest2.java
+  786  java ExecutorTest2
+  787  cp ExecutorTest2.java ForkJoinTest.java
+  788  vi ForkJoinTest.java 
+  789  javac ForkJoinTest.java 
+  790  java ForkJoinTest
+  791  vi ForkJoinTest.java 
+  792  javac ForkJoinTest.java 
+  793  java ForkJoinTest
+  794  vi ForkJoinTest.java 
+  795  javac ForkJoinTest.java 
+  796  java ForkJoinTest
+  797  vi ForkJoinTest.java 
+  798  javac ForkJoinTest.java 
+  799  java ForkJoinTest
+  800  cp Worker.class ~/Shared/Testing/
+  801  cp ForkJoinTest*.class ~/Shared/Testing/
+  802  vi ParallelStreamTest.java
+  803  javac ParallelStreamTest.java 
+  804  java ParallelStreamTest
+  805  cp ParallelStreamTest.class ~/Shared/Testing/
+  806  history >cmd12-10-2018.txt
+  807  vi cmd12-10-2018.txt 
+  808  cd /SoftDev/
+  809  cp -r Java ~/Shared/
+  810  halt
+  811  telnet localhost 2055
+  812  ll
+  813  cd Java/
+  814  cd Platform/
+  815  mkdir Persistence
+  816  cd Persistence/
+  817  vi FileStreamTest.java
+  818  javac FileStreamTest.java 
+  819  java FileStreamTest FileStreamTest.java data1.txt
+  820  ll
+  821  vi data1.txt 
+  822  java FileStreamTest data1.txt data2.txt
+  823  vi data2.txt 
+  824  vi FileChannelTest.java
+  825  javap java.nio.channels.FileChannel
+  826  vi FileChannelTest.java
+  827  javac FileChannelTest.java 
+  828  vi FileChannelTest.java
+  829  javac FileChannelTest.java 
+  830  vi FileChannelTest.java
+  831  javac FileChannelTest.java 
+  832  vi data2.txt 
+  833  java FileChannelTest data2.txt 
+  834  vi data2.txt 
+  835  java FileChannelTest data2.txt 
+  836  vi data2.txt 
+  837  vi DataIOTest.java
+  838  javac DataIOTest.java 
+  839  java DataIOTest HDD 4999.95 15000
+  840  java DataIOTest 
+  841  ll
+  842  vi product.dat 
+  843  cp DataIOTest.java TextIOTest.java
+  844  vi TextIOTest.java 
+  845  javac TextIOTest.java 
+  846  java TextIOTest HDD 4999.95 15000
+  847  java TextIOTest
+  848  vi product.txt
+  849  ll product.*
+  850  cp -r ~/Shared/hr serhr
+  851  ll serhr/
+  852  vi serhr/Employee.java 
+  853  vi serhr/Department.java 
+  854  vi serhr/Employee.java 
+  855  javac -d . serhr/*.java
+  856  vi ObjSerTest.java
+  857  javac ObjSerTest.java 
+  858  java ObjSerTest Accounting
+  859  java ObjSerTest 
+  860  vi dept.dat 
+  861  vi serhr/Employee.java 
+  862  javac -d . serhr/Employee.java 
+  863  java ObjSerTest Accounting
+  864  java ObjSerTest 
+  865  cp -r ~/Shared/hr xmlhr
+  866  vi xmlhr/Department.java 
+  867  javac -d . xmlhr/*.java
+  868  cp ObjSerTest.java XmlBindTest.java
+  869  vi XmlBindTest.java 
+  870  javac XmlBindTest.java 
+  871  java XmlBindTest Accounting
+  872  java XmlBindTest 
+  873  vi dept.xml 
+  874  vi xmlhr/Employee.java 
+  875  javac -d . xmlhr/Employee.java 
+  876  java XmlBindTest Accou
+  877  java XmlBindTest 
+  878  vi dept.xml 
+  879  vi XmlBindTest.java 
+  880  cd ..
+  881  mkdir Communication
+  882  cd Communication/
+  883  mkdir Sockets
+  884  cd Sockets/
+  885  vi ServerSocketTest1.java
+  886  javac ServerSocketTest1.java 
+  887  java ServerSocketTest1 &
+  888  java ServerSocketTest1 
+  889  netstat -noa
+  890  netstat -noa |more
+  891  telnet localhost 2055
+  892  sudo -i ~/Shared/telnet.rpm 
+  893  sudo rpm -i ~/Shared/telnet.rpm 
+  894  telnet localhost 2055
+  895  kill 4848
+  896  vi ServerSocketTest1.java
+  897  javac ServerSocketTest1.java 
+  898  java ServerSocketTest1 &
+  899  telnet localhost 2055
+  900  ps
+  901  kill 5001
+  902  cp ServerSocketTest1.java ServerSocketTest2.java
+  903  vi ServerSocketTest2.java
+  904  javac ServerSocketTest2.java
+  905  java ServerSocketTest2 &
+  906  ps -A
+  907  telnet localhost 2055
+  908  vi SocketTest.java
+  909  javac SocketTest.java 
+  910  java SocketTest ORCL
+  911  java SocketTest TCS
+  912  ps
+  913  kill 5067
+  914  vi DatagramSocketTest.java
+  915  javac DatagramSocketTest.java 
+  916  java DatagramSocketTest &
+  917  vi MulticastSocketTest.java
+  918  javac MulticastSocketTest.java 
+  919  java MulticastSocketTest 
+  920  vi DatagramSocketTest.java
+  921  kill 5286
+  922  javac DatagramSocketTest.java 
+  923  java DatagramSocketTest &
+  924  javac DatagramSocketTest.java 
+  925  java MulticastSocketTest 
+  926  vi ServerSocketTest2.java 
+  927  history >cmd13-10-2018.txt
+  928  vi cmd13-10-2018.txt
+  929  cd /SoftDev/
+  930  cp -r Java ~/Shared/
+  931  halt
+  932  ping centosvm
+  933  netstat -noa |more
+  934  ip
+  935  ip addr
+  936  ping 192.168.117.133
+  937  cd Java/Communication/
+  938  cd Sockets/
+  939  cp ~/Shared/stock.php .
+  940  cp stock.php /SoftDev/www/html/
+  941  vi URLTest.java
+  942  java URLTest.java 
+  943  javac URLTest.java 
+  944  java URLTest INTC
+  945  java URLTest 
+  946  java URLTest MET
+  947  cd ..
+  948  mkdir Distributed
+  949  cd Distributed/
+  950  mkdir shopping
+  951  cp ~/Shared/Store.java shopping/
+  952  vi shopping/Store.java 
+  953  javac shopping/Store.java 
+  954  vi shopping/ItemInfo.java
+  955  javac shopping/ItemInfo.java
+  956  vi shopping/ShopKeeper.java
+  957  javac shopping/ShopKeeper.java
+  958  vi shopping/ShopKeeperImpl.java
+  959  javac shopping/ShopKeeperImpl.java
+  960  vi RMIServerTest1.java
+  961  javac RMIServerTest1.java
+  962  rmiregistry &
+  963  java RMIServerTest1 &
+  964  vi RMIClientTest1.java
+  965  javac RMIClientTest1.java
+  966  vi RMIClientTest1.java
+  967  javac RMIClientTest1.java
+  968  java RMIClientTest1
+  969  vi shopping/Cart.java
+  970  javac shopping/Cart.java
+  971  vi shopping/CartImpl.java
+  972  javac shopping/CartImpl.java
+  973  vi shopping/CartFactory.java
+  974  javac shopping/CartFactory.java
+  975  vi shopping/CartFactoryImpl.java
+  976  javac shopping/CartFactoryImpl.java
+  977  vi RMIServerTest2.java
+  978  javac RMIServerTest2.java
+  979  vi RMIServerTest2.java
+  980  javac RMIServerTest2.java
+  981  ps
+  982  kill 3941
+  983  java RMIServerTest2 &
+  984  vi RMIClientTest2.java
+  985  javac RMIClientTest2.java
+  986  java RMIClientTest2
+  987  vi RMIClientTest2.java
+  988  javac RMIClientTest2.java
+  989  java RMIClientTest2
+  990  vi RMIClientTest2.java
+  991  ps
+  992  kill 4882
+  993  vi shopping/CartImpl.java
+  994  javac shopping/CartImpl.java
+  995  java RMIServerTest2 &
+  996  java RMIClientTest2
+  997  ps
+  998  kill 5101
+  999  kill 3926
+ 1000  cd Java/Communication/Distributed/
+ 1001  history >cmd15-10-2018.txt

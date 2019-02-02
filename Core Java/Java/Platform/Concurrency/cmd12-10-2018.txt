@@ -1,0 +1,119 @@
+    1  cd Java/Runtime/JNI/
+    2  export CPATH=/usr/java/jdk1.8.0_121/include/:/usr/java/jdk1.8.0_121/include/linux/
+    3  export LD_LIBRARY_PATH=.
+    4  vi StringHelper.h
+    5  vi strh.cpp 
+    6  c++ -shared -fPIC -o libstrh.so strh.cpp 
+    7  java StringAccessTest monday
+    8  vi ArrayAccessTest.java
+    9  javac -h . ArrayAccessTest.java 
+   10  vi ArrayHelper.h
+   11  vi arrh.cpp
+   12  c++ -shared -fPIC -o libarrh.so arrh.cpp 
+   13  java ArrayAccessTest 1.2 2.3 3.4
+   14  vi ArrayAccessTest.java
+   15  javac -h . ArrayAccessTest.java 
+   16  vi ArrayHelper.h
+   17  vi arrh.cpp
+   18  c++ -shared -fPIC -o libarrh.so arrh.cpp 
+   19  java ArrayAccessTest 1.2 2.3 3.4
+   20  cp ~/Shared/box4c.o .
+   21  vi ObjectAccessTest.java
+   22  javac -h . ObjectAccessTest.java 
+   23  vi LegacyBox.h
+   24  javap -p -s LegacyBox
+   25  vi lbox.cpp
+   26  c++ -shared -fPIC -o liblbox.so lbox.cpp box4c.o 
+   27  java ObjectAccessTest 12 8 7 1
+   28  java ObjectAccessTest 12 8 7 2
+   29  java ObjectAccessTest 12 8 7 4
+   30  cd ..
+   31  mkdir Platform
+   32  cd Platform/
+   33  mkdir Concurrency
+   34  cd Concurrency/
+   35  cp ~/Shared/threads/* .
+   36  vi ThreadRunTest.java
+   37  javac ThreadRunTest.java 
+   38  java ThreadRunTest
+   39  vi ThreadRunTest.java
+   40  javac ThreadRunTest.java 
+   41  java ThreadRunTest
+   42  java ThreadRunTest 70
+   43  vi ThreadRunTest.java
+   44  javac ThreadRunTest.java 
+   45  java ThreadRunTest 70
+   46  java ThreadRunTest 80
+   47  vi ThreadRunTest.java
+   48  vi ThreadSyncTest.java 
+   49  javac ThreadSyncTest.java 
+   50  java ThreadSyncTest
+   51  vi ThreadSyncTest.java 
+   52  javac ThreadSyncTest.java 
+   53  java ThreadSyncTest
+   54  vi ThreadSyncTest.java 
+   55  javac ThreadSyncTest.java 
+   56  java ThreadSyncTest
+   57  vi ThreadSyncTest.java 
+   58  vi ThreadCoordTest.java 
+   59  javac ThreadCoordTest.java 
+   60  java ThreadCoordTest
+   61  vi ThreadCoordTest.java 
+   62  javac ThreadCoordTest.java 
+   63  java ThreadCoordTest
+   64  vi ThreadCoordTest.java 
+   65  javac ThreadCoordTest.java 
+   66  java ThreadCoordTest
+   67  vi ThreadCoordTest.java 
+   68  javac ThreadCoordTest.java 
+   69  java ThreadCoordTest
+   70  vi ThreadCoordTest.java 
+   71  javac ThreadCoordTest.java 
+   72  java ThreadCoordTest
+   73  vi ThreadCoordTest.java 
+   74  vi ThreadLocalTest.java 
+   75  javac ThreadLocalTest.java 
+   76  java ThreadLocalTest
+   77  vi ThreadLocalTest.java 
+   78  javac ThreadLocalTest.java 
+   79  java ThreadLocalTest
+   80  vi ThreadLocalTest.java 
+   81  javac ThreadLocalTest.java 
+   82  java ThreadLocalTest
+   83  vi ExecutorTest1.java
+   84  javac ExecutorTest1.java 
+   85  vi ExecutorTest1.java
+   86  javac ExecutorTest1.java 
+   87  vi ExecutorTest1.java
+   88  javac ExecutorTest1.java 
+   89  java ExecutorTest1
+   90  vi ExecutorTest1.java
+   91  javac ExecutorTest1.java 
+   92  java ExecutorTest1
+   93  vi ExecutorTest1.java
+   94  vi ExecutorTest2.java
+   95  javac ExecutorTest2.java
+   96  java ExecutorTest2
+   97  vi ExecutorTest2.java
+   98  javac ExecutorTest2.java
+   99  java ExecutorTest2
+  100  cp ExecutorTest2.java ForkJoinTest.java
+  101  vi ForkJoinTest.java 
+  102  javac ForkJoinTest.java 
+  103  java ForkJoinTest
+  104  vi ForkJoinTest.java 
+  105  javac ForkJoinTest.java 
+  106  java ForkJoinTest
+  107  vi ForkJoinTest.java 
+  108  javac ForkJoinTest.java 
+  109  java ForkJoinTest
+  110  vi ForkJoinTest.java 
+  111  javac ForkJoinTest.java 
+  112  java ForkJoinTest
+  113  cp Worker.class ~/Shared/Testing/
+  114  cp ForkJoinTest*.class ~/Shared/Testing/
+  115  vi ParallelStreamTest.java
+  116  javac ParallelStreamTest.java 
+  117  java ParallelStreamTest
+  118  cp ParallelStreamTest.class ~/Shared/Testing/
+  119  history >cmd12-10-2018.txt

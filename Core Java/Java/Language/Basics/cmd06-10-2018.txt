@@ -1,0 +1,78 @@
+ 01  mkdir Java
+ 02  cd Java
+ 03  mkdir Language
+ 04  cd Language/
+ 05  vi Hello.java
+ 06  javac Hello.java 
+ 07  ll
+ 08  java Greeter
+ 09  vi Greeter.class 
+ 10  java Greeter
+ 11  javac Hello.java 
+ 12  java Greeter
+ 13  javap Greeter
+ 14  javap -c Greeter
+ 15  mkdir Basics
+ 16  cd 
+ 17  cd Basics
+ 18  cd Language
+ 19  cd /
+ 20  cd SoftDev/
+ 21  cd Java
+ 22  cd Language/
+ 23  cd Basics/
+ 24  vi ForEachTest.java
+ 25  javac ForEachTest.java 
+ 26  java ForEachTest Jack Jill Jeff
+ 27  java ForEachTest Jack and Jill Jeff
+ 28  java ForEachTest "Jack and Jill" Jeff
+ 29  vi MethodTest.java
+ 30  javac MethodTest.java 
+ 31  vi MethodTest.java 
+ 32  javac MethodTest.java 
+ 33  java MethodTest
+ 34  vi VarArgTest.java
+ 35  javac VarArgTest.java 
+ 36  java VarArgTest
+ 37  vi VarArgTest.java
+ 38  javac VarArgTest.java 
+ 39  vi VarArgTest.java
+ 40  javac VarArgTest.java 
+ 41  java VarArgTest
+ 42  vi VarArgTest.java
+ 43  javac VarArgTest.java 
+ 44  vi VarArgTest.java
+ 45  javac VarArgTest.java 
+ 46  java VarArgTest
+ 47  vi VarArgTest.java
+ 48  javac VarArgTest.java 
+ 49  java VarArgTest
+ 50  vi TryCatchTest.java
+ 51  javac TryCatchTest.java 
+ 52  java TryCatchTest 3.5
+ 53  java TryCatchTest 3.O5
+ 54  java TryCatchTest 
+ 55  vi TryCatchTest.java
+ 56  javac TryCatchTest.java 
+ 57  vi TryCatchTest.java
+ 58  javac TryCatchTest.java 
+ 59  java TryCatchTest 3.5
+ 60  java TryCatchTest 
+ 61  java TryCatchTest 3.O5
+ 62  java TryCatchTest 3.5D
+ 63  java TryCatchTest 3.5f
+ 64  java TryCatchTest 3.5a
+ 65  cp TryCatchTest.java TryFinallyTest.java
+ 66  vi TryFinallyTest.java 
+ 67  javac TryFinallyTest.java 
+ 68  vi TryFinallyTest.java 
+ 69  javac TryFinallyTest.java 
+ 70  vi TryFinallyTest.java 
+ 71  javac TryFinallyTest.java 
+ 72  java TryFinallyTest 3.5
+ 73  java TryFinallyTest 3.O5
+ 74  vi TryFinallyTest.java 
+ 75  javac TryFinallyTest.java 
+ 76  java TryFinallyTest 3.5
+ 77  java TryFinallyTest 3.O5
+ 78  history >cmd06-10-2018.txt

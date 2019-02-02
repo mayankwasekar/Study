@@ -1,0 +1,26 @@
+    1  cd Java/Communication/
+    2  cd Distributed/
+    3  vi shopping/OrderInfo.java
+    4  javac shopping/OrderInfo.java
+    5  vi shopping/CustomerWS.java
+    6  javac shopping/CustomerWS.java
+    7  vi JWSServerTest.java
+    8  javac JWSServerTest.java
+    9  java JWSServerTest &
+   10  kill 3378
+   11  vi JWSServerTest.java
+   12  javac JWSServerTest.java
+   13  java JWSServerTest &
+   14  wsimport -p shopping.client http://localhost:8055/shopping/customer.jws?wsdl
+   15  ll shopping/client/
+   16  javap shopping.client.Receipt
+   17  javap shopping.client.CustomerSupport
+   18  javap shopping.client.CustomerService
+   19  vi JWSClientTest.java
+   20  javac JWSClientTest.java
+   21  java JWSClientTest
+   22  hostname -I
+   23  ps
+   24  kill 3438
+   25  java JWSServerTest &
+   26  history > cmd16-10-2018.txt 

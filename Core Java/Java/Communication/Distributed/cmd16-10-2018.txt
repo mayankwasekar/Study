@@ -1,0 +1,4 @@
+md Java\Communication\Distributed
+cd Java\Communication\Distributed
+notepad c:\Windows\System32\drivers\etc\hosts
+doskey /h > cmd16-10-2018.txt

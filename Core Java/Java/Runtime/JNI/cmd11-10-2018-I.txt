@@ -1,0 +1,97 @@
+    2  cd Java/
+    3  cd Runtime/
+    4  cd Reflection/
+    5  vi finance/ReducingBalance.java
+    6* javac finance/Reducie.java
+    7  vi finance/EducationLoan.java
+    8  vi finance/HomeLoan.java
+    9  javac finance/HomeLoan.java
+   10  vi finance/PersonalLoan.java
+   11  javac finance/PersonalLoan.java
+   12  vi finance/ReducingBalance.java
+   13  javac finance/ReducingBalance.java
+   14  javac finance/HomeLoan.java
+   15  javac finance/PersonalLoan.java
+   16  vi finance/PersonalLoan.java
+   17  javac finance/PersonalLoan.java
+   18  vi finance/ReducingBalance.java
+   19  javac finance/*.java
+   20  cp EarlyBindTest.java AnnotationTest1.java
+   21  vi AnnotationTest1.java 
+   22  javac AnnotationTest1.java 
+   23  java AnnotationTest1 500000 finance.EducationLoan
+   24  java AnnotationTest1 500000 finance.PersonalLoan
+   25  vi finance/MaxDuration.java
+   26  javac finance/MaxDuration.java
+   27  vi finance/EducationLoan.java
+   28  vi finance/HomeLoan.java
+   29  vi finance/PersonalLoan.java
+   30  javac finance/*.java
+   31  cp LateBindTest.java AnnotationTest2.java
+   32  vi AnnotationTest2.java
+   33  javac AnnotationTest2.java
+   34  java AnnotationTest2 500000 finance.EducationLoan interestRate
+   35  java AnnotationTest2 500000 finance.HomeLoan interestRate
+   36  java AnnotationTest2 500000 finance.PersonalLoan interestRate
+   37  java AnnotationTest2 500000 finance.PersonalLoan interestRateForEmployees
+   38  javap -c finance.PersonalLoan
+   39  cp ../../Language/OOP/InterfaceTest1.class .
+   40  java InterfaceTest1
+   41  java -cp .:../../Language/OOP/ InterfaceTest1
+   42* 
+   43  export CLASSPATH=.:../../Language/OOP/
+   44  java InterfaceTest1
+   45  unset CLASSPATH
+   46  java InterfaceTest1
+   47  javap -cp .:banklib.jar InterfaceTest1
+   48  java -cp .:banklib.jar InterfaceTest1
+   49  mkdir cmd-inf
+   50  cp -r ~/Shared/commands/ cmd-inf/
+   51  vi ClassLoaderTest.java
+   52  javac ClassLoaderTest.java 
+   53  java ClassLoaderTest
+   54  java -cp .:cmd-inf/ ClassLoaderTest
+   55  vi ClassLoaderTest.java
+   56  javac ClassLoaderTest.java
+   57  java ClassLoaderTest
+   58  cp ClassLoaderTest.java SandboxTest.java
+   59  vi SandboxTest.java 
+   60  javac SandboxTest.java 
+   61  java SandboxTest
+   62  vi SandboxTest.java 
+   63  javac SandboxTest.java 
+   64  vi SandboxTest.java 
+   65  javac SandboxTest.java 
+   66  vi SandboxTest.java 
+   67  javac SandboxTest.java 
+   68  vi SandboxTest.java 
+   69  javac SandboxTest.java 
+   70  java SandboxTest
+   71  cd ..
+   72  mkdir JNI
+   73  cd JNI/
+   74  export CPATH=/usr/java/jdk1.8.0_121/include/:/usr/java/jdk1.8.0_121/include/linux/
+   75  vi NativeMethodTest.java
+   76  javac NativeMethodTest.java 
+   77  java NativeMethodTest 70 84
+   78  vi nmt.c
+   79  cc -shared -fPIC -o libnmt.so nmt.c 
+   80  vi NativeMethodTest.java
+   81  javac NativeMethodTest.java 
+   82  java NativeMethodTest 70 84
+   83  java -Djava.library.path=. NativeMethodTest 70 84
+   84  export LD_LIBRARY_PATH=.
+   85  java NativeMethodTest 70 84
+   86  vi StringAccessTest.java
+   87  javac -h . StringAccessTest.java
+   88  vi StringAccessTest.java
+   89  javac -h . StringAccessTest.java
+   90  vi StringHelper.h
+   91  vi strh.cpp
+   92  c++ -shared -fPIC -o libstrh.so strh.cpp 
+   93  java StringAccessTest monday
+   94  java StringAccessTest sunday
+   95  vi StringAccessTest.java
+   96  javac -h . StringAccessTest.java
+   97  java StringAccessTest monday
+   98  history >cmd11-10-2018.txt

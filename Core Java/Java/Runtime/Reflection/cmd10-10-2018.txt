@@ -1,0 +1,152 @@
+    1  cd Java
+    2  cd Generics/
+    3  vi GenClassTest.java
+    4  javac GenClassTest.java 
+    5  vi GenClassTest.java
+    6  javac GenClassTest.java 
+    7  java GenClassTest
+    8  vi GenClassTest.java
+    9  javac GenClassTest.java 
+   10  ll
+   11  mv * Basics/
+   12  cd Basics/
+   13  javac GenClassTest.java 
+   14  java GenClassTest
+   15  cp GenClassTest.java WildcardTest.java
+   16  vi WildcardTest.java 
+   17  javac WildcardTest.java 
+   18  java WildcardTest
+   19  vi WildcardTest.java 
+   20  javac WildcardTest.java 
+   21  vi WildcardTest.java 
+   22  javac WildcardTest.java 
+   23  java WildcardTest
+   24  vi WildcardTest.java 
+   25  javac WildcardTest.java 
+   26  vi WildcardTest.java 
+   27  javac WildcardTest.java 
+   28  vi WildcardTest.java 
+   29  javac WildcardTest.java 
+   30  java WildcardTest
+   31  javap java.lang.Iterable
+   32  javap java.util.Iterator
+   33  cp GenClassTest.java IterationTest.java
+   34  vi IterationTest.java 
+   35  javac IterationTest.java 
+   36  java IterationTest
+   37  vi IterationTest.java 
+   38  javac IterationTest.java 
+   39  vi IterationTest.java 
+   40  javac IterationTest.java 
+   41  vi IterationTest.java 
+   42  javac IterationTest.java 
+   43  java IterationTest
+   44  cd ..
+   45  mkdir Collection
+   46  cd Collection/
+   47  cd ..
+   48  rmdir Collection/
+   49  mkdir Collections
+   50  cd Collections/
+   51  cp ../Basics/Interval.java .
+   52  vi ListTest1.java
+   53  javac ListTest1.java 
+   54  java ListTest1
+   55  cp ListTest1.java ListTest2.java
+   56  vi ListTest2.java
+   57  javac ListTest2.java 
+   58  java ListTest2
+   59  cp ListTest1.java SetTest1.java
+   60  vi SetTest1.java 
+   61  javac SetTest1.java 
+   62  vi SetTest1.java 
+   63  javac SetTest1.java 
+   64  java SetTest1
+   65  cp SetTest1.java SetTest2.java
+   66  vi SetTest2.java
+   67  javac SetTest2.java
+   68  java SetTest2
+   69  vi SetTest2.java
+   70  javac SetTest2.java
+   71  java SetTest2
+   72  cp SetTest1.java MapTest1.java
+   73  vi MapTest1.java 
+   74  javac MapTest1.java 
+   75  java MapTest1
+   76  vi MapTest1.java 
+   77  javac MapTest1.java 
+   78  java MapTest1
+   79  cp MapTest1.java MapTest2.java
+   80  vi MapTest2.java
+   81  javac MapTest2.java
+   82  java MapTest2
+   83  vi StreamAPITest1.java
+   84  javac StreamAPITest1.java 
+   85  java StreamAPITest1
+   86  vi StreamAPITest1.java
+   87  cp ListTest1.java StreamAPITest2.java
+   88  vi StreamAPITest2.java
+   89  javac StreamAPITest2.java 
+   90  java StreamAPITest2
+   91  java StreamAPITest2 300
+   92  vi StreamAPITest2.java
+   93  javac StreamAPITest2.java 
+   94  java StreamAPITest2 
+   95  cd ..
+   96  mkdir Runtime
+   97  cd Runtime/
+   98  mkdir Reflection
+   99  cd Reflection/
+  100  cp -r ../../Language/OOP/payroll/ .
+  101  cp ../../Language/OOP/Interval.java .
+  102  javac Interval.java 
+  103  vi ObjectAccessTest.java
+  104  javac ObjectAccessTest.java 
+  105  vi ObjectAccessTest.java
+  106  javac ObjectAccessTest.java 
+  107  java ObjectAccessTest
+  108  vi ObjectAccessTest.java
+  109  javac ObjectAccessTest.java 
+  110  java ObjectAccessTest
+  111  vi ObjectAccessTest.java
+  112  javac ObjectAccessTest.java 
+  113  java ObjectAccessTest
+  114  vi ObjectAccessTest.java
+  115  javac ObjectAccessTest.java 
+  116  java ObjectAccessTest
+  117  vi Interval.java
+  118  javac Interval.java
+  119  java ObjectAccessTest
+  120  vi Interval.java
+  121  javac Interval.java
+  122  java ObjectAccessTest
+  123  vi ObjectAccessTest.java
+  124  javap java.lang.reflect.Field
+  125  javap java.lang.reflect.AccessibleObject
+  126  vi ObjectAccessTest.java
+  127  javac ObjectAccessTest.java 
+  128  java ObjectAccessTest
+  129  cp -r ~/Shared/finance/ .
+  130  ll finance/
+  131  vi finance/LoanPolicy.java 
+  132  vi finance/HomeLoan.java 
+  133  vi finance/EducationLoan.java 
+  134  vi finance/PersonalLoan.java 
+  135  vi finance/BusinessLoan.java 
+  136  javac finance/*.java
+  137  vi EarlyBindTest.java
+  138  javac EarlyBindTest.java 
+  139  java EarlyBindTest
+  140  java EarlyBindTest 500000 finance.EducationLoan
+  141  java EarlyBindTest 500000 
+  142  java EarlyBindTest 500000 finance.HomeLoan
+  143  java EarlyBindTest 500000 finance.BusinessLoan
+  144  cp EarlyBindTest.java LateBindTest.java
+  145  vi LateBindTest.java 
+  146  javac LateBindTest.java 
+  147  java LateBindTest 500000 finance.EducationLoan interestRate
+  148  java LateBindTest 500000 finance.PersonalLoan interestRate
+  149  java LateBindTest 500000 finance.PersonalLoan interestRateForEmployees
+  150  java LateBindTest 500000 finance.BusinessLoan rateOfInterest
+  151  vi LateBindTest.java 
+  152  history >cmd10-10-2018.txt
