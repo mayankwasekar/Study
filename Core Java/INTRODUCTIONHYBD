@@ -1,0 +1,110 @@
+INTRODUCTION
+
+Why Java
+Paradigms
+Diff b/w Java & Other (C,C++)
+Java history
+Java features
+Java programming format
+Java Tokens
+Java Statements
+Java Data Types
+Typecasting
+Arrays
+OOPS
+
+Introduction
+Class
+Object
+Static Keywords
+Constructors
+This Key Word
+Inheritance
+Super Key Word
+Polymorphism (Over Loading & Over Riding)
+Abstraction
+Encapsulation
+Abstract Classes
+Interfaces
+STRING MANIPULATIONS
+
+String
+String Buffer
+String Tokenizer
+
+PACKAGES
+
+Introduction to all predefined packages
+User Defined Packages
+Access Specifiers
+
+EXCEPTION HANDLING
+
+Introduction
+Pre Defined Exceptions          
+Try-Catch-Finally
+Throws, throw
+User Defined Exception examples
+
+MULTITHREADING
+
+Introduction
+Thread Creations
+Thread Life Cycle
+Life Cycle Methods
+Synchronization
+Wait() notify() notify all() methods
+
+I/O STREAMS
+
+Introduction
+Byte-oriented streams
+Character – oriented streams
+File
+Random-access file
+Serialization
+
+NETWORKING
+
+Introduction
+Socket, Server socket
+Client –Server Communication
+
+WRAPPERCLASSES
+
+Introduction
+Byte, Short, Integer, Long, Float, Double, Character, Boolean classes.
+
+COLLECTION FRAME WORK
+
+Introduction
+Util Package interfaces, List, Set, Map
+List interface 7 its classes
+Set interface & its classes
+Map interface & its classes
+
+INNER CLASSES
+
+Introduction
+Member inner class
+ Static inner class
+ Local inner class
+Anonymous inner class
+
+AWT
+
+Introduction
+Components
+Event-Delegation-Model
+Listeners
+Layouts
+Individual components Lable, Button, CheckBox, Radio Button,
+Choice, List, Menu, Text Field, Text Area
+
+SWING(JFC)
+
+Introduction Diff b/w awt and swing
+Components hierarchy
+Panes
+Individual Swings components Jlabel,
+JButton, JTextField, JTextAres.

@@ -1,0 +1,107 @@
+I.JDBC
+            
+            1. Introduction
+            2. Jdbc Architecture
+            3. Types of Drivers
+            4. Statement
+            5. ResultSet
+                   1.Read Only ResultSet
+                   2.Updatable ResultSet
+                   3.Forward Only ResultSet
+                   4.Scrollable ResultSet
+            6. PreparedStatement
+            7. Connection Modes
+            8. SavePoint
+            9. Batch Updations
+           10. CallableStatement
+           11. BLOB & CLOB
+
+II.SERVLETS
+
+          1. Introduction
+          2. Web application Architecture
+          3. Http Protocol & Http Methods
+          4. Web Server & Web Container
+          5. Servlet Interface
+          6. GenericServlet
+          7. HttpServlet
+          8. Servlet Life Cycle
+          9. ServletConfig
+         10. ServletContext
+         11. Servlet Communication
+
+                   1. Servlet-Browser communication
+
+                             1. sendError
+                             2. setHeader
+                             3. sendRedirect
+
+                  2. Web-component Communication
+
+                             1. Forward
+                             2. Include
+
+                  3.Servlet-Applet Communication
+
+          12. Session Tracking Mechanisms
+                             1. HttpSession 
+                             2. Cookies
+                             3. URL-Rewriting
+                             4. Hidden-Form Fields
+
+          13.Filters & Wrappers
+          14.Listeners
+          15.Web-Security
+                  
+III.JSP
+        
+          1. Introduction
+          2. Jsp LifeCycle
+          3. Jsp Implicit Objects & Scopes
+          4. Jsp Directives
+
+                   1.page
+                   2.include
+                   3.taglib
+
+         5. Jsp Scripting Elements   
+     
+                   1.declaratives
+                   2.scriptlets
+                   3.expressions
+          
+         6. Jsp Actions
+
+                     1.Standard Actions
+                           1. useBean  tag
+                           2. setProperty tag
+                           3. getProperty tag
+                           4. include  tag
+                           5. forward  tag
+                           6. param  tag
+                           7. plug-in  tag
+                           8. params tag
+                           9. fallback tag
+                         10. directives tag
+                         11. scriptlet tag
+                         12. expression tag
+
+                   2.Custom Actions
+
+                          1. Classic Tags
+                          2. Simple Tags
+
+           7. JSTL & Tag Library
+
+IV.IDE
+
+          1. MyEclipse
+                                                                       
+V.SERVERS
+
+        1. Tomcat
+        2. Weblogic
+
+VI.DATABASE
+
+        1. Oracle

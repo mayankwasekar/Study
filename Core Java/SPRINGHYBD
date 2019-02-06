@@ -1,0 +1,102 @@
+1	Introduction to
+Spring	What is Spring
+
+How Spring fits into the Enterprise world
+
+Spring Modules
+2	Spring Core
+(Basic
+Concepts)	Theory/Practical
+
+•What is a Core Container 
+• Introduction to IOC 
+• Types of DI
+• Setter VS Constructor
+• Resolving Constructor Confusion
+• Collection DI
+• Bean Inheritance
+• Collection Merging
+• Inner Beans
+• Using IDRef
+• Bean Aliasing
+• Bean Scopes
+• Inner Beans
+• Null String
+• Bean Auto wiring
+• Nested Bean Factories
+3	Spring Core
+(Advanced
+Concepts)	Theory/Practica
+
+• P – Namespace
+• Dependency Check
+• Depends On
+• Factory Beans
+• Static Factory Method
+• Instance Factory Method
+• Aware Interfaces
+• Bean Lifecycle
+• Method Replacement
+• Lookup Method Injection
+• Property Editors
+• Bean Factory Postproces
+4	Spring Core
+(3.0
+Annotations)	
+Theory/Practical
+
+• Spring VS Java Config Project annotations
+• @Required
+• @Autowire
+• @PostConstruct
+• @PreDestroy
+• @Qualifier
+• @Resource
+•@Component
+• @Service
+• @Controller
+• @Named
+
+Various Annotation based Post Processors
+(AutowiredAnnotationBeanPostProcessor,
+CommonAnnotationBeanPostProcessor,
+PersistenceAnnotationBeanPostProcessor,
+RequiredAnnotationBeanPostProcessor)
+
+5	Spring AOP	Theory/Practical
+
+• AOP Concepts
+• Programmatic VS Declarative AOP
+• Programmatic AOP
+i. Types of Advices
+ii. Types of Pointcuts
+iii. Working with proxies
+• Declarative AOP
+i. Using AOP 2.0 Config element
+ii. OGNL Expressions
+• Aspect J AOP
+6	Spring Tx	Theory/Practical
+• Aop 2.0 Configuration driven Transaction Management
+• Aspect J annotation based Transaction Management
+7	Spring JDBC	Theory/Practical
+• What is DAO pattern?
+• Ways to implement Spring DAO
+• Choosing an approach for JDBC database access
+• JDBC Template
+• Executing Statements
+• Running Queries
+• SQL Parameters
+8	Spring MVC	Theory/Practical
+• Spring 3.0 features
+• Introduction to Spring MVC
+• Handler Mapping
+• Controllers
+• Validations
+• Handler Interceptors
+• Views
+• Form tags
+9	Spring ORM	   Spring Integration with ORM
+• Integrating with Hibernate
+• Creating and Injecting Hibernate Session Factory
+• Managing Transaction
+10	Q & A	   Question and Answers

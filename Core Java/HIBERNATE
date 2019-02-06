@@ -1,0 +1,40 @@
+Syllabus:
+1. Advantages of Hibernate compared to JDBC
+2. Introduction.
+
+3. ORM (Object Relational Mapping)
+
+4. Configuration xml file and Mapping xml file along with dtds.
+
+5. Hibernate architecture
+
+6. Installation and Directory Structure
+
+7. Hibernate Data Types.
+
+8. First Application using Hibernate.
+
+9. Hibernate API
+
+10. CRUD operations
+
+11. Primary key Generators
+
+12. Hibernate Query Language (HQL)
+
+13. Native SQL
+
+14. Criteria API
+
+15. Inheritance in Hibernate
+
+16. Relations 
+     (one to one, one to many, many to one, many to many)
+
+17. Caching
+
+18. Connecting with Multiple Databases
+
+19. Integrating Hibernate with Servlets and Struts
+
+20. Hibernate Annotations

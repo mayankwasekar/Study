@@ -1,0 +1,72 @@
+XML WITH WEB SERVISES
+Standards and Technologies.
+
+SOA
+
+What is SOA?
+Service Orientation
+Business Process Vs Service.
+Choreography of Services. 
+                        
+Java Web Services  and technologies
+
+XML – Extensible Markup Language                                
+DTD–DocumentType Definitions.                         
+XSD – XML Schema Document.
+XSLT – XML Style sheet transformation.
+XML Processing APIs
+
+Simple Type API for XML (SAX)
+Document Object Model (DOM)
+Java API for XML Processing (JAXP)
+Java API for XML Binding (JAXB)
+Java API for XML Remote Procedure call (JAX - RPC)
+                        
+WSDL
+
+Primary elements in a WSDL document
+Abstract and concrete definitions in a WSDL document
+Messaging modes for web services
+XML schema in a WSDL document
+Web Service Endpoints and Clients
+SOAP
+
+Use of SOAP in web services
+Primary elements of a SOAP message
+Transmission of binary data in a SOAP message
+Extensibility features of SOAP
+Role of message handlers
+Messaging styles in a SOAP message
+Encoding styles in a SOAP message
+Protocol binding of a SOAP message
+UDDI
+
+Functions of the UDDI registry
+Elements of a UDDI registry
+UDDI APIs Overview.
+CLIENT DESIGN    
+
+Choosing a Communication Technology
+Web services based client applications
+Developing client applications
+Exception Handling. 
+                     
+SOAP With Attachments API for Java (SAAJ)
+
+Relationship between SAAJ and DOM
+Create and manipulate a SOAP message
+Create and manipulate a SOAP message with attachments.
+REST Ful Web Services.
+
+WS –I Profiles.
+
+Design Patterns in Web Services.
+
+SECURITY
+
+Encryption
+Public
+Private
+Digital Signatures
+Authentication and Authorization
+Message – Level web services security.
