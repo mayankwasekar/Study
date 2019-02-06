@@ -1,0 +1,42 @@
+RMI-Remote Method Invocation
+Socket Programming
+Java Distributed Technology
+RMI Architecture
+Dynamic and Boot Strap Clients
+Passing objects through N/W using RMI
+DGC -Distributed Garbage Collection
+RMI-IIOP Protocol
+
+EJB-Enterprise Java Beans
+EJB introduction
+EJB Architecture
+EJB Container
+Session Beans
+Stateless Session Bean
+Stateful Session Bean
+Entity Bean
+Bean Managed Persistence
+Container Managed  Persistence
+
+JMS –Java Messaging Service
+
+MDB-Message Driven Bean
+
+JDBC Connection Pool in EJB
+
+JNDI-Java Naming and Directory Interface
+JNDI Architecture
+Programming with JNDI
+
+Transactions
+Bean Managed Transactions
+Container Managed Transactions
+
+Security
+Beam Managed Security
+Container Managed Security
+
+Server: Bea Weblogic 8.x, 9.x, 10.x, JBoss
+
+IDE    : My Eclipse, IntelliJ
+(Concepts of EJB3.0 will be  covered)
