@@ -12,3 +12,41 @@
 	---- Efficient and latency-free(no delay) Garbage Collection
 	---- High Speed compilation
 	---- Excellent Tooling support
+
+
+1.	HelloWorld
+	
+	package main
+
+	import "fmt"
+
+	func main(){
+		fmt.Println("Hello World!")
+	}
+
+	> go run helloworld.go
+
+	----- Compiles and run
+	----- For standalone binary use go build
+
+	"package main"
+	----- Every go programs starts with package declaration.
+	----- Package user to organised and make it reusable.
+	----- Package main is a special go package meant to be execuatable
+	----- There are 2 types of programs 1. Execuatable and 2. Libraries
+
+	"import "fmt""
+	----- import keyword used to import packages.
+	----- fmt package contains code for dealing with I/O
+
+	"func main(){
+		fmt.Println("Hello World!")
+	}"
+	----- Function in golang is declared using func keyword
+	main()
+	----- is a entry point of an executable program in Go.
+
+	fmt.Println("Hello World!")
+	----- in this line calls Println() function of fmt package.
+
+2.  
