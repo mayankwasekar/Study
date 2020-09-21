@@ -1,0 +1,14 @@
+----GoLang
+	----- Open Source
+	----- Statically Typed (variable is known at compile-time instead of at run-time)
+	----- Compiled Programming (generate machine code from source code), and not interpreters)
+	-----  primarily suited for building fast, efficient, and reliable server side applications
+
+
+
+----Features
+	---- Safety : Both Type safety(prevent type errors) and memory safety(buffer overflow, dangling pointers, no bound checking arries memory leak)
+	---- Concurrency and communication
+	---- Efficient and latency-free(no delay) Garbage Collection
+	---- High Speed compilation
+	---- Excellent Tooling support
