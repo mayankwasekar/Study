@@ -1,0 +1,44 @@
+----Golang Variables, Zero Values, and Type inference
+	
+	----- Declaring Variables
+		  var firstName string
+		  var age int
+		  var lastName string
+
+    ----- Declare Multiple variables and initialize
+    	  var (
+    	  	firstName 	string	= "John"
+    	  	lastName 	string	= "Doe"
+    	  	age			int 	= 92
+    	  )
+
+    ----- Combine multiple variable declaration
+    	  var (
+    	  	firstName, lastName string = "John", "Nakamoto"
+    	  	age int 	= 92
+    	  )
+
+----Zero values
+	----- any variable have initial value zero-value
+		  bool--------> false
+		  string------> ""
+		  int,int8..--> 0
+		  float32,64--> 0.0
+
+----Type inference
+	---- Go is statistically type
+	---- Golang automatically infers the type of variable
+	
+	var name = "John Doe"
+	fmt.Printf("Variables 'name' is of type %T\n", name)
+
+	---- Type inference allows to initialize multiple variables of different data types in single line
+
+	var firstName, lastName, age, salary = "John", "Doe", 92, 10000
+
+----Short Declaration
+	---- Go provide short variable declaration syntax using := operator. It is shorthand for declaring and initializing a variable(inferred type)
+	---- NOTE:: Short variable declaration only available inside function not outside function
+	
+	name := "John Doe"
+	age, salary, isProgrammer := 35, 10000.0000, true
